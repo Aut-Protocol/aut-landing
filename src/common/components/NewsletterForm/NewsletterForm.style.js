@@ -1,0 +1,57 @@
+import styled from "styled-components";
+
+const NewsletterFormWrapper = styled.form`
+  display: flex;
+  grid-gap: 22px;
+  align-items: flex-end;
+  .form-fields {
+    display: flex;
+    grid-gap: 12px;
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    width: 22rem;
+    input {
+      font-size: 18px;
+      height: 40px;
+      color: white;
+      background: transparent;
+    }
+  }
+
+  .submit-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+
+    button {
+      width: 100%;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .submit-btn {
+      button {
+        width: 100%;
+        min-width: unset;
+        height: 45px;
+        min-height: 45px;
+        font-size: 22px;
+      }
+    }
+
+    .form-field {
+      input {
+        font-size: 14px;
+        height: 35px;
+      }
+    }
+  }
+`;
+
+export default NewsletterFormWrapper;
