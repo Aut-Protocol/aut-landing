@@ -1,4 +1,3 @@
-
 /* ------------------------------------ */
 // ComingSoon data section
 /* ------------------------------------ */
@@ -6,25 +5,28 @@ import AutLogo from "common/assets/image/aut-logo.svg";
 
 export const ComingSoonData = {
   logo: AutLogo,
-  title: 'create your own standard.'
-}
-
-
+  title: "create your own standard.",
+};
 
 /* ------------------------------------ */
 // Pillars data section
 /* ------------------------------------ */
 import Pillars from "common/assets/image/pillars.svg";
+import PillarsMobile from "common/assets/image/pillars-mobile.svg";
 
 export const PillarsData = {
-  image: Pillars,
-  title: 'Lorem ipsum dolor sit amet, consetetur',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore eutpe fugiat nulla pariatur. Excepteur sint occaecat cupidatat',
+  mobileImage: PillarsMobile,
+  desktopImage: Pillars,
+  title: "Do more with your DAO.",
+  descriptions: [
+    "Āut is an expandable Protocol for Role-based Membership in Web3 Communities.",
+    "Create a DAO 2.0, add the native concept of Role at contract level - and join the coordination Renaissance.",
+  ],
   link: {
-    src: '',
-    label: 'Playground link here >'
-  }
-}
+    src: "https://integrate.aut.id",
+    label: "Āut Expander Playground >",
+  },
+};
 
 /* ------------------------------------ */
 // FOOTER data section
