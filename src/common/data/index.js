@@ -23,7 +23,7 @@ export const PillarsData = {
     "Create a DAO 2.0, add the native concept of Role at contract level - and join the coordination Renaissance.",
   ],
   link: {
-    src: "https://integrate.aut.id",
+    src: "https://playground.aut.id",
     label: "Āut Expander Playground >",
   },
 };
