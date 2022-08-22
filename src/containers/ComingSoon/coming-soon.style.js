@@ -6,6 +6,7 @@ const BannerArea = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 
   .logo-animation {
     position: absolute;
@@ -57,13 +58,14 @@ const BannerArea = styled.section`
       top: 50px;
       left: 50%;
       transform: translateX(-50%);
+      right: auto;
     }
 
     .text-animation {
       padding: 15px;
 
       .coming-soon-text {
-        font-size: 25px;
+        font-size: 22px;
       }
     }
 

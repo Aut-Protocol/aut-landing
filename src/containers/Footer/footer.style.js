@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const FooterArea = styled.footer`
   background: #000;
+  width: 100%;
   .container {
     display: flex;
     align-items: flex-end;
@@ -9,6 +10,7 @@ const FooterArea = styled.footer`
     justify-content: space-between;
     padding-top: 45px;
     padding-bottom: 50px;
+    width: calc(100% - 40px);
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -22,8 +24,10 @@ export const Left = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  
 
   @media (max-width: 768px) {
+    width: 100%;
     margin-top: 70px;
     flex-direction: column;
     justify-content: center;

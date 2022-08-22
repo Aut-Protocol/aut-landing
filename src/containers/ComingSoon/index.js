@@ -6,7 +6,7 @@ import { useState } from "react";
 import { motion, MotionConfig } from "framer-motion";
 import { ComingSoonData } from "common/data";
 
-const ComingSoon = () => {
+const ComingSoon = ({ onEnabled }) => {
   const { title, logo } = ComingSoonData;
   const [initialized, setInitialized] = useState(true);
   const [width, setWidth] = useState(250);
@@ -17,11 +17,20 @@ const ComingSoon = () => {
   useEffect(() => {
     if (window.scrollY > 0) {
       setStop(true);
+
       setScale(1);
       const maxWidth =
-        "ontouchstart" in window ? window.innerWidth : window.innerWidth / 2;
+        "ontouchstart" in window
+          ? window.innerWidth - 30
+          : window.innerWidth / 2;
       setWidth(maxWidth);
-      document.documentElement.style.overflow = "auto";
+
+      if (onEnabled) {
+        onEnabled(true);
+      } else {
+        document.documentElement.style.overflow = "auto";
+      }
+
       return;
     } else if (!stop) {
       document.documentElement.style.overflow = "hidden";
@@ -48,7 +57,11 @@ const ComingSoon = () => {
       if (finalWidth === maxZoom) {
         setStop(true);
         setTimeout(() => {
-          document.documentElement.style.overflow = "auto";
+          if (onEnabled) {
+            onEnabled(true);
+          } else {
+            document.documentElement.style.overflow = "auto";
+          }
         }, 500);
       }
     };
@@ -62,7 +75,7 @@ const ComingSoon = () => {
       const move = -(end.screenY - start.screenY);
 
       const minZoom = 150;
-      const maxZoom = window.innerWidth;
+      const maxZoom = window.innerWidth - 30;
       const zoomSpeed = 0.2;
       const min = Math.min(1, move);
       const delta = Math.max(-1, min) * zoomSpeed;
@@ -78,7 +91,11 @@ const ComingSoon = () => {
       if (finalWidth === maxZoom) {
         setStop(true);
         setTimeout(() => {
-          document.documentElement.style.overflow = "auto";
+          if (onEnabled) {
+            onEnabled(true);
+          } else {
+            document.documentElement.style.overflow = "auto";
+          }
         }, 500);
       }
     };
@@ -111,47 +128,63 @@ const ComingSoon = () => {
   return (
     <>
       <BannerArea id="banner">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={width}
-          viewBox="0 0 935.725 444.683"
-        >
-          <defs>
-            <linearGradient
-              id="linear-gradient"
-              x2="1"
-              y1="0.5"
-              y2="0.5"
-              gradientUnits="objectBoundingBox"
-            >
-              <stop offset="0" stopColor="#009fe3"></stop>
-              <stop offset="0.08" stopColor="#0399de"></stop>
-              <stop offset="0.19" stopColor="#0e8bd3"></stop>
-              <stop offset="0.3" stopColor="#2072bf"></stop>
-              <stop offset="0.41" stopColor="#3a50a4"></stop>
-              <stop offset="0.53" stopColor="#5a2583"></stop>
-              <stop offset="0.71" stopColor="#453f94"></stop>
-              <stop offset="0.88" stopColor="#38519f"></stop>
-              <stop offset="1" stopColor="#3458a4"></stop>
-            </linearGradient>
-          </defs>
-          <g data-name="Layer 1" transform="rotate(65 465.376 730.493)">
-            <g data-name="Group 4">
-              <path
-                fill="#bfbfbf"
-                d="M0 0l8.24 303.22 3.53 366.19-3.53 357.56z"
-                data-name="Path 10"
-              ></path>
-              <path
-                fill="url(#linear-gradient)"
-                d="M1.77 0l5.07 217.94v141.91L10 544.21v482.76L1.77 674.09V0z"
-                data-name="Path 11"
-              ></path>
-            </g>
-          </g>
-        </svg>
-
         <MotionConfig reducedMotion="user">
+          <motion.div
+            animate={{
+              ...(!stop && {
+                scale: [1, 1.3, 1],
+              }),
+            }}
+            transition={{
+              ...(!stop && {
+                duration: 1.5,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatDelay: 1,
+              }),
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={width}
+              viewBox="0 0 935.725 444.683"
+            >
+              <defs>
+                <linearGradient
+                  id="linear-gradient"
+                  x2="1"
+                  y1="0.5"
+                  y2="0.5"
+                  gradientUnits="objectBoundingBox"
+                >
+                  <stop offset="0" stopColor="#009fe3"></stop>
+                  <stop offset="0.08" stopColor="#0399de"></stop>
+                  <stop offset="0.19" stopColor="#0e8bd3"></stop>
+                  <stop offset="0.3" stopColor="#2072bf"></stop>
+                  <stop offset="0.41" stopColor="#3a50a4"></stop>
+                  <stop offset="0.53" stopColor="#5a2583"></stop>
+                  <stop offset="0.71" stopColor="#453f94"></stop>
+                  <stop offset="0.88" stopColor="#38519f"></stop>
+                  <stop offset="1" stopColor="#3458a4"></stop>
+                </linearGradient>
+              </defs>
+              <g data-name="Layer 1" transform="rotate(65 465.376 730.493)">
+                <g data-name="Group 4">
+                  <path
+                    fill="#bfbfbf"
+                    d="M0 0l8.24 303.22 3.53 366.19-3.53 357.56z"
+                    data-name="Path 10"
+                  ></path>
+                  <path
+                    fill="url(#linear-gradient)"
+                    d="M1.77 0l5.07 217.94v141.91L10 544.21v482.76L1.77 674.09V0z"
+                    data-name="Path 11"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </motion.div>
+
           <motion.div
             initial={false}
             className="logo-animation"
@@ -170,10 +203,7 @@ const ComingSoon = () => {
               opacity: scale,
             }}
           >
-            <Text
-              className="coming-soon-text"
-              content={title}
-            />
+            <Text className="coming-soon-text" content={title} />
           </motion.div>
         </MotionConfig>
       </BannerArea>

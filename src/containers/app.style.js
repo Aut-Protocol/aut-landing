@@ -249,6 +249,20 @@ export const AppWrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
 
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+
   .sticky-active {
     .navbar {
       padding: 20px 0 21px;
@@ -264,9 +278,9 @@ export const AppWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  flex: 1 0 auto;
-  width: 100%;
-  overflow: hidden;
+  // flex: 1 0 auto;
+  // width: 100%;
+  // overflow: hidden;
 `;
 
 export const SectionHeader = styled.header`

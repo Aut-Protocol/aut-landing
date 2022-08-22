@@ -3,6 +3,7 @@ import styled from "styled-components";
 const NewsletterFormWrapper = styled.form`
   display: flex;
   grid-gap: 22px;
+  
   align-items: flex-end;
   .form-fields {
     display: flex;
@@ -35,6 +36,7 @@ const NewsletterFormWrapper = styled.form`
   }
 
   @media (max-width: 576px) {
+    width: 100%;
     .submit-btn {
       button {
         width: 100%;
@@ -45,7 +47,13 @@ const NewsletterFormWrapper = styled.form`
       }
     }
 
+
+    .form-fields {
+      width: 100%;
+    }
+
     .form-field {
+      width: 100%;
       input {
         font-size: 14px;
         height: 35px;

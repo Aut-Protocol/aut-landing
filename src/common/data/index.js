@@ -50,7 +50,7 @@ export const FooterData = {
       icon: footerTwitter,
     },
     {
-      link: "https://discord.gg/jntyjSvFZd",
+      link: "http://discord.gg/aXJFGgcvUk",
       icon: footerDiscord,
     },
     // {

@@ -29,9 +29,10 @@ const Pillars = ({ row }) => {
                   marginBottom: "2.25rem",
                 }}
               />
-              {descriptions.map((description) => {
+              {descriptions.map((description, index) => {
                 return (
                   <Text
+                    key={`desc-key-${index}`}
                     maxWidth="30rem"
                     fontSize="1.25rem"
                     color="white"
