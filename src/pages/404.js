@@ -6,6 +6,7 @@ export default function Custom404() {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
+        color: 'white',
         fontFamily: 'Lato',
       }}
     >

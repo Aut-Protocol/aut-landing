@@ -32,9 +32,7 @@ const MainWrapper = ({ children, hideAuth }) => {
         </Head>
         <ResetCSS />
         <GlobalStyle />
-        <AppWrapper>
-          <ContentWrapper>{children}</ContentWrapper>
-        </AppWrapper>
+        <ContentWrapper>{children}</ContentWrapper>
       </>
     </ThemeProvider>
   );

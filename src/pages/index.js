@@ -9,6 +9,10 @@ import { Mousewheel } from "swiper";
 import { useState } from "react";
 import { useEffect } from "react";
 import useWindowSize from "common/components/window-size";
+import Sticky from "react-stickynode";
+import { ThemeProvider } from "styled-components";
+import { DrawerProvider } from "common/contexts/DrawerContext";
+import Navbar from "containers/Navbar";
 
 const Main = () => {
   const [enabled, setEnabled] = useState(false);
@@ -19,7 +23,7 @@ const Main = () => {
 
   return (
     <MainWrapper>
-      {width > 720 ? (
+      {/* {width > 720 ? (
         <Swiper
           init={false}
           enabled={false}
@@ -56,7 +60,17 @@ const Main = () => {
           <Pillars />
           <Footer />
         </>
-      )}
+      )} */}
+
+      <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+        <DrawerProvider>
+          <Navbar />
+        </DrawerProvider>
+      </Sticky>
+
+      <ComingSoon />
+      <Pillars />
+      <Footer />
     </MainWrapper>
   );
 };
