@@ -38,8 +38,62 @@ import footerDocs from "common/assets/image/docs.svg";
 
 export const FooterData = {
   menu: [],
-  logo: footerLogo,
+  logo: AutLogo,
   copyright: `Copyright © ${new Date().getFullYear()}, Aut.`,
+  widgets: [
+    {
+      id: 2,
+      title: 'Quick Links',
+      list: [
+        {
+          id: 1,
+          title: 'About Aut',
+          link: '/about',
+        },
+        {
+          id: 2,
+          title: 'Manifesto',
+          link: '/manifesto',
+        },
+        {
+          id: 4,
+          title: 'Ask Āut',
+          link: '/qa',
+        },
+        {
+          id: 5,
+          title: 'RoadMap',
+          link: '/roadmap',
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Āut Products',
+      list: [
+        {
+          id: 1,
+          title: 'Āut Exspander',
+          link: '/products/dao-expander',
+        },
+        {
+          id: 2,
+          title: 'dĀut',
+          link: '/products/d-aut',
+        },
+        {
+          id: 3,
+          title: 'Āut ID',
+          link: '/products/aut-id',
+        },
+        {
+          id: 4,
+          title: 'Dashboard',
+          link: '/products/dashboard',
+        },
+      ],
+    }
+  ],
   social: [
     {
       link: "https://docs.aut.id",

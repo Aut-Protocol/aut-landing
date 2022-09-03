@@ -1,14 +1,15 @@
-import Box from 'common/components/Box';
-import Drawer from 'common/components/Drawer';
-import HamburgMenu from 'common/components/HamburgMenu';
-import NavbarWrapper from 'common/components/Navbar';
-import ScrollSpyMenu from 'common/components/ScrollSpyMenu';
-import Container from 'common/components/UI/Container';
-import { DrawerContext } from 'common/contexts/DrawerContext';
-import { ComingSoonData } from 'common/data';
-import PropTypes from 'prop-types';
-import Logo from 'common/components/UIElements/Logo';
-import React, { useContext } from 'react';
+import Box from "common/components/Box";
+import Drawer from "common/components/Drawer";
+import HamburgMenu from "common/components/HamburgMenu";
+import NavbarWrapper from "common/components/Navbar";
+import ScrollSpyMenu from "common/components/ScrollSpyMenu";
+import Container from "common/components/UI/Container";
+import { DrawerContext } from "common/contexts/DrawerContext";
+import { ComingSoonData } from "common/data";
+import PropTypes from "prop-types";
+import Logo from "common/components/UIElements/Logo";
+import React, { useContext } from "react";
+import Link from "next/link";
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const { state, dispatch } = useContext(DrawerContext);
@@ -17,7 +18,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   // Toggle drawer
   const toggleHandler = () => {
     dispatch({
-      type: 'TOGGLE',
+      type: "TOGGLE",
     });
   };
 
@@ -25,19 +26,16 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
     <NavbarWrapper {...navbarStyle}>
       <Container>
         <Box {...row}>
-          <Logo
-            href="#"
-            logoSrc={logo}
-            title="SaaS Creative"
-            logoStyle={logoStyle}
-            className="sticky-logo nav-logo"
-          />
-          <Box {...menuWrapper} className="mainMenuWrapper">
-            <ScrollSpyMenu
-              className="main_menu"
-              menuItems={[]}
-              offset={-70}
+          <Link href="/" shallow>
+            <Logo
+              logoSrc={logo}
+              title="SaaS Creative"
+              logoStyle={logoStyle}
+              className="sticky-logo nav-logo"
             />
+          </Link>
+          <Box {...menuWrapper} className="mainMenuWrapper">
+            <ScrollSpyMenu className="main_menu" menuItems={[]} offset={-70} />
 
             <Drawer
               width="420px"
@@ -70,25 +68,25 @@ Navbar.propTypes = {
 
 Navbar.defaultProps = {
   navbarStyle: {
-    className: 'sass_app_dark_navbar',
-    minHeight: '70px',
-    display: 'block',
+    className: "sass_app_dark_navbar",
+    minHeight: "70px",
+    display: "block",
   },
   row: {
     flexBox: true,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '100%',
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
   },
   logoContainer: {},
   logoStyle: {
-    maxWidth: ['115px', '115px'],
+    maxWidth: ["115px", "115px"],
   },
   button: {},
   menuWrapper: {
     flexBox: true,
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 };
 

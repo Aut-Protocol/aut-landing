@@ -1,3 +1,5 @@
+import { rgba } from 'polished';
+
 const colors = {
   transparent: 'transparent',
   labelColor: '#767676',
@@ -16,10 +18,10 @@ const colors = {
   light: '#FAFBFF',
   gray: '#E4E4E4',
   primary: '#2563FF',
-  headingColor: '#09131F',
+  headingColor: '#FFF',
   quoteText: '#343D48',
   menu: '#0D233E',
-  textColor: '#343D48',
+  textColor: rgba('#fff', 0.7), // 4
   linkColor: '#2b9eff',
   shadow: 'rgba(38, 78, 118, 0.1)',
 };

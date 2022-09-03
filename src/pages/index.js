@@ -13,6 +13,7 @@ import Sticky from "react-stickynode";
 import { ThemeProvider } from "styled-components";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
+import SectionTop from "containers/SectionTop";
 
 const Main = () => {
   const [enabled, setEnabled] = useState(false);
@@ -68,8 +69,10 @@ const Main = () => {
         </DrawerProvider>
       </Sticky>
 
-      <ComingSoon />
-      <Pillars />
+      <SectionTop />
+
+      {/* <ComingSoon />
+      <Pillars /> */}
       <Footer />
     </MainWrapper>
   );
