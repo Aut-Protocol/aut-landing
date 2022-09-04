@@ -1,6 +1,6 @@
-import { themeGet } from '@styled-system/theme-get';
-import { rgba } from 'polished';
-import styled, { createGlobalStyle, keyframes } from 'styled-components';
+import { themeGet } from "@styled-system/theme-get";
+import { rgba } from "polished";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 
 const Wobble_Vertical = keyframes`
   16.65% {
@@ -59,8 +59,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    background-color: ${themeGet('colors.black')};
-    color: ${themeGet('colors.textColor')};
+    background-color: ${themeGet("colors.black")};
+    color: ${themeGet("colors.textColor")};
     font-family: 'Avenir', sans-serif;
     font-weight: 400;
   }
@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     font-family: 'Avenir', serif;
-    color: ${themeGet('colors.headingColor')};
+    color: ${themeGet("colors.headingColor")};
   }
 
   input, textarea {
@@ -136,11 +136,11 @@ const GlobalStyle = createGlobalStyle`
         }
         &.is-current {
           a {
-            color: ${themeGet('colors.primary')};
+            color: ${themeGet("colors.primary")};
           }
         }
         a {
-          color: ${themeGet('colors.white')};
+          color: ${themeGet("colors.white")};
           font-size: 15px;
           line-height: 2.2;
           padding: 5px;
@@ -150,7 +150,7 @@ const GlobalStyle = createGlobalStyle`
             font-size: 13px;
           }
           &:hover {
-            color: ${themeGet('colors.primary')};
+            color: ${themeGet("colors.primary")};
           }
         }
       }
@@ -165,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
       }
       .hamburgMenu__bar {
         > span {
-          background-color: ${themeGet('colors.white')};
+          background-color: ${themeGet("colors.white")};
         }
       }
     }
@@ -173,9 +173,12 @@ const GlobalStyle = createGlobalStyle`
 
   .sticky-nav-active {
     .sass_app_dark_navbar {
-      background-color: #1a1a1a;
-      border-bottom-color: ${rgba('#fff', 0.2)};
       padding: 15px 0;
+      // background-color: #1a1a1a;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2px);
+      border-bottom-color: ${rgba("#fff", 0.2)};
     }
     .main-logo {
       opacity: 0;
@@ -192,16 +195,16 @@ const GlobalStyle = createGlobalStyle`
      
     }
     .main_menu li a {
-      color: ${themeGet('colors.white')};
+      color: ${themeGet("colors.white")};
     }
     .main_menu li:hover a,
     .main_menu li.is-current a {
-      color: ${themeGet('colors.primary')};
+      color: ${themeGet("colors.primary")};
     }
     .reusecore-drawer__handler {
       .hamburgMenu__bar {
         > span {
-          background-color: ${themeGet('colors.white')};
+          background-color: ${themeGet("colors.white")};
         }
       }
     }
@@ -213,9 +216,9 @@ const GlobalStyle = createGlobalStyle`
 
   /* Modal default style */
   button.modalCloseBtn {
-    color: ${themeGet('colors.white', '#ffffff')} !important;
+    color: ${themeGet("colors.white", "#ffffff")} !important;
     &.alt {
-      background-color: ${themeGet('colors.primary', '#10ac84')} !important;
+      background-color: ${themeGet("colors.primary", "#10ac84")} !important;
       box-shadow: 0 8px 38px rgba(16, 172, 132, 0.5) !important;
     }
   }
@@ -305,13 +308,13 @@ const GlobalStyle = createGlobalStyle`
               font-size: 18px;
             }
             &:hover {
-              color: ${themeGet('colors.primary')};
+              color: ${themeGet("colors.primary")};
             }
             &:before{
               content: '';
               width: 7px;
               height: 7px;
-              background: ${themeGet('colors.primary')};
+              background: ${themeGet("colors.primary")};
               border-radius: 50%;
               position: absolute;
               top: 50%;
@@ -322,7 +325,7 @@ const GlobalStyle = createGlobalStyle`
           }
           &.is-current {
             a {
-              color: ${themeGet('colors.primary')};
+              color: ${themeGet("colors.primary")};
               &:before{
                 opacity: 1;
               }
@@ -353,7 +356,7 @@ const GlobalStyle = createGlobalStyle`
         content: '\f10b';
         font-family: Flaticon;
         font-size: 26px;
-        color: ${themeGet('colors.primary')};
+        color: ${themeGet("colors.primary")};
         transform: rotate(45deg);
         display: block;
       }
@@ -361,7 +364,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .PhoneInputCountry {
-    --PhoneInputCountrySelectArrow-color: ${themeGet('colors.white')};
+    --PhoneInputCountrySelectArrow-color: ${themeGet("colors.white")};
     --PhoneInputCountrySelectArrow-opacity: 1;
   }
 `;
@@ -369,7 +372,6 @@ const GlobalStyle = createGlobalStyle`
 export const ContentWrapper = styled.div`
   overflow: hidden;
 `;
-
 
 export const AppWrapper = styled.div`
   overflow: hidden;
@@ -381,7 +383,7 @@ export const AppWrapper = styled.div`
     width: 100%;
     height: 100%;
   }
-  
+
   .swiper-slide {
     display: flex;
     justify-content: center;
@@ -389,7 +391,6 @@ export const AppWrapper = styled.div`
     flex-direction: column;
     height: 100%;
   }
-  
 
   .sticky-active {
     .navbar {
@@ -404,7 +405,6 @@ export const AppWrapper = styled.div`
     }
   }
 `;
-
 
 export const SectionHeader = styled.header`
   max-width: 550px;

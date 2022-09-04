@@ -9,6 +9,7 @@ const ResetCSS = createGlobalStyle`
   html {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
+    font-size: 62.8%;
   }
 
   *,
@@ -80,6 +81,16 @@ const ResetCSS = createGlobalStyle`
       .innerRndComponent {
         border-radius: 8px !important;
       }
+    }
+  }
+
+  .rc-tooltip.button-tooltip  {
+    .rc-tooltip-inner {
+      background: #009fe3;
+    }
+
+    .rc-tooltip-arrow {
+      border-top-color: #009fe3;
     }
   }
 

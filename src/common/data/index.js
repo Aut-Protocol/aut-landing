@@ -98,14 +98,17 @@ export const FooterData = {
     {
       link: "https://docs.aut.id",
       icon: footerDocs,
+      name: 'Docs'
     },
     {
       link: "https://twitter.com/opt_aut",
       icon: footerTwitter,
+      name: 'Twitter'
     },
     {
       link: "http://discord.gg/aXJFGgcvUk",
       icon: footerDiscord,
+      name: 'Discord'
     },
     // {
     //   link: "https://blog.skillwallet.id",

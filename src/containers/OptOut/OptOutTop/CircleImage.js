@@ -1,5 +1,85 @@
 import React from "react";
 
+import { Player } from "@lottiefiles/react-lottie-player";
+import animationData from "common/assets/Pulse_Button.json";
+import Tooltip from "rc-tooltip";
+import "rc-tooltip/assets/bootstrap.css";
+
+const Loading = () => {
+  return (
+    <Tooltip
+      placement="topRight"
+      overlayClassName="button-tooltip"
+      align={{
+        offset: [0, 20],
+      }}
+      overlay={
+        <div
+          style={{
+            width: "160px",
+            height: "90px",
+          }}
+        >
+          Aut Expander
+        </div>
+      }
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "100px",
+          height: "100px",
+        }}
+      >
+        <svg
+          style={{
+            position: "absolute",
+            transform: "translate(-50%, -50%)",
+            left: "50%",
+            top: "50%",
+            zIndex: "99",
+          }}
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="27"
+          viewBox="0 0 14 27"
+        >
+          <text
+            id="_"
+            data-name="+"
+            transform="translate(0 20)"
+            fontSize="20"
+            fontFamily="Avenir-Black, Avenir"
+            fontWeight="800"
+            letterSpacing="0.016em"
+          >
+            <tspan x="0" y="0">
+              +
+            </tspan>
+          </text>
+        </svg>
+
+        <div
+          style={{
+            position: "absolute",
+            transform: "translate(-50%, -50%)",
+            left: "50%",
+            top: "50%",
+            zIndex: 1,
+          }}
+        >
+          <Player
+            autoplay
+            loop
+            src={animationData}
+            style={{ height: "250px", width: "250px" }}
+          />
+        </div>
+      </div>
+    </Tooltip>
+  );
+};
+
 function CircleImage() {
   return (
     <svg
@@ -115,6 +195,7 @@ function CircleImage() {
           xlinkHref="#linear-gradient"
         ></linearGradient>
       </defs>
+
       <g data-name="Group 5" transform="matrix(.998 -.07 .07 .998 0 42.232)">
         <path
           fill="url(#linear-gradient)"
@@ -200,6 +281,39 @@ function CircleImage() {
           transform="translate(219.74 219.79)"
         ></path>
       </g>
+      <foreignObject id="pulse_button" x="190" y="35" width="100" height="100">
+        <Loading />
+      </foreignObject>
+
+      <foreignObject
+        id="pulse_button2"
+        x="525"
+        y="240"
+        width="100"
+        height="100"
+      >
+        <Loading />
+      </foreignObject>
+
+      <foreignObject
+        id="pulse_button3"
+        x="120"
+        y="290"
+        width="100"
+        height="100"
+      >
+        <Loading />
+      </foreignObject>
+
+      <foreignObject
+        id="pulse_button3"
+        x="320"
+        y="520"
+        width="100"
+        height="100"
+      >
+        <Loading />
+      </foreignObject>
     </svg>
   );
 }
