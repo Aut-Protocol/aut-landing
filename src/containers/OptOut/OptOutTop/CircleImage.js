@@ -5,7 +5,7 @@ import animationData from "common/assets/Pulse_Button.json";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 
-const Loading = () => {
+const Loading = ({ title, subtitle }) => {
   return (
     <Tooltip
       placement="topRight"
@@ -20,7 +20,9 @@ const Loading = () => {
             height: "90px",
           }}
         >
-          Aut Expander
+          {title}
+          <br />
+          {subtitle}
         </div>
       }
     >
@@ -80,7 +82,7 @@ const Loading = () => {
   );
 };
 
-function CircleImage() {
+function CircleImage({ pulseButtons }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -281,39 +283,12 @@ function CircleImage() {
           transform="translate(219.74 219.79)"
         ></path>
       </g>
-      <foreignObject id="pulse_button" x="190" y="35" width="100" height="100">
-        <Loading />
-      </foreignObject>
 
-      <foreignObject
-        id="pulse_button2"
-        x="525"
-        y="240"
-        width="100"
-        height="100"
-      >
-        <Loading />
-      </foreignObject>
-
-      <foreignObject
-        id="pulse_button3"
-        x="120"
-        y="290"
-        width="100"
-        height="100"
-      >
-        <Loading />
-      </foreignObject>
-
-      <foreignObject
-        id="pulse_button3"
-        x="320"
-        y="520"
-        width="100"
-        height="100"
-      >
-        <Loading />
-      </foreignObject>
+      {pulseButtons.map(({ title, subtitle, ...position }) => (
+        <foreignObject id="pulse_button" width="100" height="100" {...position}>
+          <Loading title={title} subtitle={subtitle} />
+        </foreignObject>
+      ))}
     </svg>
   );
 }

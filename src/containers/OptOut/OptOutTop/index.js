@@ -1,21 +1,14 @@
+import { OptOutData } from "common/data";
 import SectionTop from "containers/SectionTop";
 import CircleImage from "./CircleImage";
 
 const OptOutTop = () => {
+  const { pulseButtons, title, subtitle } = OptOutData;
   return (
     <SectionTop
-      image={<CircleImage />}
-      title={
-        <>
-          OPT <br /> ĀUT
-        </>
-      }
-      subtitle={
-        <>
-          Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
-          sed
-        </>
-      }
+      image={<CircleImage pulseButtons={pulseButtons} />}
+      title={title}
+      subtitle={subtitle}
     />
   );
 };

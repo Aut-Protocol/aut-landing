@@ -1,11 +1,166 @@
-/* ------------------------------------ */
-// ComingSoon data section
-/* ------------------------------------ */
 import AutLogo from "common/assets/image/aut-logo.svg";
 
-export const ComingSoonData = {
+/* ------------------------------------ */
+// Navbar data section
+/* ------------------------------------ */
+
+export const NavbarData = {
   logo: AutLogo,
-  title: "create your own standard.",
+  menuItems: [
+    {
+      label: "About",
+      staticLink: true,
+      path: "/about",
+    },
+    {
+      label: "Products",
+      staticLink: true,
+      path: "/products",
+    },
+    {
+      label: "Manifesto",
+      staticLink: true,
+      path: "/manifesto",
+    },
+    {
+      label: "Roadmap",
+      staticLink: true,
+      path: "/roadmap",
+    },
+  ],
+};
+
+/* ------------------------------------ */
+// OptOut data section
+/* ------------------------------------ */
+import animationData from "common/assets/portal.json";
+import expanderImage from "common/assets/image/expander.svg";
+import videoPlaceholderImage from "common/assets/image/placeholder-video.svg";
+
+export const OptOutData = {
+  title: (
+    <>
+      OPT <br /> ĀUT
+    </>
+  ),
+  subtitle: (
+    <>
+      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+    </>
+  ),
+  pulseButtons: [
+    {
+      title: "Āut Exspander",
+      subtitle: "Lorem ipsum",
+      x: "190",
+      y: "35",
+    },
+    {
+      title: "dĀut",
+      subtitle: "Lorem ipsum",
+      x: "525",
+      y: "240",
+    },
+    {
+      title: "Āut ID",
+      subtitle: "Lorem ipsum",
+      x: "120",
+      y: "290",
+    },
+    {
+      title: "Dashboard",
+      subtitle: "Lorem ipsum",
+      x: "320",
+      y: "520",
+    },
+  ],
+  portal: {
+    title: "…Time to Opt Āut",
+    animationData,
+  },
+  expander: {
+    title: (
+      <>
+        Expand <br /> Your <br /> DAO <br /> Today
+      </>
+    ),
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore eutpe fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
+    image: expanderImage,
+    link: {
+      title: "Link to Expander Page",
+      path: "/",
+    },
+  },
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
+  },
+};
+
+/* ------------------------------------ */
+// Roadmap data section
+/* ------------------------------------ */
+
+export const RoadmapData = {
+  title: (
+    <>
+      Āut <br /> Map
+    </>
+  ),
+  subtitle: (
+    <>
+      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+    </>
+  ),
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
+  },
+  items: [
+    {
+      title: "Q1- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+    {
+      title: "Q2- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+    {
+      title: "Q3- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+    {
+      title: "Q4- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+  ]
+};
+
+
+/* ------------------------------------ */
+// Manifesto data section
+/* ------------------------------------ */
+
+export const ManifestoData = {
+  title: (
+    <>
+      Āut <br /> Map
+    </>
+  ),
+  subtitle: (
+    <>
+      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+    </>
+  ),
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
+  },
 };
 
 /* ------------------------------------ */
@@ -31,7 +186,6 @@ export const PillarsData = {
 /* ------------------------------------ */
 // FOOTER data section
 /* ------------------------------------ */
-import footerLogo from "common/assets/image/logo-footer.svg";
 import footerDiscord from "common/assets/image/discord-social.svg";
 import footerTwitter from "common/assets/image/twitter-social.svg";
 import footerDocs from "common/assets/image/docs.svg";
@@ -39,76 +193,78 @@ import footerDocs from "common/assets/image/docs.svg";
 export const FooterData = {
   menu: [],
   logo: AutLogo,
+  mailchimpUrl:
+    "https://aut.us20.list-manage.com/subscribe/post?u=d961a0504e2d77cc544c89c33&amp;id=0599e9c37b&amp;f_id=008810e7f0",
   copyright: `Copyright © ${new Date().getFullYear()}, Aut.`,
   widgets: [
     {
       id: 2,
-      title: 'Quick Links',
+      title: "Quick Links",
       list: [
         {
           id: 1,
-          title: 'About Aut',
-          link: '/about',
+          title: "About Aut",
+          link: "/about",
         },
         {
           id: 2,
-          title: 'Manifesto',
-          link: '/manifesto',
+          title: "Manifesto",
+          link: "/manifesto",
         },
         {
           id: 4,
-          title: 'Ask Āut',
-          link: '/qa',
+          title: "Ask Āut",
+          link: "/qa",
         },
         {
           id: 5,
-          title: 'RoadMap',
-          link: '/roadmap',
+          title: "RoadMap",
+          link: "/roadmap",
         },
       ],
     },
     {
       id: 3,
-      title: 'Āut Products',
+      title: "Āut Products",
       list: [
         {
           id: 1,
-          title: 'Āut Exspander',
-          link: '/products/dao-expander',
+          title: "Āut Exspander",
+          link: "/products/dao-expander",
         },
         {
           id: 2,
-          title: 'dĀut',
-          link: '/products/d-aut',
+          title: "dĀut",
+          link: "/products/d-aut",
         },
         {
           id: 3,
-          title: 'Āut ID',
-          link: '/products/aut-id',
+          title: "Āut ID",
+          link: "/products/aut-id",
         },
         {
           id: 4,
-          title: 'Dashboard',
-          link: '/products/dashboard',
+          title: "Dashboard",
+          link: "/products/dashboard",
         },
       ],
-    }
+    },
   ],
   social: [
     {
       link: "https://docs.aut.id",
       icon: footerDocs,
-      name: 'Docs'
+      name: "Docs",
     },
     {
       link: "https://twitter.com/opt_aut",
       icon: footerTwitter,
-      name: 'Twitter'
+      name: "Twitter",
     },
     {
       link: "http://discord.gg/aXJFGgcvUk",
       icon: footerDiscord,
-      name: 'Discord'
+      name: "Discord",
     },
     // {
     //   link: "https://blog.skillwallet.id",

@@ -1,9 +1,9 @@
-import { RoadmapData } from "common/data";
+import { ManifestoData, RoadmapData } from "common/data";
 import SectionTop from "containers/SectionTop";
 import VideoTop from "containers/SectionTop/VideoTop";
 
-const RoadmapTop = () => {
-  const { title, subtitle, video } = RoadmapData;
+const ManifestoTop = () => {
+  const { title, subtitle, video } = ManifestoData;
   return (
     <SectionTop
       image={<VideoTop {...video} />}
@@ -13,4 +13,4 @@ const RoadmapTop = () => {
   );
 };
 
-export default RoadmapTop;
+export default ManifestoTop;

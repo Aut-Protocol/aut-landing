@@ -139,15 +139,19 @@ const GlobalStyle = createGlobalStyle`
             color: ${themeGet("colors.primary")};
           }
         }
+
+        & a.is-current {
+          color: ${themeGet("colors.primary")};
+        }
         a {
           color: ${themeGet("colors.white")};
-          font-size: 15px;
+          font-size: 2rem;
           line-height: 2.2;
           padding: 5px;
           transition: 0.15s ease-in-out;
           @media only screen and (min-width: 990px) and (max-width: 991px) {
             padding: 3px;
-            font-size: 13px;
+            // font-size: 1.px;
           }
           &:hover {
             color: ${themeGet("colors.primary")};
@@ -161,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
 
     .reusecore-drawer__handler {
       @media (min-width: 991px) {
-        // display: none !important;
+        display: none !important;
       }
       .hamburgMenu__bar {
         > span {
@@ -171,14 +175,20 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .sticky-logo.nav-logo {
+    img, a {
+      cursor: pointer;
+    }
+  }
+
   .sticky-nav-active {
     .sass_app_dark_navbar {
       padding: 15px 0;
-      // background-color: #1a1a1a;
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(2px);
-      border-bottom-color: ${rgba("#fff", 0.2)};
+      background-color: #1a1a1a;
+      // background: rgba(255, 255, 255, 0.2);
+      // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      // backdrop-filter: blur(2px);
+      // border-bottom-color: ${rgba("#fff", 0.2)};
     }
     .main-logo {
       opacity: 0;
@@ -186,6 +196,7 @@ const GlobalStyle = createGlobalStyle`
     }
     .sticky-logo {
       opacity: 1;
+      
       visibility: visible;
       transition: 0.25s ease-in-out;
 
@@ -198,7 +209,8 @@ const GlobalStyle = createGlobalStyle`
       color: ${themeGet("colors.white")};
     }
     .main_menu li:hover a,
-    .main_menu li.is-current a {
+    .main_menu li.is-current a,
+    .main_menu li a.is-current {
       color: ${themeGet("colors.primary")};
     }
     .reusecore-drawer__handler {
@@ -322,6 +334,13 @@ const GlobalStyle = createGlobalStyle`
               transform: translateY(-50%);
               opacity: 0;
             }
+
+            &.is-current {
+              color: ${themeGet("colors.primary")};
+              &:before{
+                opacity: 1;
+              }
+            }
           }
           &.is-current {
             a {
@@ -348,17 +367,11 @@ const GlobalStyle = createGlobalStyle`
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      font-size: 26px;
+      color: ${themeGet("colors.black")};
       @media (max-width: 767px) {
         top: 15px;
         right: 15px;
-      }
-      &:before{
-        content: '\f10b';
-        font-family: Flaticon;
-        font-size: 26px;
-        color: ${themeGet("colors.primary")};
-        transform: rotate(45deg);
-        display: block;
       }
     }
   }

@@ -17,7 +17,7 @@ const colors = {
   white: '#ffffff',
   light: '#FAFBFF',
   gray: '#E4E4E4',
-  primary: '#2563FF',
+  primary: '#009ADE',
   headingColor: '#FFF',
   quoteText: '#343D48',
   menu: '#0D233E',

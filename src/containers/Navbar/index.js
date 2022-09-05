@@ -5,15 +5,17 @@ import NavbarWrapper from "common/components/Navbar";
 import ScrollSpyMenu from "common/components/ScrollSpyMenu";
 import Container from "common/components/UI/Container";
 import { DrawerContext } from "common/contexts/DrawerContext";
-import { ComingSoonData } from "common/data";
+import { NavbarData } from "common/data";
 import PropTypes from "prop-types";
 import Logo from "common/components/UIElements/Logo";
 import React, { useContext } from "react";
 import Link from "next/link";
+import { Icon } from "react-icons-kit";
+import { ic_close } from "react-icons-kit/md/ic_close";
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const { state, dispatch } = useContext(DrawerContext);
-  const { title, logo } = ComingSoonData;
+  const { menuItems, logo } = NavbarData;
 
   // Toggle drawer
   const toggleHandler = () => {
@@ -35,18 +37,19 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             />
           </Link>
           <Box {...menuWrapper} className="mainMenuWrapper">
-            <ScrollSpyMenu className="main_menu" menuItems={[]} offset={-70} />
+            <ScrollSpyMenu className="main_menu" menuItems={menuItems} offset={-70} />
 
             <Drawer
               width="420px"
               placement="right"
+              closeButton={<Icon size={30} icon={ic_close} />}
               drawerHandler={<HamburgMenu barColor="#108AFF" />}
               open={state.isOpen}
               toggleHandler={toggleHandler}
             >
               <ScrollSpyMenu
                 className="mobile_menu"
-                menuItems={[]}
+                menuItems={menuItems}
                 drawerClose={true}
                 offset={-100}
               />
