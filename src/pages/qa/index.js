@@ -4,7 +4,8 @@ import MainWrapper from "../_main_wrapper";
 import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
-import QATop from "containers/QA";
+import QATop from "containers/QA/QATop";
+import ExpandibleField from "containers/QA/expandableDiv";
 
 const Main = () => {
   return (
@@ -15,6 +16,7 @@ const Main = () => {
         </DrawerProvider>
       </Sticky>
       <QATop />
+      <ExpandibleField />
       <Footer />
     </MainWrapper>
   );

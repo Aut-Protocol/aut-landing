@@ -138,9 +138,8 @@ export const RoadmapData = {
       subtitle:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
     },
-  ]
+  ],
 };
-
 
 /* ------------------------------------ */
 // Manifesto data section
@@ -181,6 +180,49 @@ export const PillarsData = {
     src: "https://playground.aut.id",
     label: "Āut Expander Playground >",
   },
+};
+
+/* ------------------------------------ */
+// QA data section
+/* ------------------------------------ */
+
+export const QAData = {
+  title: (
+    <>
+      ASK <br /> ĀUT
+    </>
+  ),
+  subtitle: (
+    <>
+      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+    </>
+  ),
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
+  },
+  items: [
+    {
+      title: "Q1- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+    {
+      title: "Q2- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+    {
+      title: "Q3- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+    {
+      title: "Q4- Lorem ipsum dolor sit amet, consetetur",
+      subtitle:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
+    },
+  ],
 };
 
 /* ------------------------------------ */
