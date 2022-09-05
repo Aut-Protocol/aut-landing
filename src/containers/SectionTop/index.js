@@ -2,7 +2,6 @@ import Heading from "common/components/Heading";
 import Text from "common/components/Text";
 import Container from "common/components/UI/Container";
 import Section, { ImagePreview, Content, Grid } from "./sectionTop.style";
-import Fade from "react-reveal/Fade";
 
 const SectionTop = ({ image, title, subtitle }) => {
   return (

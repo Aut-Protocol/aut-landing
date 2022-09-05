@@ -8,6 +8,7 @@ import Portal from "containers/OptOut/Portal";
 import ExpanderSection from "containers/OptOut/ExpanderSection";
 import VideoSection from "containers/VideoSection";
 import OptOutTop from "containers/OptOut/OptOutTop";
+import { OptOutData } from "common/data";
 
 const Main = () => {
   return (
@@ -21,7 +22,7 @@ const Main = () => {
       <OptOutTop />
       <Portal />
       <ExpanderSection />
-      <VideoSection />
+      <VideoSection {...OptOutData.video} />
       <Footer />
     </MainWrapper>
   );

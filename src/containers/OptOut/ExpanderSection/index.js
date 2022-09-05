@@ -2,40 +2,29 @@ import React from "react";
 import Text from "common/components/Text";
 import NextImage from "common/components/NextImage";
 import Container from "common/components/UI/Container";
-import SectionWrapper, { ContentWrapper, Grid } from "./expanderSection.style";
-import expanderImage from "common/assets/image/expander.svg";
+import SectionWrapper, { Grid } from "./expanderSection.style";
 import Heading from "common/components/Heading";
 import Link from "next/link";
+import { OptOutData } from "common/data";
 
 const ExpanderSection = () => {
+  const { image, title, description, link } = OptOutData.expander;
   return (
     <SectionWrapper id="expander">
       <Container>
         <Grid>
           <div className="image-wrapper">
             <div className="image">
-              <NextImage src={expanderImage} alt="Expander Image" />
+              <NextImage src={image} alt="Expander Image" />
             </div>
-            <Heading
-              className="mobile-heading"
-              as="h1"
-              content={
-                <>
-                  Expand <br /> Your <br /> DAO <br /> Today
-                </>
-              }
-            />
+            <Heading className="mobile-heading" as="h1" content={title} />
           </div>
           <div className="content">
-            {/* <Heading className="desktop-heading" as="h1" content="Expand Your DAO Today" /> */}
-            <Text
-              className="subtitle"
-              content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore eutpe fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, "
-            />
-            <Link href="">
+            <Text className="subtitle" content={description} />
+            <Link href={link.path}>
               <a
                 target="_blank"
-                href=""
+                href={link.path}
                 className="dark read-more-btn"
                 style={{
                   fontSize: "1.125rem",
@@ -45,7 +34,7 @@ const ExpanderSection = () => {
                   paddingBottom: "1px",
                 }}
               >
-                Link to Expander Page
+                {link.title}
               </a>
             </Link>
           </div>

@@ -3,10 +3,7 @@ import NextImage from "common/components/NextImage";
 import { FooterData } from "common/data";
 import NewsletterForm from "common/components/NewsletterForm/NewsletterForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-const mailchimpUrl =
-  "https://aut.us20.list-manage.com/subscribe/post?u=d961a0504e2d77cc544c89c33&amp;id=0599e9c37b&amp;f_id=008810e7f0";
 import Image from "common/components/Image";
-import Link from "common/components/Link";
 import NextLink from "next/link";
 import Text from "common/components/Text";
 import Container from "common/components/UI/Container";
@@ -22,7 +19,7 @@ import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 
 const Footer = () => {
-  const { logo, social, copyright, widgets } = FooterData;
+  const { logo, social, copyright, widgets, mailchimpUrl } = FooterData;
   return (
     <Section>
       <Container>

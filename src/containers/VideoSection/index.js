@@ -1,26 +1,21 @@
 import React from "react";
 import { Icon } from "react-icons-kit";
 import { ic_play_arrow } from "react-icons-kit/md/ic_play_arrow";
-import { openModal, closeModal } from "@redq/reuse-modal";
+import { openModal } from "@redq/reuse-modal";
 import Button from "common/components/Button";
 import Container from "common/components/UI/Container";
 import NextImage from "common/components/NextImage";
-import placeholderImage from "common/assets/image/placeholder-video.svg";
 
 import SectionWrapper, { VideoWrapper, VideoArea } from "./experience.style";
 import "@redq/reuse-modal/lib/index.css";
 
-const ModalContent = () => (
+const ModalContent = ({ url }) => (
   <VideoWrapper>
-    <iframe
-      title="Video"
-      src="https://www.youtube.com/embed/hW98BFnVCm8"
-      frameBorder="0"
-    />
+    <iframe title="Video" src={url} frameBorder="0" />
   </VideoWrapper>
 );
 
-const VideoSection = () => {
+const VideoSection = ({ url, image }) => {
   // modal handler
   const handleVideoModal = () => {
     openModal({
@@ -35,7 +30,7 @@ const VideoSection = () => {
         },
       },
       component: ModalContent,
-      componentProps: {},
+      componentProps: { url },
       closeOnClickOutside: true,
     });
   };
@@ -44,7 +39,7 @@ const VideoSection = () => {
     <SectionWrapper id="experience">
       <Container>
         <VideoArea onClick={handleVideoModal}>
-          <NextImage src={placeholderImage} alt="Microsoft" />
+          <NextImage src={image} alt="Aut Video" />
           <Button
             className="video__btn"
             icon={<Icon className="plus" icon={ic_play_arrow} />}

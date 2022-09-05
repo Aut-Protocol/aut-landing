@@ -46,7 +46,7 @@ const Section = styled.section`
     }
 
     h1 {
-      padding-top: 0;
+      padding-top: 5rem;
       font-size: 10rem;
     }
 

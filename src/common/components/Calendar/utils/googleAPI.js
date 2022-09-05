@@ -1,5 +1,4 @@
 import * as Promise from "bluebird";
-import moment from "moment";
 
 import {
   handleDaily,

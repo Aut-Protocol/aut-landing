@@ -15,8 +15,6 @@ const Main = () => {
         </DrawerProvider>
       </Sticky>
 
-      <ManifestoTop />
-
       <Footer />
     </MainWrapper>
   );
