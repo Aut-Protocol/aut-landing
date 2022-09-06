@@ -5,7 +5,7 @@ import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
 import Roadmap from "containers/Roadmap";
-import RoadmapTop from "containers/Manifesto/ManifestoTop";
+import RoadmapTop from "containers/Roadmap/RoadmapTop";
 
 const Main = () => {
   return (
