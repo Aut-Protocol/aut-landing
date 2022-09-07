@@ -5,7 +5,11 @@ import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
 import QATop from "containers/QA/QATop";
-import ExpandibleField from "containers/QA/expandableDiv";
+import Faq from "containers/QA/Faq";
+import VideoSection from "containers/VideoSection";
+import { QAData } from "common/data";
+import SectionTop from "containers/SectionTop";
+import SectionHeading from "containers/QA/SectionHeading";
 
 const Main = () => {
   return (
@@ -16,7 +20,12 @@ const Main = () => {
         </DrawerProvider>
       </Sticky>
       <QATop />
-      <ExpandibleField />
+      <Faq />
+      <SectionHeading
+        title="Lorem ipsum dolor sit amet, consetetur"
+        subtitle="Lorem ipsum dolor sit amet"
+      ></SectionHeading>
+      <VideoSection {...QAData.video} />
       <Footer />
     </MainWrapper>
   );
