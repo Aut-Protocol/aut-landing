@@ -144,22 +144,44 @@ export const RoadmapData = {
 /* ------------------------------------ */
 // Manifesto data section
 /* ------------------------------------ */
+import dividerImage from "common/assets/image/aut-line.svg";
+
 
 export const ManifestoData = {
   title: (
     <>
-      Āut <br /> Map
+      Āut Manifesto
     </>
   ),
   subtitle: (
     <>
-      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+      Lorem ipsum dolor sit amet, consetetur <br /> sadipscing elitr, sed diam
     </>
   ),
   video: {
     url: "https://www.youtube.com/embed/hW98BFnVCm8",
     image: videoPlaceholderImage,
   },
+  chapter: {
+    divider: dividerImage,
+    list: [
+      {
+        title: 'Chapter One',
+        subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+      },
+      {
+        title: 'Chapter Two',
+        subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+      },
+      {
+        title: 'Chapter Three',
+        subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+      }
+    ]
+  }
 };
 
 /* ------------------------------------ */

@@ -5,6 +5,9 @@ import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
 import ManifestoTop from "containers/Manifesto/ManifestoTop";
+import ManifestoChapters from "containers/Manifesto/Chapters";
+import ManifestoSignatures from "containers/Manifesto/Signatures";
+import Web3AutProvider from "common/components/ProviderFactory/components/Web3Provider";
 
 const Main = () => {
   return (
@@ -14,6 +17,10 @@ const Main = () => {
           <Navbar />
         </DrawerProvider>
       </Sticky>
+
+      <ManifestoTop />
+      <ManifestoChapters />
+      <ManifestoSignatures />
 
       <Footer />
     </MainWrapper>
