@@ -214,8 +214,26 @@ export const ProductsData = {
     className: "no-uppercase",
     subtitle: (
       <>
-        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
-        sed
+        Lorem ipsum dolor <br /> sit amet, consetetur sadipscing elitr, <br />
+        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+        aliquyam erat, sed diam
+      </>
+    ),
+    subtitle2: (
+      <>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </>
+    ),
+    subtitle3: (
+      <>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem
+        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
       </>
     ),
     video: {
@@ -253,10 +271,21 @@ export const ProductsData = {
       </>
     ),
     variant: "h2",
+
     subtitle: (
       <>
-        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
-        sed
+        Āut is an expandable Community protocol, powering the next level of
+        collective coordination.
+      </>
+    ),
+    subtitle2: (
+      <>
+        By integrating it, you can expand your DAO contract - adding the
+        concepts of Members Roles & Interactions directly on-chain. <br />{" "}
+        <br />
+        Assign Roles to your Community - and kick off role-based working
+        routines and role-weighted governance in seconds. <br /> <br />
+        There is no community like yours - create your own Standards. Opt Āut.
       </>
     ),
     video: {

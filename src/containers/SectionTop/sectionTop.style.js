@@ -20,7 +20,6 @@ const Section = styled.section`
     letter-spacing: 10px;
   }
 
-  
   h2 {
     font-size: 10rem;
     line-height: 1.1;
@@ -34,6 +33,20 @@ const Section = styled.section`
 
   p.subtitle {
     font-size: 3.375rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  p.subtitle2 {
+    font-size: 1.563rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  p.subtitle3 {
+    font-size: 1.125rem;
     color: white;
     font-weight: bold;
     line-height: 1.4;
@@ -77,8 +90,8 @@ export default Section;
 
 export const Grid = styled.div`
   gap: 0px;
-  display: grid;
-  align-items: center;
+  display: flex;
+  align-items: space-between;
   grid-template-columns: 1fr 1fr;
   flex: 1;
 
@@ -88,7 +101,16 @@ export const Grid = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  width: 50%;
+`;
+
+export const RightWrapper = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
 
 export const ImagePreview = styled.figure`
   margin: 0;
@@ -96,7 +118,7 @@ export const ImagePreview = styled.figure`
   justify-content: center;
   align-items: center;
   max-height: 37.5rem;
-  max-width: 37.5rem;
+  max-width: 45rem;
   @media only screen and (max-width: 991px) {
     // display: none;
     max-height: 30rem;
