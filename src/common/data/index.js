@@ -138,22 +138,16 @@ export const RoadmapData = {
       subtitle:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
     },
-  ]
+  ],
 };
-
 
 /* ------------------------------------ */
 // Manifesto data section
 /* ------------------------------------ */
 import dividerImage from "common/assets/image/aut-line.svg";
 
-
 export const ManifestoData = {
-  title: (
-    <>
-      Āut Manifesto
-    </>
-  ),
+  title: <>Āut Manifesto</>,
   subtitle: (
     <>
       Lorem ipsum dolor sit amet, consetetur <br /> sadipscing elitr, sed diam
@@ -167,22 +161,28 @@ export const ManifestoData = {
     divider: dividerImage,
     list: [
       {
-        title: 'Chapter One',
-        subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+        title: "Chapter One",
+        subtitle:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+        description:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
       },
       {
-        title: 'Chapter Two',
-        subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+        title: "Chapter Two",
+        subtitle:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+        description:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
       },
       {
-        title: 'Chapter Three',
-        subtitle: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
-        description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-      }
-    ]
-  }
+        title: "Chapter Three",
+        subtitle:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
+        description:
+          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+      },
+    ],
+  },
 };
 
 /* ------------------------------------ */
@@ -202,6 +202,58 @@ export const PillarsData = {
   link: {
     src: "https://playground.aut.id",
     label: "Āut Expander Playground >",
+  },
+};
+
+/* ------------------------------------ */
+// QA data section
+/* ------------------------------------ */
+
+export const QAData = {
+  title: (
+    <>
+      ASK <br /> ĀUT
+    </>
+  ),
+  subtitle: (
+    <>
+      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+    </>
+  ),
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
+  },
+  faqs: [
+    {
+      id: 1,
+      title: "Question - Lorem ipsum dolor sit amet, consetetur?",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore `,
+    },
+    {
+      id: 2,
+      title: "Question - Lorem ipsum dolor sit amet, consetetur?",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore `,
+    },
+    {
+      id: 3,
+      title: "Question - Lorem ipsum dolor sit amet, consetetur?",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore `,
+    },
+    {
+      id: 4,
+      title: "Question - Lorem ipsum dolor sit amet, consetetur?",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore `,
+    },
+    {
+      id: 5,
+      title: "Question - Lorem ipsum dolor sit amet, consetetur?",
+      description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore `,
+    },
+  ],
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
   },
 };
 
