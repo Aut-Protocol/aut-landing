@@ -138,9 +138,8 @@ export const RoadmapData = {
       subtitle:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore ",
     },
-  ]
+  ],
 };
-
 
 /* ------------------------------------ */
 // Manifesto data section
@@ -162,6 +161,161 @@ export const ManifestoData = {
     image: videoPlaceholderImage,
   },
 };
+
+/* ------------------------------------ */
+// Products data section
+/* ------------------------------------ */
+
+import DaoExpanderIcon from "common/assets/image/expander-icon.svg";
+import dAutIcon from "common/assets/image/daut-icon.svg";
+import DashboardIcon from "common/assets/image/dashboard-icon.svg";
+import AutIDIcon from "common/assets/image/autid-icon.svg";
+
+export const ProductsData = {
+  title: (
+    <>
+      Āut <br /> Us
+    </>
+  ),
+  subtitle: (
+    <>
+      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+    </>
+  ),
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: videoPlaceholderImage,
+  },
+  dAut: {
+    title: <>dĀut</>,
+    className: "no-uppercase",
+    subtitle: (
+      <>
+        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
+        sed
+      </>
+    ),
+    video: {
+      url: "https://www.youtube.com/embed/hW98BFnVCm8",
+      image: videoPlaceholderImage,
+    },
+  },
+  autId: {
+    title: (
+      <>
+        Āut
+        <br />
+        ID
+      </>
+    ),
+
+    subtitle: (
+      <>
+        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
+        sed
+      </>
+    ),
+    video: {
+      url: "https://www.youtube.com/embed/hW98BFnVCm8",
+      image: videoPlaceholderImage,
+    },
+  },
+  daoExpander: {
+    title: (
+      <>
+        Expand <br />
+        Your <br />
+        DAO <br />
+        Today
+      </>
+    ),
+    variant: "h2",
+    subtitle: (
+      <>
+        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
+        sed
+      </>
+    ),
+    video: {
+      url: "https://www.youtube.com/embed/hW98BFnVCm8",
+      image: videoPlaceholderImage,
+    },
+  },
+  dashboard: {
+    title: (
+      <>
+        Das <br />
+        hbo <br />
+        ard
+      </>
+    ),
+    subtitle: (
+      <>
+        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
+        sed
+      </>
+    ),
+    video: {
+      url: "https://www.youtube.com/embed/hW98BFnVCm8",
+      image: videoPlaceholderImage,
+    },
+  },
+};
+
+export const ProductList = [
+  {
+    id: 1,
+    isActive: true,
+    icon: DaoExpanderIcon,
+    title: "Āut Expander",
+    link: "/products/dao-expander",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat",
+  },
+  {
+    id: 2,
+    isActive: true,
+    icon: dAutIcon,
+    title: "dĀut",
+    link: "/products/d-aut",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat",
+  },
+  {
+    id: 3,
+    isActive: true,
+    icon: AutIDIcon,
+    title: "Āut ID",
+    link: "/products/aut-id",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+  },
+  {
+    id: 4,
+    isActive: true,
+    icon: DashboardIcon,
+    title: "Āut Dashboard",
+    link: "/products/aut-dashboard",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+  },
+  {
+    id: 5,
+    icon: DashboardIcon,
+    isActive: false,
+    title: "Lorem Ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat",
+  },
+  {
+    id: 5,
+    icon: DashboardIcon,
+    isActive: false,
+    title: "Lorem Ipsum",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat ",
+  },
+];
 
 /* ------------------------------------ */
 // Pillars data section
@@ -245,7 +399,7 @@ export const FooterData = {
         {
           id: 4,
           title: "Dashboard",
-          link: "/products/dashboard",
+          link: "/products/aut-dashboard",
         },
       ],
     },

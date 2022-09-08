@@ -4,6 +4,7 @@ import MainWrapper from "../_main_wrapper";
 import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
+import ProductsDashboardTop from "containers/Products/AutDashboard/AutDashboardTop";
 
 const Main = () => {
   return (
@@ -14,21 +15,9 @@ const Main = () => {
         </DrawerProvider>
       </Sticky>
 
-      <h1
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          color: "white",
-          fontFamily: "Lato",
-        }}
-      >
-        Get Started!
-      </h1>
-
       {/* Add you blocks here */}
 
+      <ProductsDashboardTop />
       <Footer />
     </MainWrapper>
   );
