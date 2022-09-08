@@ -4,6 +4,9 @@ import MainWrapper from "../_main_wrapper";
 import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
+import SectionTop from "containers/SectionTop";
+import VideoTop from "containers/SectionTop/VideoTop";
+import DaoExpanderTop from "containers/Products/DaoExpander/DaoExpanderTop";
 
 const Main = () => {
   return (
@@ -14,21 +17,7 @@ const Main = () => {
         </DrawerProvider>
       </Sticky>
 
-      <h1
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          color: "white",
-          fontFamily: "Lato",
-        }}
-      >
-        Get Started!
-      </h1>
-
-      {/* Add you blocks here */}
-
+      <DaoExpanderTop />
       <Footer />
     </MainWrapper>
   );

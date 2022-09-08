@@ -4,20 +4,32 @@ import styled from "styled-components";
 const Section = styled.section`
   position: relative;
   z-index: 0;
-  height: 100vh;
+  // height: 100vh;
 
   .container {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding-top: 18.75rem;
   }
 
   h1 {
-    padding-top: 10rem;
     font-size: 14rem;
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 10px;
+  }
+
+  
+  h2 {
+    font-size: 10rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+  }
+
+  .no-uppercase {
+    text-transform: none !important;
   }
 
   p.subtitle {
