@@ -1,12 +1,10 @@
 import { useEffect } from "react";
-import { EnableAndChangeNetwork } from "../web3.network";
 import WalletConnectLogo from "common/assets/image/wallet-connect.svg";
 import MetamaskLogo from "common/assets/image/metamask.svg";
 import { metaMaskConnector, walletConnectConnector } from "../web3.connectors";
 import Text from "common/components/Text";
 import Button from "common/components/Button";
 import Image from "common/components/Image";
-import { environment, getNetworkVariables } from "api/environment";
 import styled from "styled-components";
 
 export const ConnectorTypes = {
@@ -35,16 +33,16 @@ const AutButton = styled(Button)({
   width: "16.25rem",
   height: "3.438rem",
   marginBottom: "10px",
-  display: 'flex',
-  alignItems: 'center',
-  paddingLeft: '15px',
-  '.btn-text': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
+  display: "flex",
+  alignItems: "center",
+  paddingLeft: "15px",
+  ".btn-text": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
     margin: 0,
-  }
+  },
 });
 
 const AutButtonTxt = styled(Text)({
@@ -59,20 +57,11 @@ const getConnector = (type) => {
 export default function ConnectorBtn({ connectorType, setConnector }) {
   const [connector] = getConnector(connectorType);
 
-  useEffect(() => {
-    if (connector) {
-      // walletConnect.connectEagerly();
-    }
-  }, [connector]);
-
   return (
     <AutButton
       onClick={async () => {
-        // const network = environment.networks.split(",")[0];
         await connector.activate();
         setConnector(connector);
-        // const config = getNetworkVariables(network);
-        // await EnableAndChangeNetwork(connector.provider, config);
       }}
       title={
         <>

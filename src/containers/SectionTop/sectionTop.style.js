@@ -4,24 +4,55 @@ import styled from "styled-components";
 const Section = styled.section`
   position: relative;
   z-index: 0;
-  height: 100vh;
+
+  .gradient {
+    height: 5.188rem;
+    width: 20.938rem;
+    font-size: 1.125rem;
+    margin: 5.625rem auto;
+  }
 
   .container {
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding-top: 18.75rem;
   }
 
   h1 {
-    padding-top: 10rem;
     font-size: 14rem;
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 10px;
   }
 
+  h2 {
+    font-size: 10rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+  }
+
+  .no-uppercase {
+    text-transform: none !important;
+  }
+
   p.subtitle {
     font-size: 3.375rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  p.subtitle2 {
+    font-size: 1.563rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  p.subtitle3 {
+    font-size: 1.125rem;
     color: white;
     font-weight: bold;
     line-height: 1.4;
@@ -65,8 +96,8 @@ export default Section;
 
 export const Grid = styled.div`
   gap: 0px;
-  display: grid;
-  align-items: center;
+  display: flex;
+  align-items: space-between;
   grid-template-columns: 1fr 1fr;
   flex: 1;
 
@@ -76,19 +107,45 @@ export const Grid = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  width: 50%;
+  @media only screen and (max-width: 991px) {
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+export const RightWrapper = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  align-self: center;
+  @media only screen and (max-width: 991px) {
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 42rem;
+`;
 
 export const ImagePreview = styled.figure`
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 37.5rem;
-  max-width: 37.5rem;
+  width: 42rem;
   @media only screen and (max-width: 991px) {
     // display: none;
     max-height: 30rem;
-    max-width: 30rem;
+    width: 100%;
     margin-top: 4rem;
   }
 `;

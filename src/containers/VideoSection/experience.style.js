@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
+import styled, { keyframes } from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 const playPluse = keyframes`
   0% {
@@ -15,18 +15,41 @@ const playPluse = keyframes`
 const SectionWrapper = styled.section`
   width: 100%;
   position: relative;
-  padding-top: 18.75rem;
-  
-  @media only screen and (max-width: 991px) {
-    padding-top: 10rem;
+  .container {
+    padding-top: 18.75rem;
   }
 
-  @media only screen and (max-width: 624px) {
+  h2.title {
+    text-align: center;
+    font-size: 3.375rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  
+  h3.subtitle {
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 4.25rem;
   }
 
   .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .container {
+      padding-top: 10rem;
+    }
+  }
+
+  @media only screen and (max-width: 624px) {
   }
 `;
 
@@ -68,7 +91,7 @@ export const VideoArea = styled.div`
       line-height: 60px;
     }
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       z-index: 0;
       left: 50%;
@@ -77,7 +100,7 @@ export const VideoArea = styled.div`
       display: block;
       width: 80px;
       height: 80px;
-      background: ${themeGet('colors.white', '#925B9F')};
+      background: ${themeGet("colors.white", "#925B9F")};
       border-radius: 50%;
       animation: ${playPluse} 1.5s ease-out infinite;
     }
@@ -85,7 +108,7 @@ export const VideoArea = styled.div`
       color: #000;
       position: relative;
       z-index: 5;
-      background-color: #009ADE;
+      background-color: #009ade;
       display: block;
       border-radius: inherit;
       height: 100%;
@@ -110,7 +133,7 @@ export const VideoWrapper = styled.div`
   position: relative;
   width: 900px;
   &:before {
-    content: '';
+    content: "";
     display: block;
     padding-top: 56.25%;
   }

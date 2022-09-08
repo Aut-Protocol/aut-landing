@@ -14,10 +14,10 @@ import { verifyTweetRequest } from "api/index.api";
 import { Web3ManifestoProvider } from "@aut-protocol/abi-types";
 import { environment, getNetworkVariables } from "api/environment";
 import { closeModal } from "@redq/reuse-modal";
-import ConnectorBtn, { ConnectorTypes } from "common/components/ProviderFactory/components/ConnectorBtn";
-import { NetworkSelectors } from "common/components/ProviderFactory/components/NetworkSelectors";
+import ConnectorBtn, { ConnectorTypes } from "common/ProviderFactory/components/ConnectorBtn";
+import { NetworkSelectors } from "common/ProviderFactory/components/NetworkSelectors";
 import Input from "common/components/Input";
-import { EnableAndChangeNetwork } from "common/components/ProviderFactory/web3.network";
+import { EnableAndChangeNetwork } from "common/ProviderFactory/web3.network";
 
 const Title = styled(Text)`
   letter-spacing: 3px,
@@ -191,7 +191,7 @@ const VerifySignature = ({ onClose = () => false }) => {
       hasSigned = await contract.hasSigned(1, account);
       setSigned(hasSigned);
     } catch (error) {
-      setErrorMessage(error?.message);
+      // setErrorMessage(error?.message);
     }
 
     if (!signature && !hasSigned) {

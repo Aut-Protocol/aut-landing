@@ -1,18 +1,55 @@
 import Heading from "common/components/Heading";
 import Text from "common/components/Text";
 import Container from "common/components/UI/Container";
-import Section, { ImagePreview, Content, Grid } from "./sectionTop.style";
+import Section, {
+  ImagePreview,
+  Content,
+  Grid,
+  RightWrapper,
+  ButtonWrapper,
+} from "./sectionTop.style";
+import Fade from "react-reveal/Fade";
 
-const SectionTop = ({ image, title, subtitle }) => {
+const SectionTop = ({
+  image,
+  title,
+  subtitle,
+  subtitle2,
+  subtitle3,
+  headerButton,
+  variant,
+  className,
+}) => {
   return (
     <Section id="section_top">
       <Container>
         <Grid>
           <Content>
-            <Heading as="h1" content={title} />
+            <Heading
+              as={variant || "h1"}
+              content={title}
+              className={className}
+            />
             <Text className="subtitle" content={subtitle} />
           </Content>
-          <ImagePreview>{image}</ImagePreview>
+          <RightWrapper>
+            <ImagePreview>{image}</ImagePreview>
+            {headerButton ? <ButtonWrapper>{headerButton}</ButtonWrapper> : ""}
+          </RightWrapper>
+        </Grid>
+        <Grid>
+          <Content>
+            {subtitle2 ? (
+              <Text className="subtitle2" content={subtitle2} />
+            ) : (
+              ""
+            )}
+            {subtitle3 ? (
+              <Text className="subtitle3" content={subtitle3} />
+            ) : (
+              ""
+            )}
+          </Content>
         </Grid>
       </Container>
     </Section>
