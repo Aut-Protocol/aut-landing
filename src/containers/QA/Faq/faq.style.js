@@ -3,30 +3,48 @@ import { themeGet } from "@styled-system/theme-get";
 import Collapse from "rc-collapse";
 
 const Section = styled.section`
-  @media (max-width: 1280px) {
-    padding-top: 50px;
-  }
-  @media (max-width: 1024px) {
-    padding-top: 50px;
-    padding-bottom: 70px;
-  }
-  @media (max-width: 768px) {
-    padding-top: 40px;
-    padding-bottom: 60px;
-  }
+  position: relative;
+  width: 100%;
+  flex: 1;
+  padding-top: 12rem;
+
   .container {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 55px;
-    @media (max-width: 990px) {
+    display: flex;
+    flex-direction: row;
+    gap: 47px;
+    align-items: flex-start;
+  }
+
+  @media only screen and (max-width: 1600px) {
+  }
+
+  @media only screen and (max-width: 1440px) {
+  }
+
+  @media only screen and (max-width: 1366px) {
+  }
+
+  @media only screen and (max-width: 1280px) {
+  }
+
+  @media only screen and (max-width: 991px) {
+    padding-top: 8rem;
+
+    .container {
       flex-wrap: wrap;
-      padding: 0px;
+      gap: 22px;
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+  }
+
+  @media only screen and (max-width: 667px) {
   }
 `;
 
 export const RcCollapse = styled(Collapse)`
-  min-width: 375px;
+  min-width: 45rem;
   flex: 1;
   display: grid;
   column-gap: 10px;
@@ -34,7 +52,7 @@ export const RcCollapse = styled(Collapse)`
   .rc-collapse-item {
     background-color: #707070;
     .rc-collapse-header {
-      height: 80px;
+      height: 6.875rem;
       background-color: #333333;
       font-size: 1.563rem;
       display: flex;
@@ -47,8 +65,10 @@ export const RcCollapse = styled(Collapse)`
       .icon {
         margin-right: 32px;
         position: relative;
-        width: 30px;
-        height: 30px;
+        svg {
+          width: 2.25rem;
+          height: 2.25rem;
+        }
         i {
           position: absolute;
           left: 50%;
@@ -89,17 +109,6 @@ export const RcCollapse = styled(Collapse)`
       }
     }
   }
-`;
-
-export const FAQContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 47px;
-  align-items: flex-start;
-  @media (max-width: 990px) {
-    flex-wrap: wrap;
-    gap: 22px;
-  } ;
 `;
 
 export default Section;

@@ -284,8 +284,8 @@ function CircleImage({ pulseButtons }) {
         ></path>
       </g>
 
-      {pulseButtons.map(({ title, subtitle, ...position }) => (
-        <foreignObject id="pulse_button" width="100" height="100" {...position}>
+      {pulseButtons.map(({ title, subtitle, ...position }, index) => (
+        <foreignObject key={`circle-foreign-object-key${index}`} id="pulse_button" width="100" height="100" {...position}>
           <Loading title={title} subtitle={subtitle} />
         </foreignObject>
       ))}

@@ -1,8 +1,7 @@
 import React, { useState, Fragment } from "react";
 import Heading from "common/components/Heading";
 import Container from "common/components/UI/Container";
-import { Icon } from "react-icons-kit";
-import Section, { SectionHeading, RcCollapse, FAQContainer } from "./faq.style";
+import Section, { RcCollapse } from "./faq.style";
 import { Panel } from "rc-collapse";
 import motion from "./motion-util";
 import { QAData } from "common/data";
@@ -56,76 +55,74 @@ const Faq = () => {
   return (
     <Section id="faq">
       <Container className="container">
-        <FAQContainer>
-          <RcCollapse
-            className="rc-right"
-            collapsible={undefined}
-            accordion={true}
-            activeKey={activeKey}
-            onChange={onChange}
-            openMotion={motion}
-          >
-            {QAData.faqs?.map((faq, i) => {
-              if (i % 2 === 0) {
-                return (
-                  <Panel
-                    key={faq.id}
-                    showArrow={false}
-                    header={
-                      <Fragment>
-                        <Heading as="h4" content={faq.title} />
-                        <span className="icon">
-                          <div className="minus">
-                            <Minus />
-                          </div>
-                          <div className="plus">
-                            <Plus />
-                          </div>
-                        </span>
-                      </Fragment>
-                    }
-                  >
-                    {faq.description}
-                  </Panel>
-                );
-              }
-            })}
-          </RcCollapse>
-          <RcCollapse
-            className="rc-right"
-            collapsible={undefined}
-            accordion={true}
-            activeKey={activeKey}
-            onChange={onChange}
-            openMotion={motion}
-          >
-            {QAData.faqs?.map((faq, i) => {
-              if (i % 2 !== 0) {
-                return (
-                  <Panel
-                    key={faq.id}
-                    showArrow={false}
-                    header={
-                      <Fragment>
-                        <Heading as="h4" content={faq.title} />
-                        <span className="icon">
-                          <div className="minus">
-                            <Minus />
-                          </div>
-                          <div className="plus">
-                            <Plus />
-                          </div>
-                        </span>
-                      </Fragment>
-                    }
-                  >
-                    {faq.description}
-                  </Panel>
-                );
-              }
-            })}
-          </RcCollapse>
-        </FAQContainer>
+        <RcCollapse
+          className="rc-right"
+          collapsible={undefined}
+          accordion={true}
+          activeKey={activeKey}
+          onChange={onChange}
+          openMotion={motion}
+        >
+          {QAData.faqs?.map((faq, i) => {
+            if (i % 2 === 0) {
+              return (
+                <Panel
+                  key={faq.id}
+                  showArrow={false}
+                  header={
+                    <Fragment>
+                      <Heading as="h4" content={faq.title} />
+                      <span className="icon">
+                        <div className="minus">
+                          <Minus />
+                        </div>
+                        <div className="plus">
+                          <Plus />
+                        </div>
+                      </span>
+                    </Fragment>
+                  }
+                >
+                  {faq.description}
+                </Panel>
+              );
+            }
+          })}
+        </RcCollapse>
+        <RcCollapse
+          className="rc-right"
+          collapsible={undefined}
+          accordion={true}
+          activeKey={activeKey}
+          onChange={onChange}
+          openMotion={motion}
+        >
+          {QAData.faqs?.map((faq, i) => {
+            if (i % 2 !== 0) {
+              return (
+                <Panel
+                  key={faq.id}
+                  showArrow={false}
+                  header={
+                    <Fragment>
+                      <Heading as="h4" content={faq.title} />
+                      <span className="icon">
+                        <div className="minus">
+                          <Minus />
+                        </div>
+                        <div className="plus">
+                          <Plus />
+                        </div>
+                      </span>
+                    </Fragment>
+                  }
+                >
+                  {faq.description}
+                </Panel>
+              );
+            }
+          })}
+        </RcCollapse>
       </Container>
     </Section>
   );

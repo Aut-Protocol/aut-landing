@@ -5,6 +5,8 @@ import { openModal } from "@redq/reuse-modal";
 import Button from "common/components/Button";
 import Container from "common/components/UI/Container";
 import NextImage from "common/components/NextImage";
+import Heading from "common/components/Heading";
+import Text from "common/components/Text";
 
 import SectionWrapper, { VideoWrapper, VideoArea } from "./experience.style";
 import "@redq/reuse-modal/lib/index.css";
@@ -15,7 +17,7 @@ const ModalContent = ({ url }) => (
   </VideoWrapper>
 );
 
-const VideoSection = ({ url, image }) => {
+const VideoSection = ({ url, image, title, subtitle }) => {
   // modal handler
   const handleVideoModal = () => {
     openModal({
@@ -38,6 +40,8 @@ const VideoSection = ({ url, image }) => {
   return (
     <SectionWrapper id="experience">
       <Container>
+        {title && <Heading as="h2" className="title" content={title} />}
+        {subtitle && <Text as="h3" className="subtitle" content={subtitle} />}
         <VideoArea onClick={handleVideoModal}>
           <NextImage src={image} alt="Aut Video" />
           <Button

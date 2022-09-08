@@ -5,9 +5,9 @@
   "description": "Aut",
   "author": "Aut",
   "scripts": {
-    "build": "next build",
-    "start": "next",
-    "dev": "next"
+    "build": "npm run update-env && next build",
+    "start": "npm run update-env && next",
+    "update-env": "node ./setup-environment.js"
   },
   "dependencies": {
     "@aut-protocol/abi-types": "^0.0.58",

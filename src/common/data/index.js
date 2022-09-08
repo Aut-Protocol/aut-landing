@@ -8,11 +8,6 @@ export const NavbarData = {
   logo: AutLogo,
   menuItems: [
     {
-      label: "About",
-      staticLink: true,
-      path: "/about",
-    },
-    {
       label: "Products",
       staticLink: true,
       path: "/products",
@@ -26,6 +21,11 @@ export const NavbarData = {
       label: "Roadmap",
       staticLink: true,
       path: "/roadmap",
+    },
+    {
+      label: "Ask Aut",
+      staticLink: true,
+      path: "/qa",
     },
   ],
 };
@@ -404,10 +404,6 @@ export const QAData = {
       Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
     </>
   ),
-  video: {
-    url: "https://www.youtube.com/embed/hW98BFnVCm8",
-    image: videoPlaceholderImage,
-  },
   faqs: [
     {
       id: 1,
@@ -436,6 +432,8 @@ export const QAData = {
     },
   ],
   video: {
+    title: "Lorem ipsum dolor sit amet, consetetur",
+    subtitle: "Lorem ipsum dolor sit amet",
     url: "https://www.youtube.com/embed/hW98BFnVCm8",
     image: videoPlaceholderImage,
   },

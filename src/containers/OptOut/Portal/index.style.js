@@ -8,8 +8,8 @@ const PortalArea = styled.section`
   width: 100%;
   flex: 1;
   
-
   .container {
+    padding-top: 18.75rem;
     text-align: center;
   }
 
@@ -17,10 +17,10 @@ const PortalArea = styled.section`
     font-size: 2.5rem;
     line-height: 1.1;
     letter-spacing: 4px;
-    padding-bottom: 10rem;
   }
 
   .portal-player {
+    padding-top: 8rem;
     width: 50rem;
     height: 50rem;
   }
@@ -38,8 +38,12 @@ const PortalArea = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
-    padding-top: 10rem;
+    .container {
+      padding-top: 10rem;
+    }
+    
     .portal-player {
+      padding-top: 5rem;
       width: 35rem;
       height: 35rem;
     }

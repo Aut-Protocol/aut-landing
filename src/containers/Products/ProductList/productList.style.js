@@ -1,19 +1,35 @@
 import styled from "styled-components";
 
 const ProductListSectionWrapper = styled.section`
-  padding: 5rem 0;
-  @media (max-width: 990px) {
-    padding: 4rem 0;
+  width: 100%;
+  position: relative;
+  .container {
+    padding-top: 12rem;
   }
-  @media (max-width: 767px) {
-    padding: 3rem 0;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
+
+  @media only screen and (max-width: 991px) {
+    .container {
+      padding-top: 10rem;
+    }
+  }
+
+  @media only screen and (max-width: 624px) {
+  }
+
   .button_learn_more {
     background: transparent;
     color: white;
     font-size: 1.563rem;
     border: none;
   }
+
   .button__card {
     position: relative;
     height: 100%;

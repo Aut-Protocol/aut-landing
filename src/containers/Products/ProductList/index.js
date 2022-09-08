@@ -3,12 +3,9 @@ import PropTypes from "prop-types";
 import Box from "common/components/Box";
 import Text from "common/components/Text";
 import Heading from "common/components/Heading";
-import FeatureBlock from "common/components/FeatureBlock";
 import { ProductList } from "common/data";
 import ProductListSectionWrapper, { OverlayWrapper } from "./productList.style";
 import Container from "common/components/UI/Container";
-import { borderStyle, height, maxWidth } from "styled-system";
-import { Button } from "react-aria-menubutton";
 import { LinkButton } from "common/components/Button";
 import ButtonCard from "common/components/ButtonCard";
 
