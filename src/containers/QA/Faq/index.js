@@ -2,12 +2,49 @@ import React, { useState, Fragment } from "react";
 import Heading from "common/components/Heading";
 import Container from "common/components/UI/Container";
 import { Icon } from "react-icons-kit";
-import { plus } from "react-icons-kit/entypo/plus";
-import { minus } from "react-icons-kit/entypo/minus";
 import Section, { SectionHeading, RcCollapse, FAQContainer } from "./faq.style";
 import { Panel } from "rc-collapse";
 import motion from "./motion-util";
 import { QAData } from "common/data";
+
+const Plus = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="30"
+      viewBox="0 0 36.74 36.74"
+    >
+      <g id="md-add" transform="translate(-96 -96)">
+        <path
+          id="Path_11351"
+          data-name="Path 11351"
+          d="M132.74,116.819H116.819V132.74h-4.9V116.819H96v-4.9h15.921V96h4.9v15.921H132.74Z"
+          fill="#fff"
+        />
+      </g>
+    </svg>
+  );
+};
+
+const Minus = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="4.899"
+      viewBox="0 0 36.74 4.899"
+    >
+      <path
+        id="Path_11351"
+        data-name="Path 11351"
+        d="M132.74,116.819H96v-4.9h36.74Z"
+        transform="translate(-96 -111.921)"
+        fill="#fff"
+      />
+    </svg>
+  );
+};
 
 const Faq = () => {
   const [activeKey, setActiveKey] = useState(1);
@@ -21,6 +58,7 @@ const Faq = () => {
       <Container className="container">
         <FAQContainer>
           <RcCollapse
+            className="rc-right"
             collapsible={undefined}
             accordion={true}
             activeKey={activeKey}
@@ -37,8 +75,12 @@ const Faq = () => {
                       <Fragment>
                         <Heading as="h4" content={faq.title} />
                         <span className="icon">
-                          <Icon icon={minus} size={20} className="minus" />
-                          <Icon icon={plus} size={20} className="plus" />
+                          <div className="minus">
+                            <Minus />
+                          </div>
+                          <div className="plus">
+                            <Plus />
+                          </div>
                         </span>
                       </Fragment>
                     }
@@ -50,6 +92,7 @@ const Faq = () => {
             })}
           </RcCollapse>
           <RcCollapse
+            className="rc-right"
             collapsible={undefined}
             accordion={true}
             activeKey={activeKey}
@@ -66,8 +109,12 @@ const Faq = () => {
                       <Fragment>
                         <Heading as="h4" content={faq.title} />
                         <span className="icon">
-                          <Icon icon={minus} size={20} className="minus" />
-                          <Icon icon={plus} size={20} className="plus" />
+                          <div className="minus">
+                            <Minus />
+                          </div>
+                          <div className="plus">
+                            <Plus />
+                          </div>
                         </span>
                       </Fragment>
                     }

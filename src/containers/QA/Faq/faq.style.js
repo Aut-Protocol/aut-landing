@@ -3,7 +3,6 @@ import { themeGet } from "@styled-system/theme-get";
 import Collapse from "rc-collapse";
 
 const Section = styled.section`
-  padding: 80px 0;
   @media (max-width: 1280px) {
     padding-top: 50px;
   }
@@ -16,34 +15,40 @@ const Section = styled.section`
     padding-bottom: 60px;
   }
   .container {
-    max-width: 750px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 55px;
+    @media (max-width: 990px) {
+      flex-wrap: wrap;
+      padding: 0px;
+    }
   }
 `;
 
 export const RcCollapse = styled(Collapse)`
-  background-color: transparent;
-  min-width: 330px;
-  border: 0;
+  min-width: 375px;
   flex: 1;
   display: grid;
   column-gap: 10px;
-  gap: 12px;
+  gap: 22px;
   .rc-collapse-item {
-    border: 0;
-    box-shadow: 0px 2px 6px rgba(187, 199, 206, 0.25);
-    border-radius: 6px;
-    padding: 25px;
+    background-color: #707070;
     .rc-collapse-header {
+      height: 80px;
+      background-color: #333333;
+      font-size: 1.563rem;
       display: flex;
       cursor: pointer;
+      align-items: center;
       justify-content: space-between;
       padding: 0;
       z-index: 100;
       position: relative;
       .icon {
+        margin-right: 32px;
         position: relative;
-        width: 15px;
-        height: 15px;
+        width: 30px;
+        height: 30px;
         i {
           position: absolute;
           left: 50%;
@@ -52,23 +57,22 @@ export const RcCollapse = styled(Collapse)`
         }
       }
       .plus {
-        color: rgba(0, 0, 0, 0.4);
+        display: inline;
       }
       .minus {
-        opacity: 0;
+        display: none;
       }
     }
     h4 {
-      margin-bottom: 0;
+      font-weight: normal !important;
+      margin-left: 35px;
+      margin-bottom: 0px;
     }
     .rc-collapse-content {
-      padding: 0 25px;
-      @media (max-width: 480px) {
-        padding: 0;
-      }
+      padding: 0 25px 0 25px;
     }
     .rc-collapse-content-box {
-      padding: 15px 0 0;
+      padding: 15px 0 15px;
       font-weight: 500;
       font-size: 15px;
       line-height: 1.87;
@@ -78,11 +82,10 @@ export const RcCollapse = styled(Collapse)`
   .rc-collapse-item-active {
     .rc-collapse-header {
       .minus {
-        color: ${themeGet("colors.black")};
-        opacity: 1;
+        display: inline;
       }
       .plus {
-        opacity: 0;
+        display: none;
       }
     }
   }
@@ -91,9 +94,11 @@ export const RcCollapse = styled(Collapse)`
 export const FAQContainer = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 47px;
   align-items: flex-start;
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     flex-wrap: wrap;
+    gap: 22px;
   } ;
 `;
 

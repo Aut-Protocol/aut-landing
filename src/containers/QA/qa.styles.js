@@ -3,13 +3,15 @@ import styled from "styled-components";
 
 const Section = styled.section`
   p.title {
+    text-align: center;
     font-size: 3.375rem;
     color: white;
     font-weight: bold;
     line-height: 1.4;
   }
   p.subtitle {
-    font-size: 3.375rem;
+    text-align: center;
+    font-size: 3rem;
     color: white;
     font-weight: bold;
     line-height: 1.4;
