@@ -83,6 +83,17 @@ const ButtonStyle = styled.button`
   ${colorStyle}
   ${sizeStyle}
   ${base}
+
+  &.gradient {
+    border-image: linear-gradient(45.57deg, #009fe3 0%, #0399de 8%, #0e8bd3 19%, #2072bf 30%, #3a50a4 41%, #5a2583 53%, #453f94 71%, #38519f 88%, #3458a4 100%) 1;
+    border-width: 3px;
+    border-color: transparent;
+    border-radius: 0;
+    &:hover {
+      background: transparent linear-gradient(45.57deg, #009fe3 0%, #0399de 8%, #0e8bd3 19%, #2072bf 30%, #3a50a4 41%, #5a2583 53%, #453f94 71%, #38519f 88%, #3458a4 100%) 0% 0%;
+      border-color: transparent;
+    }
+  }
 `;
 
 export const LinkStyle = styled.a`

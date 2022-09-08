@@ -1,5 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
+import styled, { keyframes } from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 const playPluse = keyframes`
   0% {
@@ -16,7 +16,7 @@ const SectionWrapper = styled.section`
   width: 100%;
   position: relative;
   padding-top: 18.75rem;
-  
+
   @media only screen and (max-width: 991px) {
     padding-top: 10rem;
   }
@@ -68,7 +68,7 @@ export const VideoArea = styled.div`
       line-height: 60px;
     }
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       z-index: 0;
       left: 50%;
@@ -77,7 +77,7 @@ export const VideoArea = styled.div`
       display: block;
       width: 80px;
       height: 80px;
-      background: ${themeGet('colors.white', '#925B9F')};
+      background: ${themeGet("colors.white", "#925B9F")};
       border-radius: 50%;
       animation: ${playPluse} 1.5s ease-out infinite;
     }
@@ -85,7 +85,7 @@ export const VideoArea = styled.div`
       color: #000;
       position: relative;
       z-index: 5;
-      background-color: #009ADE;
+      background-color: #009ade;
       display: block;
       border-radius: inherit;
       height: 100%;
@@ -110,7 +110,7 @@ export const VideoWrapper = styled.div`
   position: relative;
   width: 900px;
   &:before {
-    content: '';
+    content: "";
     display: block;
     padding-top: 56.25%;
   }

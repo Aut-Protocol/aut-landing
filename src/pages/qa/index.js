@@ -4,6 +4,12 @@ import MainWrapper from "../_main_wrapper";
 import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
+import QATop from "containers/QA/QATop";
+import Faq from "containers/QA/Faq";
+import VideoSection from "containers/VideoSection";
+import { QAData } from "common/data";
+import SectionTop from "containers/SectionTop";
+import SectionHeading from "containers/QA/SectionHeading";
 
 const Main = () => {
   return (
@@ -13,22 +19,13 @@ const Main = () => {
           <Navbar />
         </DrawerProvider>
       </Sticky>
-
-      <h1
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          color: "white",
-          fontFamily: "Lato",
-        }}
-      >
-        Get Started!
-      </h1>
-
-      {/* Add you blocks here */}
-
+      <QATop />
+      <Faq />
+      <SectionHeading
+        title="Lorem ipsum dolor sit amet, consetetur"
+        subtitle="Lorem ipsum dolor sit amet"
+      ></SectionHeading>
+      <VideoSection {...QAData.video} />
       <Footer />
     </MainWrapper>
   );
