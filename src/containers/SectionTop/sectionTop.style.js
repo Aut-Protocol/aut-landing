@@ -4,7 +4,13 @@ import styled from "styled-components";
 const Section = styled.section`
   position: relative;
   z-index: 0;
-  // height: 100vh;
+
+  .gradient {
+    height: 5.188rem;
+    width: 20.938rem;
+    font-size: 1.125rem;
+    margin: 5.625rem auto;
+  }
 
   .container {
     display: flex;
@@ -103,13 +109,31 @@ export const Grid = styled.div`
 
 export const Content = styled.div`
   width: 50%;
+  @media only screen and (max-width: 991px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const RightWrapper = styled.div`
   width: 50%;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  align-self: center;
+  @media only screen and (max-width: 991px) {
+    width: 100%;
+    justify-content: center;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  max-width: 42rem;
 `;
 
 export const ImagePreview = styled.figure`
@@ -117,12 +141,11 @@ export const ImagePreview = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 37.5rem;
-  max-width: 45rem;
+  width: 42rem;
   @media only screen and (max-width: 991px) {
     // display: none;
     max-height: 30rem;
-    max-width: 30rem;
+    width: 100%;
     margin-top: 4rem;
   }
 `;

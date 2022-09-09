@@ -6,6 +6,7 @@ import Section, {
   Content,
   Grid,
   RightWrapper,
+  ButtonWrapper,
 } from "./sectionTop.style";
 import Fade from "react-reveal/Fade";
 
@@ -15,6 +16,7 @@ const SectionTop = ({
   subtitle,
   subtitle2,
   subtitle3,
+  headerButton,
   variant,
   className,
 }) => {
@@ -42,7 +44,22 @@ const SectionTop = ({
           </Content>
           <RightWrapper>
             <ImagePreview>{image}</ImagePreview>
+            {headerButton ? <ButtonWrapper>{headerButton}</ButtonWrapper> : ""}
           </RightWrapper>
+        </Grid>
+        <Grid>
+          <Content>
+            {subtitle2 ? (
+              <Text className="subtitle2" content={subtitle2} />
+            ) : (
+              ""
+            )}
+            {subtitle3 ? (
+              <Text className="subtitle3" content={subtitle3} />
+            ) : (
+              ""
+            )}
+          </Content>
         </Grid>
       </Container>
     </Section>

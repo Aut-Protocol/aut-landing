@@ -30,7 +30,8 @@ const ProductListSectionWrapper = styled.section`
     border: none;
   }
 
-  .button__card {
+
+  .product__card {
     position: relative;
     height: 100%;
     display: flex;
@@ -39,7 +40,9 @@ const ProductListSectionWrapper = styled.section`
     flex-direction: column;
     transition: all 0.3s ease;
     padding: 0;
-    user-select: none;
+    &.inactive {
+      user-select: none;
+    }
 
     a {
       min-height: unset;

@@ -7,7 +7,7 @@ import { ProductList } from "common/data";
 import ProductListSectionWrapper, { OverlayWrapper } from "./productList.style";
 import Container from "common/components/UI/Container";
 import { LinkButton } from "common/components/Button";
-import ButtonCard from "common/components/ButtonCard";
+import ProductCard from "common/components/ProductCard";
 
 const ProductListSection = ({
   row,
@@ -36,7 +36,7 @@ const ProductListSection = ({
                   height: "32.625rem",
                 }}
               >
-                <ButtonCard
+                <ProductCard
                   icon={<img src={product?.icon?.src} />}
                   wrapperStyle={blockWrapperStyle}
                   contentStyle={contentStyle}
@@ -74,7 +74,7 @@ const ProductListSection = ({
                     backgroundColor: "black",
                   }}
                 >
-                  <ButtonCard
+                  <ProductCard
                     icon={<img src={product?.icon?.src} />}
                     wrapperStyle={blockWrapperStyle}
                     contentStyle={contentStyle}
@@ -87,7 +87,7 @@ const ProductListSection = ({
                         {...productDescription}
                       />
                     }
-                    className="productList"
+                    className="productList inactive"
                   />
                 </Box>
               </OverlayWrapper>

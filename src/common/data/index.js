@@ -50,7 +50,7 @@ export const OptOutData = {
   ),
   pulseButtons: [
     {
-      title: "Āut Exspander",
+      title: "Āut Expander",
       subtitle: "Lorem ipsum",
       x: "190",
       y: "35",
@@ -193,6 +193,8 @@ import DaoExpanderIcon from "common/assets/image/expander-icon.svg";
 import dAutIcon from "common/assets/image/daut-icon.svg";
 import DashboardIcon from "common/assets/image/dashboard-icon.svg";
 import AutIDIcon from "common/assets/image/autid-icon.svg";
+import FeatureIcon from "common/assets/image/feature-icon.svg";
+import Button from "common/components/Button";
 
 export const ProductsData = {
   title: (
@@ -212,6 +214,7 @@ export const ProductsData = {
   dAut: {
     title: <>dĀut</>,
     className: "no-uppercase",
+    headerButton: <Button className="gradient" title="Button Text Here" />,
     subtitle: (
       <>
         Lorem ipsum dolor <br /> sit amet, consetetur sadipscing elitr, <br />
@@ -249,13 +252,59 @@ export const ProductsData = {
         ID
       </>
     ),
+    features: [
+      {
+        id: 1,
+
+        icon: FeatureIcon,
+        title: "Feature",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      },
+      {
+        id: 2,
+        icon: FeatureIcon,
+        title: "Feature",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      },
+      {
+        id: 3,
+        icon: FeatureIcon,
+        title: "Feature",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      },
+    ],
+    featureHeader: <>Key features</>,
+    featureSubtitle: (
+      <>
+        Lorem ipsum dolor sit amet, <br /> consetetur sadipscing elitr, sed
+      </>
+    ),
 
     subtitle: (
       <>
-        Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
-        sed
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et
       </>
     ),
+
+    subtitle2: (
+      <>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
+        sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+        gubergren, no sea takimata sanctus est Lorem ipsum dolor
+      </>
+    ),
+
     video: {
       url: "https://www.youtube.com/embed/hW98BFnVCm8",
       image: videoPlaceholderImage,
@@ -292,6 +341,37 @@ export const ProductsData = {
       url: "https://www.youtube.com/embed/hW98BFnVCm8",
       image: videoPlaceholderImage,
     },
+
+    features: [
+      {
+        id: 1,
+
+        icon: FeatureIcon,
+        title: "Feature",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      },
+      {
+        id: 2,
+        icon: FeatureIcon,
+        title: "Feature",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      },
+      {
+        id: 3,
+        icon: FeatureIcon,
+        title: "Feature",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      },
+    ],
+    featureHeader: <>Key features</>,
+    featureSubtitle: (
+      <>
+        Lorem ipsum dolor sit amet, <br /> consetetur sadipscing elitr, sed
+      </>
+    ),
   },
   dashboard: {
     title: (
@@ -305,6 +385,30 @@ export const ProductsData = {
       <>
         Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr,
         sed
+      </>
+    ),
+    subtitle2: (
+      <>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      </>
+    ),
+    subtitle3: (
+      <>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem
+        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.{" "}
+        <bt />
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem
+        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
       </>
     ),
     video: {
@@ -485,7 +589,7 @@ export const FooterData = {
       list: [
         {
           id: 1,
-          title: "Āut Exspander",
+          title: "Āut Expander",
           link: "/products/dao-expander",
         },
         {
