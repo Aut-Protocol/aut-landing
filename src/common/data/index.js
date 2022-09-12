@@ -543,6 +543,62 @@ export const QAData = {
   },
 };
 
+export const AboutData = {
+  title: (
+    <>
+      AB- <br /> [O/Ā]UT
+    </>
+  ),
+  subtitles: [
+    {
+      title: "Definition",
+      description: (
+        <>
+          'From Greek, āut means “Self” <br /> As in Self-Sovereign, or
+          Self-governance
+        </>
+      ),
+    },
+    {
+      title: "Values",
+      description: <>Āut is your own self. In open break with the status quo</>,
+    },
+    {
+      title: "Wordplay",
+      description: (
+        <>
+          It also sounds like Out & we like that. <br />
+          i.e.: I got in, by getting [o/ā]ut.
+        </>
+      ),
+    },
+  ],
+  definition: {
+    term: "autonomy",
+    noun: "noun",
+    pronunciation: "au·​ton·​o·​my | \\ ȯ-ˈtä-nə-mē   \\",
+    pluralTitle: "plural",
+    pluralValue: "autonomies",
+    defiintionTitle: "Definition of autonomy",
+    definitions: [
+      <>
+        the quality or state of being self-governing <br />
+        especially : the right of self-government <br />
+        // The territory was granted autonomy.
+      </>,
+      <>
+        the quality or state of being self-governing <br />
+        especially : the right of self-government <br />
+        // The territory was granted autonomy.
+      </>,
+      <>
+        : autonomous, from Greek autonomos <br />
+        // having its own laws
+      </>,
+    ],
+  },
+};
+
 /* ------------------------------------ */
 // FOOTER data section
 /* ------------------------------------ */
