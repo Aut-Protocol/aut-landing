@@ -3,10 +3,10 @@ import { MetaMask } from '@web3-react/metamask';
 import { WalletConnect } from '@web3-react/walletconnect';
 import { environment } from 'api/environment';
 
-const supportedChainIds = environment.chainIds.split(',').map(Number);
+const supportedChainIds = (environment?.chainIds || '').split(',').map(Number);
 
 const URLS = supportedChainIds.reduce((prev, curr, index) => {
-  const rpcUrl = environment.rpcUrls.split(',')[index].split('|');
+  const rpcUrl = environment.rpcUrls?.split(',')[index].split('|');
   prev[curr] = rpcUrl;
   return prev;
 }, {});

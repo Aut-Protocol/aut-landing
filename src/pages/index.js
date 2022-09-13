@@ -12,7 +12,7 @@ const Main = () => {
       <OptOutTop />
       <Portal />
       <ExpanderSection />
-      <VideoSection {...OptOutData.video} />
+      {/* <VideoSection {...OptOutData.video} /> */}
     </MainWrapper>
   );
 };
