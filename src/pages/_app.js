@@ -39,17 +39,15 @@ export default function CustomApp({ Component, pageProps }) {
         </Head>
         <ResetCSS />
         <GlobalStyle />
-        <Web3AutProvider>
-          <Modal>
-            <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
-              <DrawerProvider>
-                <Navbar />
-              </DrawerProvider>
-            </Sticky>
-            <Component {...pageProps} />
-            <Footer />
-          </Modal>
-        </Web3AutProvider>
+        <Modal>
+          <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+            <DrawerProvider>
+              <Navbar />
+            </DrawerProvider>
+          </Sticky>
+          <Component {...pageProps} />
+          <Footer />
+        </Modal>
       </>
     </ThemeProvider>
   );
