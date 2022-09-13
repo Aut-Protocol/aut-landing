@@ -11,7 +11,7 @@ const ManifestoTop = () => {
       <Container>
         <Content>
           <Heading as="h1" content={title} />
-          <Text className="subtitle" content={subtitle} />
+          <Text className="description" content={description} />
         </Content>
       </Container>
     </Section>
