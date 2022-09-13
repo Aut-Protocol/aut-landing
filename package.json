@@ -6,7 +6,7 @@
   "author": "Aut",
   "scripts": {
     "build": "next build",
-    "start": "npm run update-env && next",
+    "start": "next",
     "update-env": "node ./setup-environment.js"
   },
   "dependencies": {
