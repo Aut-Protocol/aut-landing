@@ -24,6 +24,7 @@ const Section = styled.section`
     font-weight: bold;
     letter-spacing: 0.2rem;
     margin-bottom: 3rem;
+    text-align: center;
   }
 
   p.subtitle {
