@@ -802,19 +802,24 @@ export const FooterData = {
         },
         {
           id: 2,
-          title: "Manifesto",
-          link: "/manifesto",
+          title: "Products",
+          link: "/products",
         },
-        {
-          id: 4,
-          title: "Ask Āut",
-          link: "/qa",
-        },
-        {
-          id: 5,
-          title: "RoadMap",
-          link: "/roadmap",
-        },
+        // {
+        //   id: 2,
+        //   title: "Manifesto",
+        //   link: "/manifesto",
+        // },
+        // {
+        //   id: 4,
+        //   title: "Ask Āut",
+        //   link: "/qa",
+        // },
+        // {
+        //   id: 5,
+        //   title: "RoadMap",
+        //   link: "/roadmap",
+        // },
       ],
     },
     {
@@ -824,23 +829,26 @@ export const FooterData = {
         {
           id: 1,
           title: "Āut Expander",
-          link: "/products/dao-expander",
+          target:"_blank",
+          link: "https://docs.aut.id/v2/product-suite/aut-exp.",
         },
         {
           id: 2,
           title: "dĀut",
-          link: "/products/d-aut",
+          target:"_blank",
+          link: "https://docs.aut.id/v2/product-suite/daut",
         },
         {
           id: 3,
           title: "Āut ID",
-          link: "/products/aut-id",
+          target:"_blank",
+          link: "https://docs.aut.id/v2/product-suite/my-autid",
         },
-        {
-          id: 4,
-          title: "Dashboard",
-          link: "/products/aut-dashboard",
-        },
+        // {
+        //   id: 4,
+        //   title: "Dashboard",
+        //   link: "/products/aut-dashboard",
+        // },
       ],
     },
   ],

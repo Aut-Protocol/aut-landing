@@ -50,7 +50,7 @@ const Footer = () => {
                 {item.list.map((item) => (
                   <li className="widgetListItem" key={item.id}>
                     <NextLink href={item.link} shallow>
-                      {item.title}
+                      <a target={item.target}>{item.title}</a>
                     </NextLink>
                   </li>
                 ))}
