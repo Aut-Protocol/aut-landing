@@ -27,7 +27,6 @@ const Heading = ({ content, ...props }) => (
 export default Heading;
 
 Heading.propTypes = {
-  content: PropTypes.string,
   as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   mt: PropTypes.oneOfType([
     PropTypes.string,

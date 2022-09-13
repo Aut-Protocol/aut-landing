@@ -53,13 +53,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
             onSubmit={handleSubmit(onSubmit, onError)}
             className="d-flex newsletter-input-fields"
           >
-            <Text
-              ont-weight="bold"
-              minWidth="140px"
-              color="white"
-              fontSize="25px"
-              content="Stay in touch"
-            />
+            <Text as="h4" content="Stay in touch" />
             <div className="form-fields">
               {/* <div className="form-field">
                 <Controller

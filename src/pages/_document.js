@@ -32,10 +32,7 @@ export default class CustomDocument extends Document {
         <Head>
           <meta name="author" content="Aut" />
           <link rel="icon" href="/favicon.ico" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
-            rel="stylesheet"
-          />
+          <link href="http://fonts.cdnfonts.com/css/avenir" rel="stylesheet" />
         </Head>
         <body
           style={{

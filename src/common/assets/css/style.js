@@ -9,6 +9,7 @@ const ResetCSS = createGlobalStyle`
   html {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
+    font-size: 62.8%;
   }
 
   *,
@@ -46,6 +47,7 @@ const ResetCSS = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    
   }
 
   body {
@@ -53,6 +55,7 @@ const ResetCSS = createGlobalStyle`
     padding: 0;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
   }
 
   ul {
@@ -80,6 +83,18 @@ const ResetCSS = createGlobalStyle`
       .innerRndComponent {
         border-radius: 8px !important;
       }
+    }
+  }
+
+  .rc-tooltip.button-tooltip  {
+    opacity: 1;
+    .rc-tooltip-inner {
+      padding: 14px;
+      background: rgba(0,163,223,1);
+    }
+
+    .rc-tooltip-arrow {
+      border-top-color: rgba(0,163,223,1);
     }
   }
 

@@ -27,7 +27,6 @@ const Text = ({ content, ...props }) => (
 export default Text;
 
 Text.propTypes = {
-  content: PropTypes.string,
   as: PropTypes.string,
   mt: PropTypes.oneOfType([
     PropTypes.string,
