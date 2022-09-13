@@ -5,7 +5,7 @@
   "description": "Aut",
   "author": "Aut",
   "scripts": {
-    "build": "npm run update-env && next build",
+    "build": "next build",
     "start": "npm run update-env && next",
     "update-env": "node ./setup-environment.js"
   },
