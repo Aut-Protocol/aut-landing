@@ -16,6 +16,7 @@ const Section = styled.section`
   h3 {
     font-size: 1.875rem;
     line-height: 1.1;
+    letter-spacing: 0.2rem;
   }
 
   h4.subtitle {
@@ -28,6 +29,7 @@ const Section = styled.section`
   .description {
     font-size: 1.125rem;
     color: white;
+    letter-spacing: 0.2rem;
   }
 
   @media only screen and (max-width: 1600px) {
@@ -43,18 +45,8 @@ const Section = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
-    height: auto;
     .container {
-      padding-top: 10rem;
-    }
-
-    h1 {
-      padding-top: 5rem;
-      font-size: 10rem;
-    }
-
-    p.subtitle {
-      font-size: 2.5rem;
+      padding-bottom: 4rem;
     }
   }
 

@@ -6,9 +6,7 @@ const Section = styled.section`
   text-align: left;
 
   .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    padding-top: 0;
   }
 
   h2 {
@@ -28,10 +26,8 @@ const Section = styled.section`
     letter-spacing: 0.3rem;
   }
 
-  p.pronWhite {
-    font-size: 1.125rem;
+  p.white {
     color: white;
-    letter-spacing: 0.3rem;
   }
 
   h4.subtitle {
@@ -59,17 +55,7 @@ const Section = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
-    height: auto;
-    .container {
-      padding-top: 10rem;
-    }
-
-    h1 {
-      padding-top: 5rem;
-      font-size: 10rem;
-    }
-
-    p.subtitle {
+    p.sub {
       font-size: 2.5rem;
     }
   }
@@ -88,14 +74,27 @@ export const DefinitionTop = styled.div`
   align-items: flex-end;
 `;
 
-export const PluralContainer = styled.div`
+export const SameLineContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.6rem;
 `;
 
+export const DefinitionItem = styled.div`
+  letter-spacing: 0.1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+`;
+
 export const DefinitionBox = styled.div`
+  width: 38rem;
+  @media only screen and (max-width: 991px) {
+    width: 35rem;
+  }
+  padding: 2rem 2.5rem 1rem 2.5rem;
   border-style: solid;
   border-width: 0.3rem;
   border-image: linear-gradient(

@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Section = styled.section`
   position: relative;
   z-index: 0;
+  line-height: normal;
 
   .container {
     display: flex;
@@ -13,7 +14,6 @@ const Section = styled.section`
 
   h1 {
     font-size: 6.875rem;
-    line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 10px;
     text-align: left;
@@ -23,7 +23,6 @@ const Section = styled.section`
     font-size: 3.375rem;
     color: white;
     font-weight: bold;
-    line-height: 1.4;
   }
 
   @media only screen and (max-width: 1600px) {
@@ -39,32 +38,25 @@ const Section = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
-    height: auto;
-    .container {
-      padding-top: 10rem;
-    }
-
-    h1 {
-      padding-top: 5rem;
-      font-size: 10rem;
-    }
-
-    p.subtitle {
-      font-size: 2.5rem;
-    }
   }
 
   @media only screen and (max-width: 768px) {
   }
 
   @media only screen and (max-width: 667px) {
+    h1 {
+      font-size: 6rem;
+    }
   }
 `;
 export default Section;
 
 export const Content = styled.div`
   display: flex;
-  text-align: center;
+  @media only screen and (max-width: 991px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const ContentHalf = styled.div`

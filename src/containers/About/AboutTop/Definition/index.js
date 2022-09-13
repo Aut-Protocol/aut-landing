@@ -5,15 +5,16 @@ import Container from "common/components/UI/Container";
 import Section, {
   Content,
   DefinitionBox,
+  DefinitionItem,
   DefinitionTop,
-  PluralContainer,
+  SameLineContainer,
 } from "./definition.style";
 
 const Definition = () => {
   const { definition } = AboutData;
   return (
     <Section id="about_subtitles">
-      <Container>
+      <Container className="container">
         <Content>
           <DefinitionBox>
             <DefinitionTop>
@@ -22,10 +23,23 @@ const Definition = () => {
             </DefinitionTop>
 
             <Text className="pron" content={definition.pronunciation} />
-            <PluralContainer>
+            <SameLineContainer>
               <Text className="pron" content={definition.pluralTitle} />
-              <Text className="pronWhite" content={definition.pluralValue} />
-            </PluralContainer>
+              <Text className="pron white" content={definition.pluralValue} />
+            </SameLineContainer>
+
+            <SameLineContainer>
+              <Text className="sub" content={definition.defintionTitle} />
+              <Text className="sub white" content={definition.term} />
+            </SameLineContainer>
+            {definition.definitions.map((n, i) => {
+              return (
+                <DefinitionItem key={i}>
+                  <Text className="description" content={i} />
+                  <Text className="description" content={n} />
+                </DefinitionItem>
+              );
+            })}
           </DefinitionBox>
         </Content>
       </Container>

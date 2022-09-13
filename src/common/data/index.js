@@ -561,7 +561,12 @@ export const AboutData = {
     },
     {
       title: "Values",
-      description: <>Āut is your own self. In open break with the status quo</>,
+      description: (
+        <>
+          Āut is your own self. In open break with the
+          <br /> status quo
+        </>
+      ),
     },
     {
       title: "Wordplay",
@@ -579,23 +584,87 @@ export const AboutData = {
     pronunciation: "au·​ton·​o·​my | \\ ȯ-ˈtä-nə-mē   \\",
     pluralTitle: "plural",
     pluralValue: "autonomies",
-    defiintionTitle: "Definition of autonomy",
+    defintionTitle: "Definition of",
     definitions: [
       <>
-        the quality or state of being self-governing <br />
+        : the quality or state of being self-governing <br />
         especially : the right of self-government <br />
         // The territory was granted autonomy.
       </>,
       <>
-        the quality or state of being self-governing <br />
-        especially : the right of self-government <br />
-        // The territory was granted autonomy.
+        : self-directing freedom, especially moral independence <br />
+        // personal autonomy.
       </>,
       <>
         : autonomous, from Greek autonomos <br />
         // having its own laws
       </>,
     ],
+  },
+  bottom: {
+    title: "Autonomy & Coordination…",
+    subtitle: "…within and beyond the digital borders of a community.",
+    description1: (
+      <>
+        Āut is my own self. My self <br />
+        - outside the system
+        <br />
+        - outside conventions
+        <br />
+        - outside the status quo.
+        <br />
+        <br />
+        Without Roles, <br />
+        there is no coordination. <br />
+        Without Coordination, <br />
+        there are no DAOs.
+        <br />
+        <br />
+      </>
+    ),
+    paragraphHeading1: "Do more with your DAO.",
+    paragraph1: (
+      <>
+        Āut is an extendable Protocol designed to
+        <br />
+        power the next generation of DAOs.
+        <br />
+        <br />
+        DAOs 2.0, if you like, or a Coordination
+        <br /> Renaissance. Governance is much more than just voting.
+        <br />
+        And DAOs can be much more than Smart
+        <br /> Treasuries.
+      </>
+    ),
+    description2: (
+      <>
+        Āut is an expandable Community protocol, powering the
+        <br /> next level of collective coordination in DAOs.
+        <br /> It does so by adding Role-based Membership &<br />
+        Governance in Web3 Communities.
+      </>
+    ),
+    paragraphHeading2: "Create your own Standard.",
+    paragraph2: (
+      <>
+        1. Import any Legacy Contract - any DAO Type you can
+        <br /> think of. Here’s a list of what Āut can already expand.
+        <br />
+        2. Create Roles for your DAO directly on-chain - as easy
+        <br /> as on Discord.
+        <br /> 3. Use our decentralized authentication system (dĀut)
+        <br /> to let your Members login & claim their Role on any
+        <br />
+        website.
+        <br /> 4. Create Tasks & Voting routines,
+        <br /> and assign them to a specific
+        <br /> Role.
+        <br /> 5. Coordinate. Coordinate. Coordinate.
+        <br /> 6. Change things. Break things.
+        <br /> Let your actions shape your Community.
+      </>
+    ),
   },
 };
 

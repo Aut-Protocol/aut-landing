@@ -11,10 +11,10 @@ const AboutSubtitles = () => {
       <Container>
         <Content>
           {subtitles.map(({ title, description }, index) => (
-            <>
+            <div key={index}>
               <Heading as="h3" content={title} />
               <Text className="description" content={description} />
-            </>
+            </div>
           ))}
         </Content>
       </Container>

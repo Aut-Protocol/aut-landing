@@ -16,7 +16,7 @@ const AboutTop = () => {
             <Heading as="h1" content={title} />
             <AboutSubtitles />
           </ContentHalf>
-          <ContentHalf>
+          <ContentHalf className="right">
             <Definition />
           </ContentHalf>
         </Content>
