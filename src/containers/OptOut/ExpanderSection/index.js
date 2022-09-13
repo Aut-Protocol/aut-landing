@@ -20,6 +20,7 @@ const ExpanderSection = () => {
             <Heading className="mobile-heading" as="h1" content={title} />
           </div>
           <div className="content">
+            <Heading as="h1" content={title} />
             <Text className="subtitle" content={description} />
             <Link href={link.path}>
               <a
@@ -27,11 +28,11 @@ const ExpanderSection = () => {
                 href={link.path}
                 className="dark read-more-btn"
                 style={{
-                  fontSize: "1.125rem",
+                  fontSize: "1.5rem",
                   color: "white",
+                  textDecoration: 'underline',
                   whiteSpace: "nowrap",
-                  borderBottom: "1px solid white",
-                  paddingBottom: "1px",
+                  textAlign: "right"
                 }}
               >
                 {link.title}

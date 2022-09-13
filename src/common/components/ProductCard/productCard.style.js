@@ -24,23 +24,22 @@ const ProductCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
-  &.icon_left {
-    display: flex;
-    .icon__wrapper {
-      flex-shrink: 0;
-    }
-  }
-  &.icon_right {
-    display: flex;
-    flex-direction: row-reverse;
-    .content__wrapper {
-      text-align: right;
-    }
-    .icon__wrapper {
-      flex-shrink: 0;
-    }
-  }
+  // &.icon_left {
+  //   display: flex;
+  //   .icon__wrapper {
+  //     flex-shrink: 0;
+  //   }
+  // }
+  // &.icon_right {
+  //   display: flex;
+  //   flex-direction: row-reverse;
+  //   .content__wrapper {
+  //     text-align: right;
+  //   }
+  //   .icon__wrapper {
+  //     flex-shrink: 0;
+  //   }
+  // }
 
   /* styled system prop support */
   ${display}
@@ -58,6 +57,8 @@ const ProductCardWrapper = styled.div`
   ${boxShadow}
   ${borderRadius}
   ${overflow}
+
+  justify-content: space-between;
 `;
 
 // Icon wrapper style
@@ -76,6 +77,7 @@ const IconWrapper = styled.div`
   ${borderRadius}
   ${overflow}
   ${fontSize}
+  display: flex;
 `;
 
 // Content wrapper style
@@ -86,9 +88,9 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 50%;
   text-align: start;
   padding: 0 20px;
+  flex: 1;
 
   p {
     font-size: 1.125rem;
@@ -96,15 +98,15 @@ const ContentWrapper = styled.div`
 `;
 const TopWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 35%;
-  padding-top: 20px;
+  justify-content: center;
+  padding: 16px 0;
+  grid-gap: 10px;
   font-size: 2.188rem;
+  margin: 0;
 
   h2 {
-    margin-top: 15px;
+    margin: 0;
     font-size: 2.188rem;
   }
 
@@ -119,7 +121,7 @@ const BottomWrapper = styled.div`
   align-self: flex-end;
   justify-content: center;
   height: 15%;
-  padding: 0 20px;
+  padding: 0;
   border-top: 3px;
   border-style: solid;
   border-bottom: none;

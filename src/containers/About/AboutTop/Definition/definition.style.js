@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Section = styled.section`
+const Section = styled.div`
   position: relative;
   z-index: 0;
   text-align: left;
@@ -18,12 +18,13 @@ const Section = styled.section`
     color: #6fa1c3;
     font-weight: bold;
     line-height: 1.4;
+    margin-left: 4px;
   }
 
   p.pron {
     font-size: 1.125rem;
     color: #6fa1c3;
-    letter-spacing: 0.3rem;
+    letter-spacing: 1.5px;
   }
 
   p.white {
@@ -82,11 +83,11 @@ export const SameLineContainer = styled.div`
 `;
 
 export const DefinitionItem = styled.div`
-  letter-spacing: 0.1rem;
+  letter-spacing: 1.5px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 1rem;
+  grid-gap: 1rem;
 `;
 
 export const DefinitionBox = styled.div`

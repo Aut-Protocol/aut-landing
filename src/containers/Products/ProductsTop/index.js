@@ -6,7 +6,7 @@ const ProductsTop = () => {
   const { title, subtitle, video } = ProductsData;
   return (
     <SectionTop
-      image={<VideoTop {...video} />}
+      image={<VideoTop disableVideo {...video} />}
       title={title}
       subtitle={subtitle}
     />

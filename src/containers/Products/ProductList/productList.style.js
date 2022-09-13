@@ -34,9 +34,6 @@ const ProductListSectionWrapper = styled.section`
   .product__card {
     position: relative;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     transition: all 0.3s ease;
     padding: 0;
@@ -57,7 +54,7 @@ const OverlayWrapper = styled.div`
   background: rgba(255, 255, 255, 0.5);
   cursor: auto;
   z-index: 9;
-  border: 1px solid white;
+  // border: 1px solid white;
   overflow: hidden;
   max-width: 25.25rem;
   height: 32.625rem;

@@ -15,8 +15,9 @@ const Section = styled.section`
   h1 {
     font-size: 6.875rem;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 1.5px;
     text-align: left;
+    margin-bottom: 4rem;
   }
 
   p.subtitle {
@@ -61,4 +62,10 @@ export const Content = styled.div`
 
 export const ContentHalf = styled.div`
   flex: 1;
+
+  &.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;

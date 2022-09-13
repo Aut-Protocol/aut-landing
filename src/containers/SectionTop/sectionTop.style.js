@@ -17,13 +17,23 @@ const Section = styled.section`
     flex-direction: column;
     height: 100%;
     padding-top: 18.75rem;
+    
   }
 
   h1 {
-    font-size: 14rem;
-    line-height: 1.1;
+    font-size: 6.875rem;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 1.5px;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 4.375rem;
+  }
+
+  p.subtitle {
+    font-size: 2.625rem;
+    color: white;
+    font-weight: bold;
+    text-align: left;
   }
 
   h2 {
@@ -31,17 +41,6 @@ const Section = styled.section`
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: 10px;
-  }
-
-  .no-uppercase {
-    text-transform: none !important;
-  }
-
-  p.subtitle {
-    font-size: 3.375rem;
-    color: white;
-    font-weight: bold;
-    line-height: 1.4;
   }
 
   p.subtitle2 {
@@ -56,6 +55,10 @@ const Section = styled.section`
     color: white;
     font-weight: bold;
     line-height: 1.4;
+  }
+
+  .no-uppercase {
+    text-transform: none !important;
   }
 
   @media only screen and (max-width: 1600px) {
@@ -78,11 +81,11 @@ const Section = styled.section`
 
     h1 {
       padding-top: 5rem;
-      font-size: 10rem;
+      font-size: 5rem;
     }
 
     p.subtitle {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 
@@ -95,7 +98,7 @@ const Section = styled.section`
 export default Section;
 
 export const Grid = styled.div`
-  gap: 0px;
+  grid-gap: 4rem;
   display: flex;
   align-items: space-between;
   grid-template-columns: 1fr 1fr;
@@ -108,7 +111,8 @@ export const Grid = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 50%;
+  // width: 50%;
+  flex: 1;
   @media only screen and (max-width: 991px) {
     width: 100%;
     justify-content: center;
@@ -116,16 +120,8 @@ export const Content = styled.div`
 `;
 
 export const RightWrapper = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex-direction: column;
-  align-self: center;
-  @media only screen and (max-width: 991px) {
-    width: 100%;
-    justify-content: center;
-  }
+  // width: 50%;
+  flex: 1;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -137,14 +133,19 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ImagePreview = styled.figure`
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 42rem;
+  margin: 4rem 0 0;
+  svg {
+    height: 42rem;
+    max-width: 42rem;
+  }
   @media only screen and (max-width: 991px) {
-    // display: none;
-    max-height: 30rem;
+    svg {
+      height: 30rem;
+      max-width: 30rem;
+    }
     width: 100%;
     margin-top: 4rem;
   }

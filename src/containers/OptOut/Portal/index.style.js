@@ -14,9 +14,10 @@ const PortalArea = styled.section`
   }
 
   h1 {
-    font-size: 2.5rem;
-    line-height: 1.1;
-    letter-spacing: 4px;
+    font-size: 3rem;
+    letter-spacing: 1.5px;
+    font-family: Avenir Next;
+		font-weight: bold;
   }
 
   .portal-player {

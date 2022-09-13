@@ -7,18 +7,31 @@ const SectionWrapper = styled.div`
   padding-top: 18.75rem;
 
   h1 {
-    font-size: 7rem;
-    line-height: 1.1;
+    font-size: 5.625rem;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    &.mobile-heading {
+      display: none;
+    }
+  }
+
+  .content {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
   p.subtitle {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
-    font-weight: bold;
-    line-height: 1.4;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    max-width: 49.063rem;
   }
 
   .image-wrapper {
@@ -26,8 +39,8 @@ const SectionWrapper = styled.div`
     .image {
       max-width: 22rem;
     }
+    justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
   }
 
   @media only screen and (max-width: 1600px) {
@@ -43,7 +56,16 @@ const SectionWrapper = styled.div`
     padding-top: 10rem;
 
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
+      display: none;
+      &.mobile-heading {
+        display: block;
+        margin-bottom: 0;
+      }
+    }
+
+    .image-wrapper {
+      margin-bottom: 5rem;
     }
   }
 
@@ -61,7 +83,7 @@ export const Grid = styled.div`
   gap: 0px;
   display: grid;
   align-items: center;
-  grid-template-columns: 70% 1fr;
+  grid-template-columns: 1fr 1fr;
   flex: 1;
 
   @media only screen and (max-width: 991px) {

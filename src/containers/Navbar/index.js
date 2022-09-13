@@ -12,10 +12,11 @@ import React, { useContext } from "react";
 import Link from "next/link";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
+import { LinkButton } from "common/components/Button";
 
 const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
   const { state, dispatch } = useContext(DrawerContext);
-  const { menuItems, logo } = NavbarData;
+  const { menuItems, logo, navButtons } = NavbarData;
 
   // Toggle drawer
   const toggleHandler = () => {
@@ -37,7 +38,17 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             />
           </Link>
           <Box {...menuWrapper} className="mainMenuWrapper">
-            <ScrollSpyMenu className="main_menu" menuItems={menuItems} offset={-70} />
+            <ScrollSpyMenu
+              className="main_menu"
+              menuItems={menuItems}
+              offset={-70}
+            />
+
+            <div className="navbar-buttons">
+              {navButtons.map(({ link, name }) => (
+                <LinkButton target="_blank" className="gradient" title={name} href={link} />
+              ))}
+            </div>
 
             <Drawer
               width="420px"

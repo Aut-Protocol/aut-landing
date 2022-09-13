@@ -32,14 +32,15 @@ const ProductListSection = ({
                     "linear-gradient(45.57deg, rgb(0, 159, 227) 0%, rgb(3, 153, 222) 8%, rgb(14, 139, 211) 19%, rgb(32, 114, 191) 30%, rgb(58, 80, 164) 41%, rgb(90, 37, 131) 53%, rgb(69, 63, 148) 71%, rgb(56, 81, 159) 88%, rgb(52, 88, 164) 100%) 1 / 1 / 0 stretch",
                   borderWidth: "7px",
                   borderStyle: "solid",
-                  maxWidth: "25.25rem",
-                  height: "32.625rem",
+                  maxWidth: "27rem",
+                  height: "35rem",
                 }}
               >
                 <ProductCard
                   icon={<img src={product?.icon?.src} />}
                   wrapperStyle={blockWrapperStyle}
                   contentStyle={contentStyle}
+                  iconPosition="right"
                   title={<Heading content={product.title} {...productTitle} />}
                   description={
                     <Text
@@ -50,15 +51,23 @@ const ProductListSection = ({
                   className="productList"
                   button={
                     <LinkButton
-                      className="button_learn_more"
+                      className="button_learn_more gradient"
                       title="Learn More >"
                       href={product.link}
+                      target="_blank"
                     />
                   }
                 />
               </Box>
             ) : (
-              <OverlayWrapper className="col" key={index}>
+              <OverlayWrapper
+                style={{
+                  maxWidth: "27rem",
+                  height: "35rem",
+                }}
+                className="col"
+                key={index}
+              >
                 <Box
                   className="col"
                   {...col}
@@ -72,6 +81,8 @@ const ProductListSection = ({
                     width: "100%",
                     filter: "blur(30px)",
                     backgroundColor: "black",
+                    width: "27rem",
+                    height: "35rem",
                   }}
                 >
                   <ProductCard

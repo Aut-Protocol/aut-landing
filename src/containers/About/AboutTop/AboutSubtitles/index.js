@@ -8,16 +8,14 @@ const AboutSubtitles = () => {
   const { subtitles } = AboutData;
   return (
     <Section id="about_subtitles">
-      <Container>
-        <Content>
-          {subtitles.map(({ title, description }, index) => (
-            <div key={index}>
-              <Heading as="h3" content={title} />
-              <Text className="description" content={description} />
-            </div>
-          ))}
+      {subtitles.map(({ title, description }, index) => (
+        <Content key={index}>
+          <span>
+            <Heading as="h3" content={title} />
+            <Text className="description" content={description} />
+          </span>
         </Content>
-      </Container>
+      ))}
     </Section>
   );
 };

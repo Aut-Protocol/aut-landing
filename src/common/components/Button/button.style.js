@@ -29,11 +29,11 @@ const ButtonStyle = styled.button`
 
   &:not([disabled]) {
     background-color: #000;
-    border-color: #009ADE;
+    border-color: #009ade;
     color: #fff;
 
     &:hover {
-      background-color: #009ADE;
+      background-color: #009ade;
     }
   }
 
@@ -85,12 +85,37 @@ const ButtonStyle = styled.button`
   ${base}
 
   &.gradient {
-    border-image: linear-gradient(45.57deg, #009fe3 0%, #0399de 8%, #0e8bd3 19%, #2072bf 30%, #3a50a4 41%, #5a2583 53%, #453f94 71%, #38519f 88%, #3458a4 100%) 1;
+    border-image: linear-gradient(
+        45.57deg,
+        #009fe3 0%,
+        #0399de 8%,
+        #0e8bd3 19%,
+        #2072bf 30%,
+        #3a50a4 41%,
+        #5a2583 53%,
+        #453f94 71%,
+        #38519f 88%,
+        #3458a4 100%
+      )
+      1;
     border-width: 3px;
     border-color: transparent;
     border-radius: 0;
-    &:hover {
-      background: transparent linear-gradient(45.57deg, #009fe3 0%, #0399de 8%, #0e8bd3 19%, #2072bf 30%, #3a50a4 41%, #5a2583 53%, #453f94 71%, #38519f 88%, #3458a4 100%) 0% 0%;
+    &:not(.disabled):hover {
+      background: transparent
+        linear-gradient(
+          45.57deg,
+          #009fe3 0%,
+          #0399de 8%,
+          #0e8bd3 19%,
+          #2072bf 30%,
+          #3a50a4 41%,
+          #5a2583 53%,
+          #453f94 71%,
+          #38519f 88%,
+          #3458a4 100%
+        )
+        0% 0%;
       border-color: transparent;
     }
   }
@@ -102,46 +127,45 @@ export const LinkStyle = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 7.114rem;
-  min-width: 24.375rem;
-  border-radius: 0;
+  min-height: 2.8rem;
+  min-width: 10rem;
   font-family: inherit;
   font-size: 2.625rem;
+  border-radius: 40px;
+
+  font-weight: 900;
   text-decoration: none;
   text-transform: capitalize;
-  border: 0;
   transition: all 0.3s ease;
-  border-width: 1px;
+  border-width: 3px;
   border-style: solid;
   span.btn-text {
-    padding-left: 16px;
-    padding-right: 16px;
+    // padding-left: ${themeGet("space.1", "4")}px;
+    // padding-right: ${themeGet("space.1", "4")}px;
   }
-  background-color: #fff;
-  color: #000;
 
-  &:not([disabled]).dark {
+  &:not([disabled]) {
     background-color: #000;
-    border-color: #000;
+    border-color: #009ade;
     color: #fff;
 
     &:hover {
-      background-color: #fff;
-      border-color: #000;
-      color: #000;
+      background-color: #009ade;
     }
   }
 
-  &:not([disabled]).light {
-    &:hover {
-      background-color: black;
-      border-color: white;
-      color: white;
-    }
-  }
+  // &:not([disabled]).light {
+  //   &:hover {
+  //     background-color: black;
+  //     border-color: white;
+  //     color: white;
+  //   }
+  // }
 
   &[disabled] {
     cursor: unset;
+    color: black;
+    background-color: #939393;
   }
 
   span.btn-icon {
@@ -176,6 +200,42 @@ export const LinkStyle = styled.a`
   ${colorStyle}
   ${sizeStyle}
   ${base}
+
+  &.gradient {
+    border-image: linear-gradient(
+        45.57deg,
+        #009fe3 0%,
+        #0399de 8%,
+        #0e8bd3 19%,
+        #2072bf 30%,
+        #3a50a4 41%,
+        #5a2583 53%,
+        #453f94 71%,
+        #38519f 88%,
+        #3458a4 100%
+      )
+      1;
+    border-width: 3px;
+    border-color: transparent;
+    border-radius: 0;
+    &:not(.disabled):hover {
+      background: transparent
+        linear-gradient(
+          45.57deg,
+          #009fe3 0%,
+          #0399de 8%,
+          #0e8bd3 19%,
+          #2072bf 30%,
+          #3a50a4 41%,
+          #5a2583 53%,
+          #453f94 71%,
+          #38519f 88%,
+          #3458a4 100%
+        )
+        0% 0%;
+      border-color: transparent;
+    }
+  }
 `;
 
 // prop types can also be added from the style functions

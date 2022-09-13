@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Section = styled.section`
+const Section = styled.div`
   position: relative;
   z-index: 0;
   text-align: left;
@@ -16,7 +16,7 @@ const Section = styled.section`
   h3 {
     font-size: 1.875rem;
     line-height: 1.1;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
   }
 
   h4.subtitle {
@@ -29,7 +29,7 @@ const Section = styled.section`
   .description {
     font-size: 1.125rem;
     color: white;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
   }
 
   @media only screen and (max-width: 1600px) {
@@ -60,4 +60,7 @@ export default Section;
 
 export const Content = styled.div`
   // text-align: center;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
 `;

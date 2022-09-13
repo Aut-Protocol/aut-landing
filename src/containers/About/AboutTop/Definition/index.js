@@ -14,7 +14,6 @@ const Definition = () => {
   const { definition } = AboutData;
   return (
     <Section id="about_subtitles">
-      <Container className="container">
         <Content>
           <DefinitionBox>
             <DefinitionTop>
@@ -42,7 +41,6 @@ const Definition = () => {
             })}
           </DefinitionBox>
         </Content>
-      </Container>
     </Section>
   );
 };

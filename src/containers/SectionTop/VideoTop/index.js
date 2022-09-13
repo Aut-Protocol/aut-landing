@@ -14,8 +14,11 @@ const ModalContent = ({ url }) => (
   </VideoWrapper>
 );
 
-const VideoTop = ({ url, image }) => {
+const VideoTop = ({ url, image, disableVideo }) => {
   const handleVideoModal = () => {
+    if (disableVideo) {
+      return;
+    }
     openModal({
       config: {
         className: "video-modal",
@@ -36,10 +39,13 @@ const VideoTop = ({ url, image }) => {
   return (
     <VideoArea onClick={handleVideoModal}>
       <NextImage src={image} alt="Aut Video" />
-      <Button
-        className="video__btn"
-        icon={<Icon className="plus" icon={ic_play_arrow} />}
-      />
+
+      {!disableVideo && (
+        <Button
+          className="video__btn"
+          icon={<Icon className="plus" icon={ic_play_arrow} />}
+        />
+      )}
     </VideoArea>
   );
 };

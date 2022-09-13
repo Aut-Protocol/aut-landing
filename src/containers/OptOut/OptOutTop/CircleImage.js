@@ -1,28 +1,33 @@
 import React from "react";
-
 import { Player } from "@lottiefiles/react-lottie-player";
 import animationData from "common/assets/Pulse_Button.json";
 import Tooltip from "rc-tooltip";
+import Text from "common/components/Text";
 import "rc-tooltip/assets/bootstrap.css";
 
-const Loading = ({ title, subtitle }) => {
+const Loading = ({ title, subtitle, link }) => {
   return (
     <Tooltip
       placement="topRight"
       overlayClassName="button-tooltip"
       align={{
-        offset: [0, 20],
+        offset: [10, 20],
       }}
       overlay={
         <div
           style={{
-            width: "160px",
-            height: "90px",
+            width: "24rem",
+            height: "12rem",
           }}
         >
-          {title}
-          <br />
-          {subtitle}
+          <Text
+            fontSize="1.75rem"
+            fontWeight="bold"
+            as="h2"
+            mb="0.2rem"
+            content={title}
+          />
+          <Text mb="0" fontSize="12px" as="p" content={subtitle} />
         </div>
       }
     >
@@ -31,6 +36,7 @@ const Loading = ({ title, subtitle }) => {
           position: "relative",
           width: "100px",
           height: "100px",
+          cursor: "pointer",
         }}
       >
         <svg
@@ -284,9 +290,15 @@ function CircleImage({ pulseButtons }) {
         ></path>
       </g>
 
-      {pulseButtons.map(({ title, subtitle, ...position }, index) => (
-        <foreignObject key={`circle-foreign-object-key${index}`} id="pulse_button" width="100" height="100" {...position}>
-          <Loading title={title} subtitle={subtitle} />
+      {pulseButtons.map(({ title, link, subtitle, ...position }, index) => (
+        <foreignObject
+          key={`circle-foreign-object-key${index}`}
+          id="pulse_button"
+          width="100"
+          height="100"
+          {...position}
+        >
+          <Loading link={link} title={title} subtitle={subtitle} />
         </foreignObject>
       ))}
     </svg>

@@ -15,14 +15,14 @@ const Section = styled.section`
   h1 {
     font-size: 14rem;
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 1.5px;
   }
 
   p.heading {
     font-size: 4rem;
     color: white;
     font-weight: bold;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
     margin-bottom: 3rem;
     text-align: center;
   }
@@ -31,7 +31,7 @@ const Section = styled.section`
     font-size: 3rem;
     color: white;
     font-weight: bold;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
   }
 
   p.subtitleMobile {
@@ -39,22 +39,22 @@ const Section = styled.section`
     font-size: 3rem;
     color: white;
     font-weight: bold;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
     margin-top: 4rem;
     margin-bottom: 4rem;
   }
 
   p.paragraphHeading {
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: white;
     font-weight: bold;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
   }
 
   p.description {
     font-size: 1.125rem;
     color: white;
-    letter-spacing: 0.2rem;
+    letter-spacing: 1.5px;
     margin-bottom: 1rem;
   }
 

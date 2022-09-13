@@ -88,15 +88,39 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .sass_app_dark_navbar {
-    border-bottom: 1px solid transparent;
+    // border-bottom: 1px solid #707070;
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.384);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     transition: 0.35s ease-in-out;
     padding: 30px 0;
+    height: 10.5rem;
+    display: flex;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
     .mainMenuWrapper {
       // flex: 1 1 100%;
+
+      .navbar-buttons {
+        padding-left: 26px;
+        .gradient {
+          font-size: 1.5rem;
+          width: 16rem;
+          height: 4.688rem;
+          box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.384);
+        }
+
+        @media (max-width: 990px) {
+          display: none;
+        }
+      }
 
       @media (max-width: 991px) {
         // flex: 0 0 auto;
@@ -106,6 +130,7 @@ const GlobalStyle = createGlobalStyle`
     .nav-logo {
       > img {
         transition: 0.25s ease-in-out;
+        max-width: 110px;
         @media only screen and (min-width: 990px) and (max-width: 991px) {
           max-width: 90px;
         }
@@ -149,9 +174,9 @@ const GlobalStyle = createGlobalStyle`
           line-height: 2.2;
           padding: 5px;
           transition: 0.15s ease-in-out;
+          letter-spacing: 1.5px;
           @media only screen and (min-width: 990px) and (max-width: 991px) {
             padding: 3px;
-            // font-size: 1.px;
           }
           &:hover {
             color: ${themeGet("colors.primary")};

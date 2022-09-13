@@ -50,8 +50,8 @@ const ProductCard = ({
       {...props}
     >
       <TopWrapper>
-        {Icon}
         {title}
+        {Icon}
       </TopWrapper>
 
       {description ? (

@@ -44,7 +44,7 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
         <li key={`menu-item-${index}`}>
           {menu.staticLink ? (
             <Link href={menu.path} shallow>
-              <a className={router.pathname == menu.path ? "is-current" : ""} href={menu.path}>{menu.label}</a>
+              <a target={menu.target} className={router.pathname == menu.path ? "is-current" : ""} href={menu.path}>{menu.label}</a>
             </Link>
           ) : (
             <>

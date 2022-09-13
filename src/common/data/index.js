@@ -6,27 +6,44 @@ import AutLogo from "common/assets/image/aut-logo.svg";
 
 export const NavbarData = {
   logo: AutLogo,
+  navButtons: [
+    {
+      link: "https://playground.aut.id",
+      name: "Playground",
+    },
+  ],
   menuItems: [
+    {
+      label: "About",
+      staticLink: true,
+      path: "/about",
+    },
     {
       label: "Products",
       staticLink: true,
       path: "/products",
     },
     {
-      label: "Manifesto",
+      label: "Docs",
       staticLink: true,
-      path: "/manifesto",
+      target: "_blank",
+      path: "https://docs.aut.id/",
     },
-    {
-      label: "Roadmap",
-      staticLink: true,
-      path: "/roadmap",
-    },
-    {
-      label: "Ask Aut",
-      staticLink: true,
-      path: "/qa",
-    },
+    // {
+    //   label: "Manifesto",
+    //   staticLink: true,
+    //   path: "/manifesto",
+    // },
+    // {
+    //   label: "Roadmap",
+    //   staticLink: true,
+    //   path: "/roadmap",
+    // },
+    // {
+    //   label: "Ask Aut",
+    //   staticLink: true,
+    //   path: "/qa",
+    // },
   ],
 };
 
@@ -40,56 +57,109 @@ import videoPlaceholderImage from "common/assets/image/placeholder-video.svg";
 export const OptOutData = {
   title: (
     <>
-      OPT <br /> ĀUT
+      Do more <br /> With <br /> Your DAO
     </>
   ),
   subtitle: (
     <>
-      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+      Āut is a suite of DAO-native Tools <br />
+      that unlock the true potential <br />
+      of decentralized communities.
     </>
   ),
   pulseButtons: [
     {
       title: "Āut Expander",
-      subtitle: "Lorem ipsum",
+      subtitle: (
+        <>
+          Expand your DAO. Add Members Roles, <br /> Interactions & Commitments
+          at a contract-
+          <br />
+          level - and join the Coordination <br /> Renaissance ⚖️
+        </>
+      ),
       x: "190",
       y: "35",
+      link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     },
     {
       title: "dĀut",
-      subtitle: "Lorem ipsum",
+      subtitle:
+        (
+          <>A DAO-bound. d-Āut is the first <br /> permissionless, decentralized <br /> authentication system specifically designed <br /> for DAOs and their Members 🤝</>
+        ),
       x: "525",
       y: "240",
+      link: "https://docs.aut.id/v2/product-suite/daut",
     },
     {
-      title: "Āut ID",
-      subtitle: "Lorem ipsum",
+      title: "ĀutID",
+      subtitle:
+        (
+          <>Own your own Identity. ĀutIDs are self<br />-sovereign, Non-Transferable NFT IDs <br /> that bind each Individual to the DAOs <br /> they join. Also, a sexy Social Profile that <br /> lives on-chain 😎</>
+        ),
       x: "120",
       y: "290",
+      link: "https://docs.aut.id/v2/product-suite/my-autid",
     },
     {
-      title: "Dashboard",
-      subtitle: "Lorem ipsum",
+      title: "Opt Āut - a Manifesto.",
+      subtitle:
+        (
+          <>An open, collective Manifesto to open the <br /> Coordination Renaissance 👥 <br /> It lives on-chain, and it’s owned by <b>you</b>.</>
+        ),
       x: "320",
       y: "520",
+      link: "/manifesto",
     },
   ],
   portal: {
-    title: "…Time to Opt Āut",
+    title: "Join the Coordination Renaissance",
     animationData,
   },
   expander: {
     title: (
       <>
-        Expand <br /> Your <br /> DAO <br /> Today
+        Expand Your <br /> Community.
       </>
     ),
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat. Duis aute irure dolor in reprehenderit in voluptate velit esse cfgillum dolore eutpe fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident",
+    description: (
+      <>
+        The Āut Expander is the gateway to expand your community, and use all
+        the products in the Āut Suite.
+        <br />
+        <br />
+        Your Community Members’ Identity is much more multidimensional, rich,
+        than a flat 0x… address.
+        <br />
+        <br />
+        Expand any DAO’s legacy contract (i.e.: a Moloch DAO), bringing Members’
+        Role, Commitment & Interactions directly on-chain, at your Community
+        Contract level.
+        <br />
+        <br />
+        Check out our{" "}
+        <a
+          style={{
+            color: "white",
+            textDecoration: "underline",
+          }}
+          target="_blank"
+          href="https://docs.aut.id/"
+        >
+          <b>Docs</b>
+        </a>{" "}
+        for a complete walkthrough of the Expander.
+      </>
+    ),
     image: expanderImage,
     link: {
-      title: "Link to Expander Page",
-      path: "/",
+      title: (
+        <>
+          Go to <b>Playground</b>
+        </>
+      ),
+      path: "https://playground.aut.id/",
     },
   },
   video: {
@@ -192,6 +262,7 @@ export const ManifestoData = {
 import DaoExpanderIcon from "common/assets/image/expander-icon.svg";
 import dAutIcon from "common/assets/image/daut-icon.svg";
 import DashboardIcon from "common/assets/image/dashboard-icon.svg";
+import VideoPlaceholderForProducts from "common/assets/image/suite.svg";
 import AutIDIcon from "common/assets/image/autid-icon.svg";
 import FeatureIcon from "common/assets/image/feature-icon.svg";
 import Button from "common/components/Button";
@@ -199,17 +270,19 @@ import Button from "common/components/Button";
 export const ProductsData = {
   title: (
     <>
-      Āut <br /> Us
+      The Āut <br /> SUITE
     </>
   ),
   subtitle: (
     <>
-      Lorem ipsum dolor <br /> sit amet, consetetur <br /> sadipscing elitr, sed
+      All Products in the Āut suite are specifically designed for DAOs - and
+      come asa suite of out-of-the-box products for contract-powered
+      communities.
     </>
   ),
   video: {
     url: "https://www.youtube.com/embed/hW98BFnVCm8",
-    image: videoPlaceholderImage,
+    image: VideoPlaceholderForProducts,
   },
   dAut: {
     title: <>dĀut</>,
@@ -424,31 +497,67 @@ export const ProductList = [
     isActive: true,
     icon: DaoExpanderIcon,
     title: "Āut Expander",
-    link: "/products/dao-expander",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat",
+    link: "https://docs.aut.id/v2/product-suite/aut-exp.",
+    description: (
+      <>
+        Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract, from
+        Moloch to Aragon & DAOStack.
+        <br />
+        <br />
+        Expand it with Āut Expander, and give super-powers to your DAO - adding
+        the concepts of Members Roles & Interactions directly on-chain, at
+        contract level. Then assign Roles to your Community - and kick off
+        role-based working & governance routines.
+      </>
+    ),
   },
   {
     id: 2,
     isActive: true,
     icon: dAutIcon,
     title: "dĀut",
-    link: "/products/d-aut",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat",
+    link: "https://docs.aut.id/v2/product-suite/daut",
+    description: (
+      <>
+        <b>A DAO-Bound</b>
+        <br />
+        A decentralized authentication system designed for DAOs & their Members.
+        <br />
+        <b>For DAOs:</b>
+        <br />
+        Integrate it on any website, and let your Members login with their
+        Wallet, & claim their Role in your DAO.
+        <br />
+        <b>For Members:</b>
+        <br />
+        Claim your Role in the Community & create your Self-sovereign Account.
+        Then use it to login all across Web3.
+      </>
+    ),
   },
   {
     id: 3,
     isActive: true,
     icon: AutIDIcon,
     title: "Āut ID",
-    link: "/products/aut-id",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+    link: "https://docs.aut.id/v2/product-suite/my-autid",
+    description: (
+      <>
+        <b>Own your own Identity.</b>
+        <br />
+        ĀutID is self-sovereign, unique, and portable: it lets you join new
+        DAOs, and log in across DAO-powered Web3 DApps.
+        <br />
+        <br />
+        It works as a Social Profile, that keeps track of all your DAOs, Roles,
+        and Experience. Each holder gets also a unique, public URL with this
+        structure: https://my.aut.id/[your-pseudonym] 😎
+      </>
+    ),
   },
   {
     id: 4,
-    isActive: true,
+    isActive: false,
     icon: DashboardIcon,
     title: "Āut Dashboard",
     link: "/products/aut-dashboard",
