@@ -41,7 +41,7 @@ const Footer = () => {
                 ))}
               </div>
             </Social>
-            <Text content={copyright} />
+            <Text className="copyright" content={copyright} />
           </AboutUs>
           {widgets.map((item) => (
             <FooterWidget key={item.id}>

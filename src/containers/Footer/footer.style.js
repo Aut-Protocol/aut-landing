@@ -49,6 +49,11 @@ export const AboutUs = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
+
+  .copyright {
+    color: rgba(255,255,255,0.7);
+  }
+
   img {
     max-width: 7.5rem;
   }
