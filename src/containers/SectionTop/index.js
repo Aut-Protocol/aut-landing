@@ -19,6 +19,7 @@ const SectionTop = ({
   headerButton,
   variant,
   className,
+  hideRightOnMobile,
 }) => {
   return (
     <Section id="section_top">
@@ -42,7 +43,7 @@ const SectionTop = ({
               ""
             )}
           </Content>
-          <RightWrapper>
+          <RightWrapper className={hideRightOnMobile ? "hide-on-mobile" : ""}>
             <ImagePreview>{image}</ImagePreview>
             {headerButton ? <ButtonWrapper>{headerButton}</ButtonWrapper> : ""}
           </RightWrapper>

@@ -122,6 +122,11 @@ export const Content = styled.div`
 export const RightWrapper = styled.div`
   // width: 50%;
   flex: 1;
+  @media only screen and (max-width: 991px) {
+    &.hide-on-mobile {
+      display: none;
+    }
+  }
 `;
 
 export const ButtonWrapper = styled.div`

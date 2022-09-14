@@ -6,6 +6,7 @@ const OptOutTop = () => {
   const { pulseButtons, title, subtitle } = OptOutData;
   return (
     <SectionTop
+      hideRightOnMobile
       image={<CircleImage pulseButtons={pulseButtons} />}
       title={title}
       subtitle={subtitle}
