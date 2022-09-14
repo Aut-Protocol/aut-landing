@@ -801,8 +801,20 @@ export const FooterData = {
           link: "/about",
         },
         {
+          id: 3,
+          title: "Github",
+          target:"_blank",
+          link: "https://github.com/Aut-Protocol",
+        },
+        {
           id: 2,
-          title: "Products",
+          title: "Docs",
+          target:"_blank",
+          link: "https://docs.aut.id",
+        },
+        {
+          id: 3,
+          title: "Product Suite",
           link: "/products",
         },
         // {
@@ -822,35 +834,35 @@ export const FooterData = {
         // },
       ],
     },
-    {
-      id: 3,
-      title: "Āut Products",
-      list: [
-        {
-          id: 1,
-          title: "Āut Expander",
-          target:"_blank",
-          link: "https://docs.aut.id/v2/product-suite/aut-exp.",
-        },
-        {
-          id: 2,
-          title: "dĀut",
-          target:"_blank",
-          link: "https://docs.aut.id/v2/product-suite/daut",
-        },
-        {
-          id: 3,
-          title: "Āut ID",
-          target:"_blank",
-          link: "https://docs.aut.id/v2/product-suite/my-autid",
-        },
-        // {
-        //   id: 4,
-        //   title: "Dashboard",
-        //   link: "/products/aut-dashboard",
-        // },
-      ],
-    },
+    // {
+    //   id: 3,
+    //   title: "Āut Products",
+    //   list: [
+    //     {
+    //       id: 1,
+    //       title: "Āut Expander",
+    //       target:"_blank",
+    //       link: "https://docs.aut.id/v2/product-suite/aut-exp.",
+    //     },
+    //     {
+    //       id: 2,
+    //       title: "dĀut",
+    //       target:"_blank",
+    //       link: "https://docs.aut.id/v2/product-suite/daut",
+    //     },
+    //     {
+    //       id: 3,
+    //       title: "Āut ID",
+    //       target:"_blank",
+    //       link: "https://docs.aut.id/v2/product-suite/my-autid",
+    //     },
+    //     // {
+    //     //   id: 4,
+    //     //   title: "Dashboard",
+    //     //   link: "/products/aut-dashboard",
+    //     // },
+    //   ],
+    // },
   ],
   social: [
     {

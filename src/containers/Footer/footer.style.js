@@ -21,7 +21,7 @@ export const Section = styled.footer`
 export const Grid = styled.div`
   display: grid;
   padding: 80px 0;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 1fr 0.5fr;
   border-top: 1px solid ${rgba("#fff", 0.2)};
   @media screen and (max-width: 820px) {
     padding: 50px 0;
@@ -47,6 +47,7 @@ export const Grid = styled.div`
 export const AboutUs = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   img {
     max-width: 7.5rem;
@@ -115,18 +116,21 @@ export const CopyText = styled.p`
 export const Social = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex: 30%;
 
-  @media screen and (max-width: 768px) {
-    justify-content: center;
+  &.mobile {
+    display: none;
   }
 
   .social-links {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     align-items: center;
     grid-gap: 2.5rem;
-    margin: 5rem 0;
+    flex-direction: column;
+    // margin: 5rem 0;
 
     a {
       cursor: pointer;
@@ -134,6 +138,19 @@ export const Social = styled.div`
 
     img {
       height: 20px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    display: none;
+    &.mobile {
+      display: inherit;
+
+      .social-links {
+        flex-direction: row;
+        margin: 5rem 0;
+      }
     }
   }
 `;

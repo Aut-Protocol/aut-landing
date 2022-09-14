@@ -26,7 +26,7 @@ const Footer = () => {
         <Grid>
           <AboutUs>
             <Image src={logo.src} alt="Aut Logo" />
-            <Social>
+            <Social className="mobile">
               <div className="social-links">
                 {social.map(({ link, icon, name }, index) => (
                   <Tooltip
@@ -72,6 +72,21 @@ const Footer = () => {
               }}
             />
           </ContactInfo>
+          <Social>
+            <div className="social-links">
+              {social.map(({ link, icon, name }, index) => (
+                <Tooltip
+                  placement="top"
+                  key={`footer-social-key-${index}`}
+                  overlay={name}
+                >
+                  <a href={link} target="_blank">
+                    <NextImage src={icon} alt="social image" />
+                  </a>
+                </Tooltip>
+              ))}
+            </div>
+          </Social>
         </Grid>
       </Container>
     </Section>
