@@ -22,6 +22,7 @@ const SectionWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: 100%;
   }
 
   p.subtitle {

@@ -104,16 +104,15 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   flex: 1;
 
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 667px) {
     display: flex;
     flex-direction: column;
   }
 `;
 
 export const Content = styled.div`
-  // width: 50%;
   flex: 1;
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 667px) {
     width: 100%;
     justify-content: center;
   }
@@ -122,7 +121,10 @@ export const Content = styled.div`
 export const RightWrapper = styled.div`
   // width: 50%;
   flex: 1;
-  @media only screen and (max-width: 991px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 667px) {
     &.hide-on-mobile {
       display: none;
     }
@@ -141,7 +143,7 @@ export const ImagePreview = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem 0 0;
+  margin: 0;
   svg {
     height: 42rem;
     max-width: 42rem;
@@ -152,6 +154,13 @@ export const ImagePreview = styled.figure`
       max-width: 30rem;
     }
     width: 100%;
-    margin-top: 4rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    svg {
+      height: 25rem;
+      max-width: 25rem;
+    }
+    width: 100%;
   }
 `;

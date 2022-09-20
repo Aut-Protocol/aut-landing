@@ -45,8 +45,8 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             />
 
             <div className="navbar-buttons">
-              {navButtons.map(({ link, name }) => (
-                <LinkButton target="_blank" className="gradient" title={name} href={link} />
+              {navButtons.map(({ link, name }, index) => (
+                <LinkButton key={`nav-button-key-${index}`} target="_blank" className="gradient" title={name} href={link} />
               ))}
             </div>
 
