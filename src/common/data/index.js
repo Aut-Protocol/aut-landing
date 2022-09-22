@@ -276,7 +276,7 @@ export const ProductsData = {
   subtitle: (
     <>
       All Products in the Āut suite are specifically designed for DAOs - and
-      come asa suite of out-of-the-box products for contract-powered
+      come as a suite of out-of-the-box products for contract-powered
       communities.
     </>
   ),
