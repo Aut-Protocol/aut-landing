@@ -84,30 +84,40 @@ export const OptOutData = {
     },
     {
       title: "dĀut",
-      subtitle:
-        (
-          <>A DAO-bound. d-Āut is the first <br /> permissionless, decentralized <br /> authentication system specifically designed <br /> for DAOs and their Members 🤝</>
-        ),
+      subtitle: (
+        <>
+          A DAO-bound. d-Āut is the first <br /> permissionless, decentralized{" "}
+          <br /> authentication system specifically designed <br /> for DAOs and
+          their Members 🤝
+        </>
+      ),
       x: "525",
       y: "240",
       link: "https://docs.aut.id/v2/product-suite/daut",
     },
     {
       title: "ĀutID",
-      subtitle:
-        (
-          <>Own your own Identity. ĀutIDs are self<br />-sovereign, Non-Transferable NFT IDs <br /> that bind each Individual to the DAOs <br /> they join. Also, a sexy Social Profile that <br /> lives on-chain 😎</>
-        ),
+      subtitle: (
+        <>
+          Own your own Identity. ĀutIDs are self
+          <br />
+          -sovereign, Non-Transferable NFT IDs <br /> that bind each Individual
+          to the DAOs <br /> they join. Also, a sexy Social Profile that <br />{" "}
+          lives on-chain 😎
+        </>
+      ),
       x: "120",
       y: "290",
       link: "https://docs.aut.id/v2/product-suite/my-autid",
     },
     {
       title: "Opt Āut - a Manifesto.",
-      subtitle:
-        (
-          <>An open, collective Manifesto to open the <br /> Coordination Renaissance 👥 <br /> It lives on-chain, and it’s owned by <b>you</b>.</>
-        ),
+      subtitle: (
+        <>
+          An open, collective Manifesto to open the <br /> Coordination
+          Renaissance 👥 <br /> It lives on-chain, and it’s owned by <b>you</b>.
+        </>
+      ),
       x: "320",
       y: "520",
       link: "/manifesto",
@@ -500,10 +510,14 @@ export const ProductList = [
     link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     description: (
       <>
-        Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract, from
-        Moloch to Aragon & DAOStack.
-        <br />
-        <br />
+        <span
+          style={{
+            marginBottom: "3rem",
+          }}
+        >
+          Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract,
+          from Moloch to Aragon & DAOStack.
+        </span>
         Expand it with Āut Expander, and give super-powers to your DAO - adding
         the concepts of Members Roles & Interactions directly on-chain, at
         contract level. Then assign Roles to your Community - and kick off
@@ -519,19 +533,45 @@ export const ProductList = [
     link: "https://docs.aut.id/v2/product-suite/daut",
     description: (
       <>
-        <b>A DAO-Bound</b>
-        <br />
-        A decentralized authentication system designed for DAOs & their Members.
-        <br />
-        <b>For DAOs:</b>
-        <br />
-        Integrate it on any website, and let your Members login with their
-        Wallet, & claim their Role in your DAO.
-        <br />
-        <b>For Members:</b>
-        <br />
-        Claim your Role in the Community & create your Self-sovereign Account.
-        Then use it to login all across Web3.
+        <span
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: "bold",
+            marginBottom: "2px",
+          }}
+        >
+          A DAO-Bound
+        </span>
+        <span>
+          A decentralized authentication system designed for DAOs & their
+          Members.
+        </span>
+        <span
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: "bold",
+            margin: "2px 0",
+          }}
+        >
+          For DAOs:
+        </span>
+        <span>
+          Integrate it on any website, and let your Members login with their
+          Wallet, & claim their Role in your DAO.
+        </span>
+        <span
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: "bold",
+            margin: "2px 0",
+          }}
+        >
+          For Members:
+        </span>
+        <span>
+          Claim your Role in the Community & create your Self-sovereign Account.
+          Then use it to login all across Web3.
+        </span>
       </>
     ),
   },
@@ -543,15 +583,28 @@ export const ProductList = [
     link: "https://docs.aut.id/v2/product-suite/my-autid",
     description: (
       <>
-        <b>Own your own Identity.</b>
-        <br />
-        ĀutID is self-sovereign, unique, and portable: it lets you join new
-        DAOs, and log in across DAO-powered Web3 DApps.
-        <br />
-        <br />
-        It works as a Social Profile, that keeps track of all your DAOs, Roles,
-        and Experience. Each holder gets also a unique, public URL with this
-        structure: https://my.aut.id/[your-pseudonym] 😎
+        <span
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: "bold",
+            marginBottom: "2px",
+          }}
+        >
+          Own your own Identity.
+        </span>
+        <span
+          style={{
+            marginBottom: "3rem",
+          }}
+        >
+          ĀutID is self-sovereign, unique, and portable: it lets you join new
+          DAOs, and log in across DAO-powered Web3 DApps.
+        </span>
+        <span>
+          It works as a Social Profile, that keeps track of all your DAOs,
+          Roles, and Experience. Each holder gets also a unique, public URL with
+          this structure: https://my.aut.id/[your-pseudonym] 😎
+        </span>
       </>
     ),
   },
@@ -803,13 +856,13 @@ export const FooterData = {
         {
           id: 3,
           title: "Github",
-          target:"_blank",
+          target: "_blank",
           link: "https://github.com/Aut-Protocol",
         },
         {
           id: 2,
           title: "Docs",
-          target:"_blank",
+          target: "_blank",
           link: "https://docs.aut.id",
         },
         {

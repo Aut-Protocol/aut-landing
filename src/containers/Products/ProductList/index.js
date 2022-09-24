@@ -20,7 +20,7 @@ const ProductListSection = ({
   return (
     <ProductListSectionWrapper>
       <Container>
-        <Box className="row" {...row} style={{ gap: "50px" }}>
+        <Box className="row" {...row} style={{ gap: "30px" }}>
           {ProductList.map((product, index) =>
             product.isActive ? (
               <Box
@@ -32,8 +32,8 @@ const ProductListSection = ({
                     "linear-gradient(45.57deg, rgb(0, 159, 227) 0%, rgb(3, 153, 222) 8%, rgb(14, 139, 211) 19%, rgb(32, 114, 191) 30%, rgb(58, 80, 164) 41%, rgb(90, 37, 131) 53%, rgb(69, 63, 148) 71%, rgb(56, 81, 159) 88%, rgb(52, 88, 164) 100%) 1 / 1 / 0 stretch",
                   borderWidth: "7px",
                   borderStyle: "solid",
-                  maxWidth: "27rem",
-                  height: "35rem",
+                  width: "33rem",
+                  height: "45rem"
                 }}
               >
                 <ProductCard
@@ -44,6 +44,8 @@ const ProductListSection = ({
                   title={<Heading content={product.title} {...productTitle} />}
                   description={
                     <Text
+                      as="span"
+                      className="product-description"
                       content={product.description}
                       {...productDescription}
                     />
@@ -62,8 +64,9 @@ const ProductListSection = ({
             ) : (
               <OverlayWrapper
                 style={{
-                  maxWidth: "27rem",
-                  height: "35rem",
+                  width: "33rem",
+                  height: "45rem",
+                  maxWidth:"33rem"
                 }}
                 className="col"
                 key={index}
@@ -77,12 +80,10 @@ const ProductListSection = ({
                       "linear-gradient(45.57deg, rgb(0, 159, 227) 0%, rgb(3, 153, 222) 8%, rgb(14, 139, 211) 19%, rgb(32, 114, 191) 30%, rgb(58, 80, 164) 41%, rgb(90, 37, 131) 53%, rgb(69, 63, 148) 71%, rgb(56, 81, 159) 88%, rgb(52, 88, 164) 100%) 1 / 1 / 0 stretch",
                     borderWidth: "20px",
                     borderStyle: "solid",
-                    height: "100%",
-                    width: "100%",
                     filter: "blur(30px)",
                     backgroundColor: "black",
-                    width: "27rem",
-                    height: "35rem",
+                    width: "100%",
+                    height: "100%",
                   }}
                 >
                   <ProductCard

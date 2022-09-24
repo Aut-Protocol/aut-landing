@@ -22,7 +22,7 @@ const Section = styled.div`
   }
 
   p.pron {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: #6fa1c3;
     letter-spacing: 1.5px;
   }
@@ -39,7 +39,7 @@ const Section = styled.div`
   }
 
   .description {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: white;
   }
 
@@ -58,6 +58,14 @@ const Section = styled.div`
   @media only screen and (max-width: 991px) {
     p.sub {
       font-size: 2.5rem;
+    }
+
+    h4.subtitle {
+      font-size: 1.125rem;
+    }
+  
+    .description {
+      font-size: 1.125rem;
     }
   }
 
@@ -91,10 +99,7 @@ export const DefinitionItem = styled.div`
 `;
 
 export const DefinitionBox = styled.div`
-  width: 38rem;
-  @media only screen and (max-width: 991px) {
-    width: 35rem;
-  }
+  width: 43rem;
   padding: 2rem 2.5rem 1rem 2.5rem;
   border-style: solid;
   border-width: 0.3rem;
@@ -111,6 +116,11 @@ export const DefinitionBox = styled.div`
       #3458a4 100%
     )
     1;
+
+    @media only screen and (max-width: 991px) {
+      width: 35rem;
+      padding: 1rem 1.25rem 0.5rem 1.25rem;
+    }
 `;
 
 export const Content = styled.div``;

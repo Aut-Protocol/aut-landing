@@ -41,6 +41,12 @@ const ProductListSectionWrapper = styled.section`
       user-select: none;
     }
 
+    .product-description {
+      font-size: 1.5rem;
+      flex-direction: column;
+      display: flex;
+    }
+
     a {
       min-height: unset;
       min-width: unset;

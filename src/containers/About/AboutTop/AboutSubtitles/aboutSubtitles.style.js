@@ -27,7 +27,7 @@ const Section = styled.div`
   }
 
   .description {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: white;
     letter-spacing: 1.5px;
   }
@@ -48,6 +48,14 @@ const Section = styled.div`
     .container {
       padding-bottom: 4rem;
     }
+
+    // h4.subtitle {
+    //   font-size: 1.125rem;
+    // }
+  
+    // .description {
+    //   font-size: 1.125rem;
+    // }
   }
 
   @media only screen and (max-width: 768px) {

@@ -34,11 +34,7 @@ export default class CustomDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link href="http://fonts.cdnfonts.com/css/avenir" rel="stylesheet" />
         </Head>
-        <body
-          style={{
-            backgroundColor: "#000",
-          }}
-        >
+        <body>
           <Main />
           <NextScript />
         </body>

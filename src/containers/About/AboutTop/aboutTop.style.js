@@ -39,6 +39,9 @@ const Section = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
+    h1 {
+      font-size: 5rem;
+    }
   }
 
   @media only screen and (max-width: 768px) {
@@ -54,9 +57,9 @@ export default Section;
 
 export const Content = styled.div`
   display: flex;
-  @media only screen and (max-width: 991px) {
+  grid-gap: 3rem;
+  @media only screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: center;
   }
 `;
 

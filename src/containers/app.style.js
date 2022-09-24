@@ -58,8 +58,8 @@ const GlobalStyle = createGlobalStyle`
     --HvrRippleOut: ${Hvr_Ripple_Out} 1s ease-in-out;
   }
 
-  body{
-    background-color: ${themeGet("colors.black")};
+  body {
+    background-color: #141414;
     color: ${themeGet("colors.textColor")};
     font-family: 'Avenir', sans-serif;
     font-weight: 400;
@@ -89,7 +89,7 @@ const GlobalStyle = createGlobalStyle`
 
   .sass_app_dark_navbar {
     // border-bottom: 1px solid #707070;
-    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.384);
+    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.384);
     position: fixed;
     top: 0;
     left: 0;
@@ -204,12 +204,16 @@ const GlobalStyle = createGlobalStyle`
     img, a {
       cursor: pointer;
     }
+
+    img {
+      position: absolute;
+    }
   }
 
   .sticky-nav-active {
     .sass_app_dark_navbar {
       padding: 15px 0;
-      background-color: #1a1a1a;
+      background-color: #111111;
       // background: rgba(255, 255, 255, 0.2);
       // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       // backdrop-filter: blur(2px);

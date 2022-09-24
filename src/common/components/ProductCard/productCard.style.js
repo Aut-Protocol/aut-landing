@@ -100,14 +100,15 @@ const TopWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 0;
+  padding: 20px 0;
   grid-gap: 10px;
-  font-size: 2.188rem;
+  font-size: 2.5rem;
   margin: 0;
 
   h2 {
     margin: 0;
-    font-size: 2.188rem;
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 
   img {
@@ -120,7 +121,7 @@ const BottomWrapper = styled.div`
   flex-direction: column;
   align-self: flex-end;
   justify-content: center;
-  height: 15%;
+  height: 6rem;
   padding: 0;
   border-top: 3px;
   border-style: solid;

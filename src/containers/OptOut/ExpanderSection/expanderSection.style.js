@@ -26,7 +26,7 @@ const SectionWrapper = styled.div`
   }
 
   p.subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: white;
     letter-spacing: 1.5px;
     font-style: normal;

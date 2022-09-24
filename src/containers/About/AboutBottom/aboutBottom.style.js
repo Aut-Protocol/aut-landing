@@ -52,7 +52,7 @@ const Section = styled.section`
   }
 
   p.description {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: white;
     letter-spacing: 1.5px;
     margin-bottom: 1rem;
