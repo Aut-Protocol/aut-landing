@@ -146,13 +146,15 @@ export const Social = styled.div`
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1220px) {
     justify-content: center;
     display: none;
     &.mobile {
       display: inherit;
 
       .social-links {
+        width: 100%;
+        justify-content: flex-start;
         flex-direction: row;
         margin: 5rem 0;
       }
