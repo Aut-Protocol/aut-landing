@@ -857,7 +857,7 @@ export const FooterData = {
           id: 3,
           title: "Github",
           target: "_blank",
-          link: "https://github.com/Aut-Protocol",
+          link: "https://github.com/Aut-Labs",
         },
         {
           id: 2,
