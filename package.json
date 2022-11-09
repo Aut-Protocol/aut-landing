@@ -10,13 +10,14 @@
     "update-env": "node ./setup-environment.js"
   },
   "dependencies": {
-    "@aut-protocol/abi-types": "^0.0.58",
+    "@aut-labs-private/abi-types": "^0.0.1",
     "@glidejs/glide": "^3.4.1",
     "@lottiefiles/lottie-player": "^1.5.7",
     "@lottiefiles/react-lottie-player": "^3.4.7",
     "@redq/reuse-modal": "^1.1.9",
     "@styled-system/theme-get": "^5.1.2",
     "@use-gesture/react": "^10.2.16",
+    "@walletconnect/ethereum-provider": "^2.1.1",
     "@web3-react/core": "8.0.30-beta.0",
     "@web3-react/metamask": "8.0.24-beta.0",
     "@web3-react/walletconnect": "8.0.31-beta.0",

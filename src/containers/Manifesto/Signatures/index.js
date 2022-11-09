@@ -12,7 +12,7 @@ import { trimAddress } from "common/utils/misc";
 import dateFormat from "dateformat";
 import { openModal } from "@redq/reuse-modal";
 import VerifySignature from "./VerifySignature";
-const message = "I should own this tweet %40aut-protocol %23digitalroots";
+const message = "I should own this tweet %40aut-labs %23digitalroots";
 
 const ManifestoSignatures = () => {
   const [signees, setSignees] = useState([]);

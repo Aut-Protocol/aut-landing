@@ -11,7 +11,7 @@ import ModalPopupWrapper, {
   Loading,
 } from "common/components/ModalPopupWrapper";
 import { verifyTweetRequest } from "api/index.api";
-import { Web3ManifestoProvider } from "@aut-protocol/abi-types";
+import { Web3ManifestoProvider } from "@aut-labs-private/abi-types";
 import { environment, getNetworkVariables } from "api/environment";
 import { closeModal } from "@redq/reuse-modal";
 import ConnectorBtn, { ConnectorTypes } from "common/ProviderFactory/components/ConnectorBtn";
@@ -29,7 +29,7 @@ const Title = styled(Text)`
   margin-bottom: 1.563rem;
 `;
 
-const message = "I should own this tweet %40aut-protocol";
+const message = "I should own this tweet %40aut-labs";
 
 const Subtitle = styled(Text)({
   letterSpacing: "1.25px",
