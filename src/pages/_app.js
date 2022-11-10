@@ -45,18 +45,7 @@ export default function CustomApp({ Component, pageProps }) {
               <Navbar />
             </DrawerProvider>
           </Sticky>
-          <div
-            className="main-container"
-            style={{
-              height: "100vh",
-              scrollSnapType: "y mandatory",
-              scrollPadding: "10px",
-              overflowY: "scroll",
-            }}
-          >
-            <Component {...pageProps} />
-            <Footer />
-          </div>
+          <Component {...pageProps} />
         </Modal>
       </>
     </ThemeProvider>

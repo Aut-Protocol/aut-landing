@@ -428,7 +428,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const ContentWrapper = styled.div`
-  overflow: hidden;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-padding: 10px;
+  overflow-y: scroll;
 `;
 
 export const AppWrapper = styled.div`

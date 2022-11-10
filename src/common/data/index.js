@@ -973,7 +973,7 @@ export const FooterData = {
   logo: AutLogo,
   mailchimpUrl:
     "https://aut.us20.list-manage.com/subscribe/post?u=d961a0504e2d77cc544c89c33&amp;id=0599e9c37b&amp;f_id=008810e7f0",
-  copyright: `© Āut Protocol 2022 ${new Date().getFullYear()}`,
+  copyright: `© Āut Protocol ${new Date().getFullYear()}`,
   widgets: [
     {
       id: 2,

@@ -11,7 +11,6 @@ const ProductsTop = () => {
 
   return (
     <>
-      {" "}
       {width < 992 ? (
         <SectionTop
           image={<VideoTop disableVideo {...video} />}
@@ -20,6 +19,7 @@ const ProductsTop = () => {
         />
       ) : (
         <SectionTop
+          id="section_top"
           image={<NextImage src={ProductsPageImage} />}
           title={title}
           subtitle={subtitle}
