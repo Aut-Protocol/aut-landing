@@ -30,7 +30,6 @@ const ProductListSectionWrapper = styled.section`
     border: none;
   }
 
-
   .product__card {
     position: relative;
     height: 100%;
@@ -56,6 +55,102 @@ const ProductListSectionWrapper = styled.section`
   }
 `;
 
+const ProductStyledSection = styled.section`
+  position: relative;
+  z-index: 0;
+
+  .gradient {
+    height: 5.188rem;
+    width: 20.938rem;
+    font-size: 1.125rem;
+    margin: 5.625rem auto;
+
+    &.desktop {
+      height: 5.15rem;
+      width: 16.62rem;
+      font-size: 1.25rem;
+      margin: 5.625rem auto;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 12.5rem;
+  }
+
+  h1 {
+    font-size: 6.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 4.375rem;
+  }
+
+  .no-uppercase {
+    text-transform: none !important;
+  }
+`;
+
+export const Grid = styled.div`
+  grid-gap: 4rem;
+  display: flex;
+  align-items: space-between;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+`;
+
+export const Content = styled.div`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
+
+export const RightWrapper = styled.div`
+  // width: 50%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 42rem;
+`;
+
+export const ImagePreview = styled.figure`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  svg {
+    height: 42rem;
+    max-width: 42rem;
+  }
+  @media only screen and (max-width: 991px) {
+    svg {
+      height: 30rem;
+      max-width: 30rem;
+    }
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    svg {
+      height: 25rem;
+      max-width: 25rem;
+    }
+    width: 100%;
+  }
+`;
+
 const OverlayWrapper = styled.div`
   background: rgba(255, 255, 255, 0.5);
   cursor: auto;
@@ -66,6 +161,6 @@ const OverlayWrapper = styled.div`
   height: 32.625rem;
 `;
 
-export { OverlayWrapper };
+export { OverlayWrapper, ProductStyledSection };
 
 export default ProductListSectionWrapper;

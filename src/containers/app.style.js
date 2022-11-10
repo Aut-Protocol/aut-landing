@@ -85,9 +85,25 @@ const GlobalStyle = createGlobalStyle`
 
   section {
     position: relative;
+    @media only screen and (min-width: 992px) {
+      scroll-snap-align: start;
+      height: 100vh;
+    }
+
+  }
+
+  .main-container {
+    @media only screen and (min-width: 992px) {
+
+    height: 100vh;
+    scrollSnapType: y mandatory;
+    scrollPadding: 10px;
+    overflowY: scroll;
+    }
   }
 
   .sass_app_dark_navbar {
+    background-color: #141414;
     // border-bottom: 1px solid #707070;
     box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.384);
     position: fixed;
@@ -189,7 +205,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .reusecore-drawer__handler {
-      @media (min-width: 991px) {
+      @media (min-width: 992px) {
         display: none !important;
       }
       .hamburgMenu__bar {

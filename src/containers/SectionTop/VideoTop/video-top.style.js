@@ -16,7 +16,7 @@ const SectionWrapper = styled.section`
   width: 100%;
   position: relative;
   padding-top: 18.75rem;
-  
+    
   @media only screen and (max-width: 991px) {
     padding-top: 10rem;
   }

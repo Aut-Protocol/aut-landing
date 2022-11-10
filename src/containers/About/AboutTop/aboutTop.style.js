@@ -9,15 +9,24 @@ const Section = styled.section`
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 18.75rem;
+    justify-content: space-between;
+    padding-top: 18.5rem;
+  }
+
+  p.heading {
+    font-size: 4rem;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
   }
 
   h1 {
-    font-size: 6.875rem;
+    font-size: 5rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-align: left;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   p.subtitle {

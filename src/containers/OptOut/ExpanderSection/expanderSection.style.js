@@ -1,21 +1,26 @@
 import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
 
-const SectionWrapper = styled.div`
+const SectionWrapper = styled.section`
   position: relative;
   z-index: 0;
-  padding-top: 18.75rem;
 
   h1 {
-    font-size: 5.625rem;
+    font-size: 5rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     &.mobile-heading {
       display: none;
     }
   }
+
+  .container {
+    padding-top: 18.75rem;
+    text-align: center;
+  }
+
 
   .content {
     text-align: right;
@@ -40,7 +45,7 @@ const SectionWrapper = styled.div`
     .image {
       max-width: 22rem;
     }
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 

@@ -10,6 +10,11 @@ const Section = styled.section`
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding-top: 12.5rem;
+
+    @media only screen and (max-width: 991px) {
+      padding-top: 0;
+    }
   }
 
   h1 {
@@ -45,17 +50,18 @@ const Section = styled.section`
   }
 
   p.paragraphHeading {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: white;
     font-weight: bold;
     letter-spacing: 1.5px;
   }
 
   p.description {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     color: white;
     letter-spacing: 1.5px;
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   @media only screen and (max-width: 1600px) {
@@ -101,8 +107,8 @@ export const TitleBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 8rem;
-  margin-bottom: 8rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 
   @media only screen and (max-width: 768px) {
     margin-bottom: 1rem;

@@ -501,14 +501,53 @@ export const ProductsData = {
   },
 };
 
+
+import dautScreen from "common/assets/image/daut-image.svg";
+import expanderScreen from "common/assets/image/expander-image.svg";
+import autIdScreen from "common/assets/image/autid-image.svg";
+
+
+
 export const ProductList = [
   {
     id: 1,
     isActive: true,
     icon: DaoExpanderIcon,
-    title: "Āut Expander",
+    title: "Expander",
+    image: expanderScreen,
     link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     description: (
+      <>
+        <span
+          style={{
+            marginBottom: "2rem",
+            fontSize: "1.8rem",
+          }}
+        >
+          Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract,
+          from Moloch to Aragon & DAOStack.
+        </span>
+        <span
+          style={{
+            marginBottom: "2rem",
+            fontSize: "1.8rem",
+          }}
+        >
+          Expand it with Āut Expander, and give super-powers to your DAO -
+          adding the concepts of Members Roles & Interactions directly on-chain,
+          at contract level.
+        </span>
+        <span
+          style={{
+            fontSize: "1.8rem",
+          }}
+        >
+          Then assign Roles to your Community - and kick off role-based working
+          & governance routines.
+        </span>
+      </>
+    ),
+    descriptionMobile: (
       <>
         <span
           style={{
@@ -518,10 +557,15 @@ export const ProductList = [
           Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract,
           from Moloch to Aragon & DAOStack.
         </span>
-        Expand it with Āut Expander, and give super-powers to your DAO - adding
-        the concepts of Members Roles & Interactions directly on-chain, at
-        contract level. Then assign Roles to your Community - and kick off
-        role-based working & governance routines.
+        <span
+          style={{
+            marginBottom: "3rem",
+          }}
+        >
+          Expand it with Āut Expander, and give super-powers to your DAO -
+          adding the concepts of Members Roles & Interactions directly on-chain,
+          at contract level.
+        </span>
       </>
     ),
   },
@@ -529,9 +573,64 @@ export const ProductList = [
     id: 2,
     isActive: true,
     icon: dAutIcon,
+    image: dautScreen,
     title: "dĀut",
     link: "https://docs.aut.id/v2/product-suite/daut",
     description: (
+      <>
+        <span
+          style={{
+            fontSize: "1.8rem",
+            marginBottom: "2px",
+          }}
+        >
+          A DAO-Bound
+        </span>
+        <span
+          style={{
+            marginBottom: "2rem",
+            fontSize: "1.8rem",
+          }}
+        >
+          A decentralized authentication system designed for DAOs & their
+          Members.
+        </span>
+        <span
+          style={{
+            fontSize: "1.8rem",
+            marginBottom: "2px 0",
+          }}
+        >
+          For DAOs:
+        </span>
+        <span
+          style={{
+            marginBottom: "2rem",
+            fontSize: "1.8rem",
+          }}
+        >
+          Integrate it on any website, and let your Members login with their
+          Wallet, & claim their Role in your DAO.
+        </span>
+        <span
+          style={{
+            fontSize: "1.8rem",
+            marginBottom: "2px 0",
+          }}
+        >
+          For Members:
+        </span>
+        <span
+          style={{
+            fontSize: "1.8rem",
+          }}
+        >
+          Claim your Role in the Community & create your Self-sovereign Account.
+          Then use it to login all across Web3.
+        </span>
+      </>
+    ),
+    descriptionMobile: (
       <>
         <span
           style={{
@@ -579,9 +678,41 @@ export const ProductList = [
     id: 3,
     isActive: true,
     icon: AutIDIcon,
+    image: autIdScreen,
     title: "Āut ID",
     link: "https://docs.aut.id/v2/product-suite/my-autid",
     description: (
+      <>
+        <span
+          style={{
+            fontSize: "1.8rem",
+            fontWeight: "bold",
+            marginBottom: "2px",
+          }}
+        >
+          Own your own Identity.
+        </span>
+        <span
+          style={{
+            marginBottom: "2rem",
+            fontSize: "1.8rem",
+          }}
+        >
+          ĀutID is self-sovereign, unique, and portable: it lets you join new
+          DAOs, and log in across DAO-powered Web3 DApps.
+        </span>
+        <span
+          style={{
+            fontSize: "1.8rem",
+          }}
+        >
+          It works as a Social Profile, that keeps track of all your DAOs,
+          Roles, and Experience. Each holder gets also a unique, public URL with
+          this structure: https://my.aut.id/[your-pseudonym] 😎
+        </span>
+      </>
+    ),
+    descriptionMobile: (
       <>
         <span
           style={{

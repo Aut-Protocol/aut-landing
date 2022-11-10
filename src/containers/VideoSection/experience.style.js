@@ -16,8 +16,7 @@ const SectionWrapper = styled.section`
   width: 100%;
   position: relative;
   .container {
-    padding-top: 18.75rem;
-  }
+    padding-top: 18.75rem;  }
 
   h2.title {
     text-align: center;

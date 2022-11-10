@@ -10,11 +10,11 @@ const Section = styled.div`
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: 3.75rem;
   }
 
   p.sub {
-    font-size: 3rem;
+    font-size: 2.18rem;
     color: #6fa1c3;
     font-weight: bold;
     line-height: 1.4;
@@ -22,7 +22,7 @@ const Section = styled.div`
   }
 
   p.pron {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #6fa1c3;
     letter-spacing: 1.5px;
   }
@@ -32,14 +32,14 @@ const Section = styled.div`
   }
 
   h4.subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
     font-weight: bold;
     line-height: 1.4;
   }
 
   .description {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
   }
 

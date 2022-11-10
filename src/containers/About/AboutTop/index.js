@@ -5,9 +5,10 @@ import Container from "common/components/UI/Container";
 import Section, { Content, ContentHalf } from "./aboutTop.style";
 import AboutSubtitles from "./AboutSubtitles";
 import Definition from "./Definition";
+import { TitleBox } from "../AboutBottom/aboutBottom.style";
 
 const AboutTop = () => {
-  const { title } = AboutData;
+  const { title, bottom } = AboutData;
   return (
     <Section id="section_top">
       <Container>
@@ -20,6 +21,9 @@ const AboutTop = () => {
             <Definition />
           </ContentHalf>
         </Content>
+        <TitleBox>
+          <Text className="heading" content={bottom.title} />
+        </TitleBox>
       </Container>
     </Section>
   );

@@ -3,6 +3,12 @@ import { rgba } from "polished";
 import styled from "styled-components";
 
 export const Section = styled.footer`
+  @media only screen and (min-width: 992px) {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+  }
   padding-top: 120px;
   @media only screen and (max-width: 1440px) {
     padding-top: 100px;
@@ -22,7 +28,7 @@ export const Grid = styled.div`
   display: grid;
   padding: 80px 0;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
-  border-top: 1px solid ${rgba("#fff", 0.2)};
+  // border-top: 1px solid ${rgba("#fff", 0.2)};
   @media screen and (max-width: 820px) {
     padding: 50px 0;
   }
@@ -49,9 +55,8 @@ export const AboutUs = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-
   .copyright {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
   }
 
   img {

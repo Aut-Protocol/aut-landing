@@ -14,20 +14,20 @@ const Section = styled.div`
   }
 
   h3 {
-    font-size: 1.875rem;
+    font-size: 1.25rem;
     line-height: 1.1;
     letter-spacing: 1.5px;
   }
 
   h4.subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
     font-weight: bold;
     line-height: 1.4;
   }
 
   .description {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
     letter-spacing: 1.5px;
   }
