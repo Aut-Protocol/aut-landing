@@ -10,6 +10,7 @@ const OptOutTop = () => {
       image={<CircleImage pulseButtons={pulseButtons} />}
       title={title}
       subtitle={subtitle}
+      className="snap"
     />
   );
 };

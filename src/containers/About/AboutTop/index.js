@@ -21,9 +21,6 @@ const AboutTop = () => {
             <Definition />
           </ContentHalf>
         </Content>
-        <TitleBox>
-          <Text className="heading" content={bottom.title} />
-        </TitleBox>
       </Container>
     </Section>
   );

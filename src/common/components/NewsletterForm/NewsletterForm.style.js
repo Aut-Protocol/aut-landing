@@ -4,6 +4,7 @@ const NewsletterFormWrapper = styled.form`
   display: flex;
   flex-direction: column;
 
+
   .form-fields {
     display: flex;
     grid-gap: 12px;
@@ -36,6 +37,11 @@ const NewsletterFormWrapper = styled.form`
   }
 
   .submit-btn {
+
+    @media screen and (max-width: 991px) {
+      justify-content: center;
+    }
+
     display: flex;
     justify-content: flex-start;
     margin-top: 30px;

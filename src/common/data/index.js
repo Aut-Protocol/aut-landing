@@ -135,40 +135,16 @@ export const OptOutData = {
     ),
     description: (
       <>
-        The Āut Expander is the gateway to expand your community, and use all
-        the products in the Āut Suite.
+        Your Community Members are much more than a flat 0x… address.
         <br />
         <br />
-        Your Community Members’ Identity is much more multidimensional, rich,
-        than a flat 0x… address.
-        <br />
-        <br />
-        Expand any DAO’s legacy contract (i.e.: a Moloch DAO), bringing Members’
-        Role, Commitment & Interactions directly on-chain, at your Community
-        Contract level.
-        <br />
-        <br />
-        Check out our{" "}
-        <a
-          style={{
-            color: "white",
-            textDecoration: "underline",
-          }}
-          target="_blank"
-          href="https://docs.aut.id/"
-        >
-          <b>Docs</b>
-        </a>{" "}
-        for a complete walkthrough of the Expander.
+        Bring your Members’ Roles & Interactions directly on-chain, expand your
+        DAO, and join the Coordination Renaissance
       </>
     ),
     image: expanderImage,
     link: {
-      title: (
-        <>
-          Go to <b>Playground</b>
-        </>
-      ),
+      title: "Expand your DAO",
       path: "https://playground.aut.id/",
     },
   },
@@ -501,12 +477,9 @@ export const ProductsData = {
   },
 };
 
-
 import dautScreen from "common/assets/image/daut-image.svg";
 import expanderScreen from "common/assets/image/expander-image.svg";
 import autIdScreen from "common/assets/image/autid-image.svg";
-
-
 
 export const ProductList = [
   {
@@ -997,7 +970,7 @@ export const FooterData = {
           link: "https://docs.aut.id",
         },
         {
-          id: 3,
+          id: 4,
           title: "Product Suite",
           link: "/products",
         },
@@ -1047,6 +1020,30 @@ export const FooterData = {
     //     // },
     //   ],
     // },
+  ],
+  compactWidgets: [
+    {
+      id: 2,
+      title: "Quick Links",
+      list: [
+        {
+          id: 1,
+          title: "About Aut",
+          link: "/about",
+        },
+        {
+          id: 2,
+          title: "Docs",
+          target: "_blank",
+          link: "https://docs.aut.id",
+        },
+        {
+          id: 3,
+          title: "Product Suite",
+          link: "/products",
+        },
+      ],
+    },
   ],
   social: [
     {

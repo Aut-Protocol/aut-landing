@@ -3,6 +3,7 @@ import styled from "styled-components";
 const ProductListSectionWrapper = styled.section`
   width: 100%;
   position: relative;
+  
   .container {
     padding-top: 12rem;
   }

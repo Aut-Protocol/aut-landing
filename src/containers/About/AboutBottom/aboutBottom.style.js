@@ -10,7 +10,7 @@ const Section = styled.section`
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 12.5rem;
+    padding-top: 5rem;
 
     @media only screen and (max-width: 991px) {
       padding-top: 0;

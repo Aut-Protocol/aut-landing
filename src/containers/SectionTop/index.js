@@ -22,7 +22,7 @@ const SectionTop = ({
   hideRightOnMobile,
 }) => {
   return (
-    <Section id="section_top">
+    <Section id="section_top" className={className}>
       <Container>
         <Grid>
           <Content>

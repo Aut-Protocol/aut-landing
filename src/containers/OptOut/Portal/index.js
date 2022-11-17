@@ -9,7 +9,7 @@ const Portal = () => {
   const { title, animationData } = OptOutData.portal;
   return (
     <>
-      <PortalArea id="portal">
+      <PortalArea id="portal" className="snap">
         <Container>
           <Heading as="h1" content={title} />
           <Player autoplay loop className="portal-player" src={animationData} />

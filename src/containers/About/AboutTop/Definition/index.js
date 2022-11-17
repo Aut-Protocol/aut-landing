@@ -9,7 +9,6 @@ import Section, {
   DefinitionTop,
   SameLineContainer,
 } from "./definition.style";
-import { TitleBox } from "containers/About/AboutBottom/aboutBottom.style";
 
 const Definition = () => {
   const { definition } = AboutData;

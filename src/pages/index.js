@@ -5,15 +5,16 @@ import ExpanderSection from "containers/OptOut/ExpanderSection";
 import VideoSection from "containers/VideoSection";
 import OptOutTop from "containers/OptOut/OptOutTop";
 import { OptOutData } from "common/data";
+import SnapWrapper from "./_snap_wrapper";
 
 const Main = () => {
   return (
-    <MainWrapper>
+    <SnapWrapper>
       <OptOutTop />
       <Portal />
       <ExpanderSection />
       {/* <VideoSection {...OptOutData.video} /> */}
-    </MainWrapper>
+    </SnapWrapper>
   );
 };
 export default Main;

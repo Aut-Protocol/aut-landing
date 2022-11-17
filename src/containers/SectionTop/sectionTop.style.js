@@ -5,6 +5,13 @@ const Section = styled.section`
   position: relative;
   z-index: 0;
 
+  &.snap {
+    @media only screen and (min-width: 992px) {
+      scroll-snap-align: start;
+      height: 100vh;
+    }
+  }
+
   .gradient {
     height: 5.188rem;
     width: 20.938rem;
@@ -17,7 +24,6 @@ const Section = styled.section`
     flex-direction: column;
     height: 100%;
     padding-top: 18.75rem;
-    
   }
 
   h1 {

@@ -15,6 +15,7 @@ const AboutBottom = () => {
     <Section id="section_bottom">
       <Container>
         <TitleBox>
+          <Text className="heading" content={bottom.title} />
           <Text className="subtitle" content={bottom.subtitle} />
         </TitleBox>
         <Content>

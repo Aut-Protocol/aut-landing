@@ -19,14 +19,23 @@ const SectionWrapper = styled.section`
   .container {
     padding-top: 18.75rem;
     text-align: center;
-  }
 
+    @media only screen and (max-height: 720px) {
+      padding-top: 12.5rem;
+    }
+
+    @media only screen and (max-width: 991px) {
+      padding-top: 10rem;
+    }
+
+   
+  }
 
   .content {
     text-align: right;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     width: 100%;
   }
 
@@ -37,7 +46,20 @@ const SectionWrapper = styled.section`
     font-style: normal;
     font-weight: normal;
     text-align: right;
-    max-width: 49.063rem;
+  }
+
+  .rounded-button {
+    background: transparent;
+    font-weight: normal;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: 3px solid rgb(0, 159, 227);
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 3px;
+    align-self: center;
+    margin-top: 2rem;
   }
 
   .image-wrapper {
@@ -59,8 +81,6 @@ const SectionWrapper = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
-    padding-top: 10rem;
-
     h1 {
       font-size: 3rem;
       display: none;
@@ -89,7 +109,7 @@ export const Grid = styled.div`
   gap: 0px;
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 6fr;
   flex: 1;
 
   @media only screen and (max-width: 991px) {

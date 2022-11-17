@@ -23,6 +23,9 @@ const ProductsTop = () => {
           image={<NextImage src={ProductsPageImage} />}
           title={title}
           subtitle={subtitle}
+          style={{
+            paddingBottom: "10rem",
+          }}
         />
       )}
     </>

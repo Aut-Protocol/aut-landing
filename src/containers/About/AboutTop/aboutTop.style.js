@@ -4,6 +4,7 @@ const Section = styled.section`
   position: relative;
   z-index: 0;
   line-height: normal;
+  padding-bottom: 10rem;
 
   .container {
     display: flex;

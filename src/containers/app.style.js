@@ -85,12 +85,15 @@ const GlobalStyle = createGlobalStyle`
 
   section {
     position: relative;
-    @media only screen and (min-width: 992px) {
-      scroll-snap-align: start;
-      height: 100vh;
+    &.snap {
+      @media only screen and (min-width: 992px) {
+        scroll-snap-align: start;
+        height: 100vh;
+      }
     }
-
   }
+
+  
 
   .main-container {
     @media only screen and (min-width: 992px) {
@@ -104,7 +107,7 @@ const GlobalStyle = createGlobalStyle`
 
   .sass_app_dark_navbar {
     background-color: #141414;
-    // border-bottom: 1px solid #707070;
+    border-bottom: 1px solid #707070;
     box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.384);
     position: fixed;
     top: 0;
@@ -427,11 +430,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentSnapWrapper = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-padding: 10px;
   overflow-y: scroll;
+`;
+
+export const ContentWrapper = styled.div`
+  overflow: hidden;
 `;
 
 export const AppWrapper = styled.div`

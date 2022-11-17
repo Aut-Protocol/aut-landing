@@ -3,83 +3,57 @@ import { rgba } from "polished";
 import styled from "styled-components";
 
 export const Section = styled.footer`
-  @media only screen and (min-width: 992px) {
-   
-  &.snap {
-    scroll-snap-align: start;
-    height: 30vh;
-    display: flex;
-    align-items: flex-end;
-
-  }
-
-  padding-top: 120px;
-  @media only screen and (max-width: 1440px) {
-    padding-top: 100px;
-  }
-  @media only screen and (max-width: 1366px) {
-    padding-top: 90px;
-  }
-  @media only screen and (max-width: 820px) {
+  padding-top: 2rem;
+  @media only screen and (max-width: 991px) {
     padding-top: 80px;
-  }
-  @media only screen and (max-width: 768px) {
-    padding-top: 60px;
   }
 `;
 
 export const Grid = styled.div`
   display: grid;
-  padding: 80px 0;
+  padding-top: 20px;
+  margin-top: 20px;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
   border-top: 1px solid ${rgba("#fff", 0.2)};
-  @media screen and (max-width: 820px) {
-    padding: 50px 0;
+  @media screen and (min-width: 1440px) {
+    margin-top: 40px;
   }
-  @media screen and (max-width: 1219px) {
-    gap: 30px 30px;
-    padding: 40px 0;
-    grid-template-columns: repeat(3, 1fr);
+  @media screen and (min-width: 1920px) {
+    margin-top: 60px;
   }
-  @media only screen and (max-width: 600px) {
+
+  @media screen and (max-width: 600px) {
     display: flex;
     flex-wrap: wrap;
-    padding: 50px 0;
+    flex-direction: column-reverse;
     gap: 35px 0px;
     > div {
       width: 100%;
       flex: 0 0 100%;
     }
-    // grid-template-columns: repeat(2, 1fr);
+    border-top: none;
+    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
 export const AboutUs = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 
   .copyright {
+    margin-top: 10px;
     color: rgba(255, 255, 255, 0.7);
   }
 
   img {
     max-width: 7.5rem;
-  }
 
-  @media screen and (max-width: 768px) {
-    align-items: center;
-  }
-
-  @media screen and (min-width: 1024px) {
-  }
-  @media screen and (min-width: 1280px) {
-  }
-  @media screen and (min-width: 1366px) {
-  }
-  @media screen and (min-width: 1440px) {
-  }
-  @media screen and (max-width: 480px) {
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 
   p {
@@ -92,14 +66,28 @@ export const AboutUs = styled.div`
 `;
 
 export const FooterWidget = styled.div`
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+  @media only screen and (min-width: 601px) {
+    .compact-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+
   h4 {
     font-family: "Avenir", sans-serif;
     font-weight: 700;
     font-size: 1.875rem;
     line-height: 1.38;
+
     margin: 0 0 25px;
-    @media screen and (max-width: 768px) {
-      margin-bottom: 15px;
+
+    @media only screen and (min-width: 601px) {
+      text-align: start;
     }
   }
   &:last-child {
@@ -120,7 +108,19 @@ export const FooterWidget = styled.div`
   }
 `;
 
-export const ContactInfo = styled.div``;
+export const QuickLinks = styled.div`
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+`;
+
+export const ContactInfo = styled.div`
+  h4 {
+    @media only screen and (min-width: 601px) {
+      text-align: start;
+    }
+  }
+`;
 
 export const CopyText = styled.p`
   margin: 0;
@@ -140,11 +140,9 @@ export const Social = styled.div`
 
   .social-links {
     display: flex;
-    // flex-wrap: wrap;
     align-items: center;
     grid-gap: 2.5rem;
     flex-direction: column;
-    // margin: 5rem 0;
 
     a {
       cursor: pointer;
@@ -155,7 +153,7 @@ export const Social = styled.div`
     }
   }
 
-  @media screen and (max-width: 1220px) {
+  @media screen and (max-width: 600px) {
     justify-content: center;
     display: none;
     &.mobile {
@@ -163,9 +161,9 @@ export const Social = styled.div`
 
       .social-links {
         width: 100%;
+        flex-direction: row;
         justify-content: flex-start;
         flex-direction: row;
-        margin: 5rem 0;
       }
     }
   }
