@@ -61,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #141414;
     color: ${themeGet("colors.textColor")};
-    font-family: 'FractulRegular';
+    font-family: 'FractulRegular', sans-serif;
     font-weight: 400;
   }
 
@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: 'FractulRegular', serif;
+    font-family: 'FractulRegular', sans-serif;
     color: ${themeGet("colors.headingColor")};
   }
 
