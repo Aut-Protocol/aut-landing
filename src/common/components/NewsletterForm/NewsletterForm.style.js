@@ -23,7 +23,7 @@ const NewsletterFormWrapper = styled.form`
   }
 
   h4 {
-    font-family: 'Avenir', sans-serif;
+    font-family: 'FractulRegular', sans-serif;
     font-weight: 700;
     font-size: 1.875rem;
     line-height: 1.38;

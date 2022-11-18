@@ -11,6 +11,7 @@ import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
 import Footer from "containers/Footer";
 import "common/assets/css/rc-collapse.css";
+import "common/assets/css/fractul.css";
 
 export function reportWebVitals(metric) {
   // console.log(metric);

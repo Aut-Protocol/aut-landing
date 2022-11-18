@@ -83,7 +83,7 @@ export const AboutUs = styled.div`
   }
 
   p {
-    font-family: "Avenir", sans-serif;
+    font-family: 'FractulRegular', sans-serif;
     font-size: 15px;
     line-height: 2;
     letter-spacing: -0.002em;
@@ -93,7 +93,7 @@ export const AboutUs = styled.div`
 
 export const FooterWidget = styled.div`
   h4 {
-    font-family: "Avenir", sans-serif;
+    font-family: 'FractulRegular', sans-serif;
     font-weight: 700;
     font-size: 1.875rem;
     line-height: 1.38;

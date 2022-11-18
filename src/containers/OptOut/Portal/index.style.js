@@ -16,7 +16,7 @@ const PortalArea = styled.section`
   h1 {
     font-size: 3rem;
     letter-spacing: 1.5px;
-    font-family: Avenir Next;
+    font-family: 'FractulRegular', sans-serif;
     font-weight: bold;
   }
 

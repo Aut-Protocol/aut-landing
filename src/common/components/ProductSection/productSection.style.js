@@ -131,7 +131,7 @@ const ButtonWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding-right: 4rem;
-  margin-bottom: 4rem;
+  margin: 3rem 0;
 `;
 
 export {

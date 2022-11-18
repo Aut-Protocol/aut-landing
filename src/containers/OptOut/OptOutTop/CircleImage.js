@@ -57,7 +57,7 @@ const Loading = ({ title, subtitle, link }) => {
             data-name="+"
             transform="translate(0 20)"
             fontSize="20"
-            fontFamily="Avenir-Black, Avenir"
+            fontFamily="FractulRegular"
             fontWeight="800"
             letterSpacing="0.016em"
           >

@@ -61,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #141414;
     color: ${themeGet("colors.textColor")};
-    font-family: 'Avenir', sans-serif;
+    font-family: 'FractulRegular';
     font-weight: 400;
   }
 
@@ -71,16 +71,16 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: 'Avenir', serif;
+    font-family: 'FractulRegular', serif;
     color: ${themeGet("colors.headingColor")};
   }
 
   input, textarea {
-    font-family: 'Avenir', sans-serif;
+    font-family: 'FractulRegular', sans-serif;
   }
 
   button {
-    font-family: 'Avenir', sans-serif;
+    font-family: 'FractulRegular', sans-serif;
   }
 
   section {
