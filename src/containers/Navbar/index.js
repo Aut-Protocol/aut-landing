@@ -12,15 +12,23 @@ import React, { useContext } from "react";
 import Link from "next/link";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
-import { LinkButton } from "common/components/Button";
-import { useRouter } from "next/router";
+import Button from "common/components/Button";
 
-const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
+const navbarStyle = {
+  className: "sass_app_dark_navbar",
+  height: ["122px", "122px", "84px", "84px", "112px"],
+  display: "block",
+};
+
+const logoStyles = {
+  height: ["42px", "42px", "42px", "42px", "56px"],
+}
+
+const Navbar = ({ row, menuWrapper }) => {
   const { state, dispatch } = useContext(DrawerContext);
   const { menuItems, logo, navButtons } = NavbarData;
-  const router = useRouter();
 
-  // Toggle drawer
+
   const toggleHandler = () => {
     dispatch({
       type: "TOGGLE",
@@ -35,7 +43,7 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
             <Logo
               logoSrc={logo}
               title="SaaS Creative"
-              logoStyle={logoStyle}
+              logoStyle={logoStyles}
               className="sticky-logo nav-logo"
             />
           </Link>
@@ -48,12 +56,13 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
             <div className="navbar-buttons">
               {navButtons.map(({ link, name }, index) => (
-                <LinkButton
+                <Button
                   key={`nav-button-key-${index}`}
                   target="_blank"
                   className="gradient"
                   title={name}
                   href={link}
+                  as="a"
                 />
               ))}
             </div>
@@ -89,22 +98,12 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  navbarStyle: {
-    className: "sass_app_dark_navbar",
-    minHeight: "70px",
-    display: "block",
-  },
   row: {
     flexBox: true,
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
   },
-  logoContainer: {},
-  logoStyle: {
-    maxWidth: ["115px", "115px"],
-  },
-  button: {},
   menuWrapper: {
     flexBox: true,
     alignItems: "center",

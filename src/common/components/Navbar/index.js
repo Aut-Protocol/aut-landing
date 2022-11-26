@@ -11,8 +11,10 @@ const Navbar = ({ className, children, navbarStyle, ...props }) => {
     addAllClasses.push(className);
   }
 
+
+  console.log(navbarStyle, props, 'navbarStyle');
   return (
-    <NavbarStyle className={addAllClasses.join(' ')} {...props}>
+    <NavbarStyle className={addAllClasses.join(' ')} {...props} {...navbarStyle}>
       {children}
     </NavbarStyle>
   );

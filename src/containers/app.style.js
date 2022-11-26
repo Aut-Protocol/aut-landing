@@ -114,8 +114,6 @@ const GlobalStyle = createGlobalStyle`
     left: 0;
     width: 100%;
     transition: 0.35s ease-in-out;
-    padding: 30px 0;
-    height: 10.5rem;
     display: flex;
 
     .container {
@@ -233,10 +231,6 @@ const GlobalStyle = createGlobalStyle`
     .sass_app_dark_navbar {
       padding: 15px 0;
       background-color: #111111;
-      // background: rgba(255, 255, 255, 0.2);
-      // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      // backdrop-filter: blur(2px);
-      // border-bottom-color: ${rgba("#fff", 0.2)};
     }
     .main-logo {
       opacity: 0;

@@ -4,10 +4,9 @@ import NextImage from "common/components/NextImage";
 import Container from "common/components/UI/Container";
 import SectionWrapper, { Grid } from "./expanderSection.style";
 import Heading from "common/components/Heading";
-import Link from "next/link";
 import { OptOutData } from "common/data";
 import CompactFooter from "containers/CompactFooter";
-import { LinkButton } from "common/components/Button";
+import Button from "common/components/Button";
 
 const ExpanderSection = () => {
   const { image, title, description, link } = OptOutData.expander;
@@ -38,11 +37,12 @@ const ExpanderSection = () => {
               content={description}
               style={{ textAlign: "left" }}
             />
-            <LinkButton
+            <Button
               className="rounded-button"
               title={link.title}
               href={link.path}
               target="_blank"
+              as="a"
             />
           </div>
         </Grid>

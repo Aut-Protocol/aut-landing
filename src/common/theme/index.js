@@ -1,8 +1,9 @@
-import colors from './colors';
+import colors from "./colors";
+
 export const theme = {
-  breakpoints: ['480px', '768px', '990px', '1220px'],
-  space: [0, 5, 10, 15, 20, 25, 30, 40, 56, 71, 91],
-  fontSizes: [10, 12, 14, 15, 16, 20, 24, 36, 48, 55, 60, 81],
+  breakpoints: ["320px", "768px", "1220px", "1920px"],
+  space: [0, 4, 8, 16, 24, 32, 40, 48, 66, 72, 80, 88, 96],
+  fontSizes: [10, 12, 14, 15, 16, 20, 24, 34, 48, 60, 96],
   fontWeights: [300, 400, 500, 600, 700, 800, 900],
   lineHeights: {
     solid: 1,
@@ -10,30 +11,32 @@ export const theme = {
     copy: 1.5,
   },
   letterSpacings: {
-    normal: 'normal',
-    tracked: '0.1em',
-    tight: '-0.05em',
-    mega: '0.25em',
+    normal: "normal",
+    tracked: "0.1em",
+    tight: "-0.05em",
+    mega: "0.25em",
   },
   fonts: {
-    dmsans: "'DM Sans', sans-serif",
+    dmsans: "'FractulRegular', sans-serif",
   },
-  borders: [0, '1px solid', '2px solid', '4px solid'],
-  radius: [0, 3, 5, 10, 15, 20, 25, 50, 60, '50%'],
+  borders: [0, "1px solid", "2px solid", "3px solid", "4px solid"],
+  radius: [0, 3, 5, 10, 15, 20, 25, 50, 60, "50%"],
   colors,
   colorStyles: {
     primary: {
-      color: colors.primary,
-      borderColor: colors.primary,
-      '&:hover': {
-        color: colors.primaryHover,
-        borderColor: colors.primaryHover,
+      color: colors.offWhite,
+      backgroundColor: colors.transparent,
+      borderColor: colors.offWhite,
+      "&:hover": {
+        color: colors.black,
+        backgroundColor: colors.offWhite,
+        borderColor: colors.offWhite,
       },
     },
     secondary: {
       color: colors.secondary,
       borderColor: colors.secondary,
-      '&:hover': {
+      "&:hover": {
         color: colors.secondaryHover,
         borderColor: colors.secondaryHover,
       },
@@ -41,7 +44,7 @@ export const theme = {
     warning: {
       color: colors.yellow,
       borderColor: colors.yellow,
-      '&:hover': {
+      "&:hover": {
         color: colors.yellowHover,
         borderColor: colors.yellowHover,
       },
@@ -49,7 +52,7 @@ export const theme = {
     error: {
       color: colors.secondaryHover,
       borderColor: colors.secondaryHover,
-      '&:hover': {
+      "&:hover": {
         color: colors.secondary,
         borderColor: colors.secondary,
       },
@@ -58,7 +61,7 @@ export const theme = {
       color: colors.white,
       backgroundColor: colors.primary,
       borderColor: colors.primary,
-      '&:hover': {
+      "&:hover": {
         backgroundColor: colors.primaryHover,
         borderColor: colors.primaryHover,
       },
@@ -67,7 +70,7 @@ export const theme = {
       color: colors.white,
       backgroundColor: colors.secondary,
       borderColor: colors.secondary,
-      '&:hover': {
+      "&:hover": {
         backgroundColor: colors.secondaryHover,
         borderColor: colors.secondaryHover,
       },
@@ -76,7 +79,7 @@ export const theme = {
       color: colors.white,
       backgroundColor: colors.yellow,
       borderColor: colors.yellow,
-      '&:hover': {
+      "&:hover": {
         backgroundColor: colors.yellowHover,
         borderColor: colors.yellowHover,
       },
@@ -85,42 +88,46 @@ export const theme = {
       color: colors.white,
       backgroundColor: colors.secondaryHover,
       borderColor: colors.secondaryHover,
-      '&:hover': {
+      "&:hover": {
         backgroundColor: colors.secondary,
         borderColor: colors.secondary,
       },
     },
   },
   buttonStyles: {
-    textButton: {
-      border: 0,
-      color: colors.primary,
-      padding: 0,
-      height: 'auto',
-      backgroundColor: `${colors.transparent}`,
-    },
     outlined: {
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      backgroundColor: colors.transparent,
+      borderWidth: "3px",
+      borderStyle: "solid",
     },
-    fab: {
-      border: '0',
-      width: '40px',
-      height: '40px',
+    roundOutlined: {
+      borderWidth: "3px",
+      borderStyle: "solid",
+      borderRadius: "50px",
+    },
+    square: {
+      borderWidth: "3px",
+      borderStyle: "solid",
+      borderRadius: "0",
+    },
+    text: {
+      border: 0,
       padding: 0,
-      borderRadius: '50%',
-      justifyContent: 'center',
-      'span.btn-icon': {
-        paddingLeft: 0,
+      height: "auto",
+    },
+    link: {
+      border: 0,
+      padding: 0,
+      height: "auto",
+      "&:hover": {
+        textDecoration: "underline",
       },
     },
-    extendedFab: {
-      border: '0',
-      minWidth: '50px',
-      height: '40px',
-      borderRadius: '50px',
-      justifyContent: 'center',
+    linkUnderline: {
+      border: 0,
+      padding: 0,
+      height: "auto",
+      textDecoration: "underline",
+      textTransform: "uppercase",
     },
   },
 };

@@ -1,4 +1,4 @@
-import AutLogo from "common/assets/image/aut-logo.svg";
+import AutLogo from "common/assets/image/logo.svg";
 
 /* ------------------------------------ */
 // Navbar data section

@@ -24,6 +24,7 @@
     "animate.css": "^4.1.1",
     "axios": "^0.26.1",
     "bluebird": "^3.7.2",
+    "clean-tag": "^3.1.1",
     "dateformat": "^5.0.3",
     "ethers": "^5.7.0",
     "framer-motion": "^6.3.16",
@@ -56,6 +57,7 @@
     "react-stickynode": "4.0.0",
     "rheostat": "^4.1.1",
     "styled-components": "^5.2.1",
+    "styled-components-breakpoint": "^3.0.0-preview.20",
     "styled-system": "5.1.5",
     "swiper": "^7.4.1"
   },

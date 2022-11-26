@@ -13,7 +13,7 @@ import ProductListSectionWrapper, {
   GridWrapper,
 } from "./productList.style";
 import Container from "common/components/UI/Container";
-import { LinkButton } from "common/components/Button";
+import Button from "common/components/Button";
 import ProductCard from "common/components/ProductCard";
 import useWindowSize from "common/components/window-size";
 import ProductSection from "common/components/ProductSection";
@@ -68,11 +68,12 @@ const ProductListSection = ({
                       }
                       className="productList"
                       button={
-                        <LinkButton
+                        <Button
                           className="button_learn_more gradient"
                           title="Learn More >"
                           href={product.link}
                           target="_blank"
+                          as="a"
                         />
                       }
                     />
@@ -152,12 +153,13 @@ const ProductListSection = ({
                         }
                         className="productList"
                         button={
-                          <LinkButton
+                          <Button
                             className="button_learn_more desktop gradient"
                             title="Learn More >"
                             style={{ margin: "0" }}
                             href={product.link}
                             target="_blank"
+                            as="a"
                           />
                         }
                       />
