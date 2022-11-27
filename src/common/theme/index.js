@@ -1,7 +1,18 @@
 import colors from "./colors";
 
+const breakpoints = ["320px", "768px", "990px", "1220px", "1366px", "1920px"];
+
 export const theme = {
-  breakpoints: ["320px", "768px", "1220px", "1920px"],
+  breakpoints,
+  disableStyledSystemCache: true,
+  mediaQueries: {
+    xs: `@media screen and (min-width: ${breakpoints[0]})`,
+    sm: `@media screen and (min-width: ${breakpoints[1]})`,
+    md: `@media screen and (min-width: ${breakpoints[2]})`,
+    lg: `@media screen and (min-width: ${breakpoints[3]})`,
+    xl: `@media screen and (min-width: ${breakpoints[4]})`,
+    xxl: `@media screen and (min-width: ${breakpoints[5]})`,
+  },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 66, 72, 80, 88, 96],
   fontSizes: [10, 12, 14, 15, 16, 20, 24, 34, 48, 60, 96],
   fontWeights: [300, 400, 500, 600, 700, 800, 900],
@@ -31,6 +42,12 @@ export const theme = {
         color: colors.black,
         backgroundColor: colors.offWhite,
         borderColor: colors.offWhite,
+      },
+    },
+    nav: {
+      color: colors.white,
+      "&:hover": {
+        color: colors.offWhite,
       },
     },
     secondary: {
@@ -122,6 +139,11 @@ export const theme = {
         textDecoration: "underline",
       },
     },
+    navLink: {
+      border: 0,
+      padding: 0,
+      height: "auto",
+    },
     linkUnderline: {
       border: 0,
       padding: 0,
@@ -131,3 +153,10 @@ export const theme = {
     },
   },
 };
+
+breakpoints.xs = breakpoints[0];
+breakpoints.sm = breakpoints[1];
+breakpoints.md = breakpoints[2];
+breakpoints.lg = breakpoints[3];
+breakpoints.xl = breakpoints[4];
+breakpoints.xxl = breakpoints[5];

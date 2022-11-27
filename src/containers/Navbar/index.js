@@ -16,18 +16,29 @@ import Button from "common/components/Button";
 
 const navbarStyle = {
   className: "sass_app_dark_navbar",
-  height: ["122px", "122px", "84px", "84px", "112px"],
+  height: {
+    _: "122px",
+    xs: "122px",
+    sm: "84px",
+    md: "84px",
+    xxl: "112px",
+  },
   display: "block",
 };
 
 const logoStyles = {
-  height: ["42px", "42px", "42px", "42px", "56px"],
-}
+  height: {
+    _: "42px",
+    xs: "42px",
+    sm: "42px",
+    md: "42px",
+    xxl: "56px",
+  },
+};
 
 const Navbar = ({ row, menuWrapper }) => {
   const { state, dispatch } = useContext(DrawerContext);
   const { menuItems, logo, navButtons } = NavbarData;
-
 
   const toggleHandler = () => {
     dispatch({
@@ -42,7 +53,7 @@ const Navbar = ({ row, menuWrapper }) => {
           <Link href="/" shallow>
             <Logo
               logoSrc={logo}
-              title="SaaS Creative"
+              alt="Aut Logo"
               logoStyle={logoStyles}
               className="sticky-logo nav-logo"
             />
@@ -59,9 +70,16 @@ const Navbar = ({ row, menuWrapper }) => {
                 <Button
                   key={`nav-button-key-${index}`}
                   target="_blank"
-                  className="gradient"
                   title={name}
                   href={link}
+                  variant="roundOutlined"
+                  size="normal"
+                  colors="primary"
+                  ml={{
+                    md: "65px",
+                    lg: "70px",
+                    xxl: "82px",
+                  }}
                   as="a"
                 />
               ))}

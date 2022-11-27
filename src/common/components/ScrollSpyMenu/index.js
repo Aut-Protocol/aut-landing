@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import Scrollspy from 'react-scrollspy';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import Scrollspy from "react-scrollspy";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { DrawerContext } from '../../contexts/DrawerContext';
+import { DrawerContext } from "../../contexts/DrawerContext";
+import Button from "../Button";
 
 const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   const { dispatch } = useContext(DrawerContext);
@@ -19,7 +20,7 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   });
 
   // Add all classs to an array
-  const addAllClasses = ['scrollspy__menu'];
+  const addAllClasses = ["scrollspy__menu"];
 
   // className prop checking
   if (className) {
@@ -29,14 +30,14 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   // Close drawer when click on menu item
   const toggleDrawer = () => {
     dispatch({
-      type: 'TOGGLE',
+      type: "TOGGLE",
     });
   };
 
   return (
     <Scrollspy
       items={scrollItems}
-      className={addAllClasses.join(' ')}
+      className={addAllClasses.join(" ")}
       drawerClose={drawerClose}
       {...props}
     >
@@ -44,7 +45,26 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
         <li key={`menu-item-${index}`}>
           {menu.staticLink ? (
             <Link href={menu.path} shallow>
-              <a target={menu.target} className={router.pathname == menu.path ? "is-current" : ""} href={menu.path}>{menu.label}</a>
+              <Button
+                target={menu.target}
+                className={router.pathname == menu.path ? "is-current" : ""}
+                href={menu.path}
+                variant="navLink"
+                colors="nav"
+                title={menu.label}
+                fontSize={{
+                  _: "14px",
+                  xs: "16px",
+                  sm: "16px",
+                  md: "20px",
+                  xxl: "24px",
+                }}
+                ml={{
+                  md: "44px",
+                  lg: "50px",
+                  xxl: "60px",
+                }}
+              />
             </Link>
           ) : (
             <>
@@ -103,8 +123,8 @@ ScrollSpyMenu.propTypes = {
 };
 
 ScrollSpyMenu.defaultProps = {
-  componentTag: 'ul',
-  currentClassName: 'is-current',
+  componentTag: "ul",
+  currentClassName: "is-current",
 };
 
 export default ScrollSpyMenu;

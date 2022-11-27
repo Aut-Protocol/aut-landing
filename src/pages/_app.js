@@ -1,6 +1,6 @@
 import { Modal } from "@redq/reuse-modal";
 import Web3AutProvider from "common/ProviderFactory/components/Web3Provider";
-import React from "react";
+import React, { useRef } from "react";
 import Head from "next/head";
 import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";

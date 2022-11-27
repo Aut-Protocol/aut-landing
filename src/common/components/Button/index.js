@@ -1,70 +1,76 @@
-import React, { Fragment } from "react";
+import React, { forwardRef, Fragment } from "react";
 import PropTypes from "prop-types";
 import ButtonStyle, { buttonStyles } from "./button.style";
 import Loader from "../Loader";
 
-const Button = ({
-  type,
-  title,
-  icon,
-  disabled,
-  iconPosition,
-  onClick,
-  loader,
-  loaderColor,
-  isMaterial,
-  isLoading,
-  className,
-  ...props
-}) => {
-  // Add all classs to an array
-  const addAllClasses = ["reusecore__button"];
+const Button = forwardRef(
+  (
+    {
+      type,
+      title,
+      icon,
+      disabled,
+      iconPosition,
+      onClick,
+      loader,
+      loaderColor,
+      isMaterial,
+      isLoading,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    // Add all classs to an array
+    const addAllClasses = ["reusecore__button"];
 
-  // isLoading prop checking
-  if (isLoading) {
-    addAllClasses.push("is-loading");
-  }
+    // isLoading prop checking
+    if (isLoading) {
+      addAllClasses.push("is-loading");
+    }
 
-  // isMaterial prop checking
-  if (isMaterial) {
-    addAllClasses.push("is-material");
-  }
+    // isMaterial prop checking
+    if (isMaterial) {
+      addAllClasses.push("is-material");
+    }
 
-  // className prop checking
-  if (className) {
-    addAllClasses.push(className);
-  }
+    // className prop checking
+    if (className) {
+      addAllClasses.push(className);
+    }
 
-  // Checking button loading state
-  const buttonIcon =
-    isLoading !== false ? (
-      <Fragment>
-        {loader ? loader : <Loader loaderColor={loaderColor || "#000"} />}
-      </Fragment>
-    ) : (
-      icon && <span className="btn-icon">{icon}</span>
+    // Checking button loading state
+    const buttonIcon =
+      isLoading !== false ? (
+        <Fragment>
+          {loader ? loader : <Loader loaderColor={loaderColor || "#000"} />}
+        </Fragment>
+      ) : (
+        icon && <span className="btn-icon">{icon}</span>
+      );
+
+    // set icon position
+    const position = iconPosition || "right";
+
+    return (
+      <ButtonStyle
+        innerRef={ref}
+        type={type}
+        className={addAllClasses.join(" ")}
+        icon={icon}
+        disabled={disabled}
+        icon-position={position}
+        onClick={onClick}
+        {...props}
+        {...buttonStyles[props.size]}
+      >
+        {position === "left" && buttonIcon}
+        {title && <>{title}</>}
+        {position === "right" && buttonIcon}
+      </ButtonStyle>
     );
-
-  // set icon position
-  const position = iconPosition || "right";
-
-  return (
-    <ButtonStyle
-      type={type}
-      className={addAllClasses.join(" ")}
-      icon={icon}
-      disabled={disabled}
-      icon-position={position}
-      onClick={onClick}
-      {...props}
-      {...buttonStyles[props.size]}
-    >
-      {position === "left" && buttonIcon}
-      {title && <>{title}</>}
-      {position === "right" && buttonIcon}
-    </ButtonStyle>
-  );
-};
+  }
+);
 
 Button.propTypes = {
   /** ClassName of the button */
@@ -102,13 +108,11 @@ Button.propTypes = {
     "link",
     "linkUnderline",
   ]),
-  
+
   size: PropTypes.oneOf([
     "normal",
-    "text",
-    "roundOutlined",
-    "link",
-    "linkUnderline",
+    "chunky",
+    "square",
   ]),
 
   /** primary || secondary || warning || error  change text and border color.

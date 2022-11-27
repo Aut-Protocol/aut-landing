@@ -9,15 +9,16 @@ const ResetCSS = createGlobalStyle`
   html {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
-    font-size: 62.8%;
+    font-size: 16px;
+    // font-size: 62.8%;
 
-    @media (min-width: 1440px) {
-      font-size: 70%;
-    }
+    // @media (min-width: 1440px) {
+    //   font-size: 70%;
+    // }
 
-    @media (min-width: 1920px) {
-      font-size: 80%;
-    }
+    // @media (min-width: 1920px) {
+    //   font-size: 80%;
+    // }
   }
 
   *,
