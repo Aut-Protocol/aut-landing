@@ -14,7 +14,7 @@ export const theme = {
     xxl: `@media screen and (min-width: ${breakpoints[5]})`,
   },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 66, 72, 80, 88, 96],
-  fontSizes: [10, 12, 14, 15, 16, 20, 24, 34, 48, 60, 96],
+  fontSizes: [10, 12, 14, 15, 16, 20, 24, 34, 48, 60, 72, 96],
   fontWeights: [300, 400, 500, 600, 700, 800, 900],
   lineHeights: {
     solid: 1,

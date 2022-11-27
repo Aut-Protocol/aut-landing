@@ -3,8 +3,9 @@ export const textStyles = {
     fontSize: {
       _: "60px",
       xs: "68px",
-      sm: '70px',
-      md: "72px",
+      sm: '68px',
+      md: "68px",
+      lg: "72px",
       xxl: "96px",
     },
     fontWeight: 'bold',
@@ -16,7 +17,8 @@ export const textStyles = {
       _: "40px",
       xs: "42px",
       sm: '42px',
-      md: "45px",
+      md: "42px",
+      lg: "45px",
       xxl: "60px",
     },
     fontWeight: 'bold',
@@ -26,9 +28,10 @@ export const textStyles = {
   h3: {
     fontSize: {
       _: "32px",
-      xs: "34px",
-      sm: '34px',
+      xs: "32px",
+      sm: '35px',
       md: "35px",
+      lg: "35px",
       xxl: "48px",
     },
     fontWeight: 'bold',
@@ -38,9 +41,10 @@ export const textStyles = {
   subtitle1: {
     fontSize: {
       _: "23px",
-      xs: "24px",
-      sm: '24px',
-      md: "24px",
+      xs: "23px",
+      sm: '23px',
+      md: "23px",
+      lg: "25px",
       xxl: "34px",
     },
     fontWeight: 'normal',
@@ -50,9 +54,10 @@ export const textStyles = {
   subtitle2: {
     fontSize: {
       _: "16px",
-      xs: "17px",
-      sm: '17px',
-      md: "18px",
+      xs: "16px",
+      sm: '16px',
+      md: "16px",
+      lg: "18px",
       xxl: "24px",
     },
     fontWeight: 'bold',
@@ -65,6 +70,7 @@ export const textStyles = {
       xs: "16px",
       sm: '16px',
       md: "16px",
+      lg: "16px",
       xxl: "24px",
     },
     fontWeight: 'normal',
@@ -74,9 +80,10 @@ export const textStyles = {
   caption: {
     fontSize: {
       _: "12px",
-      xs: "11px",
-      sm: '11px',
-      md: "11px",
+      xs: "12px",
+      sm: '12px',
+      md: "12px",
+      lg: "12px",
       xxl: "16px",
     },
     fontWeight: 'normal',
@@ -86,9 +93,10 @@ export const textStyles = {
   overline: {
     fontSize: {
       _: "12px",
-      xs: "11px",
-      sm: '11px',
-      md: "11px",
+      xs: "12px",
+      sm: '12px',
+      md: "12px",
+      lg: "12px",
       xxl: "16px",
     },
     fontWeight: 'normal',
