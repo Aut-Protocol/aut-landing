@@ -1,4 +1,5 @@
 import themeGet from "@styled-system/theme-get";
+import { theme } from "common/theme";
 import styled from "styled-components";
 import {
   display,
@@ -13,13 +14,28 @@ import {
   width,
   height,
 } from "styled-system";
+import { darkenColor, lightenColor } from "../lightenDarken";
+
+
 
 const NavbarStyle = styled.nav`
   /* Navbar default style goes here */
   display: flex;
   align-items: center;
 
-  background-color: ${themeGet('colors.nightBlack')};
+  background-color: ${darkenColor(theme.colors.nightBlack, 0.05)};
+
+  
+  // &:before {
+  //   content: ' ';
+  //   display: block;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   opacity: 0.25;
+  // }
   border: 0;
   position: fixed;
   top: 0;

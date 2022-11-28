@@ -52,19 +52,16 @@ const NewsletterForm = ({ status, message, onValidated }) => {
           <NewsletterFormWrapper
             mt={{
               _: "40px",
-              sm: "0px",
+              md: "0px",
             }}
             alignItems={{
               _: "center",
-              sm: "flex-start",
+              md: "flex-start",
             }}
             autoComplete="off"
             onSubmit={handleSubmit(onSubmit, onError)}
             className="d-flex newsletter-input-fields"
           >
-            <Typography m="0" color="offWhite" as="subtitle1">
-              Stay in touch
-            </Typography>
             <Controller
               name="email"
               control={control}
@@ -101,26 +98,33 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                 fontWeight="bold"
                 size="normal"
                 colors="primary"
+                mt={{
+                  _: "33px",
+                  md: "40px",
+                  xxl: "56px",
+                }}
               />
             </div>
+            <div
+              className="newsletter-form-info"
+              style={{
+                width: "100%",
+                marginTop: '4px'
+              }}
+            >
+              {status === "error" ? (
+                <Text
+                  style={{
+                    position: "absolute",
+                    color: "red",
+                    margin: 0,
+                  }}
+                  className="newsletter-form-error"
+                  dangerouslySetInnerHTML={{ __html: getMessage(message) }}
+                />
+              ) : null}
+            </div>
           </NewsletterFormWrapper>
-          <div
-            className="newsletter-form-info"
-            style={{
-              padding: "20px 0",
-            }}
-          >
-            {status === "error" ? (
-              <Text
-                style={{
-                  position: "absolute",
-                  color: "red",
-                }}
-                className="newsletter-form-error"
-                dangerouslySetInnerHTML={{ __html: getMessage(message) }}
-              />
-            ) : null}
-          </div>
         </>
       ) : (
         <Text

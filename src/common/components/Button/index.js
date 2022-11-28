@@ -105,6 +105,7 @@ Button.propTypes = {
     "outlined",
     "text",
     "roundOutlined",
+    "navLink",
     "link",
     "linkUnderline",
   ]),

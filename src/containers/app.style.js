@@ -1,6 +1,7 @@
 import { themeGet } from "@styled-system/theme-get";
 import { rgba } from "polished";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
+import AutLogo from "common/assets/image/noise.svg";
 
 const Wobble_Vertical = keyframes`
   16.65% {
@@ -58,8 +59,28 @@ const GlobalStyle = createGlobalStyle`
     --HvrRippleOut: ${Hvr_Ripple_Out} 1s ease-in-out;
   }
 
+  html {
+    background-color: ${themeGet("colors.black")};
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.2;
+      background-image: url(${AutLogo.src});
+      // background-repeat: no-repeat;
+      // background-size: cover;
+      // background-position: 50% 0;
+      // background-blend-mode: overlay;
+      // mix-blend-mode: overlay;
+    }
+  }
+
   body {
-    background-color: #141414;
     color: ${themeGet("colors.textColor")};
     font-family: 'FractulRegular', sans-serif;
     font-weight: 400;

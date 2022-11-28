@@ -2,7 +2,14 @@ import { themeGet } from "@styled-system/theme-get";
 import { base } from "common/components/base";
 import { rgba } from "polished";
 import styled from "styled-components";
-import { alignItems, display, flexDirection, gridGap, gridTemplateColumns, justifyContent } from "styled-system";
+import {
+  alignItems,
+  display,
+  flexDirection,
+  gridGap,
+  gridTemplateColumns,
+  justifyContent,
+} from "styled-system";
 
 export const Section = styled.footer`
   margin-top: 200px;
@@ -32,7 +39,7 @@ export const Section = styled.footer`
 
 export const Grid = styled("div")`
   display: grid;
-  border-top: 1px solid ${themeGet('color.offWhite')};
+  border-top: 1px solid ${themeGet("color.offWhite")};
   // // padding: 80px 0;
   // grid-template-columns: 1fr 1fr 1fr 0.5fr;
   // border-top: 1px solid ${rgba("#fff", 0.2)};
@@ -83,7 +90,11 @@ export const FooterWidget = styled.div`
   ${display}
 `;
 
-export const ContactInfo = styled.div``;
+export const ContactInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${alignItems}
+`;
 
 export const CopyText = styled.p`
   margin: 0;

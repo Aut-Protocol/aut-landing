@@ -62,7 +62,7 @@ const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
                   md: "26px",
                   xxl: "40px",
                 }}
-                src={icon}
+                src={icon.src}
                 alt="social image"
               />
             </a>
@@ -74,14 +74,14 @@ const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
 };
 
 const Footer = () => {
-  const { logo, social, copyright, widgets, mailchimpUrl } = FooterData;
+  const { logo, copyright, widgets, mailchimpUrl } = FooterData;
   return (
     <Section>
       <Container>
         <Grid
           gridTemplateColumns={{
             _: "1fr",
-            sm: "1fr 1fr",
+            // sm: "1fr 1fr",
             md: "repeat(3, 1fr)",
             lg: "1fr 1fr 1fr 0.5fr",
           }}
@@ -95,7 +95,8 @@ const Footer = () => {
           <AboutUs
             alignItems={{
               _: "center",
-              sm: "start",
+              md: "start"
+              // sm: "start",
             }}
           >
             <NextLink href="/" shallow>
@@ -105,7 +106,7 @@ const Footer = () => {
               socialStyles={{
                 display: {
                   _: "none",
-                  sm: "inherit",
+                  md: "inherit",
                   lg: "none",
                 },
                 alignItems: "center",
@@ -124,7 +125,7 @@ const Footer = () => {
             <Typography
               display={{
                 _: "none",
-                sm: "inherit",
+                md: "inherit",
               }}
               m="0"
               color="offWhite"
@@ -165,20 +166,43 @@ const Footer = () => {
                       xxl: "24px",
                     }}
                   >
-                    <Button
-                      title={item.title}
-                      variant="text"
-                      colors="nav"
-                      as="a"
-                      target={item.target}
-                      href={item.link}
-                    />
+                    <NextLink href={item.link} shallow>
+                      <Button
+                        title={item.title}
+                        variant="text"
+                        colors="nav"
+                        as="a"
+                        target={item.target}
+                        href={item.link}
+                      />
+                    </NextLink>
                   </FooterWidgetItem>
                 ))}
               </ul>
             </FooterWidget>
           ))}
-          <ContactInfo>
+          <ContactInfo
+            alignItems={{
+              _: "center",
+              md: "flex-start",
+            }}
+          >
+            <Typography
+              mt={{
+                _: "30px",
+                md: "0",
+              }}
+              mb={{
+                _: "12px",
+                md: "24px",
+                lg: "26px",
+                xxl: "28px",
+              }}
+              color="offWhite"
+              as="subtitle1"
+            >
+              Stay in touch
+            </Typography>
             <MailchimpSubscribe
               url={mailchimpUrl}
               render={(props) => {
@@ -198,12 +222,12 @@ const Footer = () => {
             socialStyles={{
               display: {
                 _: "inherit",
-                sm: "none",
+                md: "none",
                 lg: "inherit",
               },
-              mt:{
-                _: "80px",
-                sm: "0px",
+              mt: {
+                _: "75px",
+                md: "0px",
               },
               justifyContent: "center",
             }}
@@ -223,7 +247,7 @@ const Footer = () => {
           <Typography
             display={{
               _: "inherit",
-              sm: "none",
+              md: "none",
             }}
             mt="40px"
             color="offWhite"

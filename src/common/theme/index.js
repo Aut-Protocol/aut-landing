@@ -38,10 +38,16 @@ export const theme = {
       color: colors.offWhite,
       backgroundColor: colors.transparent,
       borderColor: colors.offWhite,
+      ".reusecore__loader": {
+        borderColor: colors.offWhite,
+      },
       "&:hover": {
         color: colors.black,
         backgroundColor: colors.offWhite,
         borderColor: colors.offWhite,
+        ".reusecore__loader": {
+          borderColor: colors.black,
+        },
       },
     },
     nav: {

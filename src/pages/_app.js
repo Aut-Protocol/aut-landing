@@ -1,6 +1,5 @@
 import { Modal } from "@redq/reuse-modal";
-import Web3AutProvider from "common/ProviderFactory/components/Web3Provider";
-import React, { useRef } from "react";
+import React from "react";
 import Head from "next/head";
 import Sticky from "react-stickynode";
 import { DrawerProvider } from "common/contexts/DrawerContext";
@@ -9,7 +8,6 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "common/theme";
 import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
-import Footer from "containers/Footer";
 import "common/assets/css/rc-collapse.css";
 import "common/assets/css/fractul.css";
 

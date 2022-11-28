@@ -152,6 +152,10 @@ const ButtonStyle = styled("button")`
       padding-left: ${themeGet("space.2", "8")}px;
       padding-right: ${themeGet("space.2", "8")}px;
     }
+
+    .reusecore__loader {
+      margin-left: 4px;
+    }
   }
 
   ${alignItems}

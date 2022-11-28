@@ -6,7 +6,8 @@ const NewsletterFormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-between;
+  position: relative;
+  justify-content: flex-end;
 
   input {
     font-size: 18px;
@@ -20,7 +21,7 @@ const NewsletterFormWrapper = styled.form`
     justify-content: center;
     width: 100%;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 990px) {
       justify-content: flex-start;
     }
   }
