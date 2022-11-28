@@ -1,12 +1,12 @@
 import React from "react";
 import Text from "common/components/Text";
-import NextImage from "common/components/NextImage";
 import Container from "common/components/UI/Container";
 import SectionWrapper, { Grid } from "./expanderSection.style";
 import Heading from "common/components/Heading";
 import { OptOutData } from "common/data";
 import CompactFooter from "containers/CompactFooter";
 import Button from "common/components/Button";
+import Image from "common/components/Image";
 
 const ExpanderSection = () => {
   const { image, title, description, link } = OptOutData.expander;
@@ -16,7 +16,7 @@ const ExpanderSection = () => {
         <Grid>
           <div className="image-wrapper">
             <div className="image">
-              <NextImage src={image} alt="Expander Image" height="550px" />
+              <Image src={image} alt="Expander Image" height="550px" />
             </div>
             <Heading className="mobile-heading" as="h1" content={title} />
           </div>

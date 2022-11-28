@@ -2,12 +2,12 @@ import BannerArea from "./index.style";
 import React from "react";
 import Box from "common/components/Box";
 import Link from "next/link";
-import NextImage from "common/components/NextImage";
 import Container from "common/components/UI/Container";
 import Text from "common/components/Text";
 import Heading from "common/components/Heading";
 import { PillarsData } from "common/data";
 import useWindowSize from "common/components/window-size";
+import Image from "common/components/Image";
 
 const Pillars = ({ row }) => {
   const { width } = useWindowSize();
@@ -68,8 +68,8 @@ const Pillars = ({ row }) => {
               </div>
             </Box>
             <Box className="col" width={width > 600 ? "50%" : "40%"}>
-              {width < 600 && <NextImage src={mobileImage} />}
-              {width > 600 && <NextImage src={desktopImage} />}
+              {width < 600 && <Image src={mobileImage} />}
+              {width > 600 && <Image src={desktopImage} />}
             </Box>
           </Box>
         </Container>

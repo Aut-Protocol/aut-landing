@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import Text from "../Text";
 import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
+import Typography from "../Typography";
 
 const NewsletterForm = ({ status, message, onValidated }) => {
   const { control, handleSubmit, watch } = useForm({
@@ -49,62 +50,57 @@ const NewsletterForm = ({ status, message, onValidated }) => {
       {status !== "success" ? (
         <>
           <NewsletterFormWrapper
+            mt={{
+              _: "40px",
+              sm: "0px",
+            }}
+            alignItems={{
+              _: "center",
+              sm: "flex-start",
+            }}
             autoComplete="off"
             onSubmit={handleSubmit(onSubmit, onError)}
             className="d-flex newsletter-input-fields"
           >
-            <Text as="h4" content="Stay in touch" />
-            <div className="form-fields">
-              {/* <div className="form-field">
-                <Controller
-                  name="name"
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  render={({ field: { name, value, onChange } }) => {
-                    return (
-                      <Input
-                        required
-                        defaultValue={value || ""}
-                        name={name}
-                        value={value || ""}
-                        onChange={onChange}
-                        placeholder="How should we call you?"
-                      />
-                    );
-                  }}
-                />
-              </div> */}
-              <div className="form-field">
-                <Controller
-                  name="email"
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  render={({ field: { name, value, onChange } }) => {
-                    return (
-                      <Input
-                        required
-                        isMaterial
-                        defaultValue={value || ""}
-                        name={name}
-                        value={value || ""}
-                        onChange={onChange}
-                        placeholder="Your email address"
-                      />
-                    );
-                  }}
-                />
-              </div>
-            </div>
+            <Typography m="0" color="offWhite" as="subtitle1">
+              Stay in touch
+            </Typography>
+            <Controller
+              name="email"
+              control={control}
+              rules={{
+                required: true,
+              }}
+              render={({ field: { name, value, onChange } }) => {
+                return (
+                  <Input
+                    required
+                    isMaterial
+                    defaultValue={value || ""}
+                    name={name}
+                    value={value || ""}
+                    onChange={onChange}
+                    placeholder="Your email address"
+                    inputStyles={{
+                      width: {
+                        _: "245px",
+                        lg: "280px",
+                        xxl: "320px",
+                      },
+                    }}
+                  />
+                );
+              }}
+            />
             <div className="submit-btn">
               <Button
                 isLoading={status === "sending"}
-                // disabled={status === "sending" || !values.email || !values.name}
                 type="submit"
                 title="Submit"
+                variant="roundOutlined"
+                fontWeight="bold"
+                size="normal"
+                colors="primary"
               />
             </div>
           </NewsletterFormWrapper>

@@ -13,6 +13,8 @@ import {
   fontWeight,
   letterSpacing,
   borderRadius,
+  display,
+  textAlign,
 } from "styled-system";
 
 const StyledDynamicComponent = styled("p")`
@@ -28,6 +30,8 @@ const StyledDynamicComponent = styled("p")`
   ${fontFamily}
   ${fontWeight}
   ${borderRadius}
+  ${display}
+  ${textAlign}
 `;
 
 const DynamicComponent = ({ children, ...props }) => {

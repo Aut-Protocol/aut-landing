@@ -18,7 +18,7 @@ import ProductCard from "common/components/ProductCard";
 import useWindowSize from "common/components/window-size";
 import ProductSection from "common/components/ProductSection";
 import videoPlaceholderImage from "common/assets/image/placeholder-video.svg";
-import NextImage from "common/components/NextImage";
+import Image from "common/components/Image";
 
 const ProductListSection = ({
   row,
@@ -166,7 +166,7 @@ const ProductListSection = ({
                     </Content>
                     <RightWrapper>
                       <ImagePreview>
-                        <NextImage src={product.image} alt="" />
+                        <Image src={product.image} alt="" />
                       </ImagePreview>
                     </RightWrapper>
                   </Grid>

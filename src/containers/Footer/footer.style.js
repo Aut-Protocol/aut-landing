@@ -1,8 +1,11 @@
 import { themeGet } from "@styled-system/theme-get";
+import { base } from "common/components/base";
 import { rgba } from "polished";
 import styled from "styled-components";
+import { alignItems, display, flexDirection, gridGap, gridTemplateColumns, justifyContent } from "styled-system";
 
 export const Section = styled.footer`
+  margin-top: 200px;
   @media only screen and (min-width: 992px) {
    
   &.snap {
@@ -10,7 +13,6 @@ export const Section = styled.footer`
     height: 30vh;
     display: flex;
     align-items: flex-end;
-
   }
 
   padding-top: 120px;
@@ -28,96 +30,57 @@ export const Section = styled.footer`
   }
 `;
 
-export const Grid = styled.div`
+export const Grid = styled("div")`
   display: grid;
-  padding: 80px 0;
-  grid-template-columns: 1fr 1fr 1fr 0.5fr;
-  border-top: 1px solid ${rgba("#fff", 0.2)};
-  @media screen and (max-width: 820px) {
-    padding: 50px 0;
-  }
-  @media screen and (max-width: 1219px) {
-    gap: 30px 30px;
-    padding: 40px 0;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @media only screen and (max-width: 600px) {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 50px 0;
-    gap: 35px 0px;
-    > div {
-      width: 100%;
-      flex: 0 0 100%;
-    }
-    // grid-template-columns: repeat(2, 1fr);
-  }
+  border-top: 1px solid ${themeGet('color.offWhite')};
+  // // padding: 80px 0;
+  // grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  // border-top: 1px solid ${rgba("#fff", 0.2)};
+  // @media screen and (max-width: 1219px) {
+  //   gap: 30px 30px;
+  //   grid-template-columns: repeat(3, 1fr);
+  // }
+  // @media only screen and (max-width: 600px) {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   gap: 35px 0px;
+  //   > div {
+  //     width: 100%;
+  //     flex: 0 0 100%;
+  //   }
+  // }
+  ${base}
+  ${gridTemplateColumns}
 `;
 
 export const AboutUs = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  ${alignItems}
+`;
 
-  .copyright {
-    color: rgba(255, 255, 255, 0.7);
+export const FooterWidgetItem = styled("li")`
+  &:last-child {
+    margin-bottom: 0;
   }
-
-  img {
-    max-width: 7.5rem;
+  a {
+    text-transform: inherit;
+    color: ${themeGet("colors.textColor")};
+    &:hover {
+      color: ${themeGet("colors.white")};
+    }
   }
-
-  @media screen and (max-width: 768px) {
-    align-items: center;
-  }
-
-  @media screen and (min-width: 1024px) {
-  }
-  @media screen and (min-width: 1280px) {
-  }
-  @media screen and (min-width: 1366px) {
-  }
-  @media screen and (min-width: 1440px) {
-  }
-  @media screen and (max-width: 480px) {
-  }
-
-  p {
-    font-family: 'FractulRegular', sans-serif;
-    font-size: 15px;
-    line-height: 2;
-    letter-spacing: -0.002em;
-    color: white;
-  }
+  ${base};
 `;
 
 export const FooterWidget = styled.div`
-  h4 {
-    font-family: 'FractulRegular', sans-serif;
-    font-weight: 700;
-    font-size: 1.875rem;
-    line-height: 1.38;
-    margin: 0 0 25px;
-    @media screen and (max-width: 768px) {
-      margin-bottom: 15px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
   &:last-child {
     margin-right: 0;
   }
-  .widgetListItem {
-    a {
-      cursor: pointer;
-      color: ${themeGet("colors.textColor")};
-      font-size: 1.313rem;
-      line-height: 2.5;
-      font-weight: 500;
-      &:hover {
-        color: ${themeGet("colors.white")};
-      }
-      transition: all 0.4s ease;
-    }
-  }
+  ${display}
 `;
 
 export const ContactInfo = styled.div``;
@@ -127,46 +90,23 @@ export const CopyText = styled.p`
   color: #fff;
 `;
 
-export const Social = styled.div`
+export const Social = styled("div")`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: flex-start;
   flex: 30%;
 
-  &.mobile {
-    display: none;
-  }
+  ${base}
+  ${alignItems}
+  ${justifyContent}
+`;
 
-  .social-links {
-    display: flex;
-    // flex-wrap: wrap;
-    align-items: center;
-    grid-gap: 2.5rem;
-    flex-direction: column;
-    // margin: 5rem 0;
+export const SocialLinks = styled("div")`
+  display: flex;
+  align-items: center;
 
-    a {
-      cursor: pointer;
-    }
-
-    img {
-      height: 20px;
-    }
-  }
-
-  @media screen and (max-width: 1220px) {
-    justify-content: center;
-    display: none;
-    &.mobile {
-      display: inherit;
-
-      .social-links {
-        width: 100%;
-        justify-content: flex-start;
-        flex-direction: row;
-        margin: 5rem 0;
-      }
-    }
-  }
+  ${base}
+  ${gridGap}
+  ${flexDirection}
 `;

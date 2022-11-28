@@ -34,6 +34,13 @@ const logoStyles = {
     md: "42px",
     xxl: "56px",
   },
+  width: {
+    _: "186px",
+    xs: "186px",
+    sm: "186px",
+    md: "186px",
+    xxl: "252px",
+  },
 };
 
 const Navbar = ({ row, menuWrapper }) => {

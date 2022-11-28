@@ -46,15 +46,6 @@ const NavbarStyle = styled.nav`
       // margin-left: auto;
     }
   }
-  .nav-logo {
-    > img {
-      transition: 0.25s ease-in-out;
-      max-width: 110px;
-      @media only screen and (min-width: 990px) and (max-width: 991px) {
-        max-width: 90px;
-      }
-    }
-  }
   .main_menu {
     li {
       display: inline-flex;

@@ -122,6 +122,7 @@ Button.propTypes = {
     "secondary",
     "warning",
     "error",
+    "nav",
     "primaryWithBg",
     "secondaryWithBg",
     "warningWithBg",

@@ -64,6 +64,7 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
                   lg: "50px",
                   xxl: "60px",
                 }}
+                as="a"
               />
             </Link>
           ) : (

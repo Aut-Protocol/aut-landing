@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { base, themed } from '../base';
 
 const LinkWrapper = styled('a')(
-  { textDecoration: 'none', alignItems: 'center' },
+  { textDecoration: 'none', alignItems: 'center', cursor: 'pointer' },
   base,
   themed('Link')
 );

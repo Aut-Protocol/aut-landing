@@ -2,7 +2,6 @@ import Image from "common/components/Image";
 import BannerArea from "./index.style";
 import React, { useEffect } from "react";
 import Link from "next/link";
-import NextImage from "common/components/NextImage";
 import Text from "common/components/Text";
 import aut from "common/assets/image/aut-logo.svg";
 import { FooterData } from "common/data";
@@ -136,7 +135,7 @@ const ComingSoonManifest = () => {
               {social.map(({ link, icon }, index) => (
                 <Link href={link} key={`footer-social-key-${index}`}>
                   <a target="_blank">
-                    <NextImage src={icon} alt="social image" />
+                    <Image src={icon} alt="social image" />
                   </a>
                 </Link>
               ))}
