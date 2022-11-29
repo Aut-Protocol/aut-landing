@@ -3,7 +3,7 @@ import { Icon } from "react-icons-kit";
 import { ic_play_arrow } from "react-icons-kit/md/ic_play_arrow";
 import { openModal } from "@redq/reuse-modal";
 import Button from "common/components/Button";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Heading from "common/components/Heading";
 import Text from "common/components/Text";
 

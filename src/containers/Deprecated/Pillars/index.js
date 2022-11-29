@@ -2,7 +2,7 @@ import BannerArea from "./index.style";
 import React from "react";
 import Box from "common/components/Box";
 import Link from "next/link";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Text from "common/components/Text";
 import Heading from "common/components/Heading";
 import { PillarsData } from "common/data";

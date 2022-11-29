@@ -21,27 +21,20 @@ import { darkenColor, lightenColor } from "../lightenDarken";
 const NavbarStyle = styled.nav`
   /* Navbar default style goes here */
   display: flex;
+  background-color: ${themeGet('colors.nightBlack')};
   align-items: center;
-
-  background-color: ${darkenColor(theme.colors.nightBlack, 0.05)};
-
-  
-  // &:before {
-  //   content: ' ';
-  //   display: block;
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   opacity: 0.25;
-  // }
   border: 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   transition: 0.35s ease-in-out;
+  
+
+  // &:before {
+  //   content: " ";
+  //   opacity: .25;
+  // }
 
   .container {
     display: flex;

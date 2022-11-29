@@ -8,7 +8,7 @@ import MainWrapper from "../_main_wrapper";
 const Main = () => {
   return (
     <MainWrapper>
-      {/* <AboutTop /> */}
+      <AboutTop />
       {/* <AboutBottom /> */}
     </MainWrapper>
   );

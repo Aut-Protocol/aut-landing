@@ -1,6 +1,8 @@
-import styled, { css } from 'styled-components';
+import themeGet from "@styled-system/theme-get";
+import { base } from "common/components/base";
+import styled, { css } from "styled-components";
 
-const ContainerWrapper = styled.div`
+const ContainerWrapper = styled("div")`
   margin-left: auto;
   margin-right: auto;
   ${(props) =>
@@ -19,26 +21,19 @@ const ContainerWrapper = styled.div`
       padding-left: 30px;
       padding-right: 30px;
     `};
-  @media (min-width: 768px) {
+  ${themeGet("mediaQueries.sm")} {
     max-width: 750px;
     width: 100%;
   }
-  @media (min-width: 992px) {
+  ${themeGet("mediaQueries.md")} {
     max-width: 970px;
     width: 100%;
   }
-  @media (min-width: 1220px) {
-    max-width: ${(props) => props.width || '1170px'};
+  ${themeGet("mediaQueries.lg")} {
+    max-width: ${(props) => props.width || "1170px"};
     width: 100%;
   }
-  @media (max-width: 768px) {
-    ${(props) =>
-      props.mobileGutter &&
-      css`
-        padding-left: 30px;
-        padding-right: 30px;
-      `};
-  }
+  ${base}
 `;
 
 export default ContainerWrapper;

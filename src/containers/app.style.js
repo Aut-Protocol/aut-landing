@@ -60,29 +60,26 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    background-color: ${themeGet("colors.black")};
+    background-color: ${themeGet("colors.nightBlack")};
+
     &:before {
       content: ' ';
       display: block;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.2;
-      background-image: url(${AutLogo.src});
-      // background-repeat: no-repeat;
-      // background-size: cover;
-      // background-position: 50% 0;
-      // background-blend-mode: overlay;
-      // mix-blend-mode: overlay;
+      background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
+      mix-blend-mode: overlay;
+      opacity: 0.5;
     }
   }
 
   body {
     color: ${themeGet("colors.textColor")};
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
     font-weight: 400;
   }
 
@@ -92,16 +89,16 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
     color: ${themeGet("colors.headingColor")};
   }
 
   input, textarea {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
   }
 
   button {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
   }
 
   section {

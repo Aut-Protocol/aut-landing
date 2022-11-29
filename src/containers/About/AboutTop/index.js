@@ -1,7 +1,7 @@
 import { AboutData } from "common/data";
 import Heading from "common/components/Heading";
 import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { Content, ContentHalf } from "./aboutTop.style";
 import AboutSubtitles from "./AboutSubtitles";
 import Definition from "./Definition";

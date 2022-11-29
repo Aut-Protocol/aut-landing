@@ -1,7 +1,7 @@
 import { ManifestoData } from "common/data";
 import Heading from "common/components/Heading";
 import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { Content } from "./sectionTop.style";
 
 const ManifestoTop = () => {

@@ -57,7 +57,7 @@ export const AboutUs = styled.div`
   }
 
   p {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
     font-size: 15px;
     line-height: 2;
     letter-spacing: -0.002em;
@@ -79,7 +79,7 @@ export const FooterWidget = styled.div`
   }
 
   h4 {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
     font-weight: 700;
     font-size: 1.875rem;
     line-height: 1.38;

@@ -1,6 +1,6 @@
 import PortalArea from "./index.style";
 import React from "react";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Heading from "common/components/Heading";
 import { OptOutData } from "common/data";

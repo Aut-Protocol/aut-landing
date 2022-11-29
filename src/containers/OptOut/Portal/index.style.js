@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
 const PortalArea = styled.section`
@@ -16,7 +17,7 @@ const PortalArea = styled.section`
   h1 {
     font-size: 3rem;
     letter-spacing: 1.5px;
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet('fonts.primary')};
     font-weight: bold;
   }
 

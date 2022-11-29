@@ -3,14 +3,14 @@ import { FooterData } from "common/data";
 import NewsletterForm from "common/components/NewsletterForm/NewsletterForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import NextLink from "next/link";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import {
   AboutUs,
   ContactInfo,
   FooterWidget,
   Grid,
   Social,
-  Section,
+  FooterSection,
   FooterWidgetItem,
   SocialLinks,
 } from "./footer.style";
@@ -20,6 +20,8 @@ import Logo from "common/components/UIElements/Logo";
 import Typography from "common/components/Typography";
 import Button from "common/components/Button";
 import Image from "common/components/Image";
+import BubbleImage from "common/assets/image/bubble.svg";
+import Bubble from "common/components/Bubble";
 
 const logoStyles = {
   color: "#262626",
@@ -76,8 +78,16 @@ const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
 const Footer = () => {
   const { logo, copyright, widgets, mailchimpUrl } = FooterData;
   return (
-    <Section>
-      <Container>
+    <FooterSection as="footer">
+      <Bubble src={BubbleImage.src} />
+      <Container
+        noGutter
+        maxWidth={{
+          lg: "1180px",
+          xl: "1300px",
+          xxl: "1600px",
+        }}
+      >
         <Grid
           gridTemplateColumns={{
             _: "1fr",
@@ -95,7 +105,7 @@ const Footer = () => {
           <AboutUs
             alignItems={{
               _: "center",
-              md: "start"
+              md: "start",
               // sm: "start",
             }}
           >
@@ -152,6 +162,9 @@ const Footer = () => {
                 }}
                 color="offWhite"
                 as="subtitle1"
+                style={{
+                  WebkitTextStroke: "1px #707070",
+                }}
               >
                 {item.title}
               </Typography>
@@ -200,6 +213,9 @@ const Footer = () => {
               }}
               color="offWhite"
               as="subtitle1"
+              style={{
+                WebkitTextStroke: "1px #707070",
+              }}
             >
               Stay in touch
             </Typography>
@@ -258,7 +274,7 @@ const Footer = () => {
           </Typography>
         </Grid>
       </Container>
-    </Section>
+    </FooterSection>
   );
 };
 

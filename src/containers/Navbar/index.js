@@ -3,7 +3,7 @@ import Drawer from "common/components/Drawer";
 import HamburgMenu from "common/components/HamburgMenu";
 import NavbarWrapper from "common/components/Navbar";
 import ScrollSpyMenu from "common/components/ScrollSpyMenu";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import { DrawerContext } from "common/contexts/DrawerContext";
 import { NavbarData } from "common/data";
 import PropTypes from "prop-types";
@@ -55,61 +55,68 @@ const Navbar = ({ row, menuWrapper }) => {
 
   return (
     <NavbarWrapper {...navbarStyle}>
-      <Container>
-        <Box {...row}>
-          <Link href="/" shallow>
-            <Logo
-              logoSrc={logo}
-              alt="Aut Logo"
-              logoStyle={logoStyles}
-              className="sticky-logo nav-logo"
-            />
-          </Link>
-          <Box {...menuWrapper} className="mainMenuWrapper">
-            <ScrollSpyMenu
-              className="main_menu"
-              menuItems={menuItems}
-              offset={-70}
-            />
-
-            <div className="navbar-buttons">
-              {navButtons.map(({ link, name }, index) => (
-                <Button
-                  key={`nav-button-key-${index}`}
-                  target="_blank"
-                  title={name}
-                  href={link}
-                  variant="roundOutlined"
-                  size="normal"
-                  colors="primary"
-                  ml={{
-                    md: "65px",
-                    lg: "70px",
-                    xxl: "82px",
-                  }}
-                  as="a"
-                />
-              ))}
-            </div>
-
-            <Drawer
-              width="420px"
-              placement="right"
-              closeButton={<Icon size={30} icon={ic_close} />}
-              drawerHandler={<HamburgMenu barColor="#108AFF" />}
-              open={state.isOpen}
-              toggleHandler={toggleHandler}
-            >
-              <ScrollSpyMenu
-                className="mobile_menu"
-                menuItems={menuItems}
-                drawerClose={true}
-                offset={-100}
+        <Container
+          noGutter
+          maxWidth={{
+            lg: "1180px",
+            xl: "1300px",
+            xxl: "1600px"
+          }}
+        >
+          <Box {...row}>
+            <Link href="/" shallow>
+              <Logo
+                logoSrc={logo}
+                alt="Aut Logo"
+                logoStyle={logoStyles}
+                className="sticky-logo nav-logo"
               />
-            </Drawer>
+            </Link>
+            <Box {...menuWrapper} className="mainMenuWrapper">
+              <ScrollSpyMenu
+                className="main_menu"
+                menuItems={menuItems}
+                offset={-70}
+              />
+
+              <div className="navbar-buttons">
+                {navButtons.map(({ link, name }, index) => (
+                  <Button
+                    key={`nav-button-key-${index}`}
+                    target="_blank"
+                    title={name}
+                    href={link}
+                    variant="roundOutlined"
+                    size="normal"
+                    colors="primary"
+                    ml={{
+                      md: "65px",
+                      lg: "70px",
+                      xxl: "82px",
+                    }}
+                    as="a"
+                  />
+                ))}
+              </div>
+
+              <Drawer
+                width="420px"
+                placement="right"
+                closeButton={<Icon size={30} icon={ic_close} />}
+                drawerHandler={<HamburgMenu barColor="#108AFF" />}
+                open={state.isOpen}
+                toggleHandler={toggleHandler}
+              >
+                <ScrollSpyMenu
+                  className="mobile_menu"
+                  menuItems={menuItems}
+                  drawerClose={true}
+                  offset={-100}
+                />
+              </Drawer>
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
     </NavbarWrapper>
   );
 };

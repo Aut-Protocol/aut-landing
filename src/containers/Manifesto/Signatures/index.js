@@ -1,6 +1,6 @@
 import Heading from "common/components/Heading";
 import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { ListItem } from "./signatures.style";
 import Button from "common/components/Button";
 import Box from "common/components/Box";

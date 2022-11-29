@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import Heading from "common/components/Heading";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { RcCollapse } from "./faq.style";
 import { Panel } from "rc-collapse";
 import motion from "./motion-util";

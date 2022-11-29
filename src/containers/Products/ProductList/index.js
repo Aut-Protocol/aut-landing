@@ -12,7 +12,7 @@ import ProductListSectionWrapper, {
   RightWrapper,
   GridWrapper,
 } from "./productList.style";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Button from "common/components/Button";
 import ProductCard from "common/components/ProductCard";
 import useWindowSize from "common/components/window-size";

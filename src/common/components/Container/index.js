@@ -6,8 +6,8 @@ const Container = ({
   className,
   fullWidth,
   noGutter,
-  mobileGutter,
   width,
+  ...props
 }) => {
   // Add all classs to an array
   const addAllClasses = ['container'];
@@ -22,7 +22,7 @@ const Container = ({
       fullWidth={fullWidth}
       noGutter={noGutter}
       width={width}
-      mobileGutter={mobileGutter}
+      {...props}
     >
       {children}
     </ContainerWrapper>

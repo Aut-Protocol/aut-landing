@@ -10,6 +10,8 @@ import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
 import "common/assets/css/rc-collapse.css";
 import "common/assets/css/fractul.css";
+import Bubble from "common/components/Bubble";
+import BubbleImage from "common/assets/image/bubble.svg";
 
 export function reportWebVitals(metric) {
   // console.log(metric);
@@ -44,6 +46,11 @@ export default function CustomApp({ Component, pageProps }) {
               <Navbar />
             </DrawerProvider>
           </Sticky>
+          <Bubble
+            position="top right"
+            src={BubbleImage.src}
+            zIndex="999"
+          />
           <Component {...pageProps} />
         </Modal>
       </>

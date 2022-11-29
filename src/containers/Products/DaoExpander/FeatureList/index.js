@@ -4,7 +4,7 @@ import Box from "common/components/Box";
 import Text from "common/components/Text";
 import Heading from "common/components/Heading";
 import { ProductsData } from "common/data";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 
 import FeatureListSectionWrapper from "./featureList.style";
 import SimpleCard from "common/components/SimpleCard";

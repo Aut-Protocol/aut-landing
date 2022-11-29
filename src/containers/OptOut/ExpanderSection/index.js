@@ -1,6 +1,6 @@
 import React from "react";
 import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import SectionWrapper, { Grid } from "./expanderSection.style";
 import Heading from "common/components/Heading";
 import { OptOutData } from "common/data";
