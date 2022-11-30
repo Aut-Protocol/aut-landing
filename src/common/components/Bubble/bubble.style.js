@@ -33,19 +33,19 @@ const BubbleStyle = styled(Image)`
     display: block;
     &.center,
     &.bottom {
-      bottom: -820px;
+      bottom: -950px;
     }
 
     &.top,
     &.right {
-      top: -650px;
-      right: -820px;
+      top: -750px;
+      right: -850px;
     }
   }
   ${themeGet("mediaQueries.xxl")} {
     &.center,
     &.bottom {
-      bottom: -700px;
+      bottom: -870px;
     }
   }
   ${base}

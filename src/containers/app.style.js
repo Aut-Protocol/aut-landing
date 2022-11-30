@@ -1,5 +1,4 @@
 import { themeGet } from "@styled-system/theme-get";
-import { rgba } from "polished";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import AutLogo from "common/assets/image/noise.svg";
 
@@ -61,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     background-color: ${themeGet("colors.nightBlack")};
+    overflow-x: hidden;
 
     &:before {
       content: ' ';
@@ -74,12 +74,14 @@ const GlobalStyle = createGlobalStyle`
       background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
       mix-blend-mode: overlay;
       opacity: 0.5;
+      background-position: center;
+      background-size: cover;
     }
   }
 
   body {
     color: ${themeGet("colors.textColor")};
-    font-family: ${themeGet('fonts.primary')};
+    font-family: ${themeGet("fonts.primary")};
     font-weight: 400;
   }
 
@@ -89,16 +91,16 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: ${themeGet('fonts.primary')};
+    font-family: ${themeGet("fonts.primary")};
     color: ${themeGet("colors.headingColor")};
   }
 
   input, textarea {
-    font-family: ${themeGet('fonts.primary')};
+    font-family: ${themeGet("fonts.primary")};
   }
 
   button {
-    font-family: ${themeGet('fonts.primary')};
+    font-family: ${themeGet("fonts.primary")};
   }
 
   section {
