@@ -8,7 +8,6 @@ const Main = () => {
   return (
     <MainWrapper>
       <ProductsTop />
-      <Typography as="h1">test title</Typography>
       <ProductListSection />
     </MainWrapper>
   );

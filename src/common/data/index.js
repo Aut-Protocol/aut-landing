@@ -51,63 +51,69 @@ export const NavbarData = {
 // OptOut data section
 /* ------------------------------------ */
 import animationData from "common/assets/portal.json";
-import expanderImage from "common/assets/image/expander.svg";
 import videoPlaceholderImage from "common/assets/image/placeholder-video.svg";
+import expanderCircle from "common/assets/image/expander-circle.svg";
 
 export const OptOutData = {
-  title: (
-    <>
-      Do more <br /> With <br /> Your DAO
-    </>
-  ),
+  title: <>Do more with your DAO</>,
   subtitle: (
     <>
-      Āut is a suite of DAO-native Tools <br />
-      that unlock the true potential <br />
-      of decentralized communities.
+      Āut is a suite of DAO-native Tools that unlock the true potential of
+      decentralized communities.
     </>
   ),
+  link: {
+    path: "https://playground.aut.id",
+    title: "Playground",
+  },
   pulseButtons: [
     {
       title: "Āut Expander",
       subtitle: (
         <>
-          Expand your DAO. Add Members Roles, <br /> Interactions & Commitments
-          at a contract-
-          <br />
-          level - and join the Coordination <br /> Renaissance ⚖️
+          Expand your DAO. Add Members Roles, Interactions & Commitments at a
+          contract-level - and join the Coordination Renaissance ⚖️
         </>
       ),
-      x: "190",
-      y: "35",
+      x: "770",
+      y: "982",
       link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     },
     {
       title: "dĀut",
       subtitle: (
         <>
-          A DAO-bound. d-Āut is the first <br /> permissionless, decentralized{" "}
-          <br /> authentication system specifically designed <br /> for DAOs and
-          their Members 🤝
+          A DAO-bound. d-Āut is the first permissionless, decentralized
+          authentication system specifically designed for DAOs and their Members
+          🤝
         </>
       ),
-      x: "525",
-      y: "240",
+      x: "1059",
+      y: "574",
       link: "https://docs.aut.id/v2/product-suite/daut",
     },
     {
-      title: "ĀutID",
-      subtitle: (
+      title: (
         <>
-          Own your own Identity. ĀutIDs are self
-          <br />
-          -sovereign, Non-Transferable NFT IDs <br /> that bind each Individual
-          to the DAOs <br /> they join. Also, a sexy Social Profile that <br />{" "}
-          lives on-chain 😎
+          <span
+            style={{
+              fontWeight: "bold",
+            }}
+          >
+            Aut{" "}
+          </span>
+          <span>ID</span>
         </>
       ),
-      x: "120",
-      y: "290",
+      subtitle: (
+        <>
+          Own your own Identity. ĀutIDs are self-sovereign, Non-Transferable NFT
+          IDs that bind each Individual to the DAOs they join. Also, a sexy
+          Social Profile that lives on-chain 😎
+        </>
+      ),
+      x: "549",
+      y: "759",
       link: "https://docs.aut.id/v2/product-suite/my-autid",
     },
     {
@@ -118,7 +124,7 @@ export const OptOutData = {
           Renaissance 👥 <br /> It lives on-chain, and it’s owned by <b>you</b>.
         </>
       ),
-      x: "320",
+      x: "333",
       y: "520",
       link: "/manifesto",
     },
@@ -142,7 +148,7 @@ export const OptOutData = {
         DAO, and join the Coordination Renaissance
       </>
     ),
-    image: expanderImage,
+    image: expanderCircle,
     link: {
       title: "Expand your DAO",
       path: "https://playground.aut.id/",
@@ -150,7 +156,7 @@ export const OptOutData = {
   },
   video: {
     url: "https://www.youtube.com/embed/hW98BFnVCm8",
-    image: videoPlaceholderImage,
+    image: expanderCircle,
   },
 };
 
@@ -247,18 +253,12 @@ export const ManifestoData = {
 
 import DaoExpanderIcon from "common/assets/image/expander-icon.svg";
 import dAutIcon from "common/assets/image/daut-icon.svg";
-import DashboardIcon from "common/assets/image/dashboard-icon.svg";
-import VideoPlaceholderForProducts from "common/assets/image/suite.svg";
+import CutImage from "common/assets/image/cut-new2.svg";
 import AutIDIcon from "common/assets/image/autid-icon.svg";
 import FeatureIcon from "common/assets/image/feature-icon.svg";
-import Button from "common/components/Button";
 
 export const ProductsData = {
-  title: (
-    <>
-      The Āut <br /> SUITE
-    </>
-  ),
+  title: <>The Āut SUITE</>,
   subtitle: (
     <>
       All Products in the Āut suite are specifically designed for DAOs - and
@@ -266,14 +266,10 @@ export const ProductsData = {
       communities.
     </>
   ),
-  video: {
-    url: "https://www.youtube.com/embed/hW98BFnVCm8",
-    image: VideoPlaceholderForProducts,
-  },
+  image: CutImage,
   dAut: {
     title: <>dĀut</>,
     className: "no-uppercase",
-    headerButton: <Button className="gradient" title="Button Text Here" />,
     subtitle: (
       <>
         Lorem ipsum dolor <br /> sit amet, consetetur sadipscing elitr, <br />
@@ -477,68 +473,36 @@ export const ProductsData = {
   },
 };
 
-import dautScreen from "common/assets/image/daut-image.svg";
-import expanderScreen from "common/assets/image/expander-image.svg";
-import autIdScreen from "common/assets/image/autid-image.svg";
+import dautScreen from "common/assets/image/daut-screen.svg";
+import expanderScreen from "common/assets/image/expander-screen.svg";
+import autIdScreen from "common/assets/image/autid-screen.svg";
 
 export const ProductList = [
   {
     id: 1,
     isActive: true,
     icon: DaoExpanderIcon,
-    title: "Expander",
+    title: (
+      <>
+        <span style={{ fontWeight: "bold" }}>Āut </span>
+        <span style={{ fontFamily: "FractulRegular" }}>Expander</span>
+      </>
+    ),
     image: expanderScreen,
     link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     description: (
       <>
-        <span
-          style={{
-            marginBottom: "2rem",
-            fontSize: "1.8rem",
-          }}
-        >
-          Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract,
-          from Moloch to Aragon & DAOStack.
-        </span>
-        <span
-          style={{
-            marginBottom: "2rem",
-            fontSize: "1.8rem",
-          }}
-        >
-          Expand it with Āut Expander, and give super-powers to your DAO -
-          adding the concepts of Members Roles & Interactions directly on-chain,
-          at contract level.
-        </span>
-        <span
-          style={{
-            fontSize: "1.8rem",
-          }}
-        >
-          Then assign Roles to your Community - and kick off role-based working
-          & governance routines.
-        </span>
-      </>
-    ),
-    descriptionMobile: (
-      <>
-        <span
-          style={{
-            marginBottom: "3rem",
-          }}
-        >
-          Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract,
-          from Moloch to Aragon & DAOStack.
-        </span>
-        <span
-          style={{
-            marginBottom: "3rem",
-          }}
-        >
-          Expand it with Āut Expander, and give super-powers to your DAO -
-          adding the concepts of Members Roles & Interactions directly on-chain,
-          at contract level.
-        </span>
+        Your Gateway to the Āut Ecosystem. Import any Legacy DAO Contract, from
+        Moloch to Aragon & DAOStack.
+        <br />
+        <br />
+        Expand it with Āut Expander, and give super-powers to your DAO - adding
+        the concepts of Members Roles & Interactions directly on-chain, at
+        contract level.
+        <br />
+        <br />
+        Then assign Roles to your Community - and kick off role-based working &
+        governance routines.
       </>
     ),
   },
@@ -547,103 +511,48 @@ export const ProductList = [
     isActive: true,
     icon: dAutIcon,
     image: dautScreen,
-    title: "dĀut",
+    title: (
+      <>
+        <span style={{ fontFamily: "FractulRegular" }}>d</span>
+        <span>Āut</span>
+      </>
+    ),
     link: "https://docs.aut.id/v2/product-suite/daut",
     description: (
       <>
         <span
           style={{
-            fontSize: "1.8rem",
-            marginBottom: "2px",
+            fontWeight: "bold",
           }}
         >
           A DAO-Bound
         </span>
+        <br />
+        A decentralized authentication system designed for DAOs & their Members.
+        <br />
+        <br />
         <span
           style={{
-            marginBottom: "2rem",
-            fontSize: "1.8rem",
-          }}
-        >
-          A decentralized authentication system designed for DAOs & their
-          Members.
-        </span>
-        <span
-          style={{
-            fontSize: "1.8rem",
-            marginBottom: "2px 0",
+            fontWeight: "bold",
           }}
         >
           For DAOs:
         </span>
+        <br />
+        Integrate it on any website, and let your Members login with their
+        Wallet, & claim their Role in your DAO.
+        <br />
+        <br />
         <span
           style={{
-            marginBottom: "2rem",
-            fontSize: "1.8rem",
-          }}
-        >
-          Integrate it on any website, and let your Members login with their
-          Wallet, & claim their Role in your DAO.
-        </span>
-        <span
-          style={{
-            fontSize: "1.8rem",
-            marginBottom: "2px 0",
+            fontWeight: "bold",
           }}
         >
           For Members:
         </span>
-        <span
-          style={{
-            fontSize: "1.8rem",
-          }}
-        >
-          Claim your Role in the Community & create your Self-sovereign Account.
-          Then use it to login all across Web3.
-        </span>
-      </>
-    ),
-    descriptionMobile: (
-      <>
-        <span
-          style={{
-            fontSize: "1.75rem",
-            fontWeight: "bold",
-            marginBottom: "2px",
-          }}
-        >
-          A DAO-Bound
-        </span>
-        <span>
-          A decentralized authentication system designed for DAOs & their
-          Members.
-        </span>
-        <span
-          style={{
-            fontSize: "1.75rem",
-            fontWeight: "bold",
-            margin: "2px 0",
-          }}
-        >
-          For DAOs:
-        </span>
-        <span>
-          Integrate it on any website, and let your Members login with their
-          Wallet, & claim their Role in your DAO.
-        </span>
-        <span
-          style={{
-            fontSize: "1.75rem",
-            fontWeight: "bold",
-            margin: "2px 0",
-          }}
-        >
-          For Members:
-        </span>
-        <span>
-          Claim your Role in the Community & create your Self-sovereign Account.
-          Then use it to login all across Web3.
-        </span>
+        <br />
+        Claim your Role in the Community & create your Self-sovereign Account.
+        Then use it to login all across Web3.
       </>
     ),
   },
@@ -652,90 +561,27 @@ export const ProductList = [
     isActive: true,
     icon: AutIDIcon,
     image: autIdScreen,
-    title: "Āut ID",
+    title: (
+      <>
+        <span>Āut</span>
+        <span style={{ fontFamily: "FractulRegular" }}> ID</span>
+      </>
+    ),
     link: "https://docs.aut.id/v2/product-suite/my-autid",
     description: (
       <>
-        <span
-          style={{
-            fontSize: "1.8rem",
-            fontWeight: "bold",
-            marginBottom: "2px",
-          }}
-        >
-          Own your own Identity.
-        </span>
-        <span
-          style={{
-            marginBottom: "2rem",
-            fontSize: "1.8rem",
-          }}
-        >
-          ĀutID is self-sovereign, unique, and portable: it lets you join new
-          DAOs, and log in across DAO-powered Web3 DApps.
-        </span>
-        <span
-          style={{
-            fontSize: "1.8rem",
-          }}
-        >
-          It works as a Social Profile, that keeps track of all your DAOs,
-          Roles, and Experience. Each holder gets also a unique, public URL with
-          this structure: https://my.aut.id/[your-pseudonym] 😎
-        </span>
+        Own your own Identity.
+        <br />
+        <br />
+        ĀutID is self-sovereign, unique, and portable: it lets you join new
+        DAOs, and log in across DAO-powered Web3 DApps.
+        <br />
+        <br />
+        It works as a Social Profile, that keeps track of all your DAOs, Roles,
+        and Experience. Each holder gets also a unique, public URL with this
+        structure: https://my.aut.id/[your-pseudonym] 😎
       </>
     ),
-    descriptionMobile: (
-      <>
-        <span
-          style={{
-            fontSize: "1.75rem",
-            fontWeight: "bold",
-            marginBottom: "2px",
-          }}
-        >
-          Own your own Identity.
-        </span>
-        <span
-          style={{
-            marginBottom: "3rem",
-          }}
-        >
-          ĀutID is self-sovereign, unique, and portable: it lets you join new
-          DAOs, and log in across DAO-powered Web3 DApps.
-        </span>
-        <span>
-          It works as a Social Profile, that keeps track of all your DAOs,
-          Roles, and Experience. Each holder gets also a unique, public URL with
-          this structure: https://my.aut.id/[your-pseudonym] 😎
-        </span>
-      </>
-    ),
-  },
-  {
-    id: 4,
-    isActive: false,
-    icon: DashboardIcon,
-    title: "Āut Dashboard",
-    link: "/products/aut-dashboard",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-  },
-  {
-    id: 5,
-    icon: DashboardIcon,
-    isActive: false,
-    title: "Lorem Ipsum",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat",
-  },
-  {
-    id: 5,
-    icon: DashboardIcon,
-    isActive: false,
-    title: "Lorem Ipsum",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex ea comepmodo consetquat ",
   },
 ];
 
@@ -809,6 +655,10 @@ export const QAData = {
   },
 };
 
+import AboutDoor from "common/assets/image/about-door.svg";
+import AboutHuman from "common/assets/image/about-human.svg";
+import AboutDoMore from "common/assets/image/concentric-circles.svg";
+
 export const AboutData = {
   title: (
     <>
@@ -821,17 +671,14 @@ export const AboutData = {
       description: (
         <>
           'From Greek, āut means “Self” <br /> As in Self-Sovereign, or
-          Self-governance
+          Self-governance.
         </>
       ),
     },
     {
       title: "Values",
       description: (
-        <>
-          Āut is your own self. In open break with the
-          <br /> status quo
-        </>
+        <>Āut is your own self. In open break with the status quo.</>
       ),
     },
     {
@@ -891,46 +738,79 @@ export const AboutData = {
     paragraphHeading1: "Do more with your DAO.",
     paragraph1: (
       <>
-        Āut is an extendable Protocol designed to
+        Āut is an extendable Protocol designed to power the next generation of
+        DAOs.
         <br />
-        power the next generation of DAOs.
+        <br />
+        DAOs 2.0, if you like, or a Coordination Renaissance.
         <br />
         <br />
-        DAOs 2.0, if you like, or a Coordination
-        <br /> Renaissance. Governance is much more than just voting.
-        <br />
-        And DAOs can be much more than Smart
-        <br /> Treasuries.
+        Governance is much more than just voting. And DAOs can be much more than
+        Smart Treasuries.
       </>
     ),
     description2: (
       <>
-        Āut is an expandable Community protocol, powering the
-        <br /> next level of collective coordination in DAOs.
-        <br /> It does so by adding Role-based Membership &<br />
-        Governance in Web3 Communities.
+        Āut is an expandable Community protocol, powering the next level of
+        collective coordination in DAOs. It does so by adding Role-based
+        Membership & Governance in Web3 Communities.
       </>
     ),
     paragraphHeading2: "Create your own Standard.",
     paragraph2: (
       <>
-        1. Import any Legacy Contract - any DAO Type you can
-        <br /> think of. Here’s a list of what Āut can already expand.
+        1. Import any Legacy Contract - any DAO Type you can think of. Here’s a
+        list of what Āut can already expand.
         <br />
-        2. Create Roles for your DAO directly on-chain - as easy
-        <br /> as on Discord.
-        <br /> 3. Use our decentralized authentication system (dĀut)
-        <br /> to let your Members login & claim their Role on any
         <br />
-        website.
-        <br /> 4. Create Tasks & Voting routines,
-        <br /> and assign them to a specific
-        <br /> Role.
-        <br /> 5. Coordinate. Coordinate. Coordinate.
-        <br /> 6. Change things. Break things.
-        <br /> Let your actions shape your Community.
+        2. Create Roles for your DAO directly on-chain - as easy as on Discord.
+        <br />
+        <br />
+        3. Use our decentralized authentication system (dĀut)to let your Members
+        login & claim their Role on any website.
+        <br />
+        <br />
+        4. Create Tasks & Voting routines, and assign them to a specific Role.
+        <br />
+        <br />
+        5. Coordinate. Coordinate. Coordinate.
+        <br />
+        <br />
+        6. Change things. Break things.Let your actions shape your Community.
       </>
     ),
+    image: AboutDoor,
+  },
+  myAut: {
+    image: AboutHuman,
+    title: "Āut is my own self. My self",
+    desc1: "outside the system",
+    desc2: "outside conventions",
+    desc3: "outside the status quo",
+  },
+  roles: [
+    {
+      title: (
+        <>
+          Without <br /> Roles
+        </>
+      ),
+    },
+    {
+      title: "there is no coordination.",
+    },
+    {
+      title: "Without Coordination",
+    },
+    {
+      title: "there are no DAOs.",
+    },
+  ],
+  doMore: {
+    image: AboutDoMore,
+  },
+  createYourStandard: {
+    image: CutImage,
   },
 };
 

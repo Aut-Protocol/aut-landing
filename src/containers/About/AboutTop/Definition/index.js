@@ -9,6 +9,7 @@ import Section, {
   DefinitionTop,
   SameLineContainer,
 } from "./definition.style";
+import Typography from "common/components/Typography";
 
 const Definition = () => {
   const { definition } = AboutData;
@@ -18,25 +19,64 @@ const Definition = () => {
       <Content>
         <DefinitionBox>
           <DefinitionTop>
-            <Heading as="h2" content={definition.term} />
-            <Text className="sub" content={definition.noun} />
+            <Typography m="0 5px 0 0" color="white" as="h3">
+              {definition?.term}
+            </Typography>
+            <Typography
+              m="0"
+              color="white"
+              as="h3"
+              fontWeight="normal"
+              fontFamily="FractulRegular"
+            >
+              {definition?.noun}
+            </Typography>
           </DefinitionTop>
-
-          <Text className="pron" content={definition.pronunciation} />
-          <SameLineContainer>
-            <Text className="pron" content={definition.pluralTitle} />
-            <Text className="pron white" content={definition.pluralValue} />
+          <Typography
+            m="10px 0"
+            color="white"
+            as="subtitle2"
+            fontWeight="normal"
+          >
+            {definition.pronunciation}
+          </Typography>
+          <SameLineContainer
+            style={{
+              marginBottom: "20px",
+            }}
+          >
+            <Typography m="0" color="white" as="subtitle2" fontWeight="normal">
+              {definition.pluralTitle}
+            </Typography>
+            <Typography m="0" color="white" as="subtitle2">
+              {definition.pluralValue}
+            </Typography>
           </SameLineContainer>
 
-          <SameLineContainer>
-            <Text className="sub" content={definition.defintionTitle} />
-            <Text className="sub white" content={definition.term} />
+          <SameLineContainer
+            style={{
+              marginBottom: "20px",
+            }}
+          >
+            <Typography m="0" color="white" as="subtitle1" fontWeight="bold">
+              {definition.defintionTitle}
+            </Typography>
+            <Typography m="0" color="white" as="subtitle1" fontWeight="bold">
+              {definition.term}
+            </Typography>
           </SameLineContainer>
           {definition.definitions.map((n, i) => {
             return (
-              <DefinitionItem key={i}>
-                <Text className="description" content={i} />
-                <Text className="description" content={n} />
+              <DefinitionItem style={{
+                marginBottom: i !== definition.definitions.length - 1 ? '20px' : '0',
+                
+              }}key={i}>
+                <Typography m="0" color="white" as="body">
+                  {`${i + 1}.`}
+                </Typography>
+                <Typography m="0" color="white" as="body">
+                  {n}
+                </Typography>
               </DefinitionItem>
             );
           })}

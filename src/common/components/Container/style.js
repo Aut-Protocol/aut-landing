@@ -30,7 +30,16 @@ const ContainerWrapper = styled("div")`
     width: 100%;
   }
   ${themeGet("mediaQueries.lg")} {
-    max-width: ${(props) => props.width || "1170px"};
+    max-width: ${(props) => props.width || "1060px"};
+    width: 100%;
+  }
+  ${themeGet("mediaQueries.xl")} {
+    max-width: ${(props) => props.width || "1146px"};
+    width: 100%;
+  }
+
+   ${themeGet("mediaQueries.xxl")} {
+    max-width: ${(props) => props.width || "1460px"};
     width: 100%;
   }
   ${base}

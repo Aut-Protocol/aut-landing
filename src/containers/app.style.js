@@ -115,17 +115,6 @@ const GlobalStyle = createGlobalStyle`
 
   
 
-  .main-container {
-    @media only screen and (min-width: 992px) {
-
-    height: 100vh;
-    scrollSnapType: y mandatory;
-    scrollPadding: 10px;
-    overflowY: scroll;
-    }
-  }
-
-
   /* Modal default style */
   button.modalCloseBtn {
     color: ${themeGet("colors.white", "#ffffff")} !important;
@@ -285,8 +274,9 @@ const GlobalStyle = createGlobalStyle`
 export const ContentSnapWrapper = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
-  scroll-padding: 10px;
+  // scroll-padding: 10px;
   overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export const ContentWrapper = styled.div`

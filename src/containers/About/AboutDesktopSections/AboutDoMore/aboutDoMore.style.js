@@ -1,5 +1,4 @@
 import themeGet from "@styled-system/theme-get";
-import { base } from "common/components/base";
 import styled from "styled-components";
 
 const Section = styled.section`
@@ -9,8 +8,6 @@ const Section = styled.section`
 
   &.snap {
     ${themeGet("mediaQueries.md")} {
-      scroll-snap-align: start;
-      height: 100vh;
       margin-top: 0;
     }
   }
@@ -23,6 +20,7 @@ export const Grid = styled.div`
   grid-template-columns: 1fr 1fr;
   flex: 1;
   flex-direction: column;
+  grid-gap: 100px;
 
   ${themeGet("mediaQueries.md")} {
     flex-direction: row;
@@ -65,12 +63,12 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-export const ImagePreview = styled.figure`
+export const ImagePreview = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  svg {
+  img {
     height: 400px;
     max-width: 400px;
 

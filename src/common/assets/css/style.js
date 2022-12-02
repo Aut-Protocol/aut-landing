@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import AutLogo from "common/assets/image/noise.svg";
 
 const ResetCSS = createGlobalStyle`
   ::selection {
@@ -98,13 +99,17 @@ const ResetCSS = createGlobalStyle`
   .rc-tooltip.button-tooltip  {
     opacity: 1;
     .rc-tooltip-inner {
+      position: relative;
       padding: 14px;
-      background: rgba(0,163,223,1);
+      background: rgba(255,255,255, .5) url(${AutLogo.src}) 0% 0% no-repeat padding-box;
+      mix-blend-mode: overlay;
+      opacity: 1;
+      background-position: center;
+      background-size: cover;
     }
 
     .rc-tooltip-arrow {
-      border-top-color: rgba(0,163,223,1);
-    }
+        display: none;    
   }
 
   button.modalCloseBtn {

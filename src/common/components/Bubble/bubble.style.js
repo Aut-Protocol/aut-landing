@@ -13,8 +13,9 @@ import {
 import { base } from "../base";
 import Image from "../Image";
 
-const BubbleStyle = styled(Image)`
+const BubbleStyle = styled('img')`
   display: none;
+  overflow: hidden;
   position: absolute;
   width: 1300px;
   height: 1300px;

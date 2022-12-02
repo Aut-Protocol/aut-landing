@@ -1,75 +1,35 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
 const Section = styled.section`
   position: relative;
   z-index: 0;
   line-height: normal;
-  padding-bottom: 10rem;
+  margin-bottom: 50px;
+  margin-top: 30px;
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    padding-top: 18.5rem;
-  }
+  ${themeGet("mediaQueries.md")} {
+    height: 100vh;
+    margin-bottom: 0;
+    margin-top: 0;
 
-  p.heading {
-    font-size: 4rem;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 5rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    text-align: left;
-    margin-bottom: 3rem;
-  }
-
-  p.subtitle {
-    font-size: 3.375rem;
-    color: white;
-    font-weight: bold;
-  }
-
-  @media only screen and (max-width: 1600px) {
-  }
-
-  @media only screen and (max-width: 1440px) {
-  }
-
-  @media only screen and (max-width: 1366px) {
-  }
-
-  @media only screen and (max-width: 1280px) {
-  }
-
-  @media only screen and (max-width: 991px) {
-    h1 {
-      font-size: 5rem;
+    .container {
+      height: 100%;
     }
   }
 
-  @media only screen and (max-width: 768px) {
-  }
-
-  @media only screen and (max-width: 667px) {
-    h1 {
-      font-size: 6rem;
-    }
-  }
 `;
 export default Section;
 
 export const Content = styled.div`
   display: flex;
-  grid-gap: 3rem;
-  @media only screen and (max-width: 768px) {
-    flex-direction: column;
+  flex-direction: column;
+  grid-gap: 30px;
+  ${themeGet("mediaQueries.md")} {
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 `;
 

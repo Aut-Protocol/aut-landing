@@ -1,3 +1,4 @@
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import {
   color,
@@ -96,28 +97,15 @@ const ProductWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   text-align: start;
-  padding-right: 4rem;
-
-  p {
-    font-size: 1.125rem;
-  }
 `;
 const TopWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
   grid-gap: 10px;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
+  margin-bottom: 30px;
 
-  h2 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-
-  img {
-    height: 2.5rem;
+  ${themeGet("mediaQueries.md")} {
   }
 `;
 
@@ -128,10 +116,13 @@ const ButtonWrapper = styled.div`
   ${flexDirection}
   ${justifyContent}
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  padding-right: 4rem;
-  margin: 3rem 0;
+  ${themeGet("mediaQueries.md")} {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 `;
 
 export {

@@ -1,5 +1,3 @@
-import Heading from "common/components/Heading";
-import Text from "common/components/Text";
 import Container from "common/components/Container";
 import Section, {
   ImagePreview,
@@ -8,59 +6,63 @@ import Section, {
   RightWrapper,
   ButtonWrapper,
 } from "./sectionTop.style";
-import Fade from "react-reveal/Fade";
+import Typography from "common/components/Typography";
+import Button from "common/components/Button";
 
 const SectionTop = ({
   image,
   title,
   subtitle,
-  subtitle2,
-  subtitle3,
   headerButton,
-  variant,
+  link,
   className,
-  hideRightOnMobile,
 }) => {
   return (
     <Section id="section_top" className={className}>
-      <Container>
+      <Container
+        pt={{
+          _: "122px",
+          xs: "122px",
+          sm: "84px",
+          md: "84px",
+          xxl: "112px",
+        }}
+      >
         <Grid>
           <Content>
-            <Heading
-              as={variant || "h1"}
-              content={title}
-              className={className}
-            />
-            <Text className="subtitle" content={subtitle} />
-            {subtitle2 ? (
-              <Text className="subtitle2" content={subtitle2} />
-            ) : (
-              ""
-            )}
-            {subtitle3 ? (
-              <Text className="subtitle3" content={subtitle3} />
+            <Typography m="0" color="white" as="h1">
+              {title}
+            </Typography>
+            <Typography mb="0" color="white" as="subtitle2" fontWeight="normal">
+              {subtitle}
+            </Typography>
+
+            {link ? (
+              <ButtonWrapper>
+                <Button
+                  title={link?.title}
+                  href={link?.path}
+                  target="_blank"
+                  as="a"
+                  variant="roundOutlined"
+                  fontWeight="bold"
+                  size="normal"
+                  colors="primary"
+                  mt={{
+                    _: "33px",
+                    md: "40px",
+                    xxl: "56px",
+                  }}
+                />
+              </ButtonWrapper>
             ) : (
               ""
             )}
           </Content>
-          <RightWrapper className={hideRightOnMobile ? "hide-on-mobile" : ""}>
+          <RightWrapper>
             <ImagePreview>{image}</ImagePreview>
             {headerButton ? <ButtonWrapper>{headerButton}</ButtonWrapper> : ""}
           </RightWrapper>
-        </Grid>
-        <Grid>
-          <Content>
-            {subtitle2 ? (
-              <Text className="subtitle2" content={subtitle2} />
-            ) : (
-              ""
-            )}
-            {subtitle3 ? (
-              <Text className="subtitle3" content={subtitle3} />
-            ) : (
-              ""
-            )}
-          </Content>
         </Grid>
       </Container>
     </Section>
