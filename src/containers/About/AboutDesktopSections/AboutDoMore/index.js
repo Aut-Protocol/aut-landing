@@ -1,4 +1,5 @@
 import Container from "common/components/Container";
+import Image from "common/components/Image";
 import NextImage from "common/components/NextImage";
 import Typography from "common/components/Typography";
 import { AboutData } from "common/data";
@@ -25,7 +26,7 @@ const AboutDoMore = () => {
           </Content>
           <RightWrapper>
             <ImagePreview>
-              <NextImage src={doMore.image}></NextImage>
+              <Image src={doMore.image} alt="Image" />
             </ImagePreview>
           </RightWrapper>
         </Grid>

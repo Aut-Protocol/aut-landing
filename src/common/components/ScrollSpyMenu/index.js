@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import Scrollspy from "react-scrollspy";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { DrawerContext } from "../../contexts/DrawerContext";
 import Button from "../Button";
+import Link from "../Link";
 
 const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
   const { dispatch } = useContext(DrawerContext);
@@ -44,7 +44,7 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
       {menuItems.map((menu, index) => (
         <li key={`menu-item-${index}`}>
           {menu.staticLink ? (
-            <Link href={menu.path} shallow>
+            <Link legacyBehavior href={menu.path} target={menu.target}>
               <Button
                 target={menu.target}
                 className={router.pathname == menu.path ? "is-current" : ""}

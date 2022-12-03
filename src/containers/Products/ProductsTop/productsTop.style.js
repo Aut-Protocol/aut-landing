@@ -50,14 +50,18 @@ export const Content = styled.div`
   }
 `;
 
-
 export const ImageWrapper = styled.div`
   display: none;
   ${themeGet("mediaQueries.md")} {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
     display: inline-grid;
-    z-index: 0;
+    figure {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
   }
 `;

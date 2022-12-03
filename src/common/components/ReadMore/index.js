@@ -57,7 +57,6 @@ function ReadMore({
 
       //   teaserText = teaserWordsArray.join(" ");
 
-
       //   console.log(teaserText.length, teaserWordsArray.length, 'teaserText')
 
       //   if (remainingWordsArray.length > 0) {
@@ -77,7 +76,11 @@ function ReadMore({
       if (!showingAll && text.length > readMoreCharacterLimit) {
         return (
           <span className="all-text">
-            <span dangerouslySetInnerHTML={{ __html: decode(teaserText.replace(/\s*$/, ""))}}></span>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: decode(teaserText.replace(/\s*$/, "")),
+              }}
+            ></span>
             <span
               style={{
                 maxHeight: 0,
@@ -118,6 +121,8 @@ function ReadMore({
     text,
     lineHeight,
     numberOfLines,
+    button,
+    btn,
   ]);
 
   return <>{txt}</>;

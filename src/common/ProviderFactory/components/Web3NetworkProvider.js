@@ -83,6 +83,7 @@ const Web3NetworkProvider = ({ onClose = () => false }) => {
           src={AutLogo.src}
           width="80"
           height="80"
+          alt="Aut Logo"
         />
 
         {!wallet ? (

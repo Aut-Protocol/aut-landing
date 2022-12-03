@@ -354,5 +354,4 @@ export const SectionHeader = styled.header`
   }
 `;
 
-
 export default GlobalStyle;

@@ -10,10 +10,9 @@ import ProductListSectionWrapper, {
 } from "./productList.style";
 import Container from "common/components/Container";
 import Button from "common/components/Button";
-import useWindowSize from "common/components/window-size";
 import ProductSection from "common/components/ProductSection";
 import Typography from "common/components/Typography";
-import NextImage from "common/components/NextImage";
+import Image from "common/components/Image";
 
 const ProductListSection = ({ contentStyle, blockWrapperStyle }) => {
   return (
@@ -26,7 +25,20 @@ const ProductListSection = ({ contentStyle, blockWrapperStyle }) => {
                 <Grid>
                   <Content>
                     <ProductSection
-                      icon={<img src={product?.icon?.src} />}
+                      icon={
+                        <Image
+                          height={{
+                            _: "36px",
+                            xxl: "50px",
+                          }}
+                          width={{
+                            _: "36px",
+                            xxl: "50px",
+                          }}
+                          src={product?.icon?.src}
+                          alt="Icon Image"
+                        />
+                      }
                       wrapperStyle={blockWrapperStyle}
                       contentStyle={contentStyle}
                       iconPosition="right"
@@ -73,7 +85,7 @@ const ProductListSection = ({ contentStyle, blockWrapperStyle }) => {
                   </Content>
                   <RightWrapper>
                     <ImagePreview>
-                      <NextImage src={product.image} alt="" />
+                      <Image src={product.image} alt="Product Image" />
                     </ImagePreview>
                   </RightWrapper>
                 </Grid>

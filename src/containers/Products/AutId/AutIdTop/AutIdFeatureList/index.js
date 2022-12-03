@@ -7,6 +7,7 @@ import Container from "common/components/Container";
 import FeatureListSectionWrapper from "./featureList.style";
 import SimpleCard from "common/components/SimpleCard";
 import Typography from "common/components/Typography";
+import Image from "common/components/Image";
 
 const AutIdFeatureListSection = ({
   row,
@@ -37,7 +38,7 @@ const AutIdFeatureListSection = ({
               }}
             >
               <SimpleCard
-                icon={<img src={feature?.icon?.src} />}
+                icon={<Image src={feature?.icon?.src} alt="Icon Image" />}
                 wrapperStyle={blockWrapperStyle}
                 contentStyle={contentStyle}
                 title={<Typography as="h1">{feature.title}</Typography>}

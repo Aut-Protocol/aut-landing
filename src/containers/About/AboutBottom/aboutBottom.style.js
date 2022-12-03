@@ -28,14 +28,14 @@ export const ContentImage = styled.div`
   ${themeGet("mediaQueries.md")} {
     display: flex;
 
-    img {
+    figure {
       height: 470px;
       width: 232px;
     }
   }
 
   ${themeGet("mediaQueries.xxl")} {
-    img {
+    figure {
       height: 723px;
       width: 357px;
     }

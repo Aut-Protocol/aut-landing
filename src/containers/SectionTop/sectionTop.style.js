@@ -1,11 +1,27 @@
 import themeGet from "@styled-system/theme-get";
-import { base } from "common/components/base";
 import styled from "styled-components";
+import BubbleImage from "common/assets/image/bubble.svg";
 
 const Section = styled.section`
   position: relative;
   z-index: 0;
   margin-top: 30px;
+
+  ${themeGet("mediaQueries.md")} {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      right: 0;
+      z-index: 9999;
+      top: -500px;
+      width: 600px;
+      height: 800px;
+      background-image: url(${BubbleImage.src});
+    }
+  }
 `;
 export default Section;
 
@@ -38,7 +54,7 @@ export const RightWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  // display: none;
+  display: none;
 
   ${themeGet("mediaQueries.md")} {
     display: inherit;

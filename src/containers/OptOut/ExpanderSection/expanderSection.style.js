@@ -61,7 +61,9 @@ export const ImagePreview = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0;
-  img {
+  width: 100%;
+  figure {
+    width: 100%;
     height: 400px;
     max-width: 400px;
 

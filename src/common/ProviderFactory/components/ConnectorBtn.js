@@ -20,11 +20,11 @@ const wallets = {
 const btnConfig = {
   [ConnectorTypes.Metamask]: {
     label: "Metamask",
-    icon: <Image src={MetamaskLogo.src} alt="Aut Logo" />,
+    icon: <Image src={MetamaskLogo.src} alt="Metamask Logo" />,
   },
   [ConnectorTypes.WalletConnect]: {
     label: "WalletConnect",
-    icon: <Image src={WalletConnectLogo.src} />,
+    icon: <Image src={WalletConnectLogo.src} alt="WalletConnect Logo" />,
   },
 };
 

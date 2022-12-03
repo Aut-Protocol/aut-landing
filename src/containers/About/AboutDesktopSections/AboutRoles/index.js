@@ -24,6 +24,7 @@ const AboutRoles = () => {
         <ImageRow>
           {roles.map((role, index) => (
             <CircleWrapper
+              key={`roles-${index}`}
               style={{
                 marginRight: index === roles.length - 1 ? "0px" : "-30px",
               }}

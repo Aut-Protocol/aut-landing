@@ -10,6 +10,7 @@ import {
 import Typography from "common/components/Typography";
 import NextImage from "common/components/NextImage";
 import Section from "common/components/Section";
+import Image from "common/components/Image";
 
 const AboutBottom = () => {
   const { bottom } = AboutData;
@@ -80,7 +81,7 @@ const AboutBottom = () => {
           </Description>
         </Content>
         <ContentImage>
-          <NextImage src={bottom.image}></NextImage>
+          <Image alt="Image" src={bottom.image}></Image>
         </ContentImage>
       </Container>
     </Section>

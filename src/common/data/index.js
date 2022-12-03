@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import AutLogo from "common/assets/image/logo.svg";
 
 /* ------------------------------------ */
@@ -148,7 +149,7 @@ export const OptOutData = {
         DAO, and join the Coordination Renaissance
       </>
     ),
-    image: expanderCircle,
+    image: expanderCircle.src,
     link: {
       title: "Expand your DAO",
       path: "https://playground.aut.id/",
@@ -266,7 +267,7 @@ export const ProductsData = {
       communities.
     </>
   ),
-  image: CutImage,
+  image: CutImage.src,
   dAut: {
     title: <>dĀut</>,
     className: "no-uppercase",
@@ -488,7 +489,7 @@ export const ProductList = [
         <span style={{ fontFamily: "FractulRegular" }}>Expander</span>
       </>
     ),
-    image: expanderScreen,
+    image: expanderScreen.src,
     link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     description: (
       <>
@@ -670,7 +671,7 @@ export const AboutData = {
       title: "Definition",
       description: (
         <>
-          'From Greek, āut means “Self” <br /> As in Self-Sovereign, or
+          From Greek, āut means “Self” <br /> As in Self-Sovereign, or
           Self-governance.
         </>
       ),
@@ -779,10 +780,10 @@ export const AboutData = {
         6. Change things. Break things.Let your actions shape your Community.
       </>
     ),
-    image: AboutDoor,
+    image: AboutDoor.src,
   },
   myAut: {
-    image: AboutHuman,
+    image: AboutHuman.src,
     title: "Āut is my own self. My self",
     desc1: "outside the system",
     desc2: "outside conventions",
@@ -807,10 +808,10 @@ export const AboutData = {
     },
   ],
   doMore: {
-    image: AboutDoMore,
+    image: AboutDoMore.src,
   },
   createYourStandard: {
-    image: CutImage,
+    image: CutImage.src,
   },
 };
 

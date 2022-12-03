@@ -2,7 +2,6 @@ import React from "react";
 import { FooterData } from "common/data";
 import NewsletterForm from "common/components/NewsletterForm/NewsletterForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import NextLink from "next/link";
 import Container from "common/components/Container";
 import {
   AboutUs,
@@ -22,12 +21,13 @@ import Button from "common/components/Button";
 import Image from "common/components/Image";
 import BubbleImage from "common/assets/image/bubble.svg";
 import Bubble from "common/components/Bubble";
+import Link from "common/components/Link";
 
 const logoStyles = {
   color: "#262626",
   display: {
     _: "none",
-    md: "inherit"
+    md: "inherit",
   },
   height: {
     _: "42px",
@@ -56,7 +56,7 @@ const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
             key={`footer-social-key-${index}`}
             overlay={name}
           >
-            <a href={link} target="_blank">
+            <a href={link} target="_blank" rel="noreferrer">
               <Image
                 height={{
                   _: "25px",
@@ -113,9 +113,13 @@ const Footer = () => {
               // sm: "start",
             }}
           >
-            <NextLink href="/" shallow>
-              <Logo logoSrc={logo} alt="Aut Logo" logoStyle={logoStyles} />
-            </NextLink>
+            <Logo
+              as="span"
+              href="/"
+              logoSrc={logo}
+              alt="Aut Logo"
+              logoStyle={logoStyles}
+            />
             <SocialWrapper
               socialStyles={{
                 display: {
@@ -183,7 +187,7 @@ const Footer = () => {
                       xxl: "24px",
                     }}
                   >
-                    <NextLink href={item.link} shallow>
+                    <Link legacyBehavior href={item.link}>
                       <Button
                         title={item.title}
                         variant="text"
@@ -192,7 +196,7 @@ const Footer = () => {
                         target={item.target}
                         href={item.link}
                       />
-                    </NextLink>
+                    </Link>
                   </FooterWidgetItem>
                 ))}
               </ul>

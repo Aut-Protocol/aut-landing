@@ -1,4 +1,5 @@
 import Container from "common/components/Container";
+import Image from "common/components/Image";
 import NextImage from "common/components/NextImage";
 import Typography from "common/components/Typography";
 import useWindowSize from "common/components/window-size";
@@ -36,7 +37,7 @@ const AboutMyAut = () => {
             text={myAut.desc1}
           ></AboutCircle>
           <ImageWrapper>
-            <NextImage src={myAut.image}></NextImage>
+            <Image src={myAut.image} alt="Image" />
           </ImageWrapper>
           <AboutCircle
             height={width < 1920 ? 310 : 380}

@@ -8,6 +8,7 @@ import {
   Section,
   TypographyWrapper,
 } from "./aboutCreateYourStandard.style";
+import Image from "common/components/Image";
 
 const AboutCreateYourStandard = () => {
   const { createYourStandard, bottom } = AboutData;
@@ -15,7 +16,7 @@ const AboutCreateYourStandard = () => {
   return (
     <Section id="section_desktop">
       <ImageWrapper>
-        <NextImage src={createYourStandard.image} alt="" />
+        <Image src={createYourStandard.image} alt="Image" />
       </ImageWrapper>
       <Container
         pt={{

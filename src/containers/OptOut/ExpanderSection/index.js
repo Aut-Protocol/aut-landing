@@ -11,7 +11,7 @@ import { OptOutData } from "common/data";
 import Button from "common/components/Button";
 import Typography from "common/components/Typography";
 import Footer from "containers/Footer";
-import NextImage from "common/components/NextImage";
+import Image from "common/components/Image";
 
 const ExpanderSection = () => {
   const { image, title, description, link } = OptOutData.expander;
@@ -27,7 +27,7 @@ const ExpanderSection = () => {
         <Grid>
           <LeftWrapper>
             <ImagePreview>
-              <NextImage src={image} alt="Expander Image" />
+              <Image src={image} alt="Expander Image" />
             </ImagePreview>
           </LeftWrapper>
 

@@ -6,10 +6,10 @@
   "author": "Aut",
   "scripts": {
     "build": "next build",
+    "lint": "next lint",
     "start": "next"
   },
   "dependencies": {
-    "@aut-labs-private/abi-types": "^0.0.1",
     "@lottiefiles/lottie-player": "^1.5.7",
     "@lottiefiles/react-lottie-player": "^3.4.7",
     "@redq/reuse-modal": "^1.1.9",
@@ -21,9 +21,10 @@
     "animate.css": "^4.1.1",
     "axios": "^0.26.1",
     "dateformat": "^5.0.3",
+    "eslint-config-next": "^13.0.6",
     "ethers": "^5.7.0",
     "html-entities": "^2.3.2",
-    "next": "^11.1.2",
+    "next": "^13.0.6",
     "next-compose-plugins": "^2.2.1",
     "next-fonts": "1.5.1",
     "next-optimized-images": "^2.6.2",
@@ -32,12 +33,12 @@
     "rc-collapse": "^3.1.1",
     "rc-drawer": "^4.1.0",
     "rc-tooltip": "^5.2.2",
-    "react": "^17.0.1",
+    "react": "^18.2.0",
     "react-accessible-accordion": "3.3.5",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-aria-menubutton": "^7.0.2",
     "react-collapsible": "^2.8.4",
-    "react-dom": "^17.0.1",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.26.0",
     "react-icons-kit": "^2.0.0",
     "react-image": "^4.0.3",
@@ -49,5 +50,7 @@
     "styled-components": "^5.2.1",
     "styled-system": "5.1.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "8.29.0"
+  }
 }

@@ -7,6 +7,7 @@ import {
   ProductTopSectionWrapper,
 } from "./productsTop.style";
 import NextImage from "common/components/NextImage";
+import Image from "common/components/Image";
 
 const ProductsTop = () => {
   const { title, subtitle, image } = ProductsData;
@@ -14,7 +15,7 @@ const ProductsTop = () => {
   return (
     <ProductTopSectionWrapper id="section_top" style={{}}>
       <ImageWrapper>
-        <NextImage src={image} alt="" />
+        <Image src={image} alt="Image" />
       </ImageWrapper>
       <Container
         pt={{

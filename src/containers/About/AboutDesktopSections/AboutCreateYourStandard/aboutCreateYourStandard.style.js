@@ -39,12 +39,18 @@ export const Section = styled.section`
 
 export const ImageWrapper = styled.div`
   display: none;
+
   ${themeGet("mediaQueries.md")} {
-    position: absolute;
-    height: 600px;
-    width: 600px;
-    display: inline-grid;
-    z-index: 0;
+    display: block;
+    figure {
+      position: absolute;
+      height: 600px;
+      width: 600px;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
   }
 `;
 
