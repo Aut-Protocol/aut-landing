@@ -25,6 +25,10 @@ import Bubble from "common/components/Bubble";
 
 const logoStyles = {
   color: "#262626",
+  display: {
+    _: "none",
+    md: "inherit"
+  },
   height: {
     _: "42px",
     xs: "42px",

@@ -16,7 +16,7 @@ import NextImage from "common/components/NextImage";
 const ExpanderSection = () => {
   const { image, title, description, link } = OptOutData.expander;
   return (
-    <SectionWrapper id="expander" className="snap">
+    <SectionWrapper id="expander" className="snap space-between">
       <Container
         pt={{
           _: "50px",
@@ -59,8 +59,8 @@ const ExpanderSection = () => {
             </ButtonWrapper>
           </Content>
         </Grid>
-        <Footer />
       </Container>
+      <Footer />
     </SectionWrapper>
   );
 };

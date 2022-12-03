@@ -6,14 +6,6 @@ const Section = styled.section`
   position: relative;
   z-index: 0;
   margin-top: 30px;
-
-  &.snap {
-    ${themeGet("mediaQueries.md")} {
-      scroll-snap-align: start;
-      height: 100vh;
-      margin-top: 0;
-    }
-  }
 `;
 export default Section;
 
@@ -46,7 +38,7 @@ export const RightWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  // display: none;
 
   ${themeGet("mediaQueries.md")} {
     display: inherit;

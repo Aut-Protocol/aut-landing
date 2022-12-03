@@ -1,8 +1,6 @@
 import PortalArea, { PlayerWrapper } from "./index.style";
 import React from "react";
 import Container from "common/components/Container";
-import { Player } from "@lottiefiles/react-lottie-player";
-import Heading from "common/components/Heading";
 import { OptOutData } from "common/data";
 import Typography from "common/components/Typography";
 
@@ -10,7 +8,7 @@ const Portal = () => {
   const { title, animationData } = OptOutData.portal;
   return (
     <>
-      <PortalArea id="portal" className="snap">
+      <PortalArea id="portal" className="snap center">
         <Container
           pt={{
             _: "50px",

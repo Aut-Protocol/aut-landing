@@ -1,11 +1,8 @@
 import { AboutData } from "common/data";
-import Heading from "common/components/Heading";
-import Text from "common/components/Text";
 import Container from "common/components/Container";
 import Section, { Content, ContentHalf } from "./aboutTop.style";
 import AboutSubtitles from "./AboutSubtitles";
 import Definition from "./Definition";
-import { TitleBox } from "../AboutBottom/aboutBottom.style";
 import Typography from "common/components/Typography";
 
 const AboutTop = () => {

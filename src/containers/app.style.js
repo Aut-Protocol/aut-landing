@@ -106,15 +106,24 @@ const GlobalStyle = createGlobalStyle`
   section {
     position: relative;
     &.snap {
-      @media only screen and (min-width: 992px) {
+      ${themeGet("mediaQueries.md")} {
         scroll-snap-align: start;
         height: 100vh;
       }
+
+      &.center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      &.space-between {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
     }
   }
-
-  
-
   /* Modal default style */
   button.modalCloseBtn {
     color: ${themeGet("colors.white", "#ffffff")} !important;
@@ -274,7 +283,6 @@ const GlobalStyle = createGlobalStyle`
 export const ContentSnapWrapper = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
-  // scroll-padding: 10px;
   overflow-y: scroll;
   overflow-x: hidden;
 `;
@@ -288,19 +296,6 @@ export const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-  }
 
   .sticky-active {
     .navbar {
@@ -359,15 +354,5 @@ export const SectionHeader = styled.header`
   }
 `;
 
-export const GradientWrapper = styled.section`
-  flex: 1 0 auto;
-  width: 100%;
-  overflow: hidden;
-  background-image: linear-gradient(
-    180deg,
-    rgba(246, 247, 249, 0) 0%,
-    #f3f7fb 36.35%
-  );
-`;
 
 export default GlobalStyle;

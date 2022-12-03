@@ -57,6 +57,10 @@ const Navbar = ({ row, menuWrapper }) => {
     <NavbarWrapper {...navbarStyle}>
         <Container
           noGutter
+          px={{
+            _: "25px",
+            sm: "0px",
+          }}
           maxWidth={{
             lg: "1180px",
             xl: "1300px",

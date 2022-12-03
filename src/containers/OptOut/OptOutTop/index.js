@@ -11,7 +11,7 @@ const OptOutTop = () => {
       title={title}
       subtitle={subtitle}
       link={link}
-      className="snap"
+      className="snap center"
     />
   );
 };

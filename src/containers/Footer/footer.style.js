@@ -13,18 +13,12 @@ import {
 
 export const FooterSection = styled(Section)`
   position: relative;
-  @media only screen and (min-width: 992px) {
-    &.snap {
-      scroll-snap-align: start;
-      height: 30vh;
-      display: flex;
-      align-items: flex-end;
-    }
-  }
+  width: 100%;
 `;
 
 export const Grid = styled("div")`
   display: grid;
+  width: 100%;
   border-top: 2px solid ${themeGet("color.offWhite")};
   ${base}
   ${gridTemplateColumns}

@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import Box from "common/components/Box";
 import Text from "common/components/Text";
-import Heading from "common/components/Heading";
 import { ProductsData } from "common/data";
 import Container from "common/components/Container";
 
 import FeatureListSectionWrapper from "./featureList.style";
 import SimpleCard from "common/components/SimpleCard";
+import Typography from "common/components/Typography";
 
 const FeatureListSection = ({
   row,
@@ -41,7 +41,7 @@ const FeatureListSection = ({
                 icon={<img src={feature?.icon?.src} />}
                 wrapperStyle={blockWrapperStyle}
                 contentStyle={contentStyle}
-                title={<Heading content={feature.title} {...featureTitle} />}
+                title={<Typography>{feature.title}</Typography>}
                 description={
                   <Text content={feature.description} {...featureDescription} />
                 }

@@ -1,16 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 
-const Section = styled.section`
-  position: relative;
-  z-index: 0;
-
-  ${themeGet("mediaQueries.md")} {
-    margin-bottom: 7About0px;
-  }
-`;
-export default Section;
-
 export const TitleBox = styled.div`
   display: flex;
   flex-direction: column;

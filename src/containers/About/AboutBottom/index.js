@@ -1,8 +1,6 @@
 import { AboutData } from "common/data";
-import Heading from "common/components/Heading";
-import Text from "common/components/Text";
 import Container from "common/components/Container";
-import Section, {
+import {
   Content,
   ContentHalf,
   ContentImage,
@@ -11,11 +9,17 @@ import Section, {
 } from "./aboutBottom.style";
 import Typography from "common/components/Typography";
 import NextImage from "common/components/NextImage";
+import Section from "common/components/Section";
 
 const AboutBottom = () => {
   const { bottom } = AboutData;
   return (
-    <Section id="section_bottom">
+    <Section
+      mb={{
+        md: "70px",
+      }}
+      id="section_bottom"
+    >
       <Container>
         <TitleBox>
           <Typography m="20px" color="white" as="h3" textAlign="center">

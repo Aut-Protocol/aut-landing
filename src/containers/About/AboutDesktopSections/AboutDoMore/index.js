@@ -10,15 +10,7 @@ const AboutDoMore = () => {
 
   return (
     <Section id="section_desktop">
-      <Container
-        pt={{
-          _: "122px",
-          xs: "122px",
-          sm: "84px",
-          md: "84px",
-          xxl: "112px",
-        }}
-      >
+      <Container>
         <Grid>
           <Content>
             <Typography m="0" color="white" as="h2">
@@ -32,7 +24,9 @@ const AboutDoMore = () => {
             </Typography>
           </Content>
           <RightWrapper>
-            <ImagePreview><NextImage src={doMore.image}></NextImage></ImagePreview>
+            <ImagePreview>
+              <NextImage src={doMore.image}></NextImage>
+            </ImagePreview>
           </RightWrapper>
         </Grid>
       </Container>

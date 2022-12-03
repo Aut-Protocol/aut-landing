@@ -4,12 +4,12 @@ import { ic_play_arrow } from "react-icons-kit/md/ic_play_arrow";
 import { openModal } from "@redq/reuse-modal";
 import Button from "common/components/Button";
 import Container from "common/components/Container";
-import Heading from "common/components/Heading";
 import Text from "common/components/Text";
 
 import SectionWrapper, { VideoWrapper, VideoArea } from "./experience.style";
 import "@redq/reuse-modal/lib/index.css";
 import Image from "common/components/Image";
+import Typography from "common/components/Typography";
 
 const ModalContent = ({ url }) => (
   <VideoWrapper>
@@ -40,7 +40,11 @@ const VideoSection = ({ url, image, title, subtitle }) => {
   return (
     <SectionWrapper id="experience">
       <Container>
-        {title && <Heading as="h2" className="title" content={title} />}
+        {title && (
+          <Typography as="h2" className="title">
+            {title}
+          </Typography>
+        )}
         {subtitle && <Text as="h3" className="subtitle" content={subtitle} />}
         <VideoArea onClick={handleVideoModal}>
           <Image src={image} alt="Aut Video" />

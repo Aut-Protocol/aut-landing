@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
-import { theme } from "common/theme";
 
 const SectionWrapper = styled.section`
   position: relative;
   z-index: 0;
+
+  .container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const Content = styled.div`
