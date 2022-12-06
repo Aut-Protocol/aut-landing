@@ -1,5 +1,5 @@
 import { Modal } from "@redq/reuse-modal";
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Sticky from "react-stickynode";
 import Navbar from "containers/Navbar";
@@ -9,8 +9,6 @@ import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
 import "common/assets/css/rc-collapse.css";
 import "common/assets/css/fractul.css";
-import Bubble from "common/components/Bubble";
-import BubbleImage from "common/assets/image/bubble.svg";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 
 export function reportWebVitals(metric) {
@@ -18,6 +16,12 @@ export function reportWebVitals(metric) {
 }
 
 export default function CustomApp({ Component, pageProps }) {
+  useEffect(() => {
+    const loader = document.getElementById("aut-splash-loading");
+    if (loader) {
+      loader.style.display = "none";
+    }
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -46,11 +50,6 @@ export default function CustomApp({ Component, pageProps }) {
               <Navbar />
             </DrawerProvider>
           </Sticky>
-          {/* <Bubble
-            position="top right"
-            src={BubbleImage.src}
-            zIndex="999"
-          /> */}
           <Component {...pageProps} />
         </Modal>
       </>
