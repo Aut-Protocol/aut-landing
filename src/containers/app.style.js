@@ -60,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     background-color: ${themeGet("colors.nightBlack")};
-    overflow-x: hidden;
+    overflow: hidden;
 
     &:before {
       content: ' ';
@@ -101,6 +101,10 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: ${themeGet("fonts.primary")};
+  }
+
+  .ps__rail-y {
+    z-index: 99999;
   }
 
   section {
@@ -285,6 +289,45 @@ export const ContentSnapWrapper = styled.div`
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    transition: background-color 0.2s linear, opacity 0.2s linear;
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 4.5px solid transparent;
+    background-clip: padding-box;
+    background-color:rgba(170, 170, 170, 0.6);
+    border-radius: 9px;
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+    border: 2px solid transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background-color: #eee;
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    opacity: 0.9;
+  }
+
 `;
 
 export const ContentWrapper = styled.div`
