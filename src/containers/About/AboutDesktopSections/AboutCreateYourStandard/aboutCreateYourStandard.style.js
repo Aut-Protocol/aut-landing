@@ -22,6 +22,7 @@ export const Section = styled.section`
     margin-top: 0;
     &:before {
       content: " ";
+      overflow-x: hidden;
       display: block;
       position: absolute;
       filter: blur(50px);
@@ -29,10 +30,10 @@ export const Section = styled.section`
       transform: rotate(-80deg);
       left: unset;
       right: -500px;
-      scale: 0.8;
+      scale: 0.5;
       z-index: 9999;
       top: unset;
-      bottom: -600px;
+      bottom: -550px;
       width: 1000px;
       height: 1000px;
       background-image: url(${BubbleImage2.src});
@@ -50,7 +51,7 @@ export const Section = styled.section`
       left: -800px;
       z-index: 9999;
       top: 200px;
-      scale: 1;
+      scale: 0.5;
       width: 1000px;
       height: 1000px;
       background-image: url(${BubbleImage2.src});

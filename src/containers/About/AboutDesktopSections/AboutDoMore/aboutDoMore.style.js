@@ -4,6 +4,7 @@ import BubbleImage from "common/assets/image/bubble.svg";
 import BubbleImage2 from "common/assets/image/bubble2.svg";
 
 const Section = styled.section`
+
   position: relative;
   z-index: 0;
   margin-top: 30px;
@@ -13,6 +14,7 @@ const Section = styled.section`
     &:before {
       content: " ";
       display: block;
+      overflow-x: hidden;
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);
@@ -45,7 +47,6 @@ const Section = styled.section`
       height: 1000px;
       background-image: url(${BubbleImage.src});
     }
-
   }
 `;
 export default Section;

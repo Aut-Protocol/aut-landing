@@ -17,6 +17,7 @@ const Section = styled.section`
     &:before {
       content: " ";
       display: block;
+      overflow-x: hidden;
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);
@@ -28,8 +29,6 @@ const Section = styled.section`
       height: 800px;
       background-image: url(${BubbleImage.src});
     }
-
-    
 
     .container {
       height: 100%;

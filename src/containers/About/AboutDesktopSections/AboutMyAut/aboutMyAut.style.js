@@ -4,6 +4,7 @@ import BubbleImage from "common/assets/image/bubble.svg";
 import styled from "styled-components";
 
 const Section = styled.section`
+
   position: relative;
   z-index: 0;
   line-height: normal;
@@ -16,6 +17,7 @@ const Section = styled.section`
     &:before {
       content: " ";
       display: block;
+      overflow-x: hidden;
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);

@@ -10,6 +10,10 @@ const MainWrapper = ({ children }) => {
       style={{
         height: "100vh",
       }}
+      options={{
+        suppressScrollX: true,
+        useBothWheelAxes: false,
+      }}
     >
       {children}
       <Footer />

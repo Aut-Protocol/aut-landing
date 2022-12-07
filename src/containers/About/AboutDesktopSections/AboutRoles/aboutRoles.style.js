@@ -16,6 +16,7 @@ const Section = styled.section`
     &:before {
       content: " ";
       display: block;
+      overflow-x: hidden;
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);
@@ -32,6 +33,7 @@ const Section = styled.section`
     &:after {
       content: " ";
       display: block;
+      overflow-x: hidden;
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);
@@ -61,8 +63,6 @@ const Section = styled.section`
     &:before {
       scale: 1;
       left: -850px;
-
-
     }
     &:after {
       content: " ";
