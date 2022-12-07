@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import BubbleImage from "common/assets/image/bubble.svg";
 
 const Section = styled.section`
   position: relative;
@@ -13,11 +14,34 @@ const Section = styled.section`
     margin-bottom: 0;
     margin-top: 0;
 
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      right: -70px;
+      scale: 0.8;
+      z-index: 9999;
+      top: -500px;
+      width: 600px;
+      height: 800px;
+      background-image: url(${BubbleImage.src});
+    }
+
+    
+
     .container {
       height: 100%;
     }
   }
 
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+      right: 0;
+    }
+  }
 `;
 export default Section;
 

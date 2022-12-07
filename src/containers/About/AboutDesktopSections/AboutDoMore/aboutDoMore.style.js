@@ -1,15 +1,51 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import BubbleImage from "common/assets/image/bubble.svg";
+import BubbleImage2 from "common/assets/image/bubble2.svg";
 
 const Section = styled.section`
   position: relative;
   z-index: 0;
   margin-top: 30px;
+  margin-bottom: 50px;
 
-  &.snap {
-    ${themeGet("mediaQueries.md")} {
-      margin-top: 0;
+  ${themeGet("mediaQueries.md")} {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      transform: rotate(-50deg);
+      left: -800px;
+      z-index: 9999;
+      top: 150px;
+      scale: 0.8;
+      width: 1000px;
+      height: 1000px;
+      background-image: url(${BubbleImage2.src});
     }
+  }
+
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      transform: rotate(-80deg);
+      left: unset;
+      right: -350px;
+      scale: 1;
+      z-index: 9999;
+      top: unset;
+      bottom: -700px;
+      width: 1000px;
+      height: 1000px;
+      background-image: url(${BubbleImage.src});
+    }
+
   }
 `;
 export default Section;

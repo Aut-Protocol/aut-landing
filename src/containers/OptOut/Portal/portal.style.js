@@ -1,7 +1,7 @@
 import { Player } from "@lottiefiles/react-lottie-player";
 import { base } from "common/components/base";
 import styled from "styled-components";
-import BubbleImage from "common/assets/image/bubble.svg";
+import BubbleImage2 from "common/assets/image/bubble2.svg";
 import themeGet from "@styled-system/theme-get";
 
 export const PlayerWrapper = styled(Player)`
@@ -23,13 +23,22 @@ const PortalArea = styled.section`
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);
-      transform: rotate(-105deg);
+      transform: rotate(-50deg);
       left: -800px;
+      scale: 0.8;
       z-index: 9999;
-      top: -100px;
+      top: -500px;
       width: 1000px;
       height: 1000px;
-      background-image: url(${BubbleImage.src});
+      background-image: url(${BubbleImage2.src});
+    }
+  }
+
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+      left: -850px;
+
     }
   }
 `;

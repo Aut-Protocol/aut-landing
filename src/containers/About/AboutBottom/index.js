@@ -5,22 +5,17 @@ import {
   ContentHalf,
   ContentImage,
   Description,
+  Section,
   TitleBox,
 } from "./aboutBottom.style";
 import Typography from "common/components/Typography";
 import NextImage from "common/components/NextImage";
-import Section from "common/components/Section";
 import Image from "common/components/Image";
 
 const AboutBottom = () => {
   const { bottom } = AboutData;
   return (
-    <Section
-      mb={{
-        md: "70px",
-      }}
-      id="section_bottom"
-    >
+    <Section id="section_bottom">
       <Container>
         <TitleBox>
           <Typography m="20px" color="white" as="h3" textAlign="center">

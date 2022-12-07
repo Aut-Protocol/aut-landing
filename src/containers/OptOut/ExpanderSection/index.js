@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Container from "common/components/Container";
 import SectionWrapper, {
@@ -27,7 +28,7 @@ const ExpanderSection = () => {
         <Grid>
           <LeftWrapper>
             <ImagePreview>
-              <Image src={image} alt="Expander Image" />
+              <img src={image} alt="Expander Image" />
             </ImagePreview>
           </LeftWrapper>
 

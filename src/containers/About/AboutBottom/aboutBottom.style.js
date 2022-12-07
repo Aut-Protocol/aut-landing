@@ -1,5 +1,35 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import BubbleImage2 from "common/assets/image/bubble2.svg";
+
+export const Section = styled.section`
+  ${themeGet("mediaQueries.md")} {
+    margin-bottom: 70px;
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      transform: rotate(-50deg);
+      left: -800px;
+      scale: 0.8;
+      z-index: 9999;
+      top: -550px;
+      width: 1000px;
+      height: 1000px;
+      background-image: url(${BubbleImage2.src});
+    }
+  }
+
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+      left: -850px;
+
+    }
+  }
+`;
 
 export const TitleBox = styled.div`
   display: flex;

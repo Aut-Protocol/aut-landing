@@ -13,6 +13,7 @@ import {
 import BubbleImage from "common/assets/image/bubble.svg";
 
 export const FooterSection = styled(Section)`
+  overflow: hidden;
   position: relative;
   width: 100%;
 

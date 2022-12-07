@@ -14,12 +14,20 @@ const Section = styled.section`
       position: absolute;
       filter: blur(50px);
       -webkit-filter: blur(50px);
-      right: 0;
+      right: -70px;
+      scale: 0.8;
       z-index: 9999;
       top: -500px;
       width: 600px;
       height: 800px;
       background-image: url(${BubbleImage.src});
+    }
+  }
+
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+      right: 0;
     }
   }
 `;

@@ -1,4 +1,4 @@
-import PortalArea, { PlayerWrapper } from "./index.style";
+import PortalArea, { PlayerWrapper } from "./portal.style";
 import React from "react";
 import Container from "common/components/Container";
 import { OptOutData } from "common/data";

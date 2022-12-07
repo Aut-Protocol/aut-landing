@@ -1,5 +1,7 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import BubbleImage2 from "common/assets/image/bubble2.svg";
+import BubbleImage from "common/assets/image/bubble.svg";
 
 const ProductListSectionWrapper = styled.section`
   position: relative;
@@ -8,9 +10,57 @@ const ProductListSectionWrapper = styled.section`
 
   ${themeGet("mediaQueries.md")} {
     padding-top: 100px;
+
+    &.wrapper-0 {
+      &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        filter: blur(50px);
+        -webkit-filter: blur(50px);
+        transform: rotate(-80deg);
+        right: -350px;
+        scale: 0.8;
+        z-index: 9999;
+        top: 250px;
+        width: 1000px;
+        height: 1000px;
+        background-image: url(${BubbleImage.src});
+      }
+    }
+
+    &.wrapper-1 {
+      &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        filter: blur(50px);
+        -webkit-filter: blur(50px);
+        transform: rotate(-50deg);
+        left: -800px;
+        z-index: 9999;
+        top: 100px;
+        scale: 0.8;
+        width: 1000px;
+        height: 1000px;
+        background-image: url(${BubbleImage2.src});
+      }
+    }
   }
-  .no-uppercase {
-    text-transform: none !important;
+
+  ${themeGet("mediaQueries.xxl")} {
+    &.wrapper-0 {
+      &:before {
+        scale: 1;
+      }
+    }
+
+    &.wrapper-1 {
+      &:before {
+        scale: 1;
+        left: -850px;
+      }
+    }
   }
 `;
 
@@ -18,6 +68,11 @@ export const ProductsWrapper = styled.div`
   margin-bottom: 50px;
   ${themeGet("mediaQueries.md")} {
     margin-bottom: 100px;
+  }
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+    }
   }
 `;
 
@@ -55,7 +110,7 @@ export const ImagePreview = styled.div`
   align-items: center;
   margin: 0;
   width: 100%;
-  figure {
+  img {
     width: 100%;
     height: 274px;
     width: 488px;

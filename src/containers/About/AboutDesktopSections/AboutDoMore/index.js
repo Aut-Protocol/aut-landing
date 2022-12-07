@@ -3,8 +3,7 @@ import Image from "common/components/Image";
 import NextImage from "common/components/NextImage";
 import Typography from "common/components/Typography";
 import { AboutData } from "common/data";
-import Section from "../aboutDesktopSections.style";
-import { Content, Grid, ImagePreview, RightWrapper } from "./aboutDoMore.style";
+import Section, { Content, Grid, ImagePreview, RightWrapper } from "./aboutDoMore.style";
 
 const AboutDoMore = () => {
   const { doMore, bottom } = AboutData;

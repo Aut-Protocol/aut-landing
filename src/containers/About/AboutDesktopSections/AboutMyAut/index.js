@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Container from "common/components/Container";
 import Image from "common/components/Image";
 import NextImage from "common/components/NextImage";
@@ -37,7 +38,7 @@ const AboutMyAut = () => {
             text={myAut.desc1}
           ></AboutCircle>
           <ImageWrapper>
-            <Image src={myAut.image} alt="Image" />
+            <img src={myAut.image} alt="Image" />
           </ImageWrapper>
           <AboutCircle
             height={width < 1920 ? 310 : 380}

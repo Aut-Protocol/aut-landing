@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import PropTypes from "prop-types";
 import { ProductList } from "common/data";
@@ -20,7 +21,10 @@ const ProductListSection = ({ contentStyle, blockWrapperStyle }) => {
       <ProductsWrapper>
         {ProductList.map((product, index) =>
           product.isActive ? (
-            <ProductListSectionWrapper key={`section-${index}`}>
+            <ProductListSectionWrapper
+              key={`section-${index}`}
+              className={`wrapper-${index}`}
+            >
               <Container>
                 <Grid>
                   <Content>
@@ -85,7 +89,7 @@ const ProductListSection = ({ contentStyle, blockWrapperStyle }) => {
                   </Content>
                   <RightWrapper>
                     <ImagePreview>
-                      <Image src={product.image} alt="Product Image" />
+                      <img src={product.image} alt="Product Image" />
                     </ImagePreview>
                   </RightWrapper>
                 </Grid>

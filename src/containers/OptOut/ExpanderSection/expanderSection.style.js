@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { themeGet } from "@styled-system/theme-get";
+import BubbleImage from "common/assets/image/bubble.svg";
 
 const SectionWrapper = styled.section`
   position: relative;
@@ -9,6 +10,30 @@ const SectionWrapper = styled.section`
     flex: 1;
     display: flex;
     align-items: center;
+  }
+
+  ${themeGet("mediaQueries.md")} {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      transform: rotate(-80deg);
+      right: -350px;
+      scale: 0.8;
+      z-index: 9999;
+      top: -250px;
+      width: 1000px;
+      height: 1000px;
+      background-image: url(${BubbleImage.src});
+    }
+  }
+
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+    }
   }
 `;
 
@@ -62,7 +87,7 @@ export const ImagePreview = styled.div`
   align-items: center;
   margin: 0;
   width: 100%;
-  figure {
+  img {
     width: 100%;
     height: 400px;
     max-width: 400px;

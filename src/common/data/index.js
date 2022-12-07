@@ -53,7 +53,7 @@ export const NavbarData = {
 /* ------------------------------------ */
 import animationData from "common/assets/portal.json";
 import videoPlaceholderImage from "common/assets/image/placeholder-video.svg";
-import expanderCircle from "common/assets/image/expander-circle.svg";
+import expanderCircle from "common/assets/image/genesis-png.png";
 
 export const OptOutData = {
   title: <>Do more with your DAO</>,
@@ -254,7 +254,7 @@ export const ManifestoData = {
 
 import DaoExpanderIcon from "common/assets/image/expander-icon.svg";
 import dAutIcon from "common/assets/image/daut-icon.svg";
-import CutImage from "common/assets/image/cut-new2.svg";
+import CutImage from "common/assets/image/cut-new.svg";
 import AutIDIcon from "common/assets/image/autid-icon.svg";
 import FeatureIcon from "common/assets/image/feature-icon.svg";
 
@@ -474,9 +474,9 @@ export const ProductsData = {
   },
 };
 
-import dautScreen from "common/assets/image/daut-screen.svg";
-import expanderScreen from "common/assets/image/expander-screen.svg";
-import autIdScreen from "common/assets/image/autid-screen.svg";
+import dautScreen from "common/assets/image/daut-image-png.png";
+import expanderScreen from "common/assets/image/expander-image-png.png";
+import autIdScreen from "common/assets/image/autid-image-png.png";
 
 export const ProductList = [
   {
@@ -511,7 +511,7 @@ export const ProductList = [
     id: 2,
     isActive: true,
     icon: dAutIcon,
-    image: dautScreen,
+    image: dautScreen.src,
     title: (
       <>
         <span style={{ fontFamily: "FractulRegular" }}>d</span>
@@ -561,7 +561,7 @@ export const ProductList = [
     id: 3,
     isActive: true,
     icon: AutIDIcon,
-    image: autIdScreen,
+    image: autIdScreen.src,
     title: (
       <>
         <span>Āut</span>
@@ -657,7 +657,7 @@ export const QAData = {
 };
 
 import AboutDoor from "common/assets/image/about-door.svg";
-import AboutHuman from "common/assets/image/about-human.svg";
+import AboutHuman from "common/assets/image/about-human-png.png";
 import AboutDoMore from "common/assets/image/concentric-circles.svg";
 
 export const AboutData = {
