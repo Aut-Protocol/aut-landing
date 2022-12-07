@@ -3,8 +3,8 @@ import AutLogo from "common/assets/image/noise.svg";
 
 const ResetCSS = createGlobalStyle`
   ::selection {
-    background: #333333;
-    color: #ffffff;
+    background: #ffffff;
+    color: #262626;
   }
 
   html {
@@ -135,29 +135,6 @@ const ResetCSS = createGlobalStyle`
         opacity: 0.88 !important;
       }
     }
-  }
-
-  /* total width */
-  ::-webkit-scrollbar {
-        background-color: #fff;
-        width: 16px;
-  }
-    
-  /* background of the scrollbar except button or resizer */
-  ::-webkit-scrollbar-track {
-        background-color: #fff;
-  }
-  
-  /* scrollbar itself */
-  ::-webkit-scrollbar-thumb {
-        background-color: #babac0;
-        border-radius: 16px;
-        border: 4px solid #fff;
-  }
-    
-  /* set button(top and bottom of the scrollbar) */
-  ::-webkit-scrollbar-button {
-        display:none;
   }
 `;
 export default ResetCSS;
