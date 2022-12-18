@@ -9,7 +9,8 @@ export const NavbarData = {
   logo: AutLogo,
   navButtons: [
     {
-      link: "https://playground.aut.id",
+      // link: "https://playground.aut.id",
+      link: "https://autlabs.typeform.com/to/i2y8pgpm",
       name: "Playground",
     },
   ],
@@ -64,7 +65,8 @@ export const OptOutData = {
     </>
   ),
   link: {
-    path: "https://playground.aut.id",
+    // path: "https://playground.aut.id",
+    path: "https://autlabs.typeform.com/to/i2y8pgpm",
     title: "Playground",
   },
   pulseButtons: [
@@ -152,7 +154,8 @@ export const OptOutData = {
     image: expanderCircle.src,
     link: {
       title: "Expand your DAO",
-      path: "https://playground.aut.id/",
+      // path: "https://playground.aut.id/",
+      path: "https://autlabs.typeform.com/to/i2y8pgpm",
     },
   },
   video: {
@@ -601,7 +604,8 @@ export const PillarsData = {
     "Create a DAO 2.0, add the native concept of Role at contract level - and join the coordination Renaissance.",
   ],
   link: {
-    src: "https://playground.aut.id",
+    // src: "https://playground.aut.id",
+    scr: "https://autlabs.typeform.com/to/i2y8pgpm",
     label: "Āut Expander Playground >",
   },
 };
