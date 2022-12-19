@@ -42,7 +42,7 @@ export default class CustomDocument extends Document {
             rel="icon"
             media="(prefers-color-scheme: dark)"
           />
-          {/* <link rel="manifest" href="/manifest.json" /> */}
+          <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <style>{LoaderStyles}</style>
         </Head>
