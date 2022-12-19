@@ -11,10 +11,12 @@ import ModalPopupWrapper, {
   Loading,
 } from "common/components/ModalPopupWrapper";
 import { verifyTweetRequest } from "api/index.api";
-import { Web3ManifestoProvider } from "@aut-labs-private/abi-types";
+// import { Web3ManifestoProvider } from "@aut-labs-private/abi-types";
 import { environment, getNetworkVariables } from "api/environment";
 import { closeModal } from "@redq/reuse-modal";
-import ConnectorBtn, { ConnectorTypes } from "common/ProviderFactory/components/ConnectorBtn";
+import ConnectorBtn, {
+  ConnectorTypes,
+} from "common/ProviderFactory/components/ConnectorBtn";
 import { NetworkSelectors } from "common/ProviderFactory/components/NetworkSelectors";
 import Input from "common/components/Input";
 import { EnableAndChangeNetwork } from "common/ProviderFactory/web3.network";
@@ -155,12 +157,13 @@ const VerifySignature = ({ onClose = () => false }) => {
 
   const claim = async () => {
     setErrorMessage(null);
-    const contract = await Web3ManifestoProvider(
-      networkConfig.manifestoAddress,
-      {
-        signer: async () => provider.getSigner(),
-      }
-    );
+    // const contract = await Web3ManifestoProvider(
+    //   networkConfig.manifestoAddress,
+    //   {
+    //     signer: async () => provider.getSigner(),
+    //   }
+    // );
+    const contract = null;
 
     try {
       setLoading(true);
@@ -231,7 +234,15 @@ const VerifySignature = ({ onClose = () => false }) => {
     }
 
     sign();
-  }, [isActive, provider, signature, signed, account, loading, networkConfig]);
+  }, [
+    isActive,
+    provider,
+    signature,
+    signed,
+    account,
+    loading,
+    networkConfig,
+  ]);
 
   return (
     <ModalPopupWrapper>
@@ -241,6 +252,7 @@ const VerifySignature = ({ onClose = () => false }) => {
           src={AutLogo.src}
           width="80"
           height="80"
+          alt="Image"
         />
 
         {!wallet && !signature ? (

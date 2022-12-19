@@ -3,10 +3,10 @@ import { Icon } from "react-icons-kit";
 import { ic_play_arrow } from "react-icons-kit/md/ic_play_arrow";
 import { openModal } from "@redq/reuse-modal";
 import Button from "common/components/Button";
-import NextImage from "common/components/NextImage";
 
 import { VideoWrapper, VideoArea } from "./video-top.style";
 import "@redq/reuse-modal/lib/index.css";
+import Image from "common/components/Image";
 
 const ModalContent = ({ url }) => (
   <VideoWrapper>
@@ -38,7 +38,7 @@ const VideoTop = ({ url, image, disableVideo }) => {
 
   return (
     <VideoArea onClick={handleVideoModal}>
-      <NextImage src={image} alt="Aut Video" />
+      <Image src={image} alt="Aut Video" />
 
       {!disableVideo && (
         <Button

@@ -1,28 +1,32 @@
 import { Modal } from "@redq/reuse-modal";
-import Web3AutProvider from "common/ProviderFactory/components/Web3Provider";
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Sticky from "react-stickynode";
-import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
 import { ThemeProvider } from "styled-components";
 import { theme } from "common/theme";
 import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
-import Footer from "containers/Footer";
 import "common/assets/css/rc-collapse.css";
 import "common/assets/css/fractul.css";
+import { DrawerProvider } from "common/contexts/DrawerContext";
 
 export function reportWebVitals(metric) {
   // console.log(metric);
 }
 
 export default function CustomApp({ Component, pageProps }) {
+  useEffect(() => {
+    const loader = document.getElementById("aut-splash-loading");
+    if (loader) {
+      loader.style.display = "none";
+    }
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <>
         <Head>
-          <title>Aut</title>
+          <title>Āut</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -31,11 +35,11 @@ export default function CustomApp({ Component, pageProps }) {
           <meta property="og:title" content="Aut" />
           <meta
             name="description"
-            content="Do more with your DAO 👥. Āut is an expandable Protocol for Role-based Membership & Governance in Web3 Communities."
+            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
           />
           <meta
             property="og:description"
-            content="Do more with your DAO 👥. Āut is an expandable Protocol for Role-based Membership & Governance in Web3 Communities."
+            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
           />
         </Head>
         <ResetCSS />

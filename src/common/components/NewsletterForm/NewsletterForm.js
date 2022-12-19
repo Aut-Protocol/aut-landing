@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import Text from "../Text";
 import NewsletterFormWrapper from "./NewsletterForm.style";
 import Button from "../Button";
+import Typography from "../Typography";
 
 const NewsletterForm = ({ status, message, onValidated }) => {
   const { control, handleSubmit, watch } = useForm({
@@ -49,82 +50,81 @@ const NewsletterForm = ({ status, message, onValidated }) => {
       {status !== "success" ? (
         <>
           <NewsletterFormWrapper
+            mt={{
+              _: "40px",
+              md: "0px",
+            }}
+            alignItems={{
+              _: "center",
+              md: "flex-start",
+            }}
             autoComplete="off"
             onSubmit={handleSubmit(onSubmit, onError)}
             className="d-flex newsletter-input-fields"
           >
-            <Text as="h4" content="Stay in touch" />
-            <div className="form-fields">
-              {/* <div className="form-field">
-                <Controller
-                  name="name"
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  render={({ field: { name, value, onChange } }) => {
-                    return (
-                      <Input
-                        required
-                        defaultValue={value || ""}
-                        name={name}
-                        value={value || ""}
-                        onChange={onChange}
-                        placeholder="How should we call you?"
-                      />
-                    );
-                  }}
-                />
-              </div> */}
-              <div className="form-field">
-                <Controller
-                  name="email"
-                  control={control}
-                  rules={{
-                    required: true,
-                  }}
-                  render={({ field: { name, value, onChange } }) => {
-                    return (
-                      <Input
-                        required
-                        isMaterial
-                        defaultValue={value || ""}
-                        name={name}
-                        value={value || ""}
-                        onChange={onChange}
-                        placeholder="Your email address"
-                      />
-                    );
-                  }}
-                />
-              </div>
-            </div>
+            <Controller
+              name="email"
+              control={control}
+              rules={{
+                required: true,
+              }}
+              render={({ field: { name, value, onChange } }) => {
+                return (
+                  <Input
+                    required
+                    isMaterial
+                    defaultValue={value || ""}
+                    name={name}
+                    value={value || ""}
+                    onChange={onChange}
+                    placeholder="Your email address"
+                    inputStyles={{
+                      width: {
+                        _: "245px",
+                        lg: "280px",
+                        xxl: "320px",
+                      },
+                    }}
+                  />
+                );
+              }}
+            />
             <div className="submit-btn">
               <Button
                 isLoading={status === "sending"}
-                // disabled={status === "sending" || !values.email || !values.name}
                 type="submit"
                 title="Submit"
+                variant="roundOutlined"
+                fontWeight="bold"
+                size="normal"
+                colors="primary"
+                mt={{
+                  _: "33px",
+                  md: "40px",
+                  xxl: "56px",
+                }}
               />
             </div>
+            <div
+              className="newsletter-form-info"
+              style={{
+                width: "100%",
+                marginTop: '4px'
+              }}
+            >
+              {status === "error" ? (
+                <Text
+                  style={{
+                    position: "absolute",
+                    color: "red",
+                    margin: 0,
+                  }}
+                  className="newsletter-form-error"
+                  dangerouslySetInnerHTML={{ __html: getMessage(message) }}
+                />
+              ) : null}
+            </div>
           </NewsletterFormWrapper>
-          <div
-            className="newsletter-form-info"
-            style={{
-              padding: "20px 0",
-            }}
-          >
-            {status === "error" ? (
-              <Text
-                style={{
-                  position: "absolute",
-                  color: "red",
-                }}
-                className="newsletter-form-error"
-                dangerouslySetInnerHTML={{ __html: getMessage(message) }}
-              />
-            ) : null}
-          </div>
         </>
       ) : (
         <Text

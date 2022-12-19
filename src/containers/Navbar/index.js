@@ -3,24 +3,49 @@ import Drawer from "common/components/Drawer";
 import HamburgMenu from "common/components/HamburgMenu";
 import NavbarWrapper from "common/components/Navbar";
 import ScrollSpyMenu from "common/components/ScrollSpyMenu";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import { DrawerContext } from "common/contexts/DrawerContext";
 import { NavbarData } from "common/data";
 import PropTypes from "prop-types";
 import Logo from "common/components/UIElements/Logo";
 import React, { useContext } from "react";
-import Link from "next/link";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
-import { LinkButton } from "common/components/Button";
-import { useRouter } from "next/router";
+import Button from "common/components/Button";
 
-const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
+const navbarStyle = {
+  className: "sass_app_dark_navbar",
+  height: {
+    _: "122px",
+    xs: "122px",
+    sm: "84px",
+    md: "84px",
+    xxl: "112px",
+  },
+  display: "block",
+};
+
+const logoStyles = {
+  height: {
+    _: "42px",
+    xs: "42px",
+    sm: "42px",
+    md: "42px",
+    xxl: "56px",
+  },
+  width: {
+    _: "186px",
+    xs: "186px",
+    sm: "186px",
+    md: "186px",
+    xxl: "252px",
+  },
+};
+
+const Navbar = ({ row, menuWrapper }) => {
   const { state, dispatch } = useContext(DrawerContext);
   const { menuItems, logo, navButtons } = NavbarData;
-  const router = useRouter();
 
-  // Toggle drawer
   const toggleHandler = () => {
     dispatch({
       type: "TOGGLE",
@@ -29,16 +54,26 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
   return (
     <NavbarWrapper {...navbarStyle}>
-      <Container>
+      <Container
+        noGutter
+        px={{
+          _: "25px",
+          sm: "0px",
+        }}
+        maxWidth={{
+          lg: "1180px",
+          xl: "1300px",
+          xxl: "1600px",
+        }}
+      >
         <Box {...row}>
-          <Link href="/" shallow>
-            <Logo
-              logoSrc={logo}
-              title="SaaS Creative"
-              logoStyle={logoStyle}
-              className="sticky-logo nav-logo"
-            />
-          </Link>
+          <Logo
+            logoSrc={logo}
+            href="/"
+            alt="Aut Logo"
+            logoStyle={logoStyles}
+            className="sticky-logo nav-logo"
+          />
           <Box {...menuWrapper} className="mainMenuWrapper">
             <ScrollSpyMenu
               className="main_menu"
@@ -48,12 +83,20 @@ const Navbar = ({ navbarStyle, logoStyle, button, row, menuWrapper }) => {
 
             <div className="navbar-buttons">
               {navButtons.map(({ link, name }, index) => (
-                <LinkButton
+                <Button
                   key={`nav-button-key-${index}`}
                   target="_blank"
-                  className="gradient"
                   title={name}
                   href={link}
+                  variant="roundOutlined"
+                  size="normal"
+                  colors="primary"
+                  ml={{
+                    md: "65px",
+                    lg: "70px",
+                    xxl: "82px",
+                  }}
+                  as="a"
                 />
               ))}
             </div>
@@ -89,22 +132,12 @@ Navbar.propTypes = {
 };
 
 Navbar.defaultProps = {
-  navbarStyle: {
-    className: "sass_app_dark_navbar",
-    minHeight: "70px",
-    display: "block",
-  },
   row: {
     flexBox: true,
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
   },
-  logoContainer: {},
-  logoStyle: {
-    maxWidth: ["115px", "115px"],
-  },
-  button: {},
   menuWrapper: {
     flexBox: true,
     alignItems: "center",

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
+import { base } from '../base';
 
 const InputField = styled.div`
   position: relative;
@@ -57,7 +58,7 @@ const InputField = styled.div`
   /* Label default style */
   label {
     display: block;
-    color: ${themeGet("colors.labelColor", "#767676")};
+    color: ${themeGet("colors.offWhite", "#767676")};
     font-size: ${themeGet("fontSizes.4", "16")}px;
     font-weight: ${themeGet("fontWeights.4", "500")};
     margin-bottom: ${themeGet("space.3", "10")}px;
@@ -171,15 +172,16 @@ const InputField = styled.div`
     .highlight {
       width: 100%;
       height: 2px;
-      background-color: #439EDD;
+      background-color: ${themeGet("colors.offWhite")};
       left: 0;
     }
     &.is-focus {
-      
-
-      
+      .highlight {
+        background-color: ${themeGet("colors.white")};
+      }
     }
   }
+  ${base}
 `;
 
 const EyeButton = styled.button`

@@ -1,84 +1,70 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import Text from "common/components/Text";
 import Link from "common/components/Link";
 import Image from "common/components/Image";
+import styled from "styled-components";
+import {
+  space,
+  lineHeight,
+  fontSize,
+  fontStyle,
+  size,
+  color,
+  colorStyle,
+  textStyle,
+  fontFamily,
+  fontWeight,
+  letterSpacing,
+  borderRadius,
+  display,
+  alignItems,
+} from "styled-system";
 
-// const Logo = ({
-//   logoWrapperStyle,
-//   logoStyle,
-//   titleStyle,
-//   withAnchor,
-//   anchorProps,
-//   logoSrc,
-//   title,
-//   ...props
-// }) => (
-//   <Link {...props} {...logoWrapperStyle}>
-//     {withAnchor ? (
-//       <a {...anchorProps}>
-//         {logoSrc ? (
-//           <Image src={logoSrc.src} alt={title} {...logoStyle} />
-//         ) : (
-//           <Text content={title} {...titleStyle} />
-//         )}
-//       </a>
-//     ) : (
-//       <>
-//         {logoSrc ? (
-//           <Image src={logoSrc.src} alt={title} {...logoStyle} />
-//         ) : (
-//           <Text content={title} {...titleStyle} />
-//         )}
-//       </>
-//     )}
-//   </Link>
-// );
+const StyledImage = styled(Image)`
+  ${space}
+  ${fontSize}
+  ${fontStyle}
+  ${color}
+  ${size}
+  ${colorStyle}
+  ${textStyle}
+  ${lineHeight}
+  ${letterSpacing}
+  ${fontFamily}
+  ${fontWeight}
+  ${borderRadius}
+  ${display}
+  ${alignItems}
+`;
 
 const Logo = forwardRef(
   (
     {
       logoWrapperStyle,
       logoStyle,
-      titleStyle,
       withAnchor,
       anchorProps,
       logoSrc,
-      title,
+      alt,
       ...props
     },
     ref
   ) => {
     return (
-      <Link innerRef={ref} {...props} {...logoWrapperStyle}>
-        {withAnchor ? (
-          <a {...anchorProps}>
-            {logoSrc ? (
-              <Image src={logoSrc.src} alt={title} {...logoStyle} />
-            ) : (
-              <Text content={title} {...titleStyle} />
-            )}
-          </a>
-        ) : (
-          <>
-            {logoSrc ? (
-              <Image src={logoSrc.src} alt={title} {...logoStyle} />
-            ) : (
-              <Text content={title} {...titleStyle} />
-            )}
-          </>
-        )}
+      <Link ref={ref} {...props} {...logoWrapperStyle}>
+        <StyledImage src={logoSrc.src} alt={alt} {...logoStyle} />
       </Link>
     );
   }
 );
 
+Logo.displayName = "Logo";
+
 Logo.propTypes = {
   logoSrc: PropTypes.object,
-  title: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
   logoWrapperStyle: PropTypes.object,
   logoStyle: PropTypes.object,
-  titleStyle: PropTypes.object,
   withAnchor: PropTypes.bool,
   anchorProps: PropTypes.object,
 };
@@ -88,15 +74,12 @@ Logo.defaultProps = {
     display: "inline-flex",
     alignItems: "center",
     mr: "1rem",
-    "a:hover,a:focus": {
+    "a:hover": {
       textDecoration: "none",
     },
-  },
-  titleStyle: {
-    display: "inline-block",
-    fontSize: "2rem",
-    lineHeight: "inherit",
-    whiteSpace: "nowrap",
+    "a:focus": {
+      textDecoration: "none",
+    }
   },
 };
 export default Logo;

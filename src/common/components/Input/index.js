@@ -1,7 +1,7 @@
 /* eslint-disable */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import InputField, { EyeButton } from './input.style';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import InputField, { EyeButton } from "./input.style";
 const Input = ({
   label,
   value,
@@ -15,6 +15,7 @@ const Input = ({
   passwordShowHide,
   className,
   defaultValue,
+  inputStyles,
   ...props
 }) => {
   // use toggle hooks
@@ -61,10 +62,10 @@ const Input = ({
 
   // get input focus class
   const getInputFocusClass = () => {
-    if (state.focus === true || state.value !== '') {
-      return 'is-focus';
+    if (state.focus === true || state.value !== "") {
+      return "is-focus";
     } else {
-      return '';
+      return "";
     }
   };
 
@@ -72,11 +73,11 @@ const Input = ({
   let inputElement, htmlFor;
 
   // Add all classs to an array
-  const addAllClasses = ['reusecore__input'];
+  const addAllClasses = ["reusecore__input"];
 
   // Add is-material class
   if (isMaterial) {
-    addAllClasses.push('is-material');
+    addAllClasses.push("is-material");
   }
 
   // Add icon position class if input element has icon
@@ -91,18 +92,18 @@ const Input = ({
 
   // if lable is not empty
   if (label) {
-    htmlFor = label.replace(/\s+/g, '_').toLowerCase();
+    htmlFor = label.replace(/\s+/g, "_").toLowerCase();
   }
 
   // Label position
-  const LabelPosition = isMaterial === true ? 'bottom' : 'top';
+  const LabelPosition = isMaterial === true ? "bottom" : "top";
 
   // Label field
   const LabelField = label && <label htmlFor={htmlFor}>{label}</label>;
 
   // Input type check
   switch (inputType) {
-    case 'textarea':
+    case "textarea":
       inputElement = (
         <textarea
           {...props}
@@ -116,14 +117,14 @@ const Input = ({
       );
       break;
 
-    case 'password':
+    case "password":
       inputElement = (
         <div className="field-wrapper">
           <input
             {...props}
             id={htmlFor}
             name={htmlFor}
-            type={state.toggle ? 'password' : 'text'}
+            type={state.toggle ? "password" : "text"}
             value={state.value}
             onChange={handleOnChange}
             onBlur={handleOnBlur}
@@ -132,7 +133,7 @@ const Input = ({
           {passwordShowHide && (
             <EyeButton
               onClick={handleToggle}
-              className={state.toggle ? 'eye' : 'eye-closed'}
+              className={state.toggle ? "eye" : "eye-closed"}
             >
               <span />
             </EyeButton>
@@ -161,12 +162,13 @@ const Input = ({
 
   return (
     <InputField
-      className={`${addAllClasses.join(' ')} ${getInputFocusClass()}`}
+      {...inputStyles}
+      className={`${addAllClasses.join(" ")} ${getInputFocusClass()}`}
     >
-      {LabelPosition === 'top' && LabelField}
+      {LabelPosition === "top" && LabelField}
       {inputElement}
       {isMaterial && <span className="highlight" />}
-      {LabelPosition === 'bottom' && LabelField}
+      {LabelPosition === "bottom" && LabelField}
     </InputField>
   );
 };
@@ -188,11 +190,11 @@ Input.propTypes = {
 
   /** Set input type of the input element. Default type is text. */
   inputType: PropTypes.oneOf([
-    'text',
-    'email',
-    'password',
-    'number',
-    'textarea',
+    "text",
+    "email",
+    "password",
+    "number",
+    "textarea",
   ]),
 
   /** Add icon in input field. This prop will not work with password
@@ -201,7 +203,7 @@ Input.propTypes = {
   icon: PropTypes.object,
 
   /** Set input field icon position. Default position is 'left'. */
-  iconPosition: PropTypes.oneOf(['left', 'right']),
+  iconPosition: PropTypes.oneOf(["left", "right"]),
 
   /**
    * @ignore
@@ -224,9 +226,9 @@ Input.propTypes = {
 
 /** Inout default type. */
 Input.defaultProps = {
-  inputType: 'text',
+  inputType: "text",
   isMaterial: false,
-  iconPosition: 'left',
+  iconPosition: "left",
   onBlur: () => {},
   onFocus: () => {},
   onChange: () => {},

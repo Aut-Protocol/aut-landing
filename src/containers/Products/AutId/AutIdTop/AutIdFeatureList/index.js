@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Box from "common/components/Box";
-import Text from "common/components/Text";
-import Heading from "common/components/Heading";
 import { ProductsData } from "common/data";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 
 import FeatureListSectionWrapper from "./featureList.style";
 import SimpleCard from "common/components/SimpleCard";
+import Typography from "common/components/Typography";
+import Image from "common/components/Image";
 
 const AutIdFeatureListSection = ({
   row,
@@ -22,8 +22,8 @@ const AutIdFeatureListSection = ({
     <FeatureListSectionWrapper>
       <Container>
         <Box className="featureWrapper">
-          <Text content={featureHeader} className="featureHeader" />
-          <Text content={featureSubtitle} className="featureSubtitle" />
+          <Typography>{featureTitle}</Typography>
+          <Typography>{featureDescription}</Typography>
         </Box>
         <Box className="row" {...row} style={{ gap: "50px" }}>
           {features.map((feature, index) => (
@@ -38,13 +38,11 @@ const AutIdFeatureListSection = ({
               }}
             >
               <SimpleCard
-                icon={<img src={feature?.icon?.src} />}
+                icon={<Image src={feature?.icon?.src} alt="Icon Image" />}
                 wrapperStyle={blockWrapperStyle}
                 contentStyle={contentStyle}
-                title={<Heading content={feature.title} {...featureTitle} />}
-                description={
-                  <Text content={feature.description} {...featureDescription} />
-                }
+                title={<Typography as="h1">{feature.title}</Typography>}
+                description={<Typography>{feature.description}</Typography>}
                 className="featureList"
               />
             </Box>

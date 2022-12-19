@@ -1,8 +1,6 @@
 import { AboutData } from "common/data";
-import Heading from "common/components/Heading";
-import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
 import Section, { Content } from "./aboutSubtitles.style";
+import Typography from "common/components/Typography";
 
 const AboutSubtitles = () => {
   const { subtitles } = AboutData;
@@ -11,9 +9,14 @@ const AboutSubtitles = () => {
       {subtitles.map(({ title, description }, index) => (
         <Content key={index}>
           <span>
-            <Heading as="h3" content={title} />
-            <Text className="description" content={description} />
+            <Typography m="0" color="white" as="subtitle2">
+              {title}
+            </Typography>
+            <Typography m="0" color="white" as="subtitle2" fontWeight="normal">
+              {description}
+            </Typography>
           </span>
+          {index !== subtitles.length - 1 ? <br /> : ""}
         </Content>
       ))}
     </Section>

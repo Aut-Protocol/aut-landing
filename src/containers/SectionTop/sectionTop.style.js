@@ -1,148 +1,84 @@
-import { themeGet } from "@styled-system/theme-get";
+import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import BubbleImage from "common/assets/image/bubble.svg";
 
 const Section = styled.section`
   position: relative;
   z-index: 0;
+  margin-top: 30px;
 
-  &.snap {
-    @media only screen and (min-width: 992px) {
-      scroll-snap-align: start;
-      height: 100vh;
+  ${themeGet("mediaQueries.md")} {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      filter: blur(50px);
+      -webkit-filter: blur(50px);
+      right: -70px;
+      scale: 0.8;
+      z-index: 9999;
+      top: -500px;
+      width: 600px;
+      height: 800px;
+      background-image: url(${BubbleImage.src});
     }
   }
 
-  .gradient {
-    height: 5.188rem;
-    width: 20.938rem;
-    font-size: 1.125rem;
-    margin: 5.625rem auto;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding-top: 18.75rem;
-  }
-
-  h1 {
-    font-size: 6.875rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-style: normal;
-    font-weight: bold;
-    margin-bottom: 4.375rem;
-  }
-
-  p.subtitle {
-    font-size: 2.625rem;
-    color: white;
-    font-weight: bold;
-    text-align: left;
-  }
-
-  h2 {
-    font-size: 10rem;
-    line-height: 1.1;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-  }
-
-  p.subtitle2 {
-    font-size: 1.563rem;
-    color: white;
-    font-weight: bold;
-    line-height: 1.4;
-  }
-
-  p.subtitle3 {
-    font-size: 1.125rem;
-    color: white;
-    font-weight: bold;
-    line-height: 1.4;
-  }
-
-  .no-uppercase {
-    text-transform: none !important;
-  }
-
-  @media only screen and (max-width: 1600px) {
-  }
-
-  @media only screen and (max-width: 1440px) {
-  }
-
-  @media only screen and (max-width: 1366px) {
-  }
-
-  @media only screen and (max-width: 1280px) {
-  }
-
-  @media only screen and (max-width: 991px) {
-    height: auto;
-    .container {
-      padding-top: 10rem;
+  ${themeGet("mediaQueries.xxl")} {
+    &:before {
+      scale: 1;
+      right: 0;
     }
-
-    h1 {
-      padding-top: 5rem;
-      font-size: 5rem;
-    }
-
-    p.subtitle {
-      font-size: 2rem;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-  }
-
-  @media only screen and (max-width: 667px) {
   }
 `;
 export default Section;
 
 export const Grid = styled.div`
-  grid-gap: 4rem;
   display: flex;
   align-items: space-between;
   grid-template-columns: 1fr 1fr;
   flex: 1;
+  flex-direction: column;
 
-  @media only screen and (max-width: 667px) {
-    display: flex;
-    flex-direction: column;
+  ${themeGet("mediaQueries.md")} {
+    flex-direction: row;
   }
 `;
 
 export const Content = styled.div`
   flex: 1;
-  @media only screen and (max-width: 667px) {
-    width: 100%;
+  width: 100%;
+  justify-content: center;
+
+  ${themeGet("mediaQueries.md")} {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 `;
 
 export const RightWrapper = styled.div`
-  // width: 50%;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 667px) {
-    &.hide-on-mobile {
-      display: none;
-    }
+  display: none;
+
+  ${themeGet("mediaQueries.md")} {
+    display: inherit;
+    width: 50%;
   }
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 42rem;
+  ${themeGet("mediaQueries.md")} {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 `;
 
 export const ImagePreview = styled.figure`
@@ -151,22 +87,17 @@ export const ImagePreview = styled.figure`
   align-items: center;
   margin: 0;
   svg {
-    height: 42rem;
-    max-width: 42rem;
-  }
-  @media only screen and (max-width: 991px) {
-    svg {
-      height: 30rem;
-      max-width: 30rem;
-    }
-    width: 100%;
-  }
+    height: 400px;
+    max-width: 400px;
 
-  @media only screen and (max-width: 768px) {
-    svg {
-      height: 25rem;
-      max-width: 25rem;
+    ${themeGet("mediaQueries.md")} {
+      height: 600px;
+      max-width: 600px;
     }
-    width: 100%;
+
+    ${themeGet("mediaQueries.xxl")} {
+      height: 800px;
+      max-width: 800px;
+    }
   }
 `;

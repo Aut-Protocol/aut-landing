@@ -1,4 +1,4 @@
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import { RoadmapData } from "common/data";
 import Section from "./roadmap.styles";
 

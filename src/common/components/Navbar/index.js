@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NavbarStyle from './navbar.style';
 
-const Navbar = ({ className, children, navbarStyle, ...props }) => {
+const Navbar = ({ className, children, ...props }) => {
   // Add all classs to an array
   const addAllClasses = ['reusecore__navbar'];
 
@@ -36,6 +36,7 @@ Navbar.propTypes = {
 
   height: PropTypes.oneOfType([
     PropTypes.string,
+    PropTypes.object,
     PropTypes.number,
     PropTypes.arrayOf(
       PropTypes.oneOfType([PropTypes.string, PropTypes.number])

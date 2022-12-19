@@ -3,14 +3,15 @@ import SectionTop from "containers/SectionTop";
 import CircleImage from "./CircleImage";
 
 const OptOutTop = () => {
-  const { pulseButtons, title, subtitle } = OptOutData;
+  const { pulseButtons, title, subtitle, link } = OptOutData;
   return (
     <SectionTop
       hideRightOnMobile
       image={<CircleImage pulseButtons={pulseButtons} />}
       title={title}
       subtitle={subtitle}
-      className="snap"
+      link={link}
+      className="snap center"
     />
   );
 };

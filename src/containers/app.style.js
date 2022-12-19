@@ -1,6 +1,6 @@
 import { themeGet } from "@styled-system/theme-get";
-import { rgba } from "polished";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
+import AutLogo from "common/assets/image/noise.svg";
 
 const Wobble_Vertical = keyframes`
   16.65% {
@@ -58,10 +58,30 @@ const GlobalStyle = createGlobalStyle`
     --HvrRippleOut: ${Hvr_Ripple_Out} 1s ease-in-out;
   }
 
+  html {
+    background-color: ${themeGet("colors.nightBlack")};
+    overflow: hidden;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
+      mix-blend-mode: overlay;
+      opacity: 0.5;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
   body {
-    background-color: #141414;
     color: ${themeGet("colors.textColor")};
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet("fonts.primary")};
     font-weight: 400;
   }
 
@@ -71,209 +91,43 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet("fonts.primary")};
     color: ${themeGet("colors.headingColor")};
   }
 
   input, textarea {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet("fonts.primary")};
   }
 
   button {
-    font-family: 'FractulRegular', sans-serif;
+    font-family: ${themeGet("fonts.primary")};
+  }
+
+  .ps__rail-y {
+    z-index: 99999;
   }
 
   section {
     position: relative;
     &.snap {
-      @media only screen and (min-width: 992px) {
+      ${themeGet("mediaQueries.md")} {
         scroll-snap-align: start;
         height: 100vh;
       }
-    }
-  }
 
-  
-
-  .main-container {
-    @media only screen and (min-width: 992px) {
-
-    height: 100vh;
-    scrollSnapType: y mandatory;
-    scrollPadding: 10px;
-    overflowY: scroll;
-    }
-  }
-
-  .sass_app_dark_navbar {
-    background-color: #141414;
-    border-bottom: 1px solid #707070;
-    box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.384);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: 0.35s ease-in-out;
-    padding: 30px 0;
-    height: 10.5rem;
-    display: flex;
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .mainMenuWrapper {
-      // flex: 1 1 100%;
-
-      .navbar-buttons {
-        padding-left: 26px;
-        .gradient {
-          font-size: 1.5rem;
-          width: 16rem;
-          height: 4.688rem;
-          box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.384);
-        }
-
-        @media (max-width: 990px) {
-          display: none;
-        }
+      &.center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      @media (max-width: 991px) {
-        // flex: 0 0 auto;
-        // margin-left: auto;
-      }
-    }
-    .nav-logo {
-      > img {
-        transition: 0.25s ease-in-out;
-        max-width: 110px;
-        @media only screen and (min-width: 990px) and (max-width: 991px) {
-          max-width: 90px;
-        }
-      }
-    }
-    .main_menu {
-      margin-left: 45px;
-      @media only screen and (min-width: 990px) and (max-width: 991px) {
-        margin-left: 15px;
-      }
-      li {
-        display: inline-flex;
-        padding-left: 13px;
-        padding-right: 13px;
-        @media (max-width: 1024px) {
-          padding-left: 8px;
-          padding-right: 8px;
-        }
-        @media only screen and (min-width: 990px) and (max-width: 991px) {
-          padding-left: 4px;
-          padding-right: 4px;
-        }
-        &:first-child {
-          padding-left: 0;
-        }
-        &:last-child {
-          padding-right: 0;
-        }
-        &.is-current {
-          a {
-            color: ${themeGet("colors.primary")};
-          }
-        }
-
-        & a.is-current {
-          color: ${themeGet("colors.primary")};
-        }
-        a {
-          color: ${themeGet("colors.white")};
-          font-size: 2rem;
-          line-height: 2.2;
-          padding: 5px;
-          transition: 0.15s ease-in-out;
-          letter-spacing: 1.5px;
-          @media only screen and (min-width: 990px) and (max-width: 991px) {
-            padding: 3px;
-          }
-          &:hover {
-            color: ${themeGet("colors.primary")};
-          }
-        }
-      }
-      @media (max-width: 990px) {
-        display: none;
-      }
-    }
-
-    .reusecore-drawer__handler {
-      @media (min-width: 992px) {
-        display: none !important;
-      }
-      .hamburgMenu__bar {
-        > span {
-          background-color: ${themeGet("colors.white")};
-        }
+      &.space-between {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
     }
   }
-
-  .sticky-logo.nav-logo {
-    img, a {
-      cursor: pointer;
-    }
-
-    img {
-      position: absolute;
-    }
-  }
-
-  .sticky-nav-active {
-    .sass_app_dark_navbar {
-      padding: 15px 0;
-      background-color: #111111;
-      // background: rgba(255, 255, 255, 0.2);
-      // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      // backdrop-filter: blur(2px);
-      // border-bottom-color: ${rgba("#fff", 0.2)};
-    }
-    .main-logo {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .sticky-logo {
-      opacity: 1;
-      
-      visibility: visible;
-      transition: 0.25s ease-in-out;
-
-      img {
-        max-width: 70px;
-      }
-     
-    }
-    .main_menu li a {
-      color: ${themeGet("colors.white")};
-    }
-    .main_menu li:hover a,
-    .main_menu li.is-current a,
-    .main_menu li a.is-current {
-      color: ${themeGet("colors.primary")};
-    }
-    .reusecore-drawer__handler {
-      .hamburgMenu__bar {
-        > span {
-          background-color: ${themeGet("colors.white")};
-        }
-      }
-    }
-    .navbar_button_one {
-      background-color: transparent;
-    }
-  }
-
-
   /* Modal default style */
   button.modalCloseBtn {
     color: ${themeGet("colors.white", "#ffffff")} !important;
@@ -433,8 +287,47 @@ const GlobalStyle = createGlobalStyle`
 export const ContentSnapWrapper = styled.div`
   height: 100vh;
   scroll-snap-type: y mandatory;
-  scroll-padding: 10px;
   overflow-y: scroll;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    transition: background-color 0.2s linear, opacity 0.2s linear;
+    -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 4.5px solid transparent;
+    background-clip: padding-box;
+    background-color:rgba(170, 170, 170, 0.6);
+    border-radius: 9px;
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+    border: 2px solid transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background-color: #eee;
+    transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    opacity: 0.9;
+  }
+
 `;
 
 export const ContentWrapper = styled.div`
@@ -446,19 +339,6 @@ export const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-  }
 
   .sticky-active {
     .navbar {
@@ -515,17 +395,6 @@ export const SectionHeader = styled.header`
       letter-spacing: -0.5px;
     }
   }
-`;
-
-export const GradientWrapper = styled.section`
-  flex: 1 0 auto;
-  width: 100%;
-  overflow: hidden;
-  background-image: linear-gradient(
-    180deg,
-    rgba(246, 247, 249, 0) 0%,
-    #f3f7fb 36.35%
-  );
 `;
 
 export default GlobalStyle;

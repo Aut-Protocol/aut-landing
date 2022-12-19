@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from "react";
-import Heading from "common/components/Heading";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { RcCollapse } from "./faq.style";
 import { Panel } from "rc-collapse";
 import motion from "./motion-util";
 import { QAData } from "common/data";
+import Typography from "common/components/Typography";
 
 const Plus = () => {
   return (
@@ -71,7 +71,7 @@ const Faq = () => {
                   showArrow={false}
                   header={
                     <Fragment>
-                      <Heading as="h4" content={faq.title} />
+                      <Typography as="h4">{faq.title}</Typography>
                       <span className="icon">
                         <div className="minus">
                           <Minus />
@@ -105,7 +105,7 @@ const Faq = () => {
                   showArrow={false}
                   header={
                     <Fragment>
-                      <Heading as="h4" content={faq.title} />
+                      <Typography as="h4">{faq.title}</Typography>
                       <span className="icon">
                         <div className="minus">
                           <Minus />

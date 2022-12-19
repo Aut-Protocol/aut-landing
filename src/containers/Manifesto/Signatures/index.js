@@ -1,10 +1,7 @@
-import Heading from "common/components/Heading";
-import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { ListItem } from "./signatures.style";
 import Button from "common/components/Button";
 import Box from "common/components/Box";
-import Link from "next/link";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getAllSignees } from "api/index.api";
@@ -12,6 +9,9 @@ import { trimAddress } from "common/utils/misc";
 import dateFormat from "dateformat";
 import { openModal } from "@redq/reuse-modal";
 import VerifySignature from "./VerifySignature";
+import Typography from "common/components/Typography";
+import Text from "common/components/Text";
+import Link from "common/components/Link";
 const message = "I should own this tweet %40aut-labs %23digitalroots";
 
 const ManifestoSignatures = () => {
@@ -37,7 +37,7 @@ const ManifestoSignatures = () => {
         message,
         onClose: () => {
           getAllSignees().then(setSignees);
-        }
+        },
       },
     });
   };
@@ -56,15 +56,17 @@ const ManifestoSignatures = () => {
         />
 
         <Box className="list-wrapper">
-          <Heading content="Sub-Title about Signatures" />
-          <Text
-            className="description"
-            content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. "
-          />
+          <Typography as="h1">Sub-Title about Signatures</Typography>
+          <Typography>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+            et ea rebum.
+          </Typography>
           {signees.map(({ address, timestamp }, index) => (
             <ListItem key={`list-item-${index}`}>
-              <Link href={address}>
-                <a className="ListItem">{trimAddress(address)}</a>
+              <Link href={address} className="ListItem">
+                {trimAddress(address)}
               </Link>
               <Text
                 content={dateFormat(

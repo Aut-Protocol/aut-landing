@@ -1,9 +1,8 @@
 import { ManifestoData } from "common/data";
-import Heading from "common/components/Heading";
-import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import Section, { Content } from "./chapters.style";
 import Image from "common/components/Image";
+import Typography from "common/components/Typography";
 
 const ManifestoChapters = () => {
   const { list, divider } = ManifestoData.chapter;
@@ -13,9 +12,9 @@ const ManifestoChapters = () => {
         <Content>
           {list.map(({ title, subtitle, description }, index) => (
             <>
-              <Heading as="h3" content={title} />
-              <Text as="h4" className="subtitle" content={subtitle} />
-              <Text className="description" content={description} />
+              <Typography as="h3">{title}</Typography>
+              <Typography as="h4">{subtitle}</Typography>
+              <Typography>{description}</Typography>
               {list.length - 1 > index && (
                 <Image className="aut-line" src={divider.src} alt="Aut Line" />
               )}

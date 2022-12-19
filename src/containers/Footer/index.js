@@ -1,63 +1,232 @@
 import React from "react";
-import NextImage from "common/components/NextImage";
 import { FooterData } from "common/data";
 import NewsletterForm from "common/components/NewsletterForm/NewsletterForm";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
-import Image from "common/components/Image";
-import NextLink from "next/link";
-import Text from "common/components/Text";
-import Container from "common/components/UI/Container";
+import Container from "common/components/Container";
 import {
   AboutUs,
   ContactInfo,
   FooterWidget,
   Grid,
   Social,
-  Section,
+  FooterSection,
+  FooterWidgetItem,
+  SocialLinks,
 } from "./footer.style";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
+import Logo from "common/components/UIElements/Logo";
+import Typography from "common/components/Typography";
+import Button from "common/components/Button";
+import Image from "common/components/Image";
+import BubbleImage from "common/assets/image/bubble.svg";
+import Bubble from "common/components/Bubble";
+import Link from "common/components/Link";
+
+const logoStyles = {
+  color: "#262626",
+  display: {
+    _: "none",
+    md: "inherit",
+  },
+  height: {
+    _: "42px",
+    xs: "42px",
+    sm: "42px",
+    md: "42px",
+    xxl: "56px",
+  },
+  width: {
+    _: "186px",
+    xs: "186px",
+    sm: "186px",
+    md: "186px",
+    xxl: "252px",
+  },
+};
+
+const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
+  const { social } = FooterData;
+  return (
+    <Social {...socialStyles}>
+      <SocialLinks {...socialLinksStyles}>
+        {social.map(({ link, icon, name }, index) => (
+          <Tooltip
+            placement="top"
+            key={`footer-social-key-${index}`}
+            overlay={name}
+          >
+            <a href={link} target="_blank" rel="noreferrer">
+              <Image
+                height={{
+                  _: "25px",
+                  md: "26px",
+                  xxl: "40px",
+                }}
+                width={{
+                  _: "25px",
+                  md: "26px",
+                  xxl: "40px",
+                }}
+                src={icon.src}
+                alt="social image"
+              />
+            </a>
+          </Tooltip>
+        ))}
+      </SocialLinks>
+    </Social>
+  );
+};
 
 const Footer = () => {
-  const { logo, social, copyright, widgets, mailchimpUrl } = FooterData;
+  const { logo, copyright, widgets, mailchimpUrl } = FooterData;
   return (
-    <Section>
-      <Container>
-        <Grid>
-          <AboutUs>
-            <Image src={logo.src} alt="Aut Logo" />
-            <Social className="mobile">
-              <div className="social-links">
-                {social.map(({ link, icon, name }, index) => (
-                  <Tooltip
-                    placement="top"
-                    key={`footer-social-key-${index}`}
-                    overlay={name}
-                  >
-                    <a href={link} target="_blank">
-                      <NextImage src={icon} alt="social image" />
-                    </a>
-                  </Tooltip>
-                ))}
-              </div>
-            </Social>
-            <Text className="copyright" content={copyright} />
+    <FooterSection as="footer">
+      {/* <Bubble src={BubbleImage.src} /> */}
+      <Container
+        noGutter
+        maxWidth={{
+          lg: "1180px",
+          xl: "1300px",
+          xxl: "1600px",
+        }}
+      >
+        <Grid
+          gridTemplateColumns={{
+            _: "1fr",
+            // sm: "1fr 1fr",
+            md: "repeat(3, 1fr)",
+            lg: "1fr 1fr 1fr 0.5fr",
+          }}
+          py={{
+            _: "30px",
+            xs: "35px",
+            md: "40px",
+            xxl: "52px",
+          }}
+        >
+          <AboutUs
+            alignItems={{
+              _: "center",
+              md: "start",
+              // sm: "start",
+            }}
+          >
+            <Logo
+              as="span"
+              href="/"
+              logoSrc={logo}
+              alt="Aut Logo"
+              logoStyle={logoStyles}
+            />
+            <SocialWrapper
+              socialStyles={{
+                display: {
+                  _: "none",
+                  md: "inherit",
+                  lg: "none",
+                },
+                alignItems: "center",
+              }}
+              socialLinksStyles={{
+                gridGap: {
+                  _: "20px",
+                  md: "40px",
+                  xxl: "56px",
+                },
+                flexDirection: {
+                  _: "row",
+                },
+              }}
+            />
+            <Typography
+              display={{
+                _: "none",
+                md: "inherit",
+              }}
+              m="0"
+              color="offWhite"
+              as="caption"
+            >
+              {copyright}
+            </Typography>
           </AboutUs>
           {widgets.map((item) => (
-            <FooterWidget key={item.id}>
-              <h4>{item.title}</h4>
+            <FooterWidget
+              key={item.id}
+              display={{
+                _: "none",
+                md: "inherit",
+              }}
+            >
+              <Typography
+                mt="0"
+                mb={{
+                  _: "12px",
+                  md: "24px",
+                  lg: "26px",
+                  xxl: "28px",
+                }}
+                color="offWhite"
+                as="subtitle1"
+                style={{
+                  WebkitTextStroke: "1px #707070",
+                }}
+              >
+                {item.title}
+              </Typography>
               <ul>
                 {item.list.map((item) => (
-                  <li className="widgetListItem" key={item.id}>
-                    <NextLink href={item.link} shallow>
-                      <a target={item.target}>{item.title}</a>
-                    </NextLink>
-                  </li>
+                  <FooterWidgetItem
+                    key={item.id}
+                    mb={{
+                      _: "12px",
+                      md: "16px",
+                      lg: "20px",
+                      xxl: "24px",
+                    }}
+                  >
+                    <Link legacyBehavior href={item.link}>
+                      <Button
+                        title={item.title}
+                        variant="text"
+                        colors="nav"
+                        as="a"
+                        target={item.target}
+                        href={item.link}
+                      />
+                    </Link>
+                  </FooterWidgetItem>
                 ))}
               </ul>
             </FooterWidget>
           ))}
-          <ContactInfo>
+          <ContactInfo
+            alignItems={{
+              _: "center",
+              md: "flex-start",
+            }}
+          >
+            <Typography
+              mt={{
+                _: "30px",
+                md: "0",
+              }}
+              mb={{
+                _: "12px",
+                md: "24px",
+                lg: "26px",
+                xxl: "28px",
+              }}
+              color="offWhite"
+              as="subtitle1"
+              style={{
+                WebkitTextStroke: "1px #707070",
+              }}
+            >
+              Stay in touch
+            </Typography>
             <MailchimpSubscribe
               url={mailchimpUrl}
               render={(props) => {
@@ -72,24 +241,48 @@ const Footer = () => {
               }}
             />
           </ContactInfo>
-          <Social>
-            <div className="social-links">
-              {social.map(({ link, icon, name }, index) => (
-                <Tooltip
-                  placement="top"
-                  key={`footer-social-key-${index}`}
-                  overlay={name}
-                >
-                  <a href={link} target="_blank">
-                    <NextImage src={icon} alt="social image" />
-                  </a>
-                </Tooltip>
-              ))}
-            </div>
-          </Social>
+
+          <SocialWrapper
+            socialStyles={{
+              display: {
+                _: "inherit",
+                md: "none",
+                lg: "inherit",
+              },
+              mt: {
+                _: "75px",
+                md: "0px",
+              },
+              justifyContent: "center",
+            }}
+            socialLinksStyles={{
+              gridGap: {
+                _: "20px",
+                md: "40px",
+                xxl: "56px",
+              },
+              alignItems: "center",
+              flexDirection: {
+                _: "row",
+                lg: "column",
+              },
+            }}
+          />
+          <Typography
+            display={{
+              _: "inherit",
+              md: "none",
+            }}
+            mt="40px"
+            color="offWhite"
+            as="caption"
+            textAlign="center"
+          >
+            {copyright}
+          </Typography>
         </Grid>
       </Container>
-    </Section>
+    </FooterSection>
   );
 };
 
