@@ -32,7 +32,18 @@ export default class CustomDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="author" content="Aut" />
-          <link rel="icon" href="/favicon.ico" />
+          <link
+            href="/favicon-light.ico"
+            rel="icon"
+            media="(prefers-color-scheme: light)"
+          />
+          <link
+            href="/favicon-dark.ico"
+            rel="icon"
+            media="(prefers-color-scheme: dark)"
+          />
+          {/* <link rel="manifest" href="/manifest.json" /> */}
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           <style>{LoaderStyles}</style>
         </Head>
         <body>

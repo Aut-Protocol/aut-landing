@@ -26,7 +26,7 @@ export default function CustomApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <>
         <Head>
-          <title>Aut</title>
+          <title>Āut</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -35,11 +35,11 @@ export default function CustomApp({ Component, pageProps }) {
           <meta property="og:title" content="Aut" />
           <meta
             name="description"
-            content="Do more with your DAO 👥. Āut is an expandable Protocol for Role-based Membership & Governance in Web3 Communities."
+            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
           />
           <meta
             property="og:description"
-            content="Do more with your DAO 👥. Āut is an expandable Protocol for Role-based Membership & Governance in Web3 Communities."
+            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
           />
         </Head>
         <ResetCSS />
