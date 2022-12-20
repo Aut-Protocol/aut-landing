@@ -103,7 +103,7 @@ export const OptOutData = {
               fontWeight: "bold",
             }}
           >
-            Aut{" "}
+            Āut{" "}
           </span>
           <span>ID</span>
         </>
@@ -262,10 +262,10 @@ import AutIDIcon from "common/assets/image/autid-icon.svg";
 import FeatureIcon from "common/assets/image/feature-icon.svg";
 
 export const ProductsData = {
-  title: <>The Āut SUITE</>,
+  title: <>The Āut Suite</>,
   subtitle: (
     <>
-      All Products in the Āut suite are specifically designed for DAOs - and
+      All Products in the Āut Suite are specifically designed for DAOs - and
       come as a suite of out-of-the-box products for contract-powered
       communities.
     </>
@@ -733,7 +733,7 @@ export const AboutData = {
         <br />
         <br />
         Without Roles, <br />
-        there is no coordination. <br />
+        there is no Coordination. <br />
         Without Coordination, <br />
         there are no DAOs.
         <br />
@@ -802,7 +802,7 @@ export const AboutData = {
       ),
     },
     {
-      title: "there is no coordination.",
+      title: "there is no Coordination.",
     },
     {
       title: "Without Coordination",
@@ -839,7 +839,7 @@ export const FooterData = {
       list: [
         {
           id: 1,
-          title: "About Aut",
+          title: "About Āut",
           link: "/about",
         },
         {
@@ -913,7 +913,7 @@ export const FooterData = {
       list: [
         {
           id: 1,
-          title: "About Aut",
+          title: "About Āut",
           link: "/about",
         },
         {

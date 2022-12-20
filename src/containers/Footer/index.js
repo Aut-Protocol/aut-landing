@@ -95,15 +95,12 @@ const Footer = () => {
         <Grid
           gridTemplateColumns={{
             _: "1fr",
-            // sm: "1fr 1fr",
-            md: "repeat(3, 1fr)",
-            lg: "1fr 1fr 1fr 0.5fr",
+            md: "1fr 1fr 1fr",
           }}
           py={{
             _: "30px",
             xs: "35px",
             md: "40px",
-            xxl: "52px",
           }}
         >
           <AboutUs
@@ -247,10 +244,13 @@ const Footer = () => {
               display: {
                 _: "inherit",
                 md: "none",
-                lg: "inherit",
               },
               mt: {
-                _: "75px",
+                _: "40px",
+                md: "0px",
+              },
+              width: {
+                _: "unset",
                 md: "0px",
               },
               justifyContent: "center",
@@ -259,12 +259,10 @@ const Footer = () => {
               gridGap: {
                 _: "20px",
                 md: "40px",
-                xxl: "56px",
               },
               alignItems: "center",
               flexDirection: {
                 _: "row",
-                lg: "column",
               },
             }}
           />

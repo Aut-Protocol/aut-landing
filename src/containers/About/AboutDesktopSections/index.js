@@ -10,7 +10,7 @@ const AboutDesktopSection = () => {
       <AboutMyAut></AboutMyAut>
       <AboutRoles></AboutRoles>
       <AboutDoMore></AboutDoMore>
-      <AboutCreateYourStandard></AboutCreateYourStandard>
+      {/* <AboutCreateYourStandard></AboutCreateYourStandard> */}
     </Section>
   );
 };

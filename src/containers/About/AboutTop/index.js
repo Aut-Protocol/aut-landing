@@ -27,6 +27,10 @@ const AboutTop = () => {
               fontSize={{
                 _: "50px",
                 xxl: "72px",
+
+              }}
+              mb={{
+                _: '30px'
               }}
             >
               {title}
