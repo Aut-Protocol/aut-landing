@@ -52,6 +52,23 @@ const Hvr_Ripple_Out = keyframes`
 `;
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "FractulAltBold";
+    src: url("/fonts/FractulAltBold/font.woff2") format("woff2"),
+      url("/fonts/FractulAltBold/font.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "FractulAltLight";
+    src: url("/fonts/FractulAltLight/font.woff2") format("woff2"),
+      url("/fonts/FractulAltLight/font.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "FractulRegular";
+    src: url('/fonts/FractulRegular/font.woff2') format('woff2'), url('/fonts/FractulRegular/font.woff') format('woff');
+  }
+  
   :root {
     --wobbleVertical: ${Wobble_Vertical} 1s ease-in-out;
     --shakeAnim: ${shake} 600ms ease-in-out;
@@ -303,7 +320,7 @@ export const ContentSnapWrapper = styled.div`
   ::-webkit-scrollbar-thumb {
     border: 4.5px solid transparent;
     background-clip: padding-box;
-    background-color:rgba(170, 170, 170, 0.6);
+    background-color: rgba(170, 170, 170, 0.6);
     border-radius: 9px;
     transition: background-color 0.2s linear, width 0.2s ease-in-out;
     -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
@@ -327,7 +344,6 @@ export const ContentSnapWrapper = styled.div`
     -webkit-transition: background-color 0.2s linear, width 0.2s ease-in-out;
     opacity: 0.9;
   }
-
 `;
 
 export const ContentWrapper = styled.div`

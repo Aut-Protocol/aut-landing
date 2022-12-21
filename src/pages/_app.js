@@ -8,7 +8,6 @@ import { theme } from "common/theme";
 import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
 import "common/assets/css/rc-collapse.css";
-import "common/assets/css/fractul.css";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 
 export function reportWebVitals(metric) {
