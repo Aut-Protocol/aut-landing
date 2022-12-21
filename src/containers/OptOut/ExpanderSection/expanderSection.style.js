@@ -76,6 +76,10 @@ export const Grid = styled.div`
     margin-bottom: 0;
   }
 
+  @media (max-height: 740px) and (min-width: 990px) {
+   max-height: 380px;
+  }
+
   ${themeGet("mediaQueries.xxl")} {
     max-height: 600px;
   }

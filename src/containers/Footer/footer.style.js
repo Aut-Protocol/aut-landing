@@ -47,6 +47,7 @@ export const AboutUs = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   ${alignItems}
 `;
 
@@ -77,6 +78,15 @@ export const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
   ${alignItems}
+`;
+
+export const ColumnWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
 `;
 
 export const Social = styled("div")`

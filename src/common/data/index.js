@@ -103,7 +103,7 @@ export const OptOutData = {
               fontWeight: "bold",
             }}
           >
-            Aut{" "}
+            Āut{" "}
           </span>
           <span>ID</span>
         </>
@@ -262,10 +262,10 @@ import AutIDIcon from "common/assets/image/autid-icon.svg";
 import FeatureIcon from "common/assets/image/feature-icon.svg";
 
 export const ProductsData = {
-  title: <>The Āut SUITE</>,
+  title: <>The Āut Suite</>,
   subtitle: (
     <>
-      All Products in the Āut suite are specifically designed for DAOs - and
+      All Products in the Āut Suite are specifically designed for DAOs - and
       come as a suite of out-of-the-box products for contract-powered
       communities.
     </>
@@ -733,7 +733,7 @@ export const AboutData = {
         <br />
         <br />
         Without Roles, <br />
-        there is no coordination. <br />
+        there is no Coordination. <br />
         Without Coordination, <br />
         there are no DAOs.
         <br />
@@ -802,7 +802,7 @@ export const AboutData = {
       ),
     },
     {
-      title: "there is no coordination.",
+      title: "there is no Coordination.",
     },
     {
       title: "Without Coordination",
@@ -825,6 +825,8 @@ export const AboutData = {
 import footerDiscord from "common/assets/image/discord-social.svg";
 import footerTwitter from "common/assets/image/twitter-social.svg";
 import footerDocs from "common/assets/image/docs.svg";
+import footerMirror from "common/assets/image/mirror-logo.svg";
+
 
 export const FooterData = {
   menu: [],
@@ -839,7 +841,7 @@ export const FooterData = {
       list: [
         {
           id: 1,
-          title: "About Aut",
+          title: "About Āut",
           link: "/about",
         },
         {
@@ -878,6 +880,45 @@ export const FooterData = {
     },
     // {
     //   id: 3,
+    //   title: "Reach Out",
+    //   list: [
+    //     {
+    //       id: 1,
+    //       title: "Twitter",
+    //       link: "/about",
+    //     },
+    //     {
+    //       id: 3,
+    //       title: "Discord",
+    //       target: "_blank",
+    //       link: "https://github.com/Aut-Labs",
+    //     },
+    //     {
+    //       id: 2,
+    //       title: "Mirror",
+    //       target: "_blank",
+    //       link: "https://docs.aut.id",
+    //     },
+
+    //     // {
+    //     //   id: 2,
+    //     //   title: "Manifesto",
+    //     //   link: "/manifesto",
+    //     // },
+    //     // {
+    //     //   id: 4,
+    //     //   title: "Ask Āut",
+    //     //   link: "/qa",
+    //     // },
+    //     // {
+    //     //   id: 5,
+    //     //   title: "RoadMap",
+    //     //   link: "/roadmap",
+    //     // },
+    //   ],
+    // },
+    // {
+    //   id: 3,
     //   title: "Āut Products",
     //   list: [
     //     {
@@ -913,7 +954,7 @@ export const FooterData = {
       list: [
         {
           id: 1,
-          title: "About Aut",
+          title: "About Āut",
           link: "/about",
         },
         {
@@ -932,20 +973,21 @@ export const FooterData = {
   ],
   social: [
     {
-      link: "https://docs.aut.id",
-      icon: footerDocs,
-      name: "Docs",
-    },
-    {
       link: "https://twitter.com/opt_aut",
       icon: footerTwitter,
       name: "Twitter",
+    },
+    {
+      link: "https://aut.mirror.xyz",
+      icon: footerMirror,
+      name: "Mirror",
     },
     {
       link: "http://discord.gg/aXJFGgcvUk",
       icon: footerDiscord,
       name: "Discord",
     },
+
     // {
     //   link: "https://blog.skillwallet.id",
     //   icon: footerMedium,

@@ -19,10 +19,10 @@ const Section = styled.section`
       filter: blur(50px);
       -webkit-filter: blur(50px);
       transform: rotate(-50deg);
-      left: -800px;
+      left: -680px;
       z-index: 9999;
-      top: 150px;
-      scale: 0.8;
+      top: 50px;
+      scale: 0.5;
       width: 1000px;
       height: 1000px;
       background-image: url(${BubbleImage2.src});
@@ -38,11 +38,11 @@ const Section = styled.section`
       -webkit-filter: blur(50px);
       transform: rotate(-80deg);
       left: unset;
-      right: -350px;
-      scale: 1;
+      right: -400px;
+      scale: 0.5;
       z-index: 9999;
       top: unset;
-      bottom: -700px;
+      bottom: -600px;
       width: 1000px;
       height: 1000px;
       background-image: url(${BubbleImage.src});
