@@ -825,6 +825,8 @@ export const AboutData = {
 import footerDiscord from "common/assets/image/discord-social.svg";
 import footerTwitter from "common/assets/image/twitter-social.svg";
 import footerDocs from "common/assets/image/docs.svg";
+import footerMirror from "common/assets/image/mirror-logo.svg";
+
 
 export const FooterData = {
   menu: [],
@@ -876,6 +878,45 @@ export const FooterData = {
         // },
       ],
     },
+    // {
+    //   id: 3,
+    //   title: "Reach Out",
+    //   list: [
+    //     {
+    //       id: 1,
+    //       title: "Twitter",
+    //       link: "/about",
+    //     },
+    //     {
+    //       id: 3,
+    //       title: "Discord",
+    //       target: "_blank",
+    //       link: "https://github.com/Aut-Labs",
+    //     },
+    //     {
+    //       id: 2,
+    //       title: "Mirror",
+    //       target: "_blank",
+    //       link: "https://docs.aut.id",
+    //     },
+
+    //     // {
+    //     //   id: 2,
+    //     //   title: "Manifesto",
+    //     //   link: "/manifesto",
+    //     // },
+    //     // {
+    //     //   id: 4,
+    //     //   title: "Ask Āut",
+    //     //   link: "/qa",
+    //     // },
+    //     // {
+    //     //   id: 5,
+    //     //   title: "RoadMap",
+    //     //   link: "/roadmap",
+    //     // },
+    //   ],
+    // },
     // {
     //   id: 3,
     //   title: "Āut Products",
@@ -932,20 +973,21 @@ export const FooterData = {
   ],
   social: [
     {
-      link: "https://docs.aut.id",
-      icon: footerDocs,
-      name: "Docs",
-    },
-    {
       link: "https://twitter.com/opt_aut",
       icon: footerTwitter,
       name: "Twitter",
+    },
+    {
+      link: "https://aut.mirror.xyz",
+      icon: footerMirror,
+      name: "Mirror",
     },
     {
       link: "http://discord.gg/aXJFGgcvUk",
       icon: footerDiscord,
       name: "Discord",
     },
+
     // {
     //   link: "https://blog.skillwallet.id",
     //   icon: footerMedium,
