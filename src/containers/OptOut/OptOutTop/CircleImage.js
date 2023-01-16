@@ -1,7 +1,9 @@
-import React, {  } from "react";
+import React from "react";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 import Typography from "common/components/Typography";
+import { Player } from "@lottiefiles/react-lottie-player";
+import animationData from "common/assets/Pulse_Button_White.json";
 
 const Loading = ({ title, subtitle }) => {
   return (
@@ -44,6 +46,9 @@ const Loading = ({ title, subtitle }) => {
         style={{
           width: "100px",
           height: "100px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           cursor: "pointer",
         }}
       >
@@ -61,9 +66,26 @@ const Loading = ({ title, subtitle }) => {
             height: "70px",
             fontSize: "70px",
             lineHeight: "70px",
+            zIndex: "2",
           }}
         >
           +
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            transform: "translate(-50%, -50%)",
+            left: "50%",
+            top: "50%",
+            zIndex: 1,
+          }}
+        >
+          <Player
+            autoplay
+            loop
+            src={animationData}
+            style={{ height: "250px", width: "250px" }}
+          />
         </div>
       </div>
     </Tooltip>
@@ -191,7 +213,10 @@ function CircleImage({ pulseButtons }) {
       </g>
 
       {pulseButtons.map(({ title, link, subtitle, x, y }, index) => (
-        <g key={`circle-svg-g-key${index}`} transform={`scale(1) translate(${x}, ${y})`}>
+        <g
+          key={`circle-svg-g-key${index}`}
+          transform={`scale(1) translate(${x}, ${y})`}
+        >
           <foreignObject
             key={`circle-foreign-object-key${index}`}
             id="pulse_button"

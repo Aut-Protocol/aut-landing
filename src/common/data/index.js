@@ -86,7 +86,7 @@ export const OptOutData = {
       title: "dĀut",
       subtitle: (
         <>
-          A DAO-bound. d-Āut is the first permissionless, decentralized
+          A DAO-bound. dĀut is the first permissionless, decentralized
           authentication system specifically designed for DAOs and their Members
           🤝
         </>
@@ -382,7 +382,7 @@ export const ProductsData = {
 
     subtitle: (
       <>
-        Āut is an expandable Community protocol, powering the next level of
+        Āut is an expandable Community Protocol, powering the next level of
         collective coordination.
       </>
     ),
@@ -756,7 +756,7 @@ export const AboutData = {
     ),
     description2: (
       <>
-        Āut is an expandable Community protocol, powering the next level of
+        Āut is an expandable Community Protocol, powering the next level of
         collective coordination in DAOs. It does so by adding Role-based
         Membership & Governance in Web3 Communities.
       </>
