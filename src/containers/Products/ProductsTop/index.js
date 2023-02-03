@@ -44,7 +44,7 @@ const ProductsTop = () => {
             color="white"
             as="h3"
             fontWeight="normal"
-            fontFamily="FractulRegular"
+            fontFamily="var(--fractul-regular)" 
             fontSize={{
               _: "16px",
               md: "33px",

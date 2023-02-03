@@ -9,10 +9,24 @@ import ResetCSS from "common/assets/css/style";
 import GlobalStyle from "containers/app.style";
 import "common/assets/css/rc-collapse.css";
 import { DrawerProvider } from "common/contexts/DrawerContext";
+import CookieConsent from "react-cookie-consent";
+import localFont from "@next/font/local";
 
 export function reportWebVitals(metric) {
   // console.log(metric);
 }
+
+const FractulAltBold = localFont({
+  src: "fonts/FractulAltBold/font.woff2",
+  variable: "--factul-alt-bold",
+});
+
+const FractulAltLight = localFont({
+  src: "fonts/FractulAltLight/font.woff2",
+});
+const FractulRegular = localFont({
+  src: "fonts/FractulRegular/font.woff2",
+});
 
 export default function CustomApp({ Component, pageProps }) {
   useEffect(() => {
@@ -43,13 +57,50 @@ export default function CustomApp({ Component, pageProps }) {
         </Head>
         <ResetCSS />
         <GlobalStyle />
+        {/* <style jsx global>
+          {`
+            html {
+              font-family: ${FractulRegular.style.fontFamily};
+            }
+            .fractul-light {
+              font-family: ${FractulAltLight.style.fontFamily} !important;
+            }
+            .fractul-bold {
+              font-family: ${FractulAltBold.style.fontFamily} !important;
+            }
+          `}
+        </style> */}
+
+        <style jsx global>{`
+          :root {
+            /* ... */
+            --fractul-alt-light: ${FractulAltLight.style.fontFamily};
+            --fractul-alt-bold: ${FractulAltBold.style.fontFamily};
+            --fractul-regular: ${FractulRegular.style.fontFamily};
+          }
+        `}
+        </style>
         <Modal>
           <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>
           </Sticky>
-          <Component {...pageProps} />
+          <main>
+            <Component {...pageProps} />
+          </main>
+          <CookieConsent
+            location="bottom"
+            buttonText="I understand"
+            cookieName="autcookie"
+            className="cookie-consent"
+            style={{ background: "#262626", zIndex: "9999" }}
+            buttonClasses="cookie-consent-btn"
+            disableButtonStyles={true}
+            expires={150}
+          >
+            This website uses cookies to enhance the user experience.
+          </CookieConsent>
         </Modal>
       </>
     </ThemeProvider>

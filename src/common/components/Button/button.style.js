@@ -6,7 +6,7 @@ import { base } from "../base";
 
 export const buttonStyles = {
   normal: {
-    fontFamily: "FractulAltLight",
+    fontFamily: 'var(--fractul-alt-light)',
     letterSpacing: "0.01em",
     fontSize: {
       _: "14px",
@@ -45,7 +45,7 @@ export const buttonStyles = {
     },
   },
   chunky: {
-    fontFamily: "FractulAltLight",
+    fontFamily: 'var(--fractul-alt-light)',
     letterSpacing: "0.01em",
     fontSize: {
       _: "14px",
@@ -84,7 +84,7 @@ export const buttonStyles = {
     },
   },
   square: {
-    fontFamily: "FractulAltLight",
+    fontFamily: 'var(--fractul-alt-light)',
     letterSpacing: "0.01em",
     borderRadius: 0,
     fontSize: {

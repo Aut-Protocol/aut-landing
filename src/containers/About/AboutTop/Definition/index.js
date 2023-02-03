@@ -24,7 +24,7 @@ const Definition = () => {
               color="white"
               as="h3"
               fontWeight="normal"
-              fontFamily="FractulRegular"
+              fontFamily="var(--fractul-regular)" 
             >
               {definition?.noun}
             </Typography>

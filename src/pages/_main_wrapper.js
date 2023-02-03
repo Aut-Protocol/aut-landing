@@ -1,4 +1,5 @@
 import { ContentWrapper } from "containers/app.style";
+
 import Footer from "containers/Footer";
 import React from "react";
 import "react-perfect-scrollbar/dist/css/styles.css";

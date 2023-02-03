@@ -52,22 +52,25 @@ const Hvr_Ripple_Out = keyframes`
 `;
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: "FractulAltBold";
-    src: url("/fonts/FractulAltBold/font.woff2") format("woff2"),
-      url("/fonts/FractulAltBold/font.woff") format("woff");
-  }
+  // @font-face {
+  //   font-family: "FractulAltBold";
+  //   src: url("/fonts/FractulAltBold/font.woff2") format("woff2"),
+  //     url("/fonts/FractulAltBold/font.woff") format("woff");
+  // }
 
-  @font-face {
-    font-family: "FractulAltLight";
-    src: url("/fonts/FractulAltLight/font.woff2") format("woff2"),
-      url("/fonts/FractulAltLight/font.woff") format("woff");
-  }
+  // @font-face {
+  //   font-family: "FractulAltLight";
+  //   src: url("/fonts/FractulAltLight/font.woff2") format("woff2"),
+  //     url("/fonts/FractulAltLight/font.woff") format("woff");
+  // }
 
-  @font-face {
-    font-family: "FractulRegular";
-    src: url('/fonts/FractulRegular/font.woff2') format('woff2'), url('/fonts/FractulRegular/font.woff') format('woff');
-  }
+  // @font-face {
+  //   font-family: "FractulRegular";
+  //   src: url('/fonts/FractulRegular/font.woff2') format('woff2'), url('/fonts/FractulRegular/font.woff') format('woff');
+  // }
+
+  font-family: var(--fractul-regular);
+
   
   :root {
     --wobbleVertical: ${Wobble_Vertical} 1s ease-in-out;
@@ -118,6 +121,32 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: ${themeGet("fonts.primary")};
+  }
+
+  .cookie-consent-btn {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    background-color: transparent;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50px;
+    color: #EBEBF2;
+    background-color: transparent;
+    border-color: #EBEBF2;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 33px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+  }
+  .cookie-consent-btn:hover {
+    cursor: pointer;
+    color: #000000;
+    background-color: #EBEBF2;
+    border-color: #EBEBF2;
   }
 
   .ps__rail-y {
@@ -204,6 +233,8 @@ const GlobalStyle = createGlobalStyle`
       max-height: 100%!important;
     }
   }
+
+
 
   .drawer-content-wrapper{
     right: -1px;

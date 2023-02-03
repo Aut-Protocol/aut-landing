@@ -489,7 +489,7 @@ export const ProductList = [
     title: (
       <>
         <span style={{ fontWeight: "bold" }}>Āut </span>
-        <span style={{ fontFamily: "FractulRegular" }}>Expander</span>
+        <span style={{ fontFamily: "var(--fractul-regular)" }}>Expander</span>
       </>
     ),
     image: expanderScreen.src,
@@ -517,7 +517,7 @@ export const ProductList = [
     image: dautScreen.src,
     title: (
       <>
-        <span style={{ fontFamily: "FractulRegular" }}>d</span>
+        <span style={{ fontFamily: "var(--fractul-regular)"  }}>d</span>
         <span>Āut</span>
       </>
     ),
@@ -568,7 +568,7 @@ export const ProductList = [
     title: (
       <>
         <span>Āut</span>
-        <span style={{ fontFamily: "FractulRegular" }}> ID</span>
+        <span style={{ fontFamily: "var(--fractul-regular)"  }}> ID</span>
       </>
     ),
     link: "https://docs.aut.id/v2/product-suite/my-autid",
@@ -826,7 +826,6 @@ import footerDiscord from "common/assets/image/discord-social.svg";
 import footerTwitter from "common/assets/image/twitter-social.svg";
 import footerDocs from "common/assets/image/docs.svg";
 import footerMirror from "common/assets/image/mirror-logo.svg";
-
 
 export const FooterData = {
   menu: [],
