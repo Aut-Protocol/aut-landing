@@ -12,6 +12,7 @@
   "dependencies": {
     "@lottiefiles/lottie-player": "^1.5.7",
     "@lottiefiles/react-lottie-player": "^3.4.7",
+    "@next/font": "13.0.6",
     "@redq/reuse-modal": "^1.1.9",
     "@styled-system/theme-get": "^5.1.2",
     "@walletconnect/ethereum-provider": "^2.1.1",
