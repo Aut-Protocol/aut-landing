@@ -39,13 +39,13 @@ export default function CustomApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <>
         <Head>
-          <title>Āut</title>
+          <title>Āut Labs</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
             key="viewport"
           />
-          <meta property="og:title" content="Aut" />
+          <meta property="og:title" content="Āut Labs" />
           <meta
             name="description"
             content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
