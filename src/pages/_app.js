@@ -10,7 +10,7 @@ import GlobalStyle from "containers/app.style";
 import "common/assets/css/rc-collapse.css";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import CookieConsent from "react-cookie-consent";
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 
 export function reportWebVitals(metric) {
   // console.log(metric);
