@@ -11,7 +11,7 @@ export const NavbarData = {
     {
       // link: "https://playground.aut.id",
       link: "https://autlabs.typeform.com/to/i2y8pgpm",
-      name: "Playground",
+      name: "Apply for Beta",
     },
   ],
   menuItems: [
@@ -67,7 +67,7 @@ export const OptOutData = {
   link: {
     // path: "https://playground.aut.id",
     path: "https://autlabs.typeform.com/to/i2y8pgpm",
-    title: "Playground",
+    title: "Apply for Beta",
   },
   pulseButtons: [
     {
