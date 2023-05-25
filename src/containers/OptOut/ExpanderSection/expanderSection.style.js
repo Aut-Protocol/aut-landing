@@ -22,7 +22,7 @@ const SectionWrapper = styled.section`
       transform: rotate(-80deg);
       right: -350px;
       scale: 0.8;
-      z-index: 9999;
+      z-index: -1;
       top: -250px;
       width: 1000px;
       height: 1000px;
