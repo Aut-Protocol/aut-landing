@@ -236,12 +236,12 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-  .drawer-content-wrapper{
+  .rc-drawer-content-wrapper{
     right: -1px;
     @media (max-width: 767px) {
-      width: 300px!important;
+      width: 300px !important;
     }
-    .drawer-content {
+    .rc-drawer-content {
       padding: 60px;
       display: flex;
       flex-direction: column;
@@ -250,7 +250,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 50px 40px 30px 40px;
       }
       .mobile_menu {
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         flex-grow: 1;
         @media (max-width: 767px) {
           margin-bottom: 30px;
