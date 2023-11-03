@@ -517,7 +517,7 @@ export const ProductList = [
     image: dautScreen.src,
     title: (
       <>
-        <span style={{ fontFamily: "var(--fractul-regular)"  }}>d</span>
+        <span style={{ fontFamily: "var(--fractul-regular)" }}>d</span>
         <span>Āut</span>
       </>
     ),
@@ -568,7 +568,7 @@ export const ProductList = [
     title: (
       <>
         <span>Āut</span>
-        <span style={{ fontFamily: "var(--fractul-regular)"  }}> ID</span>
+        <span style={{ fontFamily: "var(--fractul-regular)" }}> ID</span>
       </>
     ),
     link: "https://docs.aut.id/v2/product-suite/my-autid",
@@ -945,6 +945,48 @@ export const FooterData = {
     //     // },
     //   ],
     // },
+  ],
+  countDownWidgets: [
+    {
+      id: 2,
+      title: "Quick Links",
+      list: [
+        {
+          id: 3,
+          title: "Github",
+          target: "_blank",
+          link: "https://github.com/Aut-Labs",
+        },
+        {
+          id: 2,
+          title: "Docs",
+          target: "_blank",
+          link: "https://docs.aut.id",
+        },
+        {
+          id: 4,
+          title: "Twitter",
+          target: "_blank",
+          link: "https://twitter.com/opt_aut",
+        },
+ 
+        // {
+        //   id: 2,
+        //   title: "Manifesto",
+        //   link: "/manifesto",
+        // },
+        // {
+        //   id: 4,
+        //   title: "Ask Āut",
+        //   link: "/qa",
+        // },
+        // {
+        //   id: 5,
+        //   title: "RoadMap",
+        //   link: "/roadmap",
+        // },
+      ],
+    },
   ],
   compactWidgets: [
     {

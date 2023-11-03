@@ -81,15 +81,15 @@ export default function CustomApp({ Component, pageProps }) {
         `}
         </style>
         <Modal>
-          <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+          {/* <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>
-          </Sticky>
+          </Sticky> */}
           <main>
             <Component {...pageProps} />
           </main>
-          <CookieConsent
+          {/* <CookieConsent
             location="bottom"
             buttonText="I understand"
             cookieName="autcookie"
@@ -100,7 +100,7 @@ export default function CustomApp({ Component, pageProps }) {
             expires={150}
           >
             This website uses cookies to enhance the user experience.
-          </CookieConsent>
+          </CookieConsent> */}
         </Modal>
       </>
     </ThemeProvider>

@@ -1,9 +1,12 @@
-import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
-import { base } from '../base';
+import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
+import { base } from "../base";
 
 const InputField = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* Input field wrapper */
   .field-wrapper {
@@ -104,6 +107,8 @@ const InputField = styled.div`
       border-right: 0;
       padding-left: 0;
       padding-right: 0;
+      border-bottom: 0;
+      color: white;
     }
 
     textarea {
@@ -112,6 +117,7 @@ const InputField = styled.div`
     }
 
     .highlight {
+      display: none;
       position: absolute;
       height: 1px;
       top: auto;
@@ -205,13 +211,13 @@ const EyeButton = styled.button`
     width: 12px;
     height: 12px;
     display: block;
-    border: solid 1px ${themeGet('colors.textColor', '#484848')};
+    border: solid 1px ${themeGet("colors.textColor", "#484848")};
     border-radius: 75% 15%;
     transform: rotate(45deg);
     position: relative;
 
     &:before {
-      content: '';
+      content: "";
       display: block;
       width: 4px;
       height: 4px;
@@ -219,21 +225,21 @@ const EyeButton = styled.button`
       left: 3px;
       top: 3px;
       position: absolute;
-      border: solid 1px ${themeGet('colors.textColor', '#484848')};
+      border: solid 1px ${themeGet("colors.textColor", "#484848")};
     }
   }
 
   &.eye-closed {
     > span {
       &:after {
-        content: '';
+        content: "";
         display: block;
         width: 1px;
         height: 20px;
         left: calc(50% - 1px / 2);
         top: -4px;
         position: absolute;
-        background-color: ${themeGet('colors.textColor', '#484848')};
+        background-color: ${themeGet("colors.textColor", "#484848")};
         transform: rotate(-12deg);
       }
     }

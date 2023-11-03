@@ -135,9 +135,12 @@ const ButtonStyle = styled("button")`
 
   &[disabled],
   &[disabled]:hover {
+    //TODO: Change after coming soon phase
     cursor: unset;
-    background-color: ${themeGet("colors.transparent")};
-    color: ${themeGet("colors.textDisabled")};
+    // background-color: ${themeGet("colors.transparent")};
+    // color: ${themeGet("colors.textDisabled")};
+    background-color: #2F3746;
+    color: #818CA2;
     border-color: ${themeGet("colors.borderDisabled")};
   }
 

@@ -18,7 +18,7 @@ const AboutBottom = () => {
     <Section id="section_bottom">
       <Container>
         <TitleBox>
-          <Typography m="20px" color="white" as="h3" textAlign="center">
+          <Typography m="20px" color="white" as="h4" textAlign="center" fontSize="30px">
             {bottom.title}
           </Typography>
           <Typography

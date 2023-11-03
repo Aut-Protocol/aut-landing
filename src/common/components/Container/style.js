@@ -30,7 +30,7 @@ const ContainerWrapper = styled("div")`
     width: 100%;
   }
   ${themeGet("mediaQueries.lg")} {
-    max-width: ${(props) => props.width || "1060px"};
+    max-width: ${(props) => props.width || "1220px"};
     width: 100%;
   }
   ${themeGet("mediaQueries.xl")} {
