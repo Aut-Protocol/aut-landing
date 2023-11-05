@@ -1,11 +1,9 @@
-const withVideos = require("next-videos");
-
-module.exports = withVideos({
-  reactStrictMode: true,
+module.exports = {
+  reactStrictMode: false,
   compiler: {
     styledComponents: true,
   },
   images: {
     domains: [],
   },
-});
+};

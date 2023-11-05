@@ -35,7 +35,7 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export const NewsletterForm = ({ status, message, onValidated }) => {
+const NewsletterForm = ({ status, message, onValidated }) => {
   const { control, handleSubmit, watch } = useForm({
     mode: "onChange",
   });
@@ -333,3 +333,5 @@ export const CountDownNewsletterForm = ({ status, message, onValidated }) => {
     </BottomFormWrapper>
   );
 };
+
+export default NewsletterForm;

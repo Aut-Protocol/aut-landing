@@ -24,10 +24,9 @@ import {
   useAnimate,
   useAnimation,
 } from "framer-motion";
-import animationData from "common/assets/Scroll_Down_Animation.json";
 import Box from "common/components/Box";
-import { Player } from "@lottiefiles/react-lottie-player";
 import useWindowSize from "common/components/window-size";
+import ArrowLoading from "./ArrowLoading";
 
 export const ContactInfo = styled.div`
   display: flex;
@@ -253,7 +252,7 @@ const AutOSLogoContainer = styled(Image)`
   }
 `;
 
-const StyledPlayer = styled(Player)`
+const StyledPlayer = styled("div")`
   height: 75px;
   width: 75px;
   ${themeGet("mediaQueries.xxl")} {
@@ -262,17 +261,13 @@ const StyledPlayer = styled(Player)`
   }
 `;
 
-const Countdown = () => {
-  const date = new Date("November 19, 2023");
-  const { height } = useWindowSize();
+const date = new Date(Date.UTC(2023, 10, 19, 15, 0, 0));
 
-  const { mailchimpUrl, countDownWidgets } = FooterData;
+const Countdown = () => {
+  const { height } = useWindowSize();
+  const { mailchimpUrl } = FooterData;
   const scroll = useScroll();
   const [optOut, setOptOut] = useState(false);
-  const toggleOptOut = () => {
-    setOptOut(true);
-  };
-
   const scaleFirst = useTransform(scroll.scrollYProgress, [0, 0.25], [1, 0.8]);
   const scaleArrow = useTransform(scroll.scrollYProgress, [0, 0.25], [1, 1]);
 
@@ -484,7 +479,9 @@ const Countdown = () => {
                     opacity: opacityFirst,
                   }}
                 >
-                  <StyledPlayer autoplay loop src={animationData} />
+                  <StyledPlayer>
+                    <ArrowLoading />
+                  </StyledPlayer>
                 </ScrollArrow>
               </div>
             </div>

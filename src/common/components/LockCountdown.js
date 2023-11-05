@@ -21,25 +21,27 @@ const Countdown = styled("div")({
 const LockCountdown = ({ to }) => {
   return (
     <Countdown>
-      <FlipClockCountdown
-        digitBlockStyle={{
-          fontFamily: "var(--fractul-regular)",
-          width: "20px",
-          height: "30px",
-          fontSize: "30px",
-        }}
-        labelStyle={{
-          fontSize: "12px",
-          fontFamily: "var(--fractul-regular)",
-          color: 'gray'
-        }}
-        separatorStyle={{
-          size: "3px",
-        }}
-        to={to?.toUTCString()}
-      />
+      {to?.toUTCString() && (
+        <FlipClockCountdown
+          digitBlockStyle={{
+            fontFamily: "var(--fractul-regular)",
+            width: "20px",
+            height: "30px",
+            fontSize: "30px",
+          }}
+          labelStyle={{
+            fontSize: "12px",
+            fontFamily: "var(--fractul-regular)",
+            color: "gray",
+          }}
+          separatorStyle={{
+            size: "3px",
+          }}
+          to={to?.toUTCString()}
+        />
+      )}
     </Countdown>
   );
 };
 
-export default memo(LockCountdown);
+export default LockCountdown;
