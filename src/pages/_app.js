@@ -48,7 +48,7 @@ export default function CustomApp({ Component, pageProps }) {
           <meta property="og:title" content="Āut Labs" />
           <meta
             name="description"
-            content="ĀutOS - the Operating System of yourself. The social map of your Web3 reputation. Where you get in, by opting out."
+            content="<b>ĀutOS - the Operating System of yourself.</b> <br/>The social map of your Web3 reputation. <br/>Where you get in, by opting out."
           />
           <meta
             property="og:description"
