@@ -35,6 +35,14 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const StyledText = styled(Text)`
+  width: 225px;
+
+  ${themeGet("mediaQueries.sm")} {
+    width: 245px;
+  }
+`;
+
 const NewsletterForm = ({ status, message, onValidated }) => {
   const { control, handleSubmit, watch } = useForm({
     mode: "onChange",
@@ -301,12 +309,11 @@ export const CountDownNewsletterForm = ({ status, message, onValidated }) => {
             </CountDownNewsletterFieldButtonWrapper>
             <div className="newsletter-form-info">
               {status === "error" ? (
-                <Text
+                <StyledText
                   style={{
                     position: "absolute",
                     color: "red",
                     margin: 0,
-                    width: "230px",
                     marginTop: "5px",
                     fontSize: "12px",
                   }}
