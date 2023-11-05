@@ -8,6 +8,8 @@ import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
 import ToggleBgSvg from "common/assets/image/toggle-bg-svg.svg";
 import CrackOverToggleBg from "common/assets/image/crack-over-toggle-bg-svg.svg";
+import CrackOverToggleBgPng from "common/assets/image/crack-over-toggle-bg-png.png";
+
 import CrackBg from "common/assets/image/crack-bg.svg";
 import ClockBackground from "common/assets/image/clock-crack-piece.png";
 import AutOSLogo from "common/assets/AutOSLogoV2.svg";
@@ -309,7 +311,7 @@ const Countdown = () => {
   useEffect(() => {
     opacityFirst.on("change", function (value) {
       if (value <= 0.5) {
-        setBgImage(CrackOverToggleBg.src);
+        setBgImage(CrackOverToggleBgPng.src);
       }
     });
   }, [opacityFirst, bgImage]);
