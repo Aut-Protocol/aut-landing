@@ -354,7 +354,7 @@ const Countdown = () => {
               opacity: bgStartOpacity,
               width: "100%",
               height: "100vh",
-              backgroundImage: `url(${CrackOverToggleBgPng})`,
+              backgroundImage: `url(${CrackOverToggleBgPng.src})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
