@@ -39,7 +39,7 @@ export default function CustomApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <>
         <Head>
-          <title>Āut Labs</title>
+          <title>ĀutOS</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
