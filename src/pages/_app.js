@@ -45,14 +45,14 @@ export default function CustomApp({ Component, pageProps }) {
             content="initial-scale=1.0, width=device-width"
             key="viewport"
           />
-          <meta property="og:title" content="Āut Labs" />
+          <meta property="og:title" content="ĀutOS - the Operating System of yourself." />
           <meta
             name="description"
-            content="<b>ĀutOS - the Operating System of yourself.</b> <br/>The social map of your Web3 reputation. <br/>Where you get in, by opting out."
+            content="The social map of your Web3 reputation. /n Where you get in, by opting out."
           />
           <meta
             property="og:description"
-            content="<b>ĀutOS - the Operating System of yourself.</b> <br/>The social map of your Web3 reputation. <br/>Where you get in, by opting out."
+            content="The social map of your Web3 reputation. /n Where you get in, by opting out."
           />
         </Head>
         <ResetCSS />
