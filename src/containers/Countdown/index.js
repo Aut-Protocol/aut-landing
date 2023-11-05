@@ -6,8 +6,9 @@ import { CountDownNewsletterForm } from "common/components/NewsletterForm/Newsle
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
+import ToggleBgPng from "common/assets/image/toggle-bg-png.png";
 import ToggleBgSvg from "common/assets/image/toggle-bg-svg.svg";
-import CrackOverToggleBg from "common/assets/image/crack-over-toggle-bg-svg.svg";
+import CrackOverToggleBgSvg from "common/assets/image/crack-over-toggle-bg-svg.svg";
 import CrackOverToggleBgPng from "common/assets/image/crack-over-toggle-bg-png.png";
 
 import CrackBg from "common/assets/image/crack-bg.svg";
@@ -62,7 +63,6 @@ export const LogoWrapper = styled.div`
   left: 20px;
   top: 20px;
 `;
-
 
 const logoStyles = {
   height: {
@@ -240,7 +240,7 @@ const date = new Date(Date.UTC(2023, 10, 19, 15, 0, 0));
 
 const Countdown = () => {
   const { height, width } = useWindowSize();
-  
+
   const { mailchimpUrl } = FooterData;
   const scroll = useScroll();
   const [optOut, setOptOut] = useState(false);
@@ -276,19 +276,18 @@ const Countdown = () => {
   const ySecond = useTransform(
     scroll.scrollYProgress,
     [0.25, 0.5, 0.9, 1],
-    [`0px`, `0px`, `-${height / 2 - 75}px`, `-${height / 2 - 75}px`]
+    [`0px`, `0px`, `-${height / 2 - 50}px`, `-${height / 2 - 50}px`]
   );
-  const [bgImage, setBgImage] = useState("");
   const [bgClockOpacity, setBgClockOpacity] = useState(motionValue(0));
 
   const bgStartOpacity = useTransform(
     scroll.scrollYProgress,
-    [0, 0.5, 0.9],
-    [0, 1, 1]
+    [0, 0.125, 0.5, 0.9],
+    [0, 0, 1, 1]
   );
   const bgFormOpacity = useTransform(
     scroll.scrollYProgress,
-    [0, 0.55, 0.84, 0.85, 0.95, 1],
+    [0, 0.55, 0.84, 0.85, 0.9, 1],
     [0, 0, 0.5, 0.5, 1, 1]
   );
 
@@ -307,14 +306,6 @@ const Countdown = () => {
       bgClockOpacity.set(scroll.scrollYProgress.get() * 1.0);
     }
   });
-
-  useEffect(() => {
-    opacityFirst.on("change", function (value) {
-      if (value <= 0.5) {
-        setBgImage(CrackOverToggleBgPng.src);
-      }
-    });
-  }, [opacityFirst, bgImage]);
 
   useEffect(() => {
     opacitySecond.on("change", function (value) {});
@@ -363,7 +354,7 @@ const Countdown = () => {
               opacity: bgStartOpacity,
               width: "100%",
               height: "100vh",
-              backgroundImage: `url(${bgImage})`,
+              backgroundImage: `url(${CrackOverToggleBgPng})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
@@ -375,7 +366,9 @@ const Countdown = () => {
               opacity: bgFormOpacity,
               width: "100%",
               height: "100vh",
-              backgroundImage: `url(${ToggleBgSvg.src})`,
+              backgroundImage: `url(${
+                width < 768 ? ToggleBgPng.src : ToggleBgSvg.src
+              })`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
@@ -443,8 +436,8 @@ const Countdown = () => {
               </div>
               <div
                 style={{
-                  position: 'fixed',
-                  bottom: 0
+                  position: "fixed",
+                  bottom: 0,
                 }}
               >
                 <ScrollArrow
@@ -480,8 +473,7 @@ const Countdown = () => {
                 y: ySecond,
                 scale: scaleSecond,
                 opacity: opacitySecond,
-                width: "50vh",
-                height: "100px",
+                width: "50vw",
               }}
             >
               <LockCountdown to={date}></LockCountdown>
