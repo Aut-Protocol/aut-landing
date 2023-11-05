@@ -61,17 +61,20 @@ const NewsletterForm = ({ status, message, onValidated }) => {
 
     // const linkRx = /<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/;
     // console.log(message.match(linkRx));
+    try {
+      const msg = message.split("<a")[0];
 
-    const msg = message.split("<a")[0];
+      const result = msg?.split("-") ?? null;
 
-    const result = msg?.split("-") ?? null;
+      if ("0" !== result?.[0]?.trim()) {
+        return decode(msg);
+      }
 
-    if ("0" !== result?.[0]?.trim()) {
-      return decode(msg);
+      const formattedMessage = result?.[1]?.trim() ?? null;
+      return formattedMessage ? decode(formattedMessage) : null;
+    } catch {
+      return "Invalid input!";
     }
-
-    const formattedMessage = result?.[1]?.trim() ?? null;
-    return formattedMessage ? decode(formattedMessage) : null;
   };
 
   return (
@@ -192,17 +195,20 @@ export const CountDownNewsletterForm = ({ status, message, onValidated }) => {
 
     // const linkRx = /<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/;
     // console.log(message.match(linkRx));
+    try {
+      const msg = message.split("<a")[0];
 
-    const msg = message.split("<a")[0];
+      const result = msg?.split("-") ?? null;
 
-    const result = msg?.split("-") ?? null;
+      if ("0" !== result?.[0]?.trim()) {
+        return decode(msg);
+      }
 
-    if ("0" !== result?.[0]?.trim()) {
-      return decode(msg);
+      const formattedMessage = result?.[1]?.trim() ?? null;
+      return formattedMessage ? decode(formattedMessage) : null;
+    } catch {
+      return "Invalid input!";
     }
-
-    const formattedMessage = result?.[1]?.trim() ?? null;
-    return formattedMessage ? decode(formattedMessage) : null;
   };
 
   return (
@@ -252,7 +258,7 @@ export const CountDownNewsletterForm = ({ status, message, onValidated }) => {
                         alignItems: "center",
                         color: "white",
                         width: { _: "130px", sm: "150px" },
-                        height: '40px',
+                        height: "40px",
                         marginRight: "5px",
                         color: "white",
                         border: "none",
@@ -300,6 +306,7 @@ export const CountDownNewsletterForm = ({ status, message, onValidated }) => {
                     position: "absolute",
                     color: "red",
                     margin: 0,
+                    width: "230px",
                     marginTop: "5px",
                     fontSize: "12px",
                   }}

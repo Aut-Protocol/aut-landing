@@ -6,10 +6,10 @@ import { CountDownNewsletterForm } from "common/components/NewsletterForm/Newsle
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
-import ToggleImage from "common/assets/image/crack.png";
+import ToggleBgSvg from "common/assets/image/toggle-bg-svg.svg";
+import CrackOverToggleBg from "common/assets/image/crack-over-toggle-bg-svg.svg";
 import CrackBg from "common/assets/image/crack-bg.svg";
 import ClockBackground from "common/assets/image/clock-crack-piece.png";
-import CrackedBlack from "common/assets/image/background-cracked.jpg";
 import AutOSLogo from "common/assets/AutOSLogoV2.svg";
 import ToggleOn from "common/assets/toggle-on.svg";
 import ToggleOff from "common/assets/toggle-off.svg";
@@ -61,13 +61,6 @@ export const LogoWrapper = styled.div`
   top: 20px;
 `;
 
-const AutLogoVideo = styled.video`
-  width: 150px;
-
-  ${themeGet("mediaQueries.sm")} {
-    width: 250px;
-  }
-`;
 
 const logoStyles = {
   height: {
@@ -140,26 +133,6 @@ const CountDownCard = styled(Card)`
     width: 656px;
     height: 494px;
   }
-`;
-
-const BackgroundWrapper = styled("div")`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-`;
-
-const CountdownContainer = styled("div")`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  background-color: #0f1319;
-  background-image: url(${ToggleImage.src});
-  background-repeat: no-repeat;
-  background-position: center;
 `;
 
 const CrackBackground = styled(motion.div)`
@@ -264,7 +237,8 @@ const StyledPlayer = styled("div")`
 const date = new Date(Date.UTC(2023, 10, 19, 15, 0, 0));
 
 const Countdown = () => {
-  const { height } = useWindowSize();
+  const { height, width } = useWindowSize();
+  
   const { mailchimpUrl } = FooterData;
   const scroll = useScroll();
   const [optOut, setOptOut] = useState(false);
@@ -299,8 +273,8 @@ const Countdown = () => {
 
   const ySecond = useTransform(
     scroll.scrollYProgress,
-    [0.25, 0.5, 1],
-    [`0px`, `0px`, `-${height / 2 - 75}px`]
+    [0.25, 0.5, 0.9, 1],
+    [`0px`, `0px`, `-${height / 2 - 75}px`, `-${height / 2 - 75}px`]
   );
   const [bgImage, setBgImage] = useState("");
   const [bgClockOpacity, setBgClockOpacity] = useState(motionValue(0));
@@ -335,7 +309,7 @@ const Countdown = () => {
   useEffect(() => {
     opacityFirst.on("change", function (value) {
       if (value <= 0.5) {
-        setBgImage(CrackedBlack.src);
+        setBgImage(CrackOverToggleBg.src);
       }
     });
   }, [opacityFirst, bgImage]);
@@ -399,7 +373,7 @@ const Countdown = () => {
               opacity: bgFormOpacity,
               width: "100%",
               height: "100vh",
-              backgroundImage: `url(${ToggleImage.src})`,
+              backgroundImage: `url(${ToggleBgSvg.src})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
             }}
@@ -443,9 +417,9 @@ const Countdown = () => {
               <div
                 style={{
                   display: "flex",
-                  height: "calc(50% + 25px)",
+                  height: "100vh",
                   width: "80%",
-                  alignItems: "flex-end",
+                  alignItems: "center",
                   justifyContent: "center",
                 }}
               >
@@ -467,10 +441,8 @@ const Countdown = () => {
               </div>
               <div
                 style={{
-                  display: "flex",
-                  height: "calc(50% - 37px)",
-                  alignItems: "flex-end",
-                  justifyContent: "center",
+                  position: 'fixed',
+                  bottom: 0
                 }}
               >
                 <ScrollArrow
