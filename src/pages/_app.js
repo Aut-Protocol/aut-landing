@@ -52,7 +52,7 @@ export default function CustomApp({ Component, pageProps }) {
           />
           <meta
             property="og:description"
-            content="ĀutOS - the Operating System of yourself. The social map of your Web3 reputation. Where you get in, by opting out."
+            content="<b>ĀutOS - the Operating System of yourself.</b> <br/>The social map of your Web3 reputation. <br/>Where you get in, by opting out."
           />
         </Head>
         <ResetCSS />
