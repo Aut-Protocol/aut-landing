@@ -542,8 +542,8 @@ const Countdown = () => {
                     sm: "18px",
                   }}
                 >
-                  The social map of your Web3 reputation.
-                  <br /> Where you get in, by opting out.
+                  ĀutOS is the social map of your Web3 reputation.
+                  <br /> A Web of Trust - where you get in, by opting out.
                 </Typography>
                 <>
                   {optOut ? (
