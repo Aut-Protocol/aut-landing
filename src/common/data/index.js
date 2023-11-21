@@ -8,22 +8,30 @@ import AutLogo from "common/assets/image/logo.svg";
 export const NavbarData = {
   logo: AutLogo,
   navButtons: [
-    {
-      // link: "https://playground.aut.id",
-      link: "https://autlabs.typeform.com/to/i2y8pgpm",
-      name: "Apply for Beta",
-    },
+    // {
+    //   // link: "https://playground.aut.id",
+    //   link: "https://autlabs.typeform.com/to/i2y8pgpm",
+    //   name: "Apply for Beta",
+    // },
   ],
   menuItems: [
     {
-      label: "About",
+      label: "X",
       staticLink: true,
-      path: "/about",
+      target: "_blank",
+      path: "https://twitter.com/opt_aut",
     },
     {
-      label: "Products",
+      label: "Discord",
       staticLink: true,
-      path: "/products",
+      target: "_blank",
+      path: "https://discord.gg/neHnzyBJEV",
+    },
+    {
+      label: "Github",
+      staticLink: true,
+      target: "_blank",
+      path: "https://github.com/Aut-Labs",
     },
     {
       label: "Docs",

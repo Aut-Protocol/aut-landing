@@ -1,7 +1,7 @@
 import { rgba } from "polished";
 
 const mainColors = {
-  primary: "#14ECEC",
+  primary: "#1bbbff",
   secondary: "#112BB3",
   nightBlack: "#262626",
   offWhite: "#EBEBF2",

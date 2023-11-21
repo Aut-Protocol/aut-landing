@@ -22,6 +22,20 @@ const navbarStyle = {
     md: "84px",
     xxl: "112px",
   },
+  paddingLeft: {
+    _: "8px",
+    xs: "8px",
+    sm: "16px",
+    md: "16px",
+    xxl: "24px",
+  },
+  paddingRight: {
+    _: "8px",
+    xs: "8px",
+    sm: "16px",
+    md: "16px",
+    xxl: "24px",
+  },
   display: "block",
 };
 
@@ -34,11 +48,11 @@ const logoStyles = {
     xxl: "56px",
   },
   width: {
-    _: "186px",
-    xs: "186px",
-    sm: "186px",
-    md: "186px",
-    xxl: "252px",
+    _: "106px",
+    xs: "106px",
+    sm: "106px",
+    md: "106px",
+    xxl: "152px",
   },
 };
 
@@ -67,21 +81,32 @@ const Navbar = ({ row, menuWrapper }) => {
         }}
       >
         <Box {...row}>
-          <Logo
-            logoSrc={logo}
-            href="/"
-            alt="Aut Logo"
-            logoStyle={logoStyles}
-            className="sticky-logo nav-logo"
-          />
-          <Box {...menuWrapper} className="mainMenuWrapper">
+          <Box
+            {...menuWrapper}
+            className="mainMenuWrapper"
+            justifyContent={{
+              _: "space-between",
+              md: "center",
+            }}
+            style={{
+              display: "flex",
+              flex: 1,
+            }}
+          >
+            <Logo
+              logoSrc={logo}
+              href="/"
+              alt="Aut Logo"
+              logoStyle={logoStyles}
+              className="sticky-logo nav-logo"
+            />
             <ScrollSpyMenu
               className="main_menu"
               menuItems={menuItems}
               offset={-70}
             />
 
-            <div className="navbar-buttons">
+            {/* <div className="navbar-buttons">
               {navButtons.map(({ link, name }, index) => (
                 <Button
                   key={`nav-button-key-${index}`}
@@ -99,7 +124,7 @@ const Navbar = ({ row, menuWrapper }) => {
                   as="a"
                 />
               ))}
-            </div>
+            </div> */}
 
             <Drawer
               width="420px"

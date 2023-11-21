@@ -6,7 +6,7 @@ import { base } from "../base";
 
 export const buttonStyles = {
   normal: {
-    fontFamily: 'var(--fractul-alt-light)',
+    fontFamily: "var(--fractul-alt-light)",
     letterSpacing: "0.01em",
     fontSize: {
       _: "14px",
@@ -45,7 +45,7 @@ export const buttonStyles = {
     },
   },
   chunky: {
-    fontFamily: 'var(--fractul-alt-light)',
+    fontFamily: "var(--fractul-alt-light)",
     letterSpacing: "0.01em",
     fontSize: {
       _: "14px",
@@ -84,7 +84,7 @@ export const buttonStyles = {
     },
   },
   square: {
-    fontFamily: 'var(--fractul-alt-light)',
+    fontFamily: "var(--fractul-alt-light)",
     letterSpacing: "0.01em",
     borderRadius: 0,
     fontSize: {
@@ -165,6 +165,44 @@ const ButtonStyle = styled("button")`
   ${sizeStyle}
   ${fontWeight}
   ${base}
+
+  &.gradient {
+    border-radius: 6px;
+    background: linear-gradient(180deg, #1bbbff 0%, #2447ff 100%);
+
+    box-shadow: 0px 16px 64px 0px rgba(46, 144, 250, 0.64),
+      0px 8px 32px 0px rgba(20, 200, 236, 0.32),
+      0px 0px 16px 0px rgba(20, 200, 236, 0.32);
+    backdrop-filter: blur(8px);
+    border: none;
+    .btn-title {
+      line-height: 26px; /* 162.5% */
+      letter-spacing: 0.66px;
+      background: linear-gradient(180deg, #2d3282 20%, #112bb3 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &:hover {
+      border-radius: 6px;
+      background: linear-gradient(
+          0deg,
+          rgba(20, 236, 236, 0.64) 0%,
+          rgba(20, 236, 236, 0.64) 100%
+        ),
+        linear-gradient(180deg, #1bbbff 0%, #2447ff 100%);
+
+      /* New/buttonOnHover */
+      box-shadow: 0px 16px 80px 0px #256BB0,
+        0px 16px 64px 0px rgba(37, 107, 176, 1),
+        0px 8px 32px 0px rgba(37, 107, 176, 1);
+      backdrop-filter: blur(8px);
+      .btn-title {
+        color: white;
+      }
+    }
+  }
 `;
 
 // prop types can also be added from the style functions

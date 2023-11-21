@@ -60,10 +60,10 @@ export default class CustomDocument extends Document {
             *
             */}
 
-          <style>{LoaderStyles}</style>
+          {/* <style>{LoaderStyles}</style> */}
         </Head>
         <body>
-          <div id="aut-splash-loading">
+          {/* <div id="aut-splash-loading">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0"
@@ -149,7 +149,7 @@ export default class CustomDocument extends Document {
                 ></animateTransform>
               </circle>
             </svg>
-          </div>
+          </div> */}
           <Main />
           <NextScript />
         </body>

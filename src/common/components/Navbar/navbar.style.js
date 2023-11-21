@@ -1,6 +1,7 @@
 import themeGet from "@styled-system/theme-get";
 import { theme } from "common/theme";
 import styled from "styled-components";
+import ToolbarBG from "common/assets/image/toolbar.svg";
 import {
   display,
   alignItems,
@@ -18,7 +19,7 @@ import {
 const NavbarStyle = styled.nav`
   /* Navbar default style goes here */
   display: flex;
-  background-color: ${themeGet("colors.nightBlack")};
+  // background-color: ${themeGet("colors.nightBlack")};
   align-items: center;
   border: 0;
   position: fixed;
@@ -26,6 +27,31 @@ const NavbarStyle = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.35s ease-in-out;
+  
+  overflow: hidden;
+  
+  left: 50%;
+  transform: translateX(-50%);
+
+  ${themeGet("mediaQueries.md")} {
+    border-radius: 72px;
+    max-width: 40%;
+  }
+
+  &:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: -1;
+    
+    background: rgba(240, 245, 255, 0.01);
+    filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
 
   // &:before {
   //   content: " ";
@@ -72,6 +98,14 @@ const NavbarStyle = styled.nav`
       a {
         color: ${themeGet("colors.white")};
         transition: 0.15s ease-in-out;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.33px;
+        text-transform: unset;
+        
         &:hover {
           color: ${themeGet("colors.primary")};
         }

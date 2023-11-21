@@ -65,7 +65,7 @@ const Button = forwardRef(
         {...buttonStyles[props.size]}
       >
         {position === "left" && buttonIcon}
-        {title && <>{title}</>}
+        {title && <span className="btn-title">{title}</span>}
         {position === "right" && buttonIcon}
       </ButtonStyle>
     );

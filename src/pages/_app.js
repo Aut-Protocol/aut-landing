@@ -81,11 +81,11 @@ export default function CustomApp({ Component, pageProps }) {
         `}
         </style>
         <Modal>
-          <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+          {/* <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>
-          </Sticky>
+          </Sticky> */}
           <main>
             <Component {...pageProps} />
           </main>

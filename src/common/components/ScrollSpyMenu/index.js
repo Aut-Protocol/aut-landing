@@ -56,8 +56,8 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
                   _: "14px",
                   xs: "16px",
                   sm: "16px",
-                  md: "20px",
-                  xxl: "24px",
+                  md: "16px",
+                  xxl: "20px",
                 }}
                 ml={{
                   md: "44px",
