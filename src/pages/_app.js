@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/inline-script-id */
 import { Modal } from "@redq/reuse-modal";
 import React, { useEffect } from "react";
 import Head from "next/head";
@@ -11,6 +12,7 @@ import "common/assets/css/rc-collapse.css";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import CookieConsent from "react-cookie-consent";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 export function reportWebVitals(metric) {
   // console.log(metric);
@@ -38,21 +40,39 @@ export default function CustomApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+
+        <Script strategy="lazyOnload">
+          {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+        </Script>
         <Head>
-          <title>Āut Labs</title>
+          <title>ĀutOS</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
             key="viewport"
           />
-          <meta property="og:title" content="Āut Labs" />
+          <meta
+            property="og:title"
+            content="ĀutOS - the Operating System of yourself."
+          />
           <meta
             name="description"
-            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
+            content="ĀutOS is the social map of your Web3 reputation. A Web of Trust - where you get in, by opting out."
           />
           <meta
             property="og:description"
-            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
+            content="ĀutOS is the social map of your Web3 reputation. A Web of Trust - where you get in, by opting out."
           />
         </Head>
         <ResetCSS />
@@ -71,25 +91,26 @@ export default function CustomApp({ Component, pageProps }) {
           `}
         </style> */}
 
-        <style jsx global>{`
-          :root {
-            /* ... */
-            --fractul-alt-light: ${FractulAltLight.style.fontFamily};
-            --fractul-alt-bold: ${FractulAltBold.style.fontFamily};
-            --fractul-regular: ${FractulRegular.style.fontFamily};
-          }
-        `}
+        <style jsx global>
+          {`
+            :root {
+              /* ... */
+              --fractul-alt-light: ${FractulAltLight.style.fontFamily};
+              --fractul-alt-bold: ${FractulAltBold.style.fontFamily};
+              --fractul-regular: ${FractulRegular.style.fontFamily};
+            }
+          `}
         </style>
         <Modal>
-          <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+          {/* <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>
-          </Sticky>
+          </Sticky> */}
           <main>
             <Component {...pageProps} />
           </main>
-          <CookieConsent
+          {/* <CookieConsent
             location="bottom"
             buttonText="I understand"
             cookieName="autcookie"
@@ -100,7 +121,7 @@ export default function CustomApp({ Component, pageProps }) {
             expires={150}
           >
             This website uses cookies to enhance the user experience.
-          </CookieConsent>
+          </CookieConsent> */}
         </Modal>
       </>
     </ThemeProvider>

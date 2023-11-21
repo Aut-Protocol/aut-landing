@@ -50,6 +50,19 @@ export const theme = {
         },
       },
     },
+    formFieldAdj: {
+      color: '#1E2430',
+      backgroundColor: '#E7EDF9',
+      borderColor: '#E7EDF9',
+      "&:hover": {
+        color: '#F0F5FF',
+        backgroundColor: '#2E90FA',
+        borderColor: '#2E90FA',
+        ".reusecore__loader": {
+          borderColor: colors.black,
+        },
+      },
+    },
     nav: {
       color: colors.white,
       "&:hover": {
@@ -126,6 +139,10 @@ export const theme = {
       borderWidth: "3px",
       borderStyle: "solid",
       borderRadius: "50px",
+    },
+    formFieldAdj: {
+      borderWidth: "3px",
+      borderStyle: "solid",
     },
     square: {
       borderWidth: "3px",

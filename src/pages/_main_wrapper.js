@@ -17,7 +17,7 @@ const MainWrapper = ({ children }) => {
       }}
     >
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </PerfectScrollbar>
   );
 };

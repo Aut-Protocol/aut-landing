@@ -13,4 +13,4 @@ services:
       - 3001:9080
 
 networks:
-  aut_landing:
+  aut_landing_test:

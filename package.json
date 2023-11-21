@@ -10,6 +10,7 @@
     "start": "next"
   },
   "dependencies": {
+    "@leenguyen/react-flip-clock-countdown": "^1.4.0",
     "@lottiefiles/lottie-player": "^1.7.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@redq/reuse-modal": "^2.0.0",
@@ -23,8 +24,10 @@
     "dateformat": "^5.0.3",
     "eslint-config-next": "^13.4.4",
     "ethers": "^6.4.0",
+    "framer-motion": "^10.16.4",
     "html-entities": "^2.3.3",
     "next": "^13.4.4",
+    "next-videos": "^1.4.1",
     "polished": "^4.2.2",
     "prop-types": "^15.8.1",
     "rc-collapse": "^3.7.0",

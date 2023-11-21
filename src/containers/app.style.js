@@ -79,8 +79,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    background-color: ${themeGet("colors.nightBlack")};
-    overflow: hidden;
+    // background-color: ${themeGet("colors.nightBlack")};
+    background-color: #0F1319;
+    overflow: auto;
 
     &:before {
       content: ' ';
@@ -103,6 +104,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${themeGet("colors.textColor")};
     font-family: ${themeGet("fonts.primary")};
     font-weight: 400;
+    overflow: auto;
   }
 
   h1,

@@ -110,6 +110,7 @@ Button.propTypes = {
     "navLink",
     "link",
     "linkUnderline",
+    "formFieldAdj"
   ]),
 
   size: PropTypes.oneOf([
@@ -130,6 +131,7 @@ Button.propTypes = {
     "secondaryWithBg",
     "warningWithBg",
     "errorWithBg",
+    "formFieldAdj"
   ]),
 
   /**
