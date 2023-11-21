@@ -23,7 +23,6 @@ const NewsletterFormOld = ({ status, message, onValidated }) => {
   const onError = () => {
     // error
   };
-
   const getMessage = (message) => {
     if (!message) {
       return null;
@@ -31,17 +30,20 @@ const NewsletterFormOld = ({ status, message, onValidated }) => {
 
     // const linkRx = /<a\s+(?:[^>]*?\s+)?href=(["'])(.*?)\1/;
     // console.log(message.match(linkRx));
+    try {
+      const msg = message.split("<a")[0];
 
-    const msg = message.split("<a")[0];
+      const result = msg?.split("-") ?? null;
 
-    const result = msg?.split("-") ?? null;
+      if ("0" !== result?.[0]?.trim()) {
+        return decode(msg);
+      }
 
-    if ("0" !== result?.[0]?.trim()) {
-      return decode(msg);
+      const formattedMessage = result?.[1]?.trim() ?? null;
+      return formattedMessage ? decode(formattedMessage) : null;
+    } catch {
+      return "Invalid input!";
     }
-
-    const formattedMessage = result?.[1]?.trim() ?? null;
-    return formattedMessage ? decode(formattedMessage) : null;
   };
 
   return (

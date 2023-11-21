@@ -102,6 +102,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${themeGet("colors.textColor")};
     font-family: ${themeGet("fonts.primary")};
     font-weight: 400;
+    overflow: auto;
   }
 
   h1,

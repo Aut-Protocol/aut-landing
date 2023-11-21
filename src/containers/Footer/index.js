@@ -46,7 +46,7 @@ const logoStyles = {
   },
 };
 
-const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
+export const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
   const { social } = FooterData;
   return (
     <Social {...socialStyles}>

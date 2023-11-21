@@ -1,7 +1,7 @@
 module.exports = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   compiler: {
-    styledComponents: true
+    styledComponents: true,
   },
   images: {
     domains: [],
