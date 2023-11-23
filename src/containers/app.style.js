@@ -1,6 +1,8 @@
 import { themeGet } from "@styled-system/theme-get";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 import AutLogo from "common/assets/image/bg.svg";
+import BgPng from "common/assets/image/new-bg.png";
+
 
 const Wobble_Vertical = keyframes`
   16.65% {
@@ -90,10 +92,16 @@ const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
+      background: transparent url(${BgPng.src}) 0% 0% no-repeat padding-box;
       mix-blend-mode: overlay;
       background-position: center;
       background-size: cover;
+      ${themeGet("mediaQueries.sm")} {
+        background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
+        mix-blend-mode: overlay;
+        background-position: center;
+        background-size: cover;
+      }
     }
     
   }
