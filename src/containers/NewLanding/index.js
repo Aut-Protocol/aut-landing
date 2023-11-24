@@ -115,8 +115,8 @@ const NewLanding = () => {
             }}
           >
             <Box
+              flexBox
               style={{
-                display: "inline-flex",
                 padding: "12px 16px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -134,7 +134,11 @@ const NewLanding = () => {
                 sm: "48px",
               }}
             >
-              <Box flexBox flexDirection={{ _: "column", sm: "row" }} justifyContent="center" >
+              <Box
+                flexBox
+                flexDirection={{ _: "column", sm: "row" }}
+                justifyContent="center"
+              >
                 <div
                   style={{
                     display: "inline-flex",
@@ -175,7 +179,7 @@ const NewLanding = () => {
                       color: "#818CA2",
                       fontWeight: 400,
                       lineLeight: "125%",
-                      padding: '0px 5px'
+                      padding: "0px 5px",
                     }}
                   >
                     • noun •

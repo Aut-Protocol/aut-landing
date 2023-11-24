@@ -1,6 +1,6 @@
 import { themeGet } from "@styled-system/theme-get";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import AutLogo from "common/assets/image/bg.svg";
+// import AutLogo from "common/assets/image/bg.svg";
 import BgPng from "common/assets/image/new-bg.png";
 
 
@@ -96,12 +96,6 @@ const GlobalStyle = createGlobalStyle`
       mix-blend-mode: overlay;
       background-position: center;
       background-size: cover;
-      ${themeGet("mediaQueries.sm")} {
-        background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
-        mix-blend-mode: overlay;
-        background-position: center;
-        background-size: cover;
-      }
     }
     
   }

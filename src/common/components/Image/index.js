@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { base, themed } from "../base";
 import NextImage from "../NextImage";
+import { height, width } from "styled-system";
 
 const ImageWrapper = styled("figure")`
   display: flex;
@@ -11,6 +12,8 @@ const ImageWrapper = styled("figure")`
     width: 100% !important;
     height: 100% !important;
   }
+  ${width}
+  ${height}
   ${base}
   ${themed('Image')}
 `;
