@@ -52,59 +52,6 @@ const Hvr_Ripple_Out = keyframes`
 `;
 
 const GlobalStyle = createGlobalStyle`
-  // @font-face {
-  //   font-family: "FractulAltBold";
-  //   src: url("/fonts/FractulAltBold/font.woff2") format("woff2"),
-  //     url("/fonts/FractulAltBold/font.woff") format("woff");
-  // }
-
-  // @font-face {
-  //   font-family: "FractulAltLight";
-  //   src: url("/fonts/FractulAltLight/font.woff2") format("woff2"),
-  //     url("/fonts/FractulAltLight/font.woff") format("woff");
-  // }
-
-  // @font-face {
-  //   font-family: "FractulRegular";
-  //   src: url('/fonts/FractulRegular/font.woff2') format('woff2'), url('/fonts/FractulRegular/font.woff') format('woff');
-  // }
-
-  font-family: var(--fractul-regular);
-
-  
-  :root {
-    --wobbleVertical: ${Wobble_Vertical} 1s ease-in-out;
-    --shakeAnim: ${shake} 600ms ease-in-out;
-    --HvrRippleOut: ${Hvr_Ripple_Out} 1s ease-in-out;
-  }
-
-  html {
-    overflow: hidden;
-
-    &:before {
-      content: ' ';
-      display: block;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: transparent url(${AutLogo.src}) 0% 0% no-repeat padding-box;
-      mix-blend-mode: overlay;
-      background-position: center;
-      background-size: cover;
-    }
-    
-  }
-
-  body {
-    color: ${themeGet("colors.textColor")};
-    font-family: ${themeGet("fonts.primary")};
-    font-weight: 400;
-    overflow: auto;
-  }
-
   h1,
   h2,
   h3,
