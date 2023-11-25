@@ -5,10 +5,10 @@ import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import { theme } from "common/theme";
 import ResetCSS from "common/assets/css/style";
-// import GlobalStyle from "containers/app.style";
-// import "common/assets/css/rc-collapse.css";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { DrawerProvider } from "common/contexts/DrawerContext";
+import Navbar from "containers/Navbar";
 import "containers/globals.css";
 
 const FractulAltBold = localFont({
@@ -25,10 +25,10 @@ const FractulRegular = localFont({
 
 export default function CustomApp({ Component, pageProps }) {
   useEffect(() => {
-    const loader = document.getElementById("aut-splash-loading");
-    if (loader) {
-      loader.style.display = "none";
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: "instant",
+    });
   }, []);
   return (
     <ThemeProvider theme={theme}>
@@ -95,12 +95,12 @@ export default function CustomApp({ Component, pageProps }) {
           `}
         </style>
         <Modal>
-          {/* <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
-            <DrawerProvider>
-              <Navbar />
-            </DrawerProvider>
-          </Sticky> */}
-          <Component {...pageProps} />
+          <DrawerProvider>
+            <Navbar />
+          </DrawerProvider>
+          <main>
+            <Component {...pageProps} />
+          </main>
           {/* <CookieConsent
             location="bottom"
             buttonText="I understand"

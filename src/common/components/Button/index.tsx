@@ -18,7 +18,7 @@ const Button = forwardRef(
       isLoading,
       className,
       ...props
-    },
+    }: any,
     ref
   ) => {
     // Add all classs to an array

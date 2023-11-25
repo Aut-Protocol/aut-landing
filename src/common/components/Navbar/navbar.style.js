@@ -27,7 +27,7 @@ const NavbarStyle = styled.nav`
   left: 0;
   width: 100%;
   transition: 0.35s ease-in-out;
-  
+  z-index: 200;
   overflow: hidden;
   
   left: 50%;

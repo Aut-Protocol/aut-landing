@@ -8,7 +8,7 @@ const Container = ({
   noGutter,
   width,
   ...props
-}) => {
+}: any) => {
   // Add all classs to an array
   const addAllClasses = ['container'];
   // className prop checking

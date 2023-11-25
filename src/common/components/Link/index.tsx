@@ -10,7 +10,7 @@ const LinkWrapper = styled(NextLink)(
   themed('Link')
 );
 
-const Link = ({ children, alignItems, ...props }) => (
+const Link = ({ children, alignItems, ...props }: any) => (
   <LinkWrapper {...props}>{children}</LinkWrapper>
 );
 

@@ -1,5 +1,5 @@
-import { Hero } from "containers/sections/hero";
-import { SamePage } from "containers/sections/same-page";
+import { TopContent } from "containers/sections/TopContent";
+import { Slogan } from "containers/sections/Slogan";
 import { Yourself } from "containers/sections/yourself";
 import MainBackground from "../containers/MainBackground";
 import { Reputation } from "containers/sections/reputation";
@@ -8,6 +8,7 @@ import WhiteBG from "../containers/MainBackground/WhiteBG";
 import Faces from "../containers/MainBackground/Faces";
 import React from "react";
 import Head from "next/head";
+import { WhiteCircle } from "containers/MainBackground/WhiteCircle";
 
 const useDeviceSize = () => {
   const [width, setWidth] = useState(0);
@@ -25,8 +26,6 @@ const useDeviceSize = () => {
     // unsubscribe from the event on component unmount
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
-
-  console.log(width, height);
 
   return { width, height };
 };
@@ -57,12 +56,15 @@ const useOnScreen = (ref: any, rootMargin = "0px") => {
 };
 
 export default function Home() {
+  const sloganTargetRef = useRef<HTMLDivElement | null>(null);
+  const isSloganVisible = useOnScreen(sloganTargetRef);
+
   const repTargetRef = useRef<HTMLDivElement | null>(null);
   const isRepfVisible = useOnScreen(repTargetRef);
 
   const yourselfTargetRef = useRef<HTMLDivElement | null>(null);
   const isYourselfVisible = useOnScreen(yourselfTargetRef);
-  
+
   const dimensions = useDeviceSize();
 
   return (
@@ -75,34 +77,31 @@ export default function Home() {
           key="viewport"
         />
       </Head>
-      <main>
-        <MainBackground
-          dimensions={dimensions}
-          whiteBG={<WhiteBG parentRef={repTargetRef} />}
-          faces={
-            <Faces
-              dimensions={dimensions}
-              repParentRef={repTargetRef}
-              parentRef={yourselfTargetRef}
-            />
-          }
-        />
-        <Hero />
-        <div className="relative z-10 w-full overflow-x-clip">
-          <SamePage />
-          <section ref={yourselfTargetRef} className="relative h-[550vh]">
-            {isYourselfVisible && (
-              <Yourself
-                parentRef={yourselfTargetRef}
-                repParentRef={repTargetRef}
-              />
-            )}
-          </section>
-          <section className="relative h-[550vh]" ref={repTargetRef}>
-            {isRepfVisible && <Reputation parentRef={repTargetRef} />}
-          </section>
-        </div>
-      </main>
+      <MainBackground
+        dimensions={dimensions}
+        whiteBG={isRepfVisible && <WhiteBG parentRef={repTargetRef} />}
+        faces={
+          <Faces
+            dimensions={dimensions}
+            parentRef={yourselfTargetRef}
+            whiteCircle={
+              isRepfVisible && <WhiteCircle parentRef={repTargetRef} />
+            }
+          />
+        }
+      />
+      <TopContent />
+      <div className="relative z-10 w-full overflow-x-clip">
+        <section className="relative h-[400vh]" ref={sloganTargetRef}>
+          {isSloganVisible && <Slogan parentRef={sloganTargetRef} />}
+        </section>
+        <section ref={yourselfTargetRef} className="relative h-[550vh]">
+          {isYourselfVisible && <Yourself parentRef={yourselfTargetRef} />}
+        </section>
+        <section className="relative h-[550vh]" ref={repTargetRef}>
+          {isRepfVisible && <Reputation parentRef={repTargetRef} />}
+        </section>
+      </div>
     </>
   );
 }

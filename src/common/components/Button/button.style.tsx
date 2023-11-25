@@ -4,7 +4,7 @@ import { buttonStyle, colorStyle, sizeStyle } from "../customVariant";
 import { themeGet } from "@styled-system/theme-get";
 import { base } from "../base";
 
-export const buttonStyles = {
+export const buttonStyles: any = {
   normal: {
     fontFamily: "var(--fractul-alt-light)",
     letterSpacing: "0.01em",
@@ -101,13 +101,6 @@ export const buttonStyles = {
       md: "14px",
       xxl: "22px",
     },
-    paddingBottom: {
-      _: "8px",
-      xs: "12px",
-      sm: "14px",
-      md: "14px",
-      xxl: "22px",
-    },
     paddingLeft: {
       _: "17px",
       xs: "18px",
@@ -139,8 +132,8 @@ const ButtonStyle = styled("button")`
     cursor: unset;
     // background-color: ${themeGet("colors.transparent")};
     // color: ${themeGet("colors.textDisabled")};
-    background-color: #2F3746;
-    color: #818CA2;
+    background-color: #2f3746;
+    color: #818ca2;
     border-color: ${themeGet("colors.borderDisabled")};
   }
 
@@ -197,7 +190,7 @@ const ButtonStyle = styled("button")`
         linear-gradient(180deg, #1bbbff 0%, #2447ff 100%);
 
       /* New/buttonOnHover */
-      box-shadow: 0px 16px 80px 0px #256BB0,
+      box-shadow: 0px 16px 80px 0px #256bb0,
         0px 16px 64px 0px rgba(37, 107, 176, 1),
         0px 8px 32px 0px rgba(37, 107, 176, 1);
       backdrop-filter: blur(8px);

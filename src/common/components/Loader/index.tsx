@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LoaderStyle from './loader.style';
 
-const Loader = ({ loaderColor, className, ...props }) => {
+const Loader = ({ loaderColor, className, ...props }: any) => {
   // Add all classs to an array
   const addAllClasses = ['reusecore__loader'];
 

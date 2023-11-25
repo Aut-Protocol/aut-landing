@@ -55,7 +55,7 @@ const MainBackground = ({ whiteBG, faces, dimensions }: any) => {
       <GridLines dimensions={dimensions} />
       <Dots dimensions={dimensions} />
       {faces}
-      {/* {<MainBG dimensions={dimensions} />} */}
+      {<MainBG dimensions={dimensions} />}
     </svg>
   );
 };
