@@ -1,6 +1,6 @@
 import { TopContent } from "containers/sections/TopContent";
 import { Slogan } from "containers/sections/Slogan";
-import { Yourself } from "containers/sections/yourself";
+import { Yourself } from "containers/sections/Yourself";
 import MainBackground from "../containers/MainBackground";
 import { Reputation } from "containers/sections/reputation";
 import { useEffect, useRef, useState } from "react";
@@ -85,14 +85,14 @@ export default function Home() {
             dimensions={dimensions}
             parentRef={yourselfTargetRef}
             whiteCircle={
-              isRepfVisible && <WhiteCircle parentRef={repTargetRef} />
+              isYourselfVisible && <WhiteCircle parentRef={yourselfTargetRef} />
             }
           />
         }
       />
       <TopContent />
       <div className="relative z-10 w-full overflow-x-clip">
-        <section className="relative h-[400vh]" ref={sloganTargetRef}>
+        <section className="relative h-[300vh]" ref={sloganTargetRef}>
           {isSloganVisible && <Slogan parentRef={sloganTargetRef} />}
         </section>
         <section ref={yourselfTargetRef} className="relative h-[550vh]">

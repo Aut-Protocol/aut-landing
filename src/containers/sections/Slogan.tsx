@@ -1,23 +1,14 @@
 import { stylesWithCssVar } from "utils/motion";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
 import Typography from "common/components/Typography";
+import { useEffect } from "react";
 
 const animationOrder = {
   initial: 0,
   fadeInEnd: 0.15,
-  showParagraphOne: 0.25,
-  hideParagraphOne: 0.3,
-  showParagraphTwoStart: 0.35,
-  showParagraphTwoEnd: 0.4,
-  hideParagraphTwo: 0.5,
-  showLoadingScreenStart: 0.53,
-  showLoadingScreenEnd: 0.58,
   createBranchStart: 0.65,
-  createBranchEnd: 0.7,
-  createBranchFadeInStart: 0.78,
-  createBranchFadeInEnd: 0.85,
-  endTextFadeInStart: 0.95,
+  createBranchEnd: 0.8,
+  endTextFadeInStart: 1,
   endTextFadeInEnd: 1,
 };
 
@@ -26,6 +17,9 @@ export const Slogan = ({ parentRef }: any) => {
     target: parentRef,
     offset: ["start end", "end end"],
   });
+
+  const ctrls = useAnimation();
+
 
   const opacity = useTransform(
     scrollYProgress,
@@ -37,24 +31,39 @@ export const Slogan = ({ parentRef }: any) => {
     ],
     [0, 1, 1, 0]
   );
+
   const scale = useTransform(
     scrollYProgress,
     [
       animationOrder.initial,
       animationOrder.fadeInEnd,
-      animationOrder.showLoadingScreenEnd,
-      animationOrder.createBranchStart,
     ],
-    [0, 1, 1, 0.5]
+    [0, 1]
   );
 
   const translateY = useTransform(scrollYProgress, [0, 0.5], ["1rem", "-2rem"]);
 
-  const xPos = useTransform(
-    scrollYProgress,
-    [0.4, animationOrder.createBranchEnd, animationOrder.endTextFadeInStart], // Only animate between these points
-    ["-100%", "0%", "100%"]
-  );
+  const imgAnimation: any = {
+    hidden: {
+      x: `-100%`
+    },
+    visible: {
+      x: `0%`
+    },
+  };
+
+  useEffect(() => {
+    translateY.on("change", (v) => {
+      if (v === "-2rem") {
+        ctrls.start("visible");
+      } else {
+        ctrls.start("hidden");
+      }
+      console.log(v);
+    })
+
+  }, [ctrls, translateY]);
+
 
   return (
     <div
@@ -86,7 +95,7 @@ export const Slogan = ({ parentRef }: any) => {
         </Typography>
       </motion.div>
 
-      <div
+      <motion.div
         style={{
           width: "120px",
           marginRight: "-18px",
@@ -94,12 +103,19 @@ export const Slogan = ({ parentRef }: any) => {
           overflow: "hidden",
           position: "absolute",
           right: 0,
+          opacity: opacity
         }}
       >
-        <motion.figure style={{ x: xPos }}>
-          <img src="/own-self.svg" className="w-auto" />
+        <motion.figure
+          initial="hidden"
+          animate={ctrls}
+          variants={imgAnimation}
+          transition={{ duration: 0.1 }}
+          exit={{ opacity: 0 }}
+        >
+          <img src="/own-self.svg" className="w-auto" alt={"own-self"} />
         </motion.figure>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/inline-script-id */
-import { Modal } from "@redq/reuse-modal";
+import "containers/globals.css";
 import React, { useEffect } from "react";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
@@ -9,7 +9,6 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import Navbar from "containers/Navbar";
-import "containers/globals.css";
 
 const FractulAltBold = localFont({
   src: "fonts/FractulAltBold/font.woff2",
@@ -23,7 +22,7 @@ const FractulRegular = localFont({
   src: "fonts/FractulRegular/font.woff2",
 });
 
-export default function CustomApp({ Component, pageProps }) {
+export default function CustomApp({ Component, pageProps }: any) {
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -70,20 +69,6 @@ export default function CustomApp({ Component, pageProps }) {
         </Head>
         <ResetCSS />
         {/* <GlobalStyle /> */}
-        {/* <style jsx global>
-          {`
-            html {
-              font-family: ${FractulRegular.style.fontFamily};
-            }
-            .fractul-light {
-              font-family: ${FractulAltLight.style.fontFamily} !important;
-            }
-            .fractul-bold {
-              font-family: ${FractulAltBold.style.fontFamily} !important;
-            }
-          `}
-        </style> */}
-
         <style jsx global>
           {`
             :root {
@@ -94,14 +79,13 @@ export default function CustomApp({ Component, pageProps }) {
             }
           `}
         </style>
-        <Modal>
-          <DrawerProvider>
-            <Navbar />
-          </DrawerProvider>
-          <main>
-            <Component {...pageProps} />
-          </main>
-          {/* <CookieConsent
+        <DrawerProvider>
+          <Navbar />
+        </DrawerProvider>
+        <main>
+          <Component {...pageProps} />
+        </main>
+        {/* <CookieConsent
             location="bottom"
             buttonText="I understand"
             cookieName="autcookie"
@@ -113,7 +97,6 @@ export default function CustomApp({ Component, pageProps }) {
           >
             This website uses cookies to enhance the user experience.
           </CookieConsent> */}
-        </Modal>
       </>
     </ThemeProvider>
   );

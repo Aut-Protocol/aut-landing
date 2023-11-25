@@ -394,54 +394,7 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         strokeLinejoin="round"
       />
 
-      <motion.g
-        style={{
-          scale: imageScale,
-          x: 1232 - 520 / 2,
-          y: 454 - 520 / 2,
-        }}
-      >
-        {/* <motion.g
-          width={520}
-          height={520}
-          style={{
-            opacity: fadeOutOpacity,
-          }}
-        >
-          <motion.circle
-            style={{
-              scale: imageScale2,
-            }}
-            opacity="0.24"
-            cx="260"
-            cy="260"
-            r="200"
-            fill="#0BA5EC"
-          />
-          <motion.circle
-            style={{
-              scale: imageScale2,
-            }}
-            opacity="0.16"
-            cx="260"
-            cy="260"
-            r="260"
-            fill="#0BA5EC"
-          />
-          <motion.circle
-            style={{
-              scale: imageScale2,
-            }}
-            opacity="0.1"
-            cx="260"
-            cy="260"
-            r="380"
-            fill="#0BA5EC"
-          />
-        </motion.g> */}
-
-        {whiteCircle}
-      </motion.g>
+      {whiteCircle}
     </g>
   );
 };

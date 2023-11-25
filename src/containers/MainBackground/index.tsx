@@ -5,6 +5,7 @@ import Faces from "./Faces";
 import WhiteBG from "./WhiteBG";
 import { MainBG } from "./MainBG";
 // import { MAIN_BG } from "./main_bg";
+import map from "common/assets/image/map.png";
 
 const MainBackground = ({ whiteBG, faces, dimensions }: any) => {
   return (
@@ -55,7 +56,9 @@ const MainBackground = ({ whiteBG, faces, dimensions }: any) => {
       <GridLines dimensions={dimensions} />
       <Dots dimensions={dimensions} />
       {faces}
-      {<MainBG dimensions={dimensions} />}
+      {/* {<MainBG dimensions={dimensions} />} */}
+ 
+    <use href={map.src} />
     </svg>
   );
 };

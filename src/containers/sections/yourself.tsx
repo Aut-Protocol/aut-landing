@@ -1,10 +1,11 @@
 import { stylesWithCssVar } from "utils/motion";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import Typography from "common/components/Typography";
 
 const animationOrder = {
   initial: 0,
-  showParagraphOne: 0.15,
+  showParagraphOne: 0,
   showCircleImage: 0.25,
   showParagraphTwo: 0.4,
   showParagraphThree: 0.5,
@@ -118,6 +119,7 @@ export const Yourself = ({ parentRef }: any) => {
     ],
     [0, 1, 1, 0]
   );
+
   const paragraphOneTranslateY = useTransform(
     scrollYProgress,
     [animationOrder.initial, animationOrder.showParagraphOne],
@@ -284,9 +286,17 @@ export const Yourself = ({ parentRef }: any) => {
             "--y": paragraphOneTranslateY,
           })}
         >
-          <h1 className="mb-12 text-center font-heading text-xl">
+          <Typography
+            color="white"
+            as="subtitle1"
+            textAlign="center"
+            p={{
+              _: "0px 10px",
+              md: "0px",
+            }}
+          >
             Yourself...
-          </h1>
+          </Typography>
         </motion.div>
 
         <div className="mr-20 mt-10 flex justify-center gap-10">

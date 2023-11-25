@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-import AutLogo from "common/assets/image/noise.svg";
 
 const ResetCSS = createGlobalStyle`
-
+    html {
+        background: #262626;
+    }
 `;
 export default ResetCSS;
