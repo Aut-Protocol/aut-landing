@@ -8,9 +8,13 @@ import Button from "common/components/Button";
 import { PopupButton } from "@typeform/embed-react";
 import Link from "common/components/Link";
 import { NavbarData } from "common/data";
+import useWindowSize from "common/components/window-size";
 const formId = "yfd7X6z1";
 
 const NewLanding = () => {
+  const { width } = useWindowSize();
+  const isMobile = width < 768;
+
   return (
     <Section id="new_landing">
       <Container
@@ -40,6 +44,10 @@ const NewLanding = () => {
               display: "flex",
               justifyContent: "center",
             }}
+            mt={{
+              _: "-100px",
+              sm: "0",
+            }}
           >
             <Image
               height={{
@@ -54,10 +62,27 @@ const NewLanding = () => {
               alt="New_logo"
             />
           </Box>
-          <Typography color="white" fontWeight="400" as="subtitle2" textAlign="center">
+          <Typography
+            color="white"
+            fontWeight="400"
+            as="subtitle2"
+            textAlign="center"
+          >
             The Operating System of yourself
           </Typography>
-          <Typography my="8" color="white" as="subtitle1" textAlign="center">
+          <Typography
+            my={{
+              _: "7",
+              sm: "8",
+            }}
+            color="white"
+            as="subtitle1"
+            textAlign="center"
+            p={{
+              _: "0px 10px",
+              md: "0px",
+            }}
+          >
             ĀutOS is the social map of your Web3 reputation. <br />A Web of
             Trust - where you get in, by opting out.
           </Typography>
@@ -66,7 +91,7 @@ const NewLanding = () => {
               display: "flex",
               justifyContent: "center",
             }}
-            mb="12"
+            mb={{ _: "6", sm: "12" }}
           >
             <PopupButton id={formId} as="span">
               <Button
@@ -90,9 +115,8 @@ const NewLanding = () => {
             }}
           >
             <Box
+              flexBox
               style={{
-                display: "inline-flex",
-                height: "48px",
                 padding: "12px 16px",
                 justifyContent: "center",
                 alignItems: "center",
@@ -105,11 +129,15 @@ const NewLanding = () => {
                   "0px 16px 80px 0px #256BB0, 0px 0px 16px 0px rgba(37, 107, 176, 1), 0px 0px 16px 0px rgba(37, 107, 176, 1)",
                 backdropFilter: "blur(8px)",
               }}
+              height={{
+                _: "100%",
+                sm: "48px",
+              }}
             >
-              <div
-                style={{
-                  display: "inline-flex",
-                }}
+              <Box
+                flexBox
+                flexDirection={{ _: "column", sm: "row" }}
+                justifyContent="center"
               >
                 <div
                   style={{
@@ -151,6 +179,7 @@ const NewLanding = () => {
                       color: "#818CA2",
                       fontWeight: 400,
                       lineLeight: "125%",
+                      padding: "0px 5px",
                     }}
                   >
                     • noun •
@@ -160,16 +189,26 @@ const NewLanding = () => {
                   m="0"
                   style={{
                     fontVariantNumeric: "lining-nums proportional-nums",
-                    fontFize: "16px",
                     fontStyle: "normal",
                     color: "#F0F5FF",
                     fontWeight: 400,
                     lineLeight: "125%",
                   }}
+                  fontSize={{
+                    _: "14px",
+                    sm: "16px",
+                  }}
                 >
-                  “Self” [greek] as in Self-Sovereign, or Self-governance
+                  {isMobile ? (
+                    <>
+                      “Self” [greek] as in Self-Sovereign <br></br>
+                      or Self-governance
+                    </>
+                  ) : (
+                    `“Self” [greek] as in Self-Sovereign, or Self-governance`
+                  )}
                 </Typography>
-              </div>
+              </Box>
             </Box>
           </Box>
 
@@ -183,27 +222,43 @@ const NewLanding = () => {
             }}
           >
             <Box
+              flexBox
               style={{
-                display: "inline-flex",
                 height: "48px",
                 padding: "12px 16px",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "60%",
+
                 position: "relative",
               }}
+              width={{
+                _: "90%",
+                sm: "60%",
+              }}
             >
-              <div
+              <Box
                 className="bottom-nav-new"
+                flexBox
+                flexDirection={{
+                  _: "column",
+                  sm: "row",
+                }}
                 style={{
-                  display: "inline-flex",
                   alignItems: "center",
                   justifyContent: "space-between",
                   width: "100%",
                 }}
               >
-                <Typography color="white" as="body" textAlign="center">
-                  Made with &#128293; by Āut Lab
+                <Typography
+                  color="white"
+                  as="body"
+                  textAlign="center"
+                  margin={{
+                    _: "0px 0px 10px 0px",
+                    sm: "unset",
+                  }}
+                >
+                  Made with &#128293; by Āut Labs
                 </Typography>
 
                 <ul
@@ -245,7 +300,7 @@ const NewLanding = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Box>
             </Box>
           </Box>
         </Box>
