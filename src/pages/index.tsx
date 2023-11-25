@@ -1,6 +1,6 @@
 import { TopContent } from "containers/sections/TopContent";
 import { Slogan } from "containers/sections/Slogan";
-import { Yourself } from "containers/sections/Yourself";
+import { Yourself } from "containers/sections/yourself";
 import MainBackground from "../containers/MainBackground";
 import { Reputation } from "containers/sections/reputation";
 import { useEffect, useRef, useState } from "react";
@@ -9,6 +9,9 @@ import Faces from "../containers/MainBackground/Faces";
 import React from "react";
 import Head from "next/head";
 import { WhiteCircle } from "containers/MainBackground/WhiteCircle";
+import { AutFeatures } from "containers/sections/aut-features";
+import AutOSSection from "containers/sections/aut-os";
+import OsFooter from "containers/OsFooter";
 
 const useDeviceSize = () => {
   const [width, setWidth] = useState(0);
@@ -68,7 +71,7 @@ export default function Home() {
   const yourselfTargetRef = useRef<HTMLDivElement | null>(null);
   const isYourselfVisible = useOnScreen(yourselfTargetRef, "Yourself", {
     threshold: 0,
-    rootMargin: "-200px 0px 0px 0px"
+    rootMargin: "-200px 0px 0px 0px",
   });
 
   const dimensions = useDeviceSize();
@@ -111,6 +114,15 @@ export default function Home() {
           {isRepfVisible && <Reputation parentRef={repTargetRef} />}
         </section>
       </div>
+      {/* <div>
+        <section className="">{<AutFeatures />}</section>
+      </div>
+      <div>
+        <section className="">{<AutOSSection />}</section>
+      </div>
+      <div>
+        <section className="">{<OsFooter></OsFooter>}</section>
+      </div> */}
     </>
   );
 }
