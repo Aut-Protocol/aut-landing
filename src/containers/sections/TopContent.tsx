@@ -29,7 +29,7 @@ export const TopContent = () => {
   return (
     <section
       ref={targetRef}
-      className="relative mb-[8rem] flex h-screen flex-col items-center justify-center py-16 text-white before:pointer-events-none before:fixed"
+      className="top-content relative mb-[8rem] flex h-screen flex-col items-center justify-center py-16 text-white before:pointer-events-none before:fixed"
     >
       <Container
         pt={{

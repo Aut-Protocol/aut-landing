@@ -59,7 +59,6 @@ export const Slogan = ({ parentRef }: any) => {
       } else {
         ctrls.start("hidden");
       }
-      console.log(v);
     })
 
   }, [ctrls, translateY]);
@@ -67,7 +66,7 @@ export const Slogan = ({ parentRef }: any) => {
 
   return (
     <div
-      className="fixed flex origin-center justify-center text-white"
+      className="fixed flex flex-col items-end text-white"
       style={{
         transform: "translate(-50%, -50%)",
         left: "50%",
@@ -75,7 +74,7 @@ export const Slogan = ({ parentRef }: any) => {
       }}
     >
       <motion.div
-        className="flex-col items-center justify-center "
+        className="flex-col items-center justify-center"
         style={stylesWithCssVar({
           opacity,
           y: translateY,
@@ -97,20 +96,19 @@ export const Slogan = ({ parentRef }: any) => {
 
       <motion.div
         style={{
-          width: "120px",
-          marginRight: "-18px",
-          marginTop: "10px",
+          width: "130px",
+          marginRight: "-25px",
           overflow: "hidden",
-          position: "absolute",
-          right: 0,
-          opacity: opacity
+          marginTop: "-10px",
+          opacity: opacity,
+          y: translateY,
         }}
       >
         <motion.figure
           initial="hidden"
           animate={ctrls}
           variants={imgAnimation}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.5 }}
           exit={{ opacity: 0 }}
         >
           <img src="/own-self.svg" className="w-auto" alt={"own-self"} />

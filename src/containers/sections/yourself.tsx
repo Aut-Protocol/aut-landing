@@ -5,7 +5,7 @@ import Typography from "common/components/Typography";
 
 const animationOrder = {
   initial: 0,
-  showParagraphOne: 0,
+  showParagraphOne: 0.15,
   showCircleImage: 0.25,
   showParagraphTwo: 0.4,
   showParagraphThree: 0.5,
@@ -123,7 +123,7 @@ export const Yourself = ({ parentRef }: any) => {
   const paragraphOneTranslateY = useTransform(
     scrollYProgress,
     [animationOrder.initial, animationOrder.showParagraphOne],
-    ["8rem", "0rem"]
+    ["1rem", "-2rem"]
   );
 
   /* ------ Yourself... paragraph animation END ------ */
@@ -269,9 +269,8 @@ export const Yourself = ({ parentRef }: any) => {
 
   return (
     <>
-      {/* <CircleAnimations targetRef={parentRef} /> */}
       <div
-        className="fixed flex origin-center flex-col justify-center text-white"
+       className="fixed flex origin-center justify-center text-white"
         style={{
           transform: "translate(-50%, -50%)",
           left: "50%",
@@ -280,7 +279,7 @@ export const Yourself = ({ parentRef }: any) => {
         }}
       >
         <motion.div
-          className="translate-y-centered-offset flex-col items-center justify-center"
+          className="flex-col items-center justify-center"
           style={stylesWithCssVar({
             opacity: paragraphOneOpacity,
             "--y": paragraphOneTranslateY,

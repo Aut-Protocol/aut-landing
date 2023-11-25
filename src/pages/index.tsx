@@ -30,40 +30,46 @@ const useDeviceSize = () => {
   return { width, height };
 };
 
-const useOnScreen = (ref: any, rootMargin = "0px") => {
+const useOnScreen = (
+  ref: any,
+  name: string,
+  options: IntersectionObserverInit = {
+    rootMargin: "0px",
+    threshold: 0.1,
+  }
+) => {
   // State and setter for storing whether element is visible
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update our state when observer callback fires
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin,
-      }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      // Update our state when observer callback fires
+      console.log(`Is intersecting: ${name} - ${entry.isIntersecting}`);
+      setIntersecting(entry.isIntersecting);
+    }, options);
     if (ref.current) {
       observer.observe(ref.current);
     }
     return () => {
       observer.unobserve(ref.current);
     };
-  }, [ref, rootMargin]); // Empty array ensures that effect is only run on mount and unmount
+  }, [ref, options]);
 
   return isIntersecting;
 };
 
 export default function Home() {
   const sloganTargetRef = useRef<HTMLDivElement | null>(null);
-  const isSloganVisible = useOnScreen(sloganTargetRef);
+  const isSloganVisible = useOnScreen(sloganTargetRef, "Slogan");
 
   const repTargetRef = useRef<HTMLDivElement | null>(null);
-  const isRepfVisible = useOnScreen(repTargetRef);
+  const isRepfVisible = useOnScreen(repTargetRef, "Reputation");
 
   const yourselfTargetRef = useRef<HTMLDivElement | null>(null);
-  const isYourselfVisible = useOnScreen(yourselfTargetRef);
+  const isYourselfVisible = useOnScreen(yourselfTargetRef, "Yourself", {
+    threshold: 0,
+    rootMargin: "-200px 0px 0px 0px"
+  });
 
   const dimensions = useDeviceSize();
 
@@ -92,13 +98,16 @@ export default function Home() {
       />
       <TopContent />
       <div className="relative z-10 w-full overflow-x-clip">
-        <section className="relative h-[300vh]" ref={sloganTargetRef}>
+        <section className="slogan relative h-[300vh]" ref={sloganTargetRef}>
           {isSloganVisible && <Slogan parentRef={sloganTargetRef} />}
         </section>
-        <section ref={yourselfTargetRef} className="relative h-[550vh]">
+        <section
+          className="yourself relative h-[550vh]"
+          ref={yourselfTargetRef}
+        >
           {isYourselfVisible && <Yourself parentRef={yourselfTargetRef} />}
         </section>
-        <section className="relative h-[550vh]" ref={repTargetRef}>
+        <section className="reputation relative h-[550vh]" ref={repTargetRef}>
           {isRepfVisible && <Reputation parentRef={repTargetRef} />}
         </section>
       </div>
