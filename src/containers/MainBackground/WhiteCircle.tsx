@@ -29,9 +29,8 @@ const WhiteCircle = ({ parentRef }: any) => {
       sloganAnimationOrder.yourselfStart,
       sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.end,
-      1
     ],
-    [0, 1, 1, 0.7, 0]
+    [0, 1, 1, 0]
   );
 
   const innerCircleScale = useTransform(

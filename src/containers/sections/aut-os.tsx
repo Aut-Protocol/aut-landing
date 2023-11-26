@@ -219,42 +219,46 @@ const StyledPlayer = styled("div")`
   }
 `;
 
-const AutOSSection = () => {
+const AutOSSection = ({ parentRef }: any) => {
   const { height, width } = useWindowSize();
-
   const { mailchimpUrl } = FooterData;
-  const scroll = useScroll();
+
+  const { scrollYProgress } = useScroll({
+    target: parentRef,
+    offset: ["start end", "end end"],
+  });
+
   const [optOut, setOptOut] = useState(false);
 
   const opacitySecond = useTransform(
-    scroll.scrollYProgress,
+    scrollYProgress,
     [0.24, 0.25, 0.75, 0.76, 1],
     [0, 1, 1, 1, 1]
   );
   const scaleThird = useTransform(
-    scroll.scrollYProgress,
+    scrollYProgress,
     [0.55, 0.85, 0.9, 1],
     [0.1, 0.9, 1, 1]
   );
   const opacityThird = useTransform(
-    scroll.scrollYProgress,
+    scrollYProgress,
     [0.55, 0.6, 0.84, 0.85, 0.95, 1],
     [0, 0.9, 1, 1, 1, 1]
   );
 
   const bgStartOpacity = useTransform(
-    scroll.scrollYProgress,
+    scrollYProgress,
     [0, 0.25, 0.5, 0.9],
     [0, 0, 1, 1]
   );
   const bgCrackOpacity = useTransform(
-    scroll.scrollYProgress,
+    scrollYProgress,
     [0, 0.6, 0.8, 0.9],
     [0, 0, 1, 1]
   );
 
   const bgToggleOpacity = useTransform(
-    scroll.scrollYProgress,
+    scrollYProgress,
     [0, 0.6, 0.8, 0.9],
     [0, 0, 1, 1]
   );
@@ -285,187 +289,179 @@ const AutOSSection = () => {
     controls.start({ opacity: 1 });
   };
 
-  useEffect(() => {}, [scroll.scrollYProgress]);
+  useEffect(() => {}, [scrollYProgress]);
 
   return (
     <>
-      <section
+      <Box
         style={{
-          height: "300vh",
+          mt: 20,
+          position: "fixed",
+          overflow: "unset",
           width: "100%",
-          background: "#0F1319",
+          height: "100vh",
         }}
       >
-        <Box
+        <BlackBackground
+          animate={bgStartOpacityControls}
           style={{
-            mt: 20,
-            position: "fixed",
-            overflow: "unset",
+            position: "absolute",
+            opacity: bgStartOpacity,
             width: "100%",
             height: "100vh",
           }}
-        >
-          <BlackBackground
-            animate={bgStartOpacityControls}
-            style={{
-              position: "absolute",
-              opacity: bgStartOpacity,
-              width: "100%",
-              height: "100vh",
-            }}
-          ></BlackBackground>
-          <CrackBackground
-            animate={bgCrackOpacityControls}
-            style={{
-              position: "absolute",
-              opacity: bgCrackOpacity,
-              width: "100%",
-              height: "100vh",
-              backgroundImage: `url(${CrackOverToggleBgPng.src})`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          />
-          <ToggleBackground
-            animate={bgToggleOpacityControls}
-            style={{
-              position: "absolute",
-              opacity: bgToggleOpacity,
-              width: "100%",
-              height: "100vh",
-              backgroundImage: `url(${
-                width < 768 ? ToggleBgPng.src : ToggleBgSvg.src
-              })`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-          />
+        ></BlackBackground>
+        <CrackBackground
+          animate={bgCrackOpacityControls}
+          style={{
+            position: "absolute",
+            opacity: bgCrackOpacity,
+            width: "100%",
+            height: "100vh",
+            backgroundImage: `url(${CrackOverToggleBgPng.src})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        />
+        <ToggleBackground
+          animate={bgToggleOpacityControls}
+          style={{
+            position: "absolute",
+            opacity: bgToggleOpacity,
+            width: "100%",
+            height: "100vh",
+            backgroundImage: `url(${
+              width < 768 ? ToggleBgPng.src : ToggleBgSvg.src
+            })`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        />
 
+        <div
+          style={{
+            position: "absolute",
+            transform: "translatex(-50%)",
+            left: "50%",
+            textAlign: "center",
+            height: "100vh",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <div
             style={{
-              position: "absolute",
-              transform: "translatex(-50%)",
-              left: "50%",
-              textAlign: "center",
-              height: "100vh",
-              width: "100%",
               display: "flex",
+              height: "100%",
+              width: "100%",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <div
               style={{
-                display: "flex",
-                height: "100%",
-                width: "100%",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
+                position: "fixed",
+                bottom: 0,
               }}
-            >
-              <div
-                style={{
-                  position: "fixed",
-                  bottom: 0,
-                }}
-              ></div>
-            </div>
+            ></div>
           </div>
+        </div>
 
-          <div
+        <div
+          style={{
+            position: "absolute",
+            transform: "translatex(-50%)",
+            left: "50%",
+            textAlign: "center",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <motion.div
             style={{
-              position: "absolute",
-              transform: "translatex(-50%)",
-              left: "50%",
-              textAlign: "center",
-              height: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
+              scale: scaleThird,
+              opacity: opacityThird,
             }}
           >
-            <motion.div
-              style={{
-                scale: scaleThird,
-                opacity: opacityThird,
-              }}
-            >
-              <CountDownCard>
-                <LogoContainer>
-                  <Image src={AutOSLogo} alt="Aut Logo" />
-                  <Typography
-                    color="white"
-                    textAlign="center"
-                    fontWeight="normal"
-                    fontFamily="var(--fractul-regular)"
-                    style={{
-                      margin: "0",
-                    }}
-                    fontSize={{
-                      _: "14px",
-                      sm: "16px",
-                    }}
-                  >
-                    The Operating System of yourself
-                  </Typography>
-                </LogoContainer>
+            <CountDownCard>
+              <LogoContainer>
+                <Image src={AutOSLogo} alt="Aut Logo" />
                 <Typography
                   color="white"
                   textAlign="center"
                   fontWeight="normal"
                   fontFamily="var(--fractul-regular)"
+                  style={{
+                    margin: "0",
+                  }}
                   fontSize={{
-                    _: "16px",
-                    sm: "18px",
+                    _: "14px",
+                    sm: "16px",
                   }}
                 >
-                  ĀutOS is the social map of your Web3 reputation.
-                  <br /> A Web of Trust - where you get in, by opting out.
+                  The Operating System of yourself
                 </Typography>
-                <>
-                  <ClaimIdButtonWrapper>
-                    <ClaimIdButton
-                      onClick={setOptOut}
-                      onHoverStart={startHover}
-                      onHoverEnd={endHover}
+              </LogoContainer>
+              <Typography
+                color="white"
+                textAlign="center"
+                fontWeight="normal"
+                fontFamily="var(--fractul-regular)"
+                fontSize={{
+                  _: "16px",
+                  sm: "18px",
+                }}
+              >
+                ĀutOS is the social map of your Web3 reputation.
+                <br /> A Web of Trust - where you get in, by opting out.
+              </Typography>
+              <>
+                <ClaimIdButtonWrapper>
+                  <ClaimIdButton
+                    onClick={setOptOut}
+                    onHoverStart={startHover}
+                    onHoverEnd={endHover}
+                  >
+                    <motion.div
+                      animate={controls}
+                      transition={{ duration: 0.1, type: "keyframes" }}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
                     >
-                      <motion.div
-                        animate={controls}
-                        transition={{ duration: 0.1, type: "keyframes" }}
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        {isHovered ? (
-                          <Image src={ToggleOn} alt="toggle-on" width={20} />
-                        ) : (
-                          <Image
-                            src={ToggleOff.src}
-                            alt="toggle-off"
-                            width={20}
-                            height={20}
-                          />
-                        )}
-                      </motion.div>
-                      <Typography
-                        fontFamily="var(--fractul-bold)"
-                        fontWeight="700"
-                        fontSize="16px"
-                      >
-                        Claim ĀutID
-                      </Typography>
-                    </ClaimIdButton>
-                  </ClaimIdButtonWrapper>
-                </>
-              </CountDownCard>
-            </motion.div>
-          </div>
-        </Box>
-      </section>
+                      {isHovered ? (
+                        <Image src={ToggleOn} alt="toggle-on" width={20} />
+                      ) : (
+                        <Image
+                          src={ToggleOff.src}
+                          alt="toggle-off"
+                          width={20}
+                          height={20}
+                        />
+                      )}
+                    </motion.div>
+                    <Typography
+                      fontFamily="var(--fractul-bold)"
+                      fontWeight="700"
+                      fontSize="16px"
+                    >
+                      Claim ĀutID
+                    </Typography>
+                  </ClaimIdButton>
+                </ClaimIdButtonWrapper>
+              </>
+            </CountDownCard>
+          </motion.div>
+        </div>
+      </Box>
     </>
   );
 };

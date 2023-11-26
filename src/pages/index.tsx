@@ -7,7 +7,7 @@ import Faces from "../containers/MainBackground/Faces";
 import React from "react";
 import Head from "next/head";
 import WhiteCircle from "containers/MainBackground/WhiteCircle";
-import { Parallax } from "common/components/parallax";
+import Parallax from "common/components/parallax";
 import { AutFeatures } from "containers/sections/aut-features";
 import AutOSSection from "containers/sections/aut-os";
 
@@ -81,6 +81,11 @@ export default function Home() {
     threshold: 0,
   });
 
+  const autOSTargetRef = useRef<HTMLDivElement | null>(null);
+  const isAutOSVisible = useOnScreen(autOSTargetRef, "Slogan", {
+    threshold: 0,
+  });
+
   const dimensions = useDeviceSize();
 
   return (
@@ -102,13 +107,15 @@ export default function Home() {
           )
         }
         faces={
-          <Faces
-            dimensions={dimensions}
-            parentRef={sloganTargetRef}
-            whiteCircle={
-              isSloganVisible && <WhiteCircle parentRef={sloganTargetRef} />
-            }
-          />
+          topContentTargetRef?.current && (
+            <Faces
+              dimensions={dimensions}
+              parentRef={sloganTargetRef}
+              whiteCircle={
+                isSloganVisible && <WhiteCircle parentRef={sloganTargetRef} />
+              }
+            />
+          )
         }
       />
       <section
@@ -133,11 +140,11 @@ export default function Home() {
         </Parallax>
       </section>
 
-      {/* <section className="h-screen">
+      <section className="h-[300vh]">
         <Parallax speed={-0.5}>
-          <AutOSSection />
+          {isAutOSVisible && <AutOSSection targetRef={autOSTargetRef} />}
         </Parallax>
-      </section> */}
+      </section>
 
       {/* <section className="">{<OsFooter />}</section> */}
     </>

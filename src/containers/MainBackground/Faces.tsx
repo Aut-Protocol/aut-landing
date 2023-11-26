@@ -72,19 +72,19 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
     });
     return () => {
       try {
-        faceOneMovementCtrl.start("initial");
-        faceTwoMovementCtrl.start("initial");
-        faceThreeMovementCtrl.start("initial");
-        faceFourMovementCtrl.start("initial");
-        faceFiveMovementCtrl.start("initial");
-        faceSixMovementCtrl.start("initial");
-        faceSevenMovementCtrl.start("initial");
-        faceScaleCtrl.start("initial");
-        showNovaItemCtrl.start("initial");
+        faceOneMovementCtrl.stop();
+        faceTwoMovementCtrl.stop();
+        faceThreeMovementCtrl.stop();
+        faceFourMovementCtrl.stop();
+        faceFiveMovementCtrl.stop();
+        faceSixMovementCtrl.stop();
+        faceSevenMovementCtrl.stop();
+        faceScaleCtrl.stop();
+        showNovaItemCtrl.stop();
         setInitiatedNovaItem(false);
       } catch (error) {}
     };
-  }, [scrollYProgress]);
+  }, [scrollYProgress, parentRef]);
 
   const { scale, translateX, translateY } = useMemo(() => {
     const designWidth = 1440;

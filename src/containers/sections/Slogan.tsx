@@ -136,7 +136,7 @@ const Slogan = ({ parentRef }: any) => {
     });
     return () => {
       try {
-        sloganImgCtrl.start("hidden");
+        sloganImgCtrl.stop();
       } catch (error) {}
     };
   }, [sloganImgCtrl, scrollYProgress]);
@@ -165,9 +165,9 @@ const Slogan = ({ parentRef }: any) => {
     });
     return () => {
       try {
-        outsideSystemCtrl.start("hidden");
-        outsideConventionsCtrl.start("hidden");
-        outsideStatusQuo.start("hidden");
+        outsideSystemCtrl.stop();
+        outsideConventionsCtrl.stop();
+        outsideStatusQuo.stop();
         enableStrike(false);
       } catch (error) {}
     };

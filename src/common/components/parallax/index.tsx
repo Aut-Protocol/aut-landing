@@ -12,7 +12,7 @@ const mapRange = (
   return ((input - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
 };
 
-export function Parallax({
+export default function Parallax({
   className,
   children,
   speed = 1,

@@ -14,16 +14,15 @@ const WhiteBG = ({ parentRef }: any) => {
       sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.interactionsStart,
       sloganAnimationOrder.end,
-      1,
     ],
-    [0, 20, 52, 1]
+    [0, 52, 1]
   );
 
   const translateX = useTransform(
     scrollYProgress,
     [
+      sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.end,
-      1,
     ],
     [1423.5 - 27 / 2, 1270]
   );
@@ -31,8 +30,8 @@ const WhiteBG = ({ parentRef }: any) => {
   const translateY = useTransform(
     scrollYProgress,
     [
+      sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.end,
-      1,
     ],
     [630 - 28 / 2, 455]
   );
@@ -53,7 +52,7 @@ const WhiteBG = ({ parentRef }: any) => {
     });
     return () => {
       try {
-        faceScaleCtrl.start("initial");
+        faceScaleCtrl.stop();
       } catch (error) {}
     };
   }, [faceScaleCtrl, scrollYProgress]);
