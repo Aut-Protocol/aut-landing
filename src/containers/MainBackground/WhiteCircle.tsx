@@ -25,7 +25,7 @@ const WhiteCircle = ({ parentRef }: any) => {
   const circleScale = useTransform(
     scrollYProgress,
     [
-      sloganAnimationOrder.startFadeIn,
+      sloganAnimationOrder.sloganEnd,
       sloganAnimationOrder.yourselfStart,
       sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.end,
@@ -36,14 +36,14 @@ const WhiteCircle = ({ parentRef }: any) => {
 
   const innerCircleScale = useTransform(
     scrollYProgress,
-    [sloganAnimationOrder.yourselfEnd, sloganAnimationOrder.reputationStart],
+    [sloganAnimationOrder.yourselfStart, sloganAnimationOrder.reputationStart],
     [0.5, 1]
   );
 
   const innerCircleOpacity = useTransform(
     scrollYProgress,
     [
-      sloganAnimationOrder.startFadeIn,
+      sloganAnimationOrder.sloganEnd,
       sloganAnimationOrder.yourselfStart,
       sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.end,

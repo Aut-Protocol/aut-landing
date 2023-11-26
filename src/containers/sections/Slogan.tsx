@@ -6,13 +6,14 @@ import styled from "styled-components";
 
 export const sloganAnimationOrder = {
   initial: 0,
-  startFadeIn: 0.15,
-  sloganEnd: 0.3,
-  yourselfStart: 0.4,
-  yourselfEnd: 0.7,
-  reputationStart: 0.71,
+  startFadeIn: 0.1,
+  sloganEnd: 0.25,
+  yourselfStart: 0.35,
+  outsideStart: 0.38,
+  break: 0.6,
+  reputationStart: 0.7,
   interactionsStart: 0.8,
-  end: 0.90,
+  end: 0.85,
 };
 
 const variants = {
@@ -76,8 +77,9 @@ const Slogan = ({ parentRef }: any) => {
       sloganAnimationOrder.initial,
       sloganAnimationOrder.startFadeIn,
       sloganAnimationOrder.sloganEnd,
+      sloganAnimationOrder.yourselfStart,
     ],
-    [0, 1, 0]
+    [0, 1, 1, 0]
   );
 
   const sloganTranslateY = useTransform(
@@ -93,20 +95,21 @@ const Slogan = ({ parentRef }: any) => {
   const yourselfOpacity = useTransform(
     scrollYProgress,
     [
-      sloganAnimationOrder.startFadeIn,
       sloganAnimationOrder.sloganEnd,
       sloganAnimationOrder.yourselfStart,
-      sloganAnimationOrder.yourselfEnd,
+      sloganAnimationOrder.outsideStart,
+      sloganAnimationOrder.break,
+      sloganAnimationOrder.reputationStart
     ],
-    [0, 1, 1, 0]
+    [0, 1, 1, 1, 0]
   );
 
   const yourselfTranslateY = useTransform(
     scrollYProgress,
     [
-      sloganAnimationOrder.startFadeIn,
       sloganAnimationOrder.sloganEnd,
-      sloganAnimationOrder.yourselfEnd,
+      sloganAnimationOrder.yourselfStart,
+      sloganAnimationOrder.reputationStart
     ],
     ["-4rem", "-9rem", "-9rem"]
   );
@@ -146,13 +149,13 @@ const Slogan = ({ parentRef }: any) => {
   useEffect(() => {
     let started = false;
     scrollYProgress.on("change", async (v) => {
-      if (v >= sloganAnimationOrder.yourselfStart && !started) {
+      if (v >= sloganAnimationOrder.outsideStart && !started) {
         outsideSystemCtrl.start("visible");
         setTimeout(() => outsideConventionsCtrl.start("visible"), 200);
-        setTimeout(() => outsideStatusQuo.start("visible"), 500);
-        setTimeout(() => enableStrike(true), 700);
+        setTimeout(() => outsideStatusQuo.start("visible"), 400);
+        setTimeout(() => enableStrike(true), 600);
         started = true;
-      } else if (v <= sloganAnimationOrder.yourselfStart && started) {
+      } else if (v <= sloganAnimationOrder.outsideStart && started) {
         outsideSystemCtrl.start("hidden");
         outsideConventionsCtrl.start("hidden");
         outsideStatusQuo.start("hidden");
@@ -178,11 +181,12 @@ const Slogan = ({ parentRef }: any) => {
   const reputationOpacity = useTransform(
     scrollYProgress,
     [
-      sloganAnimationOrder.yourselfEnd,
+      sloganAnimationOrder.outsideStart,
+      sloganAnimationOrder.break,
       sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.interactionsStart,
     ],
-    [0, 1, 0]
+    [0, 0, 1, 0]
   );
 
   const interactionOpacity = useTransform(

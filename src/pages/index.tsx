@@ -7,6 +7,9 @@ import Faces from "../containers/MainBackground/Faces";
 import React from "react";
 import Head from "next/head";
 import WhiteCircle from "containers/MainBackground/WhiteCircle";
+import { Parallax } from "common/components/parallax";
+import { AutFeatures } from "containers/sections/aut-features";
+import AutOSSection from "containers/sections/aut-os";
 
 const useDeviceSize = () => {
   const [width, setWidth] = useState(0);
@@ -74,13 +77,9 @@ export default function Home() {
   });
 
   const sloganTargetRef = useRef<HTMLDivElement | null>(null);
-  const isSloganVisible = useOnScreen(sloganTargetRef, "Slogan");
-
-  const yourselfTargetRef = useRef<HTMLDivElement | null>(null);
-  const isYourselfVisible = useOnScreen(yourselfTargetRef, "Yourself");
-
-  const repTargetRef = useRef<HTMLDivElement | null>(null);
-  const isRepfVisible = useOnScreen(repTargetRef, "Reputation");
+  const isSloganVisible = useOnScreen(sloganTargetRef, "Slogan", {
+    threshold: 0,
+  });
 
   const dimensions = useDeviceSize();
 
@@ -94,9 +93,14 @@ export default function Home() {
           key="viewport"
         />
       </Head>
+
       <MainBackground
         dimensions={dimensions}
-        whiteBG={<WhiteBG dimensions={dimensions} parentRef={sloganTargetRef} />}
+        whiteBG={
+          isSloganVisible && (
+            <WhiteBG dimensions={dimensions} parentRef={sloganTargetRef} />
+          )
+        }
         faces={
           <Faces
             dimensions={dimensions}
@@ -108,20 +112,34 @@ export default function Home() {
         }
       />
       <section
-        className="top-content relative mb-[8rem] flex h-screen flex-col items-center justify-center py-16 text-white before:pointer-events-none before:fixed"
+        className="top-content relative mb-[8rem] h-screen"
         ref={topContentTargetRef}
       >
         {topContentTargetRef.current && (
           <TopContent parentRef={topContentTargetRef} />
         )}
       </section>
-      <div className="relative z-10 w-full overflow-x-clip">
-        <section className="slogan relative h-[1100vh]" ref={sloganTargetRef}>
-          {(isSloganVisible || isTopContentVisible) && (
-            <Slogan parentRef={sloganTargetRef} />
-          )}
-        </section>
-      </div>
+
+      <section className="slogan relative h-[1400vh]" ref={sloganTargetRef}>
+        {(isSloganVisible || isTopContentVisible) && (
+          <Slogan parentRef={sloganTargetRef} />
+        )}
+      </section>
+      <section className="relative h-[200vh]"></section>
+
+      <section className="h-screen">
+        <Parallax speed={-0.5}>
+          <AutFeatures />
+        </Parallax>
+      </section>
+
+      {/* <section className="h-screen">
+        <Parallax speed={-0.5}>
+          <AutOSSection />
+        </Parallax>
+      </section> */}
+
+      {/* <section className="">{<OsFooter />}</section> */}
     </>
   );
 }
