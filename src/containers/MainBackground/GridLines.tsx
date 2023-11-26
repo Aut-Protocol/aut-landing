@@ -1,17 +1,27 @@
+import { memo, useMemo } from "react";
+
 const GridLines = ({ dimensions }: any) => {
-  const designWidth = 1440;
-  const designHeight = 800;
+  const { scale, translateX, translateY } = useMemo(() => {
+    const designWidth = 1440;
+    const designHeight = 800;
 
-  // Calculate scale factors
-  let scaleX = dimensions.width / designWidth;
-  let scaleY = dimensions.height / designHeight;
+    // Calculate scale factors
+    let scaleX = dimensions.width / designWidth;
+    let scaleY = dimensions.height / designHeight;
 
-  // Use the smaller scale factor to keep the aspect ratio
-  let scale = Math.min(scaleX, scaleY);
+    // Use the smaller scale factor to keep the aspect ratio
+    let scale = Math.min(scaleX, scaleY);
 
-  // Centre the design if the aspect ratios don't match
-  let translateX = (dimensions.width - designWidth * scale) / 2;
-  let translateY = (dimensions.height - designHeight * scale) / 2;
+    // Centre the design if the aspect ratios don't match
+    let translateX = (dimensions.width - designWidth * scale) / 2;
+    let translateY = (dimensions.height - designHeight * scale) / 2;
+
+    return {
+      scale,
+      translateX,
+      translateY,
+    };
+  }, [dimensions]);
 
   return (
     <g
@@ -27,5 +37,4 @@ const GridLines = ({ dimensions }: any) => {
     </g>
   );
 };
-
-export default GridLines;
+export default memo(GridLines);

@@ -1,66 +1,94 @@
+import { sloganAnimationOrder } from "containers/sections/Slogan";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { memo, useEffect, useState } from "react";
+import styled from "styled-components";
 
-const animationOrder = {
-  initial: 0,
-  showParagraphOne: 0.15,
-  showCircleImage: 0.25,
-  showParagraphTwo: 0.4,
-  showParagraphThree: 0.5,
-  showParagraphFour: 0.6,
-  showParagraphTwoLine: 0.65,
-  showParagraphThreeLine: 0.7,
-  showParagraphFourLine: 0.75,
+const GWithFilter = styled.g`
+  @keyframes hideFilterAnimation {
+    to {
+      filter: none; /* Or use 'brightness(0)' to completely hide the element */
+    }
+  }
 
-  startHide: 0.85,
-  endHide: 1,
-};
+  &.hide-filter {
+    filter: none;
+    animation: hideFilterAnimation 2s forwards; /* Adjust time as needed */
+  }
+`;
 
-export const WhiteCircle = ({ parentRef }: any) => {
+const WhiteCircle = ({ parentRef }: any) => {
   const { scrollYProgress } = useScroll({
     target: parentRef,
     offset: ["start end", "end end"],
   });
 
-  const fadeOutOpacityS = useTransform(
+  const circleScale = useTransform(
     scrollYProgress,
-    [animationOrder.showParagraphTwo, animationOrder.startHide],
-    [1, 0.8]
+    [
+      sloganAnimationOrder.startFadeIn,
+      sloganAnimationOrder.yourselfStart,
+      sloganAnimationOrder.reputationStart,
+      sloganAnimationOrder.end,
+      1
+    ],
+    [0, 1, 1, 0.7, 0]
   );
+
+  const innerCircleScale = useTransform(
+    scrollYProgress,
+    [sloganAnimationOrder.yourselfEnd, sloganAnimationOrder.reputationStart],
+    [0.5, 1]
+  );
+
+  const innerCircleOpacity = useTransform(
+    scrollYProgress,
+    [
+      sloganAnimationOrder.startFadeIn,
+      sloganAnimationOrder.yourselfStart,
+      sloganAnimationOrder.reputationStart,
+      sloganAnimationOrder.end,
+    ],
+    [0, 1, 0.8, 0]
+  );
+
+  const [showFilter, setShowFilter] = useState(true);
+
+  useEffect(() => {
+    scrollYProgress.on("change", (v) => {
+      if (v >= sloganAnimationOrder.interactionsStart) {
+        setShowFilter(false);
+      } else if (v <= sloganAnimationOrder.interactionsStart) {
+        setShowFilter(true);
+      }
+    });
+  }, [showFilter, scrollYProgress]);
 
   const fadeOutOpacityStroke = useTransform(
     scrollYProgress,
-    [animationOrder.showParagraphTwo, animationOrder.startHide],
-    [0, "6"]
+    [
+      sloganAnimationOrder.startFadeIn,
+      sloganAnimationOrder.yourselfStart,
+      sloganAnimationOrder.reputationStart,
+      sloganAnimationOrder.end,
+    ],
+    ["0", "2", "4", "5"]
   );
 
   const fadeOutOpacityStrokeColor = useTransform(
     scrollYProgress,
-    [animationOrder.showParagraphTwo, animationOrder.startHide],
-    ["1E2430", "#1E2430"]
-  );
-
-  const imageScale = useTransform(
-    scrollYProgress,
-    [animationOrder.initial, animationOrder.showCircleImage],
-    [0, 1]
-  );
-
-  const imageScale2 = useTransform(
-    scrollYProgress,
-    [animationOrder.initial, animationOrder.showParagraphFour],
-    [0, 1]
-  );
-
-  const fadeOutOpacity = useTransform(
-    scrollYProgress,
-    [animationOrder.showParagraphTwo, animationOrder.startHide],
-    [1, 0]
+    [
+      sloganAnimationOrder.startFadeIn,
+      sloganAnimationOrder.yourselfStart,
+      sloganAnimationOrder.reputationStart,
+      sloganAnimationOrder.end,
+    ],
+    ["#708490", "#556A70", "#3A4050", "#1E2430"]
   );
 
   return (
     <motion.g
       style={{
-        scale: imageScale,
+        scale: circleScale,
         x: 1232 - 520 / 2,
         y: 454 - 520 / 2,
       }}
@@ -69,12 +97,12 @@ export const WhiteCircle = ({ parentRef }: any) => {
         width={520}
         height={520}
         style={{
-          opacity: fadeOutOpacity,
+          opacity: innerCircleOpacity,
         }}
       >
         <motion.circle
           style={{
-            scale: imageScale2,
+            scale: innerCircleScale,
           }}
           opacity="0.24"
           cx="260"
@@ -84,7 +112,7 @@ export const WhiteCircle = ({ parentRef }: any) => {
         />
         <motion.circle
           style={{
-            scale: imageScale2,
+            scale: innerCircleScale,
           }}
           opacity="0.16"
           cx="260"
@@ -94,7 +122,7 @@ export const WhiteCircle = ({ parentRef }: any) => {
         />
         <motion.circle
           style={{
-            scale: imageScale2,
+            scale: innerCircleScale,
           }}
           opacity="0.1"
           cx="260"
@@ -111,14 +139,12 @@ export const WhiteCircle = ({ parentRef }: any) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle opacity={0.08} cx={260} cy={260} r={140} fill="#0BA5EC" />
-        <circle opacity={0.16} cx={260} cy={260} r={90} fill="#0BA5EC" />
-        <circle opacity={0.24} cx={260} cy={260} r={70} fill="#0BA5EC" />
-
-        <g filter="url(#filter0_bdd_1094_44055)">
+        <GWithFilter
+          className={showFilter ? "" : "hide-filter"}
+          filter="url(#filter0_bdd_1094_44055)"
+        >
           <motion.circle
             style={{
-              scale: fadeOutOpacityS,
               strokeWidth: fadeOutOpacityStroke,
               stroke: fadeOutOpacityStrokeColor,
             }}
@@ -127,7 +153,7 @@ export const WhiteCircle = ({ parentRef }: any) => {
             r={180}
             fill="#F0F5FF"
           />
-        </g>
+        </GWithFilter>
         <path
           d="M260.007 243.583C272.663 243.583 282.923 233.323 282.923 220.667C282.923 208.01 272.663 197.75 260.007 197.75C247.35 197.75 237.09 208.01 237.09 220.667C237.09 233.323 247.35 243.583 260.007 243.583Z"
           stroke="#1E2430"
@@ -207,3 +233,5 @@ export const WhiteCircle = ({ parentRef }: any) => {
     </motion.g>
   );
 };
+
+export default memo(WhiteCircle);

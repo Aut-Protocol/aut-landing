@@ -23,12 +23,6 @@ const FractulRegular = localFont({
 });
 
 export default function CustomApp({ Component, pageProps }: any) {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    });
-  }, []);
   return (
     <ThemeProvider theme={theme}>
       <>

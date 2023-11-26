@@ -3,6 +3,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Typography from "common/components/Typography";
 
+
 const animationOrder = {
   initial: 0,
   showParagraphOne: 0.15,

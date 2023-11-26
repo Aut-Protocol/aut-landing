@@ -1,14 +1,12 @@
-import { TopContent } from "containers/sections/TopContent";
-import { Slogan } from "containers/sections/Slogan";
-import { Yourself } from "containers/sections/Yourself";
+import TopContent from "containers/sections/TopContent";
+import Slogan from "containers/sections/Slogan";
 import MainBackground from "../containers/MainBackground";
-import { Reputation } from "containers/sections/reputation";
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import WhiteBG from "../containers/MainBackground/WhiteBG";
 import Faces from "../containers/MainBackground/Faces";
 import React from "react";
 import Head from "next/head";
-import { WhiteCircle } from "containers/MainBackground/WhiteCircle";
+import WhiteCircle from "containers/MainBackground/WhiteCircle";
 
 const useDeviceSize = () => {
   const [width, setWidth] = useState(0);
@@ -31,45 +29,58 @@ const useDeviceSize = () => {
 };
 
 const useOnScreen = (
-  ref: any,
+  ref: RefObject<Element>,
   name: string,
   options: IntersectionObserverInit = {
-    rootMargin: "0px",
-    threshold: 0.1,
+    threshold: 0,
   }
 ) => {
-  // State and setter for storing whether element is visible
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
+    const updateRootMarginBasedOnTarget = () => {
+      const mergedOptions = {
+        ...options,
+      };
+      return mergedOptions;
+    };
+
+    // Use a function to get the options so that we don't need to specify the dependencies for useEffect
+    const observerOptions = updateRootMarginBasedOnTarget();
+
+    // Create the observer with options specific to the target element
     const observer = new IntersectionObserver(([entry]) => {
-      // Update our state when observer callback fires
       console.log(`Is intersecting: ${name} - ${entry.isIntersecting}`);
       setIntersecting(entry.isIntersecting);
-    }, options);
+    }, observerOptions);
+
     if (ref.current) {
       observer.observe(ref.current);
     }
     return () => {
-      observer.unobserve(ref.current);
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
     };
-  }, [ref, options]);
+  }, [ref, options, name]);
 
   return isIntersecting;
 };
 
 export default function Home() {
+  const topContentTargetRef = useRef<HTMLDivElement | null>(null);
+  const isTopContentVisible = useOnScreen(topContentTargetRef, "TopContent", {
+    threshold: 0.2,
+  });
+
   const sloganTargetRef = useRef<HTMLDivElement | null>(null);
   const isSloganVisible = useOnScreen(sloganTargetRef, "Slogan");
 
+  const yourselfTargetRef = useRef<HTMLDivElement | null>(null);
+  const isYourselfVisible = useOnScreen(yourselfTargetRef, "Yourself");
+
   const repTargetRef = useRef<HTMLDivElement | null>(null);
   const isRepfVisible = useOnScreen(repTargetRef, "Reputation");
-
-  const yourselfTargetRef = useRef<HTMLDivElement | null>(null);
-  const isYourselfVisible = useOnScreen(yourselfTargetRef, "Yourself", {
-    threshold: 0,
-    rootMargin: "-200px 0px 0px 0px"
-  });
 
   const dimensions = useDeviceSize();
 
@@ -85,30 +96,30 @@ export default function Home() {
       </Head>
       <MainBackground
         dimensions={dimensions}
-        whiteBG={isRepfVisible && <WhiteBG parentRef={repTargetRef} />}
+        whiteBG={<WhiteBG dimensions={dimensions} parentRef={sloganTargetRef} />}
         faces={
           <Faces
             dimensions={dimensions}
-            parentRef={yourselfTargetRef}
+            parentRef={sloganTargetRef}
             whiteCircle={
-              isYourselfVisible && <WhiteCircle parentRef={yourselfTargetRef} />
+              isSloganVisible && <WhiteCircle parentRef={sloganTargetRef} />
             }
           />
         }
       />
-      <TopContent />
+      <section
+        className="top-content relative mb-[8rem] flex h-screen flex-col items-center justify-center py-16 text-white before:pointer-events-none before:fixed"
+        ref={topContentTargetRef}
+      >
+        {topContentTargetRef.current && (
+          <TopContent parentRef={topContentTargetRef} />
+        )}
+      </section>
       <div className="relative z-10 w-full overflow-x-clip">
-        <section className="slogan relative h-[300vh]" ref={sloganTargetRef}>
-          {isSloganVisible && <Slogan parentRef={sloganTargetRef} />}
-        </section>
-        <section
-          className="yourself relative h-[550vh]"
-          ref={yourselfTargetRef}
-        >
-          {isYourselfVisible && <Yourself parentRef={yourselfTargetRef} />}
-        </section>
-        <section className="reputation relative h-[550vh]" ref={repTargetRef}>
-          {isRepfVisible && <Reputation parentRef={repTargetRef} />}
+        <section className="slogan relative h-[1100vh]" ref={sloganTargetRef}>
+          {(isSloganVisible || isTopContentVisible) && (
+            <Slogan parentRef={sloganTargetRef} />
+          )}
         </section>
       </div>
     </>
