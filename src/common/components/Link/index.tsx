@@ -18,7 +18,6 @@ export default Link;
 
 Link.propTypes = {
   children: PropTypes.any.isRequired,
-  ...base.propTypes,
 };
 
 Link.defaultProps = {

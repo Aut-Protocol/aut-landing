@@ -3,6 +3,8 @@ import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
 import Typography from "common/components/Typography";
 import { memo, useEffect, useState } from "react";
 import styled from "styled-components";
+import Image from "next/image";
+import autSelfLine from "common/assets/image/own-self.svg";
 
 export const sloganAnimationOrder = {
   initial: 0,
@@ -14,6 +16,7 @@ export const sloganAnimationOrder = {
   reputationStart: 0.7,
   interactionsStart: 0.8,
   end: 0.85,
+  final: 0.95
 };
 
 const variants = {
@@ -99,7 +102,7 @@ const Slogan = ({ parentRef }: any) => {
       sloganAnimationOrder.yourselfStart,
       sloganAnimationOrder.outsideStart,
       sloganAnimationOrder.break,
-      sloganAnimationOrder.reputationStart
+      sloganAnimationOrder.reputationStart,
     ],
     [0, 1, 1, 1, 0]
   );
@@ -109,7 +112,7 @@ const Slogan = ({ parentRef }: any) => {
     [
       sloganAnimationOrder.sloganEnd,
       sloganAnimationOrder.yourselfStart,
-      sloganAnimationOrder.reputationStart
+      sloganAnimationOrder.reputationStart,
     ],
     ["-4rem", "-9rem", "-9rem"]
   );
@@ -242,7 +245,11 @@ const Slogan = ({ parentRef }: any) => {
             transition={{ duration: 0.5 }}
             exit={{ opacity: 0 }}
           >
-            <img src="/own-self.svg" className="w-auto" alt={"own-self"} />
+            <img
+              src={autSelfLine.src}
+              className="w-auto"
+              alt={"own-self"}
+            />
           </motion.figure>
         </div>
       </motion.div>

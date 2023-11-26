@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/inline-script-id */
 import "containers/globals.css";
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 import { theme } from "common/theme";
@@ -31,7 +30,7 @@ export default function CustomApp({ Component, pageProps }: any) {
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
         />
 
-        <Script strategy="lazyOnload">
+        <Script id="googleAnalytics" strategy="lazyOnload">
           {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}

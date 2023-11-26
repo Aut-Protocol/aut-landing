@@ -202,11 +202,7 @@ const ButtonStyle = styled("button")`
 `;
 
 // prop types can also be added from the style functions
-ButtonStyle.propTypes = {
-  ...alignItems.propTypes,
-  ...boxShadow.propTypes,
-  ...variant.propTypes,
-};
+ButtonStyle.propTypes = {};
 
 ButtonStyle.displayName = "ButtonStyle";
 

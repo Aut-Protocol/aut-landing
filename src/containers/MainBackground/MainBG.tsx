@@ -1,7 +1,10 @@
 import map from "common/assets/image/map.png";
+import { useDeviceSize } from "common/utils/use-device-size";
 
-export const MainBG = ({ dimensions }: any) => (
-  <defs>
+export const MainBG = () => {
+  const { width, height } = useDeviceSize();
+  return (
+    <defs>
     <pattern
       id="pattern0"
       patternContentUnits="objectBoundingBox"
@@ -78,7 +81,7 @@ export const MainBG = ({ dimensions }: any) => (
       <stop offset={1} stopColor="#FEE4E2" />
     </linearGradient>
     <clipPath id="clip0_529_70621">
-      <rect width={dimensions.width} height={dimensions.width} fill="white" />
+      <rect width={width} height={height} fill="white" />
     </clipPath>
     <image
       id="image0_529_70621"
@@ -87,4 +90,5 @@ export const MainBG = ({ dimensions }: any) => (
       xlinkHref={map.src}
     />
   </defs>
-);
+  )
+};

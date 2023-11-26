@@ -3,30 +3,22 @@ import { FooterData } from "common/data";
 import AutOSLogo from "common/assets/AutOSLogoV2.svg";
 import DiscordLogo from "common/assets/image/discord-icon.svg";
 import XLogo from "common/assets/image/twitter-icon.svg";
-
-import NewsletterForm from "common/components/NewsletterForm/NewsletterForm";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
 import Container from "common/components/Container";
-import {
-  AboutUs,
-  ContactInfo,
-  FooterWidget,
-  Grid,
-  Social,
-  OsFooterSection,
-  FooterWidgetItem,
-  SocialLinks,
-  ColumnWrapper,
-  ColumnTitle,
-  Links,
-} from "./footer.style";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
-import Logo from "common/components/UIElements/Logo";
 import Typography from "common/components/Typography";
 import Button from "common/components/Button";
 import Image from "common/components/Image";
 import Link from "common/components/Link";
+import {
+  Social,
+  SocialLinks,
+  OsFooterSection,
+  Grid,
+  AboutUs,
+  ColumnWrapper,
+  ColumnTitle,
+} from "./footer.style";
 
 const socials = [
   {
@@ -84,7 +76,7 @@ const productSuite = [
   },
 ];
 
-export const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
+export const SocialWrapper = ({ socialStyles, socialLinksStyles }: any) => {
   return (
     <Social {...socialStyles}>
       <SocialLinks {...socialLinksStyles}>
@@ -116,8 +108,9 @@ export const SocialWrapper = ({ socialStyles, socialLinksStyles }) => {
     </Social>
   );
 };
-export const LinkWrapper = ({ item }) => {
+export const LinkWrapper = ({ item }: any) => {
   return (
+    // @ts-ignore
     <Link legacyBehavior href={item.link}>
       <Button
         title={item.title}
@@ -138,7 +131,7 @@ export const LinkWrapper = ({ item }) => {
   );
 };
 
-const OsFooter = () => {
+const OsFooter = ({ targetRef }: any) => {
   const { logo, copyright, widgets, mailchimpUrl } = FooterData;
 
   return (

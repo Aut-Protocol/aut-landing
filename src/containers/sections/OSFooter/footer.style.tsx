@@ -21,7 +21,7 @@ export const OsFooterSection = styled(Section)`
   height: 280px;
 `;
 
-export const Grid = styled("div")`
+export const Grid = styled<any>("div")`
   display: grid;
   gap: 20px;
   width: 100%;
@@ -29,7 +29,7 @@ export const Grid = styled("div")`
   ${gridTemplateColumns}
 `;
 
-export const AboutUs = styled.div`
+export const AboutUs = styled<any>("div")`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

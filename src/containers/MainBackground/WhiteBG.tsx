@@ -2,7 +2,7 @@ import { sloganAnimationOrder } from "containers/sections/Slogan";
 import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
 import { memo, useEffect } from "react";
 
-const WhiteBG = ({ parentRef }: any) => {
+const WhiteBG = ({ parentRef }) => {
   const { scrollYProgress } = useScroll({
     target: parentRef,
     offset: ["start end", "end end"],
@@ -35,7 +35,6 @@ const WhiteBG = ({ parentRef }: any) => {
     ],
     [630 - 28 / 2, 455]
   );
-
 
   const faceScaleCtrl = useAnimation();
 

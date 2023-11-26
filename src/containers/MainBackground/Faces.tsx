@@ -1,6 +1,6 @@
 import { sloganAnimationOrder } from "containers/sections/Slogan";
 import { motion, useAnimation, useScroll } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo } from "react";
 import {
   faceOneMovementVariant,
   faceSixMovementVariant,
@@ -11,18 +11,12 @@ import {
   faceFiveMovementVariant,
   faceSevenMovementVariant,
 } from "./faces.variants";
-import { NovaItem } from "./LargeNova";
+import LargeNova, { NovaItem } from "./LargeNova";
+import { useDeviceSize } from "common/utils/use-device-size";
+import WhiteCircle from "./WhiteCircle";
 
-const novaItemVariant = {
-  initial: {
-    scale: 1,
-  },
-  after: {
-    scale: 1.5,
-  },
-};
-
-const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
+const Faces = ({ parentRef }) => {
+  const { width, height } = useDeviceSize();
   const { scrollYProgress } = useScroll({
     target: parentRef,
     offset: ["start end", "end end"],
@@ -39,8 +33,6 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
   const faceScaleCtrl = useAnimation();
   const showNovaItemCtrl = useAnimation();
 
-  const [initiatedNovaItem, setInitiatedNovaItem] = useState(false);
-
   useEffect(() => {
     let started = false;
     scrollYProgress.on("change", async (v) => {
@@ -54,7 +46,6 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         faceSevenMovementCtrl.start("after");
         faceScaleCtrl.start("after");
         setTimeout(() => showNovaItemCtrl.start("after"), 100);
-        setTimeout(() => setInitiatedNovaItem(true), 300);
         started = true;
       } else if (v <= sloganAnimationOrder.end && started) {
         faceOneMovementCtrl.start("initial");
@@ -66,7 +57,6 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         faceSevenMovementCtrl.start("initial");
         faceScaleCtrl.start("initial");
         showNovaItemCtrl.start("initial");
-        setInitiatedNovaItem(false);
         started = false;
       }
     });
@@ -81,32 +71,51 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         faceSevenMovementCtrl.stop();
         faceScaleCtrl.stop();
         showNovaItemCtrl.stop();
-        setInitiatedNovaItem(false);
       } catch (error) {}
     };
-  }, [scrollYProgress, parentRef]);
+  }, [scrollYProgress]);
+
+  const showLargeNovaItemCtrl = useAnimation();
+
+  useEffect(() => {
+    let started = false;
+    scrollYProgress.on("change", async (v) => {
+      if (v >= sloganAnimationOrder.final && !started) {
+        showLargeNovaItemCtrl.start("after");
+        started = true;
+      } else if (v <= sloganAnimationOrder.final && started) {
+        showLargeNovaItemCtrl.start("initial");
+        started = false;
+      }
+    });
+    return () => {
+      try {
+        showLargeNovaItemCtrl.stop();
+      } catch (error) {}
+    };
+  }, [scrollYProgress]);
 
   const { scale, translateX, translateY } = useMemo(() => {
     const designWidth = 1440;
     const designHeight = 800;
 
     // Calculate scale factors
-    let scaleX = dimensions.width / designWidth;
-    let scaleY = dimensions.height / designHeight;
+    let scaleX = width / designWidth;
+    let scaleY = height / designHeight;
 
     // Use the smaller scale factor to keep the aspect ratio
     let scale = Math.min(scaleX, scaleY);
 
     // Centre the design if the aspect ratios don't match
-    let translateX = (dimensions.width - designWidth * scale) / 2;
-    let translateY = (dimensions.height - designHeight * scale) / 2;
+    let translateX = (width - designWidth * scale) / 2;
+    let translateY = (height - designHeight * scale) / 2;
 
     return {
       scale,
       translateX,
       translateY,
     };
-  }, [dimensions]);
+  }, [width, height]);
 
   return (
     <g
@@ -148,7 +157,6 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         initial="initial"
       >
         <circle
-          id="face-to-zoom"
           cx={1074}
           cy={744}
           r={25.335}
@@ -439,7 +447,7 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         />
       </motion.g>
 
-      {whiteCircle}
+      {parentRef?.current && <WhiteCircle parentRef={parentRef} />}
 
       <motion.g
         variants={{
@@ -512,9 +520,85 @@ const Faces = ({ dimensions, parentRef, whiteCircle }: any) => {
         initial="initial"
       >
         <NovaItem />
+      </motion.g>
+
+      {/* Large nova's */}
+
+      <motion.g
+        variants={{
+          initial: {
+            x: 873 - 129,
+            y: 88 - 128,
+            scale: 0,
+          },
+          after: {
+            x: 873 - 129,
+            y: 88 - 128,
+            scale: 1,
+          },
+        }}
+        animate={showLargeNovaItemCtrl}
+        initial="initial"
+      >
+        <LargeNova />
+      </motion.g>
+      <motion.g
+        variants={{
+          initial: {
+            x: 302 - 129,
+            y: 592.167 - 128,
+            scale: 0,
+          },
+          after: {
+            x: 302 - 129,
+            y: 592.167 - 128,
+            scale: 1,
+          },
+        }}
+        animate={showLargeNovaItemCtrl}
+        initial="initial"
+      >
+        <LargeNova />
+      </motion.g>
+      <motion.g
+        variants={{
+          initial: {
+            x: 510 - 129,
+            y: 182 - 128,
+            scale: 0,
+          },
+          after: {
+            x: 510 - 129,
+            y: 182 - 128,
+            scale: 1,
+          },
+        }}
+        animate={showLargeNovaItemCtrl}
+        initial="initial"
+      >
+        <LargeNova />
+      </motion.g>
+
+      <motion.g
+        variants={{
+          initial: {
+            x: 1232 - 129,
+            y: 454 - 128,
+            scale: 0,
+          },
+          after: {
+            x: 1232 - 129,
+            y: 454 - 128,
+            scale: 1,
+          },
+        }}
+        animate={showLargeNovaItemCtrl}
+        initial="initial"
+      >
+        <LargeNova />
       </motion.g>
     </g>
   );
 };
 
-export default Faces;
+export default memo(Faces);

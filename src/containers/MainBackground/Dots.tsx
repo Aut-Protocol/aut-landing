@@ -1,27 +1,30 @@
+import { useDeviceSize } from "common/utils/use-device-size";
 import { memo, useMemo } from "react";
 
-const Dots = ({ dimensions }: any) => {
+const Dots = () => {
+  const { width, height } = useDeviceSize();
+
   const { scale, translateX, translateY } = useMemo(() => {
     const designWidth = 1440;
     const designHeight = 800;
 
     // Calculate scale factors
-    let scaleX = dimensions.width / designWidth;
-    let scaleY = dimensions.height / designHeight;
+    let scaleX = width / designWidth;
+    let scaleY = height / designHeight;
 
     // Use the smaller scale factor to keep the aspect ratio
     let scale = Math.min(scaleX, scaleY);
 
     // Centre the design if the aspect ratios don't match
-    let translateX = (dimensions.width - designWidth * scale) / 2;
-    let translateY = (dimensions.height - designHeight * scale) / 2;
+    let translateX = (width - designWidth * scale) / 2;
+    let translateY = (height - designHeight * scale) / 2;
 
     return {
       scale,
       translateX,
       translateY,
     };
-  }, [dimensions]);
+  }, [width, height]);
   return (
     <g
       transform={`translate(${translateX}, ${translateY}) scale(${scale},${scale})`}

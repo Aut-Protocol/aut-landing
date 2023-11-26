@@ -1,7 +1,5 @@
 import themeGet from "@styled-system/theme-get";
-import { theme } from "common/theme";
 import styled from "styled-components";
-import ToolbarBG from "common/assets/image/toolbar.svg";
 import {
   display,
   alignItems,
@@ -19,7 +17,6 @@ import {
 const NavbarStyle = styled.nav`
   /* Navbar default style goes here */
   display: flex;
-  // background-color: ${themeGet("colors.nightBlack")};
   align-items: center;
   border: 0;
   position: fixed;

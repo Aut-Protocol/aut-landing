@@ -56,6 +56,8 @@
   },
   "devDependencies": {
     "@types/react": "18.2.38",
+    "@types/styled-system": "^5.1.22",
+    "@types/styled-system__theme-get": "^5.0.4",
     "autoprefixer": "^10.4.16",
     "eslint": "8.54.0",
     "postcss": "^8.4.31",

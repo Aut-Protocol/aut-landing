@@ -1,79 +1,27 @@
-import TopContent from "containers/sections/TopContent";
-import Slogan from "containers/sections/Slogan";
-import MainBackground from "../containers/MainBackground";
-import { RefObject, useEffect, useRef, useState } from "react";
-import WhiteBG from "../containers/MainBackground/WhiteBG";
-import Faces from "../containers/MainBackground/Faces";
+import { useRef } from "react";
 import React from "react";
 import Head from "next/head";
-import WhiteCircle from "containers/MainBackground/WhiteCircle";
-import Parallax from "common/components/parallax";
-import { AutFeatures } from "containers/sections/aut-features";
-import AutOSSection from "containers/sections/aut-os";
 
-const useDeviceSize = () => {
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+import TopContent from "containers/sections/TopContent";
+import MainBackground from "containers/MainBackground";
+import dynamic from "next/dynamic";
+import { useOnScreen } from "common/utils/use-on-screen";
+import OsFooter from "containers/sections/OSFooter";
+import { useDeviceSize } from "common/utils/use-device-size";
 
-  const handleWindowResize = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
-
-  useEffect(() => {
-    // component is mounted and window is available
-    handleWindowResize();
-    window.addEventListener("resize", handleWindowResize);
-    // unsubscribe from the event on component unmount
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
-
-  return { width, height };
-};
-
-const useOnScreen = (
-  ref: RefObject<Element>,
-  name: string,
-  options: IntersectionObserverInit = {
-    threshold: 0,
-  }
-) => {
-  const [isIntersecting, setIntersecting] = useState(false);
-
-  useEffect(() => {
-    const updateRootMarginBasedOnTarget = () => {
-      const mergedOptions = {
-        ...options,
-      };
-      return mergedOptions;
-    };
-
-    // Use a function to get the options so that we don't need to specify the dependencies for useEffect
-    const observerOptions = updateRootMarginBasedOnTarget();
-
-    // Create the observer with options specific to the target element
-    const observer = new IntersectionObserver(([entry]) => {
-      console.log(`Is intersecting: ${name} - ${entry.isIntersecting}`);
-      setIntersecting(entry.isIntersecting);
-    }, observerOptions);
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [ref, options, name]);
-
-  return isIntersecting;
-};
+const Slogan = dynamic(() => import("containers/sections/Slogan"));
+const Parallax = dynamic(() => import("common/components/parallax"), {
+  ssr: false,
+});
+const AutFeatures = dynamic(() => import("containers/sections/AutFeatures"));
+const AutOS = dynamic(() => import("containers/sections/AutOS"));
 
 export default function Home() {
+  const { width, height } = useDeviceSize();
+
   const topContentTargetRef = useRef<HTMLDivElement | null>(null);
   const isTopContentVisible = useOnScreen(topContentTargetRef, "TopContent", {
-    threshold: 0.2,
+    threshold: 0,
   });
 
   const sloganTargetRef = useRef<HTMLDivElement | null>(null);
@@ -81,12 +29,24 @@ export default function Home() {
     threshold: 0,
   });
 
+  const autFeaturesTargetRef = useRef<HTMLDivElement | null>(null);
+  const isAutFeaturesVisible = useOnScreen(
+    autFeaturesTargetRef,
+    "AutFeatures",
+    {
+      threshold: 0,
+    }
+  );
+
   const autOSTargetRef = useRef<HTMLDivElement | null>(null);
-  const isAutOSVisible = useOnScreen(autOSTargetRef, "Slogan", {
+  const isAutOSVisible = useOnScreen(autOSTargetRef, "AutOS", {
     threshold: 0,
   });
 
-  const dimensions = useDeviceSize();
+  const footerTargetRef = useRef<HTMLDivElement | null>(null);
+  const isFooterVisible = useOnScreen(footerTargetRef, "Footer", {
+    threshold: 0,
+  });
 
   return (
     <>
@@ -99,25 +59,14 @@ export default function Home() {
         />
       </Head>
 
-      <MainBackground
-        dimensions={dimensions}
-        whiteBG={
-          isSloganVisible && (
-            <WhiteBG dimensions={dimensions} parentRef={sloganTargetRef} />
-          )
-        }
-        faces={
-          topContentTargetRef?.current && (
-            <Faces
-              dimensions={dimensions}
-              parentRef={sloganTargetRef}
-              whiteCircle={
-                isSloganVisible && <WhiteCircle parentRef={sloganTargetRef} />
-              }
-            />
-          )
-        }
-      />
+      {sloganTargetRef.current && (
+        <MainBackground
+          width={width}
+          height={height}
+          parentRef={sloganTargetRef}
+          isSloganVisible={!!sloganTargetRef.current}
+        />
+      )}
       <section
         className="top-content relative mb-[8rem] h-screen"
         ref={topContentTargetRef}
@@ -132,21 +81,31 @@ export default function Home() {
           <Slogan parentRef={sloganTargetRef} />
         )}
       </section>
-      <section className="relative h-[200vh]"></section>
 
-      <section className="h-screen">
+      <section className="empty relative h-screen" />
+
+      <section
+        className="features relative h-screen"
+        ref={autFeaturesTargetRef}
+      >
         <Parallax speed={-0.5}>
-          <AutFeatures />
+          {isAutFeaturesVisible && <AutFeatures targetRef={autOSTargetRef} />}
         </Parallax>
       </section>
 
-      <section className="h-[300vh]">
+      <section
+        style={{
+          background: "#000000",
+        }}
+        className="aut-os relative h-[300vh]"
+      >
         <Parallax speed={-0.5}>
-          {isAutOSVisible && <AutOSSection targetRef={autOSTargetRef} />}
+          <div ref={autOSTargetRef}>
+            {isAutOSVisible && <AutOS targetRef={autOSTargetRef} />}
+          </div>
+          <OsFooter targetRef={footerTargetRef} />
         </Parallax>
       </section>
-
-      {/* <section className="">{<OsFooter />}</section> */}
     </>
   );
 }

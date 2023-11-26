@@ -11,7 +11,7 @@ import Image from "common/components/Image";
 import Typography from "common/components/Typography";
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
-import { Parallax } from "react-scroll-parallax";
+import { Fragment, memo } from "react";
 
 const FeaturesContainer = styled(Box)`
   display: grid;
@@ -65,23 +65,19 @@ const AutFeaturesData = [
 ];
 
 interface IndividualFeatureProps {
-  icon: any; // You can replace `any` with a more specific type for your icon
+  icon: any;
   title: string;
   description: string;
 }
 
-const IndividualFeature: React.FC<IndividualFeatureProps> = ({
-  icon,
-  title,
-  description,
-}) => {
+const IndividualFeature = ({ icon, title, description }: IndividualFeatureProps) => {
   return (
     <div
       style={{
         maxWidth: "288px",
       }}
     >
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box>
         <Image
           height={{
             _: "48px",
@@ -105,7 +101,7 @@ const IndividualFeature: React.FC<IndividualFeatureProps> = ({
   );
 };
 
-export const AutFeatures = ({ parentRef }: any) => {
+const AutFeatures = ({ parentRef }: any) => {
   const { scrollYProgress } = useScroll({
     target: parentRef,
     offset: ["start end", "end end"],
@@ -131,14 +127,18 @@ export const AutFeatures = ({ parentRef }: any) => {
       >
         <FeaturesContainer>
           {AutFeaturesData.map(({ icon, title, description }, index) => (
-            <IndividualFeature
-              icon={icon}
-              title={title}
-              description={description}
-            ></IndividualFeature>
+            <Fragment key={title}>
+              <IndividualFeature
+                icon={icon}
+                title={title}
+                description={description}
+              ></IndividualFeature>
+            </Fragment>
           ))}
         </FeaturesContainer>
       </Box>
     </>
   );
 };
+
+export default memo(AutFeatures);

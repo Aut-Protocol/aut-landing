@@ -1,5 +1,4 @@
 import Card from "common/components/Card";
-import LockCountdown from "common/components/LockCountdown";
 import Typography from "common/components/Typography";
 import { FooterData } from "common/data";
 import styled from "styled-components";
@@ -9,17 +8,15 @@ import ToggleBgSvg from "common/assets/image/toggle-bg-svg.svg";
 import CrackOverToggleBgPng from "common/assets/image/crack-over-toggle-bg-png.png";
 
 import CrackBg from "common/assets/image/crack-bg.svg";
-import ClockBackground from "common/assets/image/clock-crack-piece.png";
 import AutOSLogo from "common/assets/AutOSLogoV2.svg";
 import ToggleOn from "common/assets/toggle-on.svg";
 import ToggleOff from "common/assets/toggle-off.svg";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import {
   useScroll,
   useTransform,
   motion,
-  motionValue,
   useAnimate,
   useAnimation,
 } from "framer-motion";
@@ -424,7 +421,7 @@ const AutOSSection = ({ parentRef }: any) => {
               <>
                 <ClaimIdButtonWrapper>
                   <ClaimIdButton
-                    onClick={setOptOut}
+                    onClick={() => setOptOut(!optOut)}
                     onHoverStart={startHover}
                     onHoverEnd={endHover}
                   >
@@ -466,4 +463,4 @@ const AutOSSection = ({ parentRef }: any) => {
   );
 };
 
-export default AutOSSection;
+export default memo(AutOSSection);
