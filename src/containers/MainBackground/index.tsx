@@ -4,14 +4,48 @@ import { memo } from "react";
 import GridLines from "./GridLines";
 import WhiteBG from "./WhiteBG";
 import Faces from "./Faces";
+import { NewNetBG } from "./NewNet";
+import { useScroll, motion, useTransform } from "framer-motion";
 
-const MainBackground = ({ parentRef, width, height, isSloganVisible }) => {
+export const editBottomVariant = {
+  initial: {
+    marginRight: 0,
+    marginLeft: 0,
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 0,
+  },
+  after: {
+    marginRight: "40px",
+    marginLeft: "40px",
+    borderBottomRightRadius: "40px",
+    borderBottomLeftRadius: "40px",
+  },
+};
+
+const MainBackground = ({
+  parentRef,
+  bottomRef,
+  width,
+  height,
+  isSloganVisible,
+}) => {
+  const { scrollYProgress } = useScroll({
+    target: bottomRef,
+    offset: ["start end", "end end"],
+  });
+
+  const editBottom = useTransform(scrollYProgress, [0, 0.3], ["0px", "40px"]);
+  const translateY = useTransform(scrollYProgress, [0, 1], ["0px", "-100vh"]);
+
   return (
-    <svg
+    <motion.svg
       style={{
-        width: "100vw",
-        height: "100vh",
         position: "fixed",
+        marginRight: editBottom,
+        marginLeft: editBottom,
+        borderBottomRightRadius: editBottom,
+        borderBottomLeftRadius: editBottom,
+        y: translateY
       }}
       viewBox={`0 0 ${width} ${height}`}
       fill="none"
@@ -64,10 +98,12 @@ const MainBackground = ({ parentRef, width, height, isSloganVisible }) => {
         <>
           <WhiteBG parentRef={parentRef} />
           <GridLines width={width} height={height} parentRef={parentRef} />
-          <Faces parentRef={parentRef} />
-          <Dots />
+          <Dots width={width} height={height} />
+          <NewNetBG parentRef={parentRef} />
+          <Faces width={width} height={height} parentRef={parentRef} />
         </>
       )}
+
       {/* <mask
         id="mask0_1_10093"
         style={{ maskType: "alpha" }}
@@ -231,8 +267,7 @@ const MainBackground = ({ parentRef, width, height, isSloganVisible }) => {
         <path fill="#36BFFA" d="M33.5 37H37.5V41H33.5z" opacity="0.5"></path>
         <path fill="#36BFFA" d="M33.5 743H37.5V747H33.5z" opacity="0.5"></path>
       </g> */}
-      {isSloganVisible && <Faces parentRef={parentRef} />}
-    </svg>
+    </motion.svg>
   );
 };
 export default memo(MainBackground);

@@ -8,10 +8,12 @@ import { DrawerContext } from "common/contexts/DrawerContext";
 import { NavbarData } from "common/data";
 import PropTypes from "prop-types";
 import Logo from "common/components/UIElements/Logo";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
 import Button from "common/components/Button";
+import { sloganAnimationOrder } from "containers/sections/Slogan";
+import { useScroll, useAnimation } from "framer-motion";
 
 const navbarStyle = {
   className: "sass_app_dark_navbar",
@@ -56,8 +58,8 @@ const logoStyles = {
   },
 };
 
-const Navbar = ({ row, menuWrapper }) => {
-  const { state, dispatch } = useContext(DrawerContext);
+const Navbar = ({ row, menuWrapper, parentRef }) => {
+  const { state, dispatch }: any = useContext(DrawerContext);
   const { menuItems, logo, navButtons } = NavbarData;
 
   const toggleHandler = () => {
@@ -66,8 +68,27 @@ const Navbar = ({ row, menuWrapper }) => {
     });
   };
 
+  const { scrollYProgress } = useScroll({
+    target: parentRef,
+    offset: ["start end", "end end"],
+  });
+  const [show, setShow] = React.useState(false);
+
+  useEffect(() => {
+    let started = false;
+    scrollYProgress.on("change", async (v) => {
+      if (v >= sloganAnimationOrder.final && !started) {
+        setShow(true);
+        started = true;
+      } else if (v <= sloganAnimationOrder.final && started) {
+        started = false;
+        setShow(false);
+      }
+    });
+  }, [scrollYProgress]);
+
   return (
-    <NavbarWrapper {...navbarStyle}>
+    <NavbarWrapper {...navbarStyle} show={show}>
       <Container
         noGutter
         px={{
@@ -94,12 +115,14 @@ const Navbar = ({ row, menuWrapper }) => {
             }}
           >
             <Logo
+              // @ts-ignore
               logoSrc={logo}
               href="/"
               alt="Aut Logo"
               logoStyle={logoStyles}
               className="sticky-logo nav-logo"
             />
+            {/* @ts-ignore */}
             <ScrollSpyMenu
               className="main_menu"
               menuItems={menuItems}
@@ -125,11 +148,12 @@ const Navbar = ({ row, menuWrapper }) => {
                 />
               ))}
             </div> */}
-
+            {/* @ts-ignore */}
             <Drawer
               width="420px"
               placement="right"
               closeButton={<Icon size={30} icon={ic_close} />}
+              // @ts-ignore
               drawerHandler={<HamburgMenu barColor="#108AFF" />}
               open={state.isOpen}
               toggleHandler={toggleHandler}

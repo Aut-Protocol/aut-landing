@@ -1,6 +1,6 @@
 import { sloganAnimationOrder } from "containers/sections/Slogan";
 import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
-import { memo, useEffect } from "react";
+import { memo, useEffect, useRef } from "react";
 
 const WhiteBG = ({ parentRef }) => {
   const { scrollYProgress } = useScroll({
@@ -37,24 +37,29 @@ const WhiteBG = ({ parentRef }) => {
   );
 
   const faceScaleCtrl = useAnimation();
+  const isMounted = useRef(true);
+  const started = useRef(false);
 
   useEffect(() => {
-    let started = false;
     scrollYProgress.on("change", async (v) => {
-      if (v >= sloganAnimationOrder.end && !started) {
+      if (!isMounted.current) return;
+
+      if (v >= sloganAnimationOrder.final && !started.current) {
         faceScaleCtrl.start("after");
-        started = true;
-      } else if (v <= sloganAnimationOrder.end && started) {
+        started.current = true;
+      } else if (v <= sloganAnimationOrder.final && started.current) {
         faceScaleCtrl.start("initial");
-        started = false;
+        started.current = false;
       }
     });
+
     return () => {
+      isMounted.current = false; // Indicate the component has been unmounted
       try {
         faceScaleCtrl.stop();
       } catch (error) {}
     };
-  }, [faceScaleCtrl, scrollYProgress]);
+  }, [scrollYProgress]);
 
   return (
     <>

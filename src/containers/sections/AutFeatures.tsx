@@ -1,11 +1,11 @@
-import { useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import AutFeaturesBg from "common/assets/image/features-bg.png";
-import FreedomIcon from "common/assets/image/freedom-icon.svg";
-import SelfIcon from "common/assets/image/self-icon.svg";
-import AutonomyIcon from "common/assets/image/autonomy-icon.svg";
-import GovernanceIcon from "common/assets/image/governance-icon.svg";
-import PermissionlessIcon from "common/assets/image/permissionless-icon.svg";
-import SustainabilityIcon from "common/assets/image/sustainability-icon.svg";
+import FreedomIcon from "common/assets/image/features/freedom-icon.png";
+import SelfIcon from "common/assets/image/features/self-icon.png";
+import AutonomyIcon from "common/assets/image/features/autonomy-icon.png";
+import GovernanceIcon from "common/assets/image/features/governance-icon.png";
+import PermissionlessIcon from "common/assets/image/features/permissionless-icon.png";
+import SustainabilityIcon from "common/assets/image/features/sustainability-icon.png";
 import Box from "common/components/Box";
 import Image from "common/components/Image";
 import Typography from "common/components/Typography";
@@ -70,7 +70,11 @@ interface IndividualFeatureProps {
   description: string;
 }
 
-const IndividualFeature = ({ icon, title, description }: IndividualFeatureProps) => {
+const IndividualFeature = ({
+  icon,
+  title,
+  description,
+}: IndividualFeatureProps) => {
   return (
     <div
       style={{
@@ -79,14 +83,15 @@ const IndividualFeature = ({ icon, title, description }: IndividualFeatureProps)
     >
       <Box>
         <Image
-          height={{
+          width={{
             _: "48px",
             xs: "72px",
           }}
           style={{
             marginBottom: "16px",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
-          width="100%"
           src={icon.src}
           alt="New_logo"
         />
@@ -101,23 +106,18 @@ const IndividualFeature = ({ icon, title, description }: IndividualFeatureProps)
   );
 };
 
-const AutFeatures = ({ parentRef }: any) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
-
+const AutFeatures = ({ parentRef }) => {
   return (
     <>
-      <Box
-        className="absolute flex origin-center justify-center text-white"
+      <div
+        className="fixed flex origin-center justify-center text-white"
         style={{
-          // transform: "translate(-50%, -50%)",
+          top: "0",
+          left: "0",
+          bottom: "0",
           backgroundImage: `url(${AutFeaturesBg.src})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
-          // left: "50%",
-          // top: "50%",
           width: "100vw",
           height: "100vh",
           display: "flex",
@@ -136,7 +136,7 @@ const AutFeatures = ({ parentRef }: any) => {
             </Fragment>
           ))}
         </FeaturesContainer>
-      </Box>
+      </div>
     </>
   );
 };

@@ -1,9 +1,6 @@
-import { useDeviceSize } from "common/utils/use-device-size";
 import { memo, useMemo } from "react";
 
-const Dots = () => {
-  const { width, height } = useDeviceSize();
-
+const Dots = ({ width, height }) => {
   const { scale, translateX, translateY } = useMemo(() => {
     const designWidth = 1440;
     const designHeight = 800;

@@ -1,6 +1,6 @@
 import { sloganAnimationOrder } from "containers/sections/Slogan";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const GWithFilter = styled.g`
@@ -51,12 +51,16 @@ const WhiteCircle = ({ parentRef }: any) => {
   );
 
   const [showFilter, setShowFilter] = useState(true);
+  const started = useRef(false);
 
   useEffect(() => {
     scrollYProgress.on("change", (v) => {
-      if (v >= sloganAnimationOrder.interactionsStart) {
+      if (v >= sloganAnimationOrder.interactionsStart && !started.current) {
         setShowFilter(false);
-      } else if (v <= sloganAnimationOrder.interactionsStart) {
+      } else if (
+        v <= sloganAnimationOrder.interactionsStart &&
+        started.current
+      ) {
         setShowFilter(true);
       }
     });

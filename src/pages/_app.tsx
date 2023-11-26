@@ -6,8 +6,6 @@ import { theme } from "common/theme";
 import ResetCSS from "common/assets/css/style";
 import localFont from "next/font/local";
 import Script from "next/script";
-import { DrawerProvider } from "common/contexts/DrawerContext";
-import Navbar from "containers/Navbar";
 
 const FractulAltBold = localFont({
   src: "fonts/FractulAltBold/font.woff2",
@@ -72,9 +70,6 @@ export default function CustomApp({ Component, pageProps }: any) {
             }
           `}
         </style>
-        <DrawerProvider>
-          <Navbar />
-        </DrawerProvider>
         <main>
           <Component {...pageProps} />
         </main>

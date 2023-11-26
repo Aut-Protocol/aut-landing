@@ -1,6 +1,6 @@
 import { sloganAnimationOrder } from "containers/sections/Slogan";
 import { motion, useAnimation, useScroll } from "framer-motion";
-import { memo, useEffect, useMemo } from "react";
+import { memo, useEffect, useMemo, useRef } from "react";
 import {
   faceOneMovementVariant,
   faceSixMovementVariant,
@@ -12,11 +12,9 @@ import {
   faceSevenMovementVariant,
 } from "./faces.variants";
 import LargeNova, { NovaItem } from "./LargeNova";
-import { useDeviceSize } from "common/utils/use-device-size";
 import WhiteCircle from "./WhiteCircle";
 
-const Faces = ({ parentRef }) => {
-  const { width, height } = useDeviceSize();
+const Faces = ({ parentRef, width, height }) => {
   const { scrollYProgress } = useScroll({
     target: parentRef,
     offset: ["start end", "end end"],
@@ -29,14 +27,20 @@ const Faces = ({ parentRef }) => {
   const faceFiveMovementCtrl = useAnimation();
   const faceSixMovementCtrl = useAnimation();
   const faceSevenMovementCtrl = useAnimation();
-
   const faceScaleCtrl = useAnimation();
   const showNovaItemCtrl = useAnimation();
+  const showLargeNovaItemCtrl = useAnimation();
+
+  const isMounted = useRef(true);
+  const timeouts = useRef([]);
+  const started = useRef(false);
+  const startedFinal = useRef(false);
 
   useEffect(() => {
-    let started = false;
     scrollYProgress.on("change", async (v) => {
-      if (v >= sloganAnimationOrder.end && !started) {
+      if (!isMounted.current) return;
+
+      if (v >= sloganAnimationOrder.end && !started.current) {
         faceOneMovementCtrl.start("after");
         faceTwoMovementCtrl.start("after");
         faceThreeMovementCtrl.start("after");
@@ -45,9 +49,14 @@ const Faces = ({ parentRef }) => {
         faceSixMovementCtrl.start("after");
         faceSevenMovementCtrl.start("after");
         faceScaleCtrl.start("after");
-        setTimeout(() => showNovaItemCtrl.start("after"), 100);
-        started = true;
-      } else if (v <= sloganAnimationOrder.end && started) {
+        timeouts.current.push(
+          setTimeout(() => {
+            if (isMounted.current) showNovaItemCtrl.start("after");
+          }, 100)
+        );
+
+        started.current = true;
+      } else if (v <= sloganAnimationOrder.end && started.current) {
         faceOneMovementCtrl.start("initial");
         faceTwoMovementCtrl.start("initial");
         faceThreeMovementCtrl.start("initial");
@@ -57,11 +66,25 @@ const Faces = ({ parentRef }) => {
         faceSevenMovementCtrl.start("initial");
         faceScaleCtrl.start("initial");
         showNovaItemCtrl.start("initial");
-        started = false;
+        started.current = false;
+        timeouts.current.forEach(clearTimeout);
+      }
+
+      if (v >= sloganAnimationOrder.final && !startedFinal.current) {
+        showLargeNovaItemCtrl.start("after");
+        startedFinal.current = true;
+      } else if (v <= sloganAnimationOrder.final && startedFinal.current) {
+        showLargeNovaItemCtrl.start("initial");
+        startedFinal.current = false;
       }
     });
+
     return () => {
+      isMounted.current = false; // Indicate the component has been unmounted
+      timeouts.current.forEach(clearTimeout);
+      timeouts.current = []; // Clear refs to timeout IDs
       try {
+        // Stop any animation controllers
         faceOneMovementCtrl.stop();
         faceTwoMovementCtrl.stop();
         faceThreeMovementCtrl.stop();
@@ -71,27 +94,10 @@ const Faces = ({ parentRef }) => {
         faceSevenMovementCtrl.stop();
         faceScaleCtrl.stop();
         showNovaItemCtrl.stop();
-      } catch (error) {}
-    };
-  }, [scrollYProgress]);
-
-  const showLargeNovaItemCtrl = useAnimation();
-
-  useEffect(() => {
-    let started = false;
-    scrollYProgress.on("change", async (v) => {
-      if (v >= sloganAnimationOrder.final && !started) {
-        showLargeNovaItemCtrl.start("after");
-        started = true;
-      } else if (v <= sloganAnimationOrder.final && started) {
-        showLargeNovaItemCtrl.start("initial");
-        started = false;
-      }
-    });
-    return () => {
-      try {
         showLargeNovaItemCtrl.stop();
-      } catch (error) {}
+      } catch (error) {
+        // Handle or ignore errors
+      }
     };
   }, [scrollYProgress]);
 

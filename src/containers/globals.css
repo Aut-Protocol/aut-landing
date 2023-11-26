@@ -28,7 +28,7 @@
 }
 
 html {
-  background-color: transparent;
+  background-color: #0F1319;
 }
 
 /* html:before {
@@ -69,8 +69,8 @@ html {
   width: 100%;
   height: 100%;
   z-index: -2;
-  /* background: transparent url("/bg_white_network.svg") 0% 0% no-repeat padding-box;
-  mix-blend-mode: overlay; */
-  /* background-position: center; */
-  /* background-size: cover; */
+  background: transparent url("/common/assets/image/map.png") 0% 0% no-repeat padding-box;
+  mix-blend-mode: overlay;
+  background-position: center;
+  background-size: cover;
 }

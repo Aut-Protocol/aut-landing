@@ -19,6 +19,8 @@ import {
   ColumnWrapper,
   ColumnTitle,
 } from "./footer.style";
+import { useScroll, useTransform } from "framer-motion";
+import Box from "common/components/Box";
 
 const socials = [
   {
@@ -131,14 +133,34 @@ export const LinkWrapper = ({ item }: any) => {
   );
 };
 
-const OsFooter = ({ targetRef }: any) => {
+const OsFooter = ({ parentRef }) => {
   const { logo, copyright, widgets, mailchimpUrl } = FooterData;
+  const { scrollYProgress } = useScroll({
+    target: parentRef,
+    offset: ["start end", "end end"],
+  });
+
+  const footerTranslateY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["100%", "0%"]
+  );
 
   return (
-    <OsFooterSection as="footer">
+    <OsFooterSection
+      style={{
+        bottom: 0,
+        y: footerTranslateY,
+      }}
+    >
       <Container
         style={{
           padding: "30px",
+          height: "50vh",
+          display: "flex",
+          alignItems: "flex-end",
+          flexDirection: "column",
+          justifyContent: "flex-end",
         }}
         noGutter
       >
@@ -207,6 +229,32 @@ const OsFooter = ({ targetRef }: any) => {
             ))}
           </ColumnWrapper>
         </Grid>
+
+        <Box
+          className="bottom-nav-new"
+          flexBox
+          flexDirection={{
+            _: "column",
+            sm: "row",
+          }}
+          style={{
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <Typography
+            color="white"
+            as="body"
+            textAlign="center"
+            margin={{
+              _: "0px 0px 10px 0px",
+              sm: "unset",
+            }}
+          >
+            Made with &#128293; by Āut Labs
+          </Typography>
+        </Box>
       </Container>
     </OsFooterSection>
   );

@@ -1,13 +1,13 @@
 import { useRef } from "react";
 import React from "react";
 import Head from "next/head";
-
 import TopContent from "containers/sections/TopContent";
 import MainBackground from "containers/MainBackground";
 import dynamic from "next/dynamic";
 import { useOnScreen } from "common/utils/use-on-screen";
-import OsFooter from "containers/sections/OSFooter";
 import { useDeviceSize } from "common/utils/use-device-size";
+import { DrawerProvider } from "common/contexts/DrawerContext";
+import Navbar from "containers/Navbar";
 
 const Slogan = dynamic(() => import("containers/sections/Slogan"));
 const Parallax = dynamic(() => import("common/components/parallax"), {
@@ -15,6 +15,7 @@ const Parallax = dynamic(() => import("common/components/parallax"), {
 });
 const AutFeatures = dynamic(() => import("containers/sections/AutFeatures"));
 const AutOS = dynamic(() => import("containers/sections/AutOS"));
+const OsFooter = dynamic(() => import("containers/sections/OSFooter"));
 
 export default function Home() {
   const { width, height } = useDeviceSize();
@@ -59,52 +60,58 @@ export default function Home() {
         />
       </Head>
 
-      {sloganTargetRef.current && (
-        <MainBackground
-          width={width}
-          height={height}
-          parentRef={sloganTargetRef}
-          isSloganVisible={!!sloganTargetRef.current}
-        />
-      )}
-      <section
-        className="top-content relative mb-[8rem] h-screen"
-        ref={topContentTargetRef}
-      >
-        {topContentTargetRef.current && (
-          <TopContent parentRef={topContentTargetRef} />
-        )}
-      </section>
+      <DrawerProvider>
+        {sloganTargetRef?.current && <Navbar parentRef={sloganTargetRef} />}
+      </DrawerProvider>
 
-      <section className="slogan relative h-[1400vh]" ref={sloganTargetRef}>
-        {(isSloganVisible || isTopContentVisible) && (
-          <Slogan parentRef={sloganTargetRef} />
+      <div className="relative z-10 overflow-y-scroll">
+        {sloganTargetRef.current && (
+          <MainBackground
+            width={width}
+            height={height}
+            bottomRef={autFeaturesTargetRef}
+            parentRef={sloganTargetRef}
+            isSloganVisible={!!sloganTargetRef.current}
+          />
         )}
-      </section>
+        <section
+          className="top-content relative mb-[8rem] h-screen"
+          ref={topContentTargetRef}
+        >
+          {topContentTargetRef.current && (
+            <TopContent parentRef={topContentTargetRef} />
+          )}
+        </section>
 
-      <section className="empty relative h-screen" />
+        <section className="slogan relative h-[1400vh]" ref={sloganTargetRef}>
+          {(isSloganVisible || isTopContentVisible) && (
+            <Slogan
+              bottomRef={autFeaturesTargetRef}
+              parentRef={sloganTargetRef}
+            />
+          )}
+        </section>
+      </div>
 
       <section
         className="features relative h-screen"
         ref={autFeaturesTargetRef}
       >
-        <Parallax speed={-0.5}>
-          {isAutFeaturesVisible && <AutFeatures targetRef={autOSTargetRef} />}
-        </Parallax>
+        {autOSTargetRef.current && <AutFeatures parentRef={autOSTargetRef} />}
       </section>
 
-      <section
-        style={{
-          background: "#000000",
-        }}
-        className="aut-os relative h-[300vh]"
-      >
-        <Parallax speed={-0.5}>
-          <div ref={autOSTargetRef}>
-            {isAutOSVisible && <AutOS targetRef={autOSTargetRef} />}
-          </div>
-          <OsFooter targetRef={footerTargetRef} />
-        </Parallax>
+      <section className="aut-os relative z-20 h-[400vh]" ref={autOSTargetRef}>
+        {autOSTargetRef.current && (
+          <AutOS
+            width={width}
+            height={height}
+            footerTargetRef={footerTargetRef}
+            parentRef={autOSTargetRef}
+          />
+        )}
+      </section>
+      <section className="aut-os relative z-30 h-[50vh]" ref={footerTargetRef}>
+        {footerTargetRef?.current && <OsFooter parentRef={footerTargetRef} />}
       </section>
     </>
   );

@@ -1,7 +1,7 @@
 import { stylesWithCssVar } from "utils/motion";
 import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
 import Typography from "common/components/Typography";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import autSelfLine from "common/assets/image/own-self.svg";
@@ -16,7 +16,7 @@ export const sloganAnimationOrder = {
   reputationStart: 0.7,
   interactionsStart: 0.8,
   end: 0.85,
-  final: 0.95
+  final: 0.95,
 };
 
 const variants = {
@@ -33,6 +33,17 @@ const variants = {
     transition: {
       y: { stiffness: 1000 },
     },
+  },
+};
+
+const finalTextVariant = {
+  hidden: {
+    opacity: 0,
+    scale: 0.2,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
   },
 };
 
@@ -66,7 +77,7 @@ const TypographyWithStrike = styled("div")`
   }
 `;
 
-const Slogan = ({ parentRef }: any) => {
+const Slogan = ({ parentRef, bottomRef }) => {
   const { scrollYProgress } = useScroll({
     target: parentRef,
     offset: ["start end", "end end"],
@@ -126,60 +137,89 @@ const Slogan = ({ parentRef }: any) => {
     },
   };
 
-  useEffect(() => {
-    let started = false;
-    scrollYProgress.on("change", (v) => {
-      if (v >= sloganAnimationOrder.startFadeIn && !started) {
-        sloganImgCtrl.start("visible");
-        started = true;
-      } else if (v <= sloganAnimationOrder.startFadeIn && started) {
-        sloganImgCtrl.start("hidden");
-        started = false;
-      }
-    });
-    return () => {
-      try {
-        sloganImgCtrl.stop();
-      } catch (error) {}
-    };
-  }, [sloganImgCtrl, scrollYProgress]);
-
   const outsideSystemCtrl = useAnimation();
   const outsideConventionsCtrl = useAnimation();
   const outsideStatusQuo = useAnimation();
+  const showFinalTextCtrl = useAnimation();
+
   const [hasStrike, enableStrike] = useState(false);
+  const isMounted = useRef(true); // Ref to track if the component is mounted
+  const timeouts = useRef([]); // Ref to store timeout IDs
+  const started = useRef(false);
+  const startedFinalText = useRef(false);
+  const startedSloganImg = useRef(false);
 
   useEffect(() => {
-    let started = false;
     scrollYProgress.on("change", async (v) => {
-      if (v >= sloganAnimationOrder.outsideStart && !started) {
+      if (!isMounted.current) return;
+
+      if (v >= sloganAnimationOrder.startFadeIn && !startedSloganImg.current) {
+        sloganImgCtrl.start("visible");
+        startedSloganImg.current = true;
+      } else if (
+        v <= sloganAnimationOrder.startFadeIn &&
+        startedSloganImg.current
+      ) {
+        sloganImgCtrl.start("hidden");
+        startedSloganImg.current = false;
+      }
+
+      if (v >= sloganAnimationOrder.outsideStart && !started.current) {
         outsideSystemCtrl.start("visible");
-        setTimeout(() => outsideConventionsCtrl.start("visible"), 200);
-        setTimeout(() => outsideStatusQuo.start("visible"), 400);
-        setTimeout(() => enableStrike(true), 600);
-        started = true;
-      } else if (v <= sloganAnimationOrder.outsideStart && started) {
+
+        // Set timeouts and store their IDs
+        timeouts.current.push(
+          setTimeout(() => {
+            if (isMounted.current) outsideConventionsCtrl.start("visible");
+          }, 200)
+        );
+
+        timeouts.current.push(
+          setTimeout(() => {
+            if (isMounted.current) outsideStatusQuo.start("visible");
+          }, 400)
+        );
+
+        timeouts.current.push(
+          setTimeout(() => {
+            if (isMounted.current) enableStrike(true);
+          }, 600)
+        );
+
+        started.current = true;
+      } else if (v <= sloganAnimationOrder.outsideStart && started.current) {
         outsideSystemCtrl.start("hidden");
         outsideConventionsCtrl.start("hidden");
         outsideStatusQuo.start("hidden");
         enableStrike(false);
-        started = false;
+        started.current = false;
+        timeouts.current.forEach(clearTimeout);
+      }
+
+      if (v >= sloganAnimationOrder.final && !startedFinalText.current) {
+        showFinalTextCtrl.start("visible");
+        startedFinalText.current = true;
+      } else if (v <= sloganAnimationOrder.final && startedFinalText.current) {
+        showFinalTextCtrl.start("hidden");
+        startedFinalText.current = false;
       }
     });
+
     return () => {
+      isMounted.current = false; // Indicate the component has been unmounted
+      timeouts.current.forEach(clearTimeout);
+      timeouts.current = []; // Clear refs to timeout IDs
       try {
+        // Stop any animation controllers
         outsideSystemCtrl.stop();
         outsideConventionsCtrl.stop();
         outsideStatusQuo.stop();
         enableStrike(false);
-      } catch (error) {}
+      } catch (error) {
+        // Handle or ignore errors
+      }
     };
-  }, [
-    outsideSystemCtrl,
-    outsideConventionsCtrl,
-    outsideStatusQuo,
-    scrollYProgress,
-  ]);
+  }, [scrollYProgress]);
 
   const reputationOpacity = useTransform(
     scrollYProgress,
@@ -200,6 +240,17 @@ const Slogan = ({ parentRef }: any) => {
       sloganAnimationOrder.end,
     ],
     [0, 1, 0]
+  );
+
+  const { scrollYProgress: bottomRefYScrollProgress } = useScroll({
+    target: bottomRef,
+    offset: ["start end", "end end"],
+  });
+
+  const finalTextOpacity = useTransform(
+    bottomRefYScrollProgress,
+    [0, 0.3],
+    [1, 0]
   );
 
   return (
@@ -245,11 +296,7 @@ const Slogan = ({ parentRef }: any) => {
             transition={{ duration: 0.5 }}
             exit={{ opacity: 0 }}
           >
-            <img
-              src={autSelfLine.src}
-              className="w-auto"
-              alt={"own-self"}
-            />
+            <img src={autSelfLine.src} className="w-auto" alt={"own-self"} />
           </motion.figure>
         </div>
       </motion.div>
@@ -424,6 +471,46 @@ const Slogan = ({ parentRef }: any) => {
           </motion.div>
         </div>
       </div>
+
+      <motion.div
+        variants={finalTextVariant}
+        animate={showFinalTextCtrl}
+        exit={{ opacity: 0 }}
+        initial="hidden"
+        className="absolute flex flex-col items-end justify-center"
+      >
+        <motion.div
+          style={{
+            opacity: finalTextOpacity,
+          }}
+          className="flex flex-col gap-8"
+        >
+          <Typography
+            color="#262626"
+            as="subtitle1"
+            textAlign="left"
+            p={{
+              _: "0px 10px",
+              md: "0px",
+            }}
+          >
+            … and here the final <br />
+            state about network
+          </Typography>
+          <Typography
+            color="#262626"
+            as="subtitle1"
+            textAlign="left"
+            p={{
+              _: "0px 10px",
+              md: "0px",
+            }}
+          >
+            It could actually take <br /> two sub steps to reveal <br /> more
+            (two paragraphs) <br /> text if we want
+          </Typography>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

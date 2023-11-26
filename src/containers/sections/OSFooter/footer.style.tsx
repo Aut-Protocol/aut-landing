@@ -13,12 +13,14 @@ import {
 import BubbleImage from "common/assets/image/bubble.svg";
 import Typography from "common/components/Typography";
 import Button from "common/components/Button";
+import { motion } from "framer-motion";
 
-export const OsFooterSection = styled(Section)`
+export const OsFooterSection = styled(motion.div)`
   overflow: hidden;
   width: 100%;
-  // background: #0f1319;
-  height: 280px;
+  background: #0f1319;
+  height: 50vh;
+  position: fixed;
 `;
 
 export const Grid = styled<any>("div")`
