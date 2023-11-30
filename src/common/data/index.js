@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import AutLogo from "common/assets/image/logo.svg";
+import AutLogoWhite from "common/assets/image/logo_white.svg";
 
 /* ------------------------------------ */
 // Navbar data section
@@ -7,6 +8,7 @@ import AutLogo from "common/assets/image/logo.svg";
 
 export const NavbarData = {
   logo: AutLogo,
+  logoWhite: AutLogoWhite,
   navButtons: [
     // {
     //   // link: "https://playground.aut.id",
@@ -15,29 +17,53 @@ export const NavbarData = {
     // },
   ],
   menuItems: [
+    // {
+    //   label: "X",
+    //   staticLink: true,
+    //   target: "_blank",
+    //   path: "https://twitter.com/opt_aut",
+    // },
+    // {
+    //   label: "Discord",
+    //   staticLink: true,
+    //   target: "_blank",
+    //   path: "https://discord.gg/neHnzyBJEV",
+    // },
+    // {
+    //   label: "Github",
+    //   staticLink: true,
+    //   target: "_blank",
+    //   path: "https://github.com/Aut-Labs",
+    // },
+    // {
+    //   label: "Docs",
+    //   staticLink: true,
+    //   target: "_blank",
+    //   path: "https://docs.aut.id/",
+    // },
     {
-      label: "X",
+      label: "Manifesto",
       staticLink: true,
       target: "_blank",
-      path: "https://twitter.com/opt_aut",
+      path: "https://manifesto.aut.id/",
     },
     {
-      label: "Discord",
+      label: "Showcase",
       staticLink: true,
       target: "_blank",
-      path: "https://discord.gg/neHnzyBJEV",
+      path: "https://showcase.aut.id/",
     },
     {
-      label: "Github",
+      label: "About Āut",
       staticLink: true,
       target: "_blank",
-      path: "https://github.com/Aut-Labs",
+      path: "https://aut.id/",
     },
     {
-      label: "Docs",
+      label: "DApp",
       staticLink: true,
       target: "_blank",
-      path: "https://docs.aut.id/",
+      path: "https://autos.aut.id/",
     },
     // {
     //   label: "Manifesto",
@@ -977,7 +1003,7 @@ export const FooterData = {
           target: "_blank",
           link: "https://twitter.com/opt_aut",
         },
- 
+
         // {
         //   id: 2,
         //   title: "Manifesto",

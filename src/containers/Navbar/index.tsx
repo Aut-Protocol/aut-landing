@@ -8,12 +8,9 @@ import { DrawerContext } from "common/contexts/DrawerContext";
 import { NavbarData } from "common/data";
 import PropTypes from "prop-types";
 import Logo from "common/components/UIElements/Logo";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
-import Button from "common/components/Button";
-import { sloganAnimationOrder } from "containers/sections/Slogan";
-import { useScroll, useAnimation } from "framer-motion";
 
 const navbarStyle = {
   className: "sass_app_dark_navbar",
@@ -58,9 +55,9 @@ const logoStyles = {
   },
 };
 
-const Navbar = ({ row, menuWrapper, parentRef }) => {
+const Navbar = ({ row, menuWrapper }) => {
   const { state, dispatch }: any = useContext(DrawerContext);
-  const { menuItems, logo, navButtons } = NavbarData;
+  const { menuItems, logo, logoWhite } = NavbarData;
 
   const toggleHandler = () => {
     dispatch({
@@ -68,27 +65,8 @@ const Navbar = ({ row, menuWrapper, parentRef }) => {
     });
   };
 
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
-  const [show, setShow] = React.useState(false);
-
-  useEffect(() => {
-    let started = false;
-    scrollYProgress.on("change", async (v) => {
-      if (v >= sloganAnimationOrder.final && !started) {
-        setShow(true);
-        started = true;
-      } else if (v <= sloganAnimationOrder.final && started) {
-        started = false;
-        setShow(false);
-      }
-    });
-  }, [scrollYProgress]);
-
   return (
-    <NavbarWrapper {...navbarStyle} show={show}>
+    <NavbarWrapper {...navbarStyle} mode={state.mode}>
       <Container
         noGutter
         px={{
@@ -116,7 +94,7 @@ const Navbar = ({ row, menuWrapper, parentRef }) => {
           >
             <Logo
               // @ts-ignore
-              logoSrc={logo}
+              logoSrc={state.mode === "light" ? logoWhite : logo}
               href="/"
               alt="Aut Logo"
               logoStyle={logoStyles}

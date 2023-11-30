@@ -1,12 +1,9 @@
-import { sloganAnimationOrder } from "containers/sections/Slogan";
-import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
-import { memo, useEffect, useRef } from "react";
+import { SloganContext, sloganAnimationOrder } from "containers/sections/Slogan";
+import { useTransform, motion, useAnimation } from "framer-motion";
+import { memo, useContext, useEffect, useRef } from "react";
 
-const WhiteBG = ({ parentRef }) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
+const WhiteBG = () => {
+  const { scrollYProgress } = useContext(SloganContext);
 
   const scale = useTransform(
     scrollYProgress,

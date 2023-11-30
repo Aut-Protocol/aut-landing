@@ -1,6 +1,9 @@
-import { sloganAnimationOrder } from "containers/sections/Slogan";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { memo, useEffect, useRef, useState } from "react";
+import {
+  SloganContext,
+  sloganAnimationOrder,
+} from "containers/sections/Slogan";
+import { motion, useTransform } from "framer-motion";
+import { memo, useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const GWithFilter = styled.g`
@@ -16,11 +19,8 @@ const GWithFilter = styled.g`
   }
 `;
 
-const WhiteCircle = ({ parentRef }: any) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
+const WhiteCircle = () => {
+  const { scrollYProgress } = useContext(SloganContext);
 
   const circleScale = useTransform(
     scrollYProgress,
@@ -64,6 +64,8 @@ const WhiteCircle = ({ parentRef }: any) => {
         setShowFilter(true);
       }
     });
+
+    return () => {};
   }, [showFilter, scrollYProgress]);
 
   const fadeOutOpacityStroke = useTransform(

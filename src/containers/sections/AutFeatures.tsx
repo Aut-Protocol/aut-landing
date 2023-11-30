@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motionValue, useScroll } from "framer-motion";
 import AutFeaturesBg from "common/assets/image/features-bg.png";
 import FreedomIcon from "common/assets/image/features/freedom-icon.png";
 import SelfIcon from "common/assets/image/features/self-icon.png";
@@ -11,7 +11,9 @@ import Image from "common/components/Image";
 import Typography from "common/components/Typography";
 import styled from "styled-components";
 import themeGet from "@styled-system/theme-get";
-import { Fragment, memo } from "react";
+import { Fragment, memo, useContext, useEffect, useRef } from "react";
+import { DrawerContext } from "common/contexts/DrawerContext";
+import React from "react";
 
 const FeaturesContainer = styled(Box)`
   display: grid;
@@ -106,9 +108,45 @@ const IndividualFeature = ({
   );
 };
 
-const AutFeatures = ({ parentRef }) => {
+const initialState = {
+  scrollYProgress: motionValue(0), // Initial value
+};
+
+export const AutFeaturesContext = React.createContext<typeof initialState>(initialState);
+
+export const AutFeaturesProvider = ({ children }) => {
   return (
-    <>
+    <AutFeaturesContext.Provider value={initialState}>
+      {children}
+    </AutFeaturesContext.Provider>
+  );
+};
+
+const AutFeatures = () => {
+  const { scrollYProgress: scrollY } = useContext(AutFeaturesContext);
+  const { dispatch }: any = useContext(DrawerContext);
+  const targetRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end end"],
+    axis: "y",
+  });
+
+  useEffect(() => {
+    scrollYProgress.on("change", (v) => {
+      scrollY.set(v);
+      if (v > 0) {
+        dispatch({
+          type: "MODE",
+          payload: "dark",
+        });
+      }
+    });
+  }, [scrollYProgress]);
+
+  return (
+    <section className="features relative h-screen" ref={targetRef}>
       <div
         className="fixed flex origin-center justify-center text-white"
         style={{
@@ -137,7 +175,7 @@ const AutFeatures = ({ parentRef }) => {
           ))}
         </FeaturesContainer>
       </div>
-    </>
+    </section>
   );
 };
 

@@ -1,12 +1,12 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useMemo } from "react";
+import { motion, useTransform } from "framer-motion";
+import { memo, useContext, useEffect, useMemo } from "react";
 import FallenBackground from "./Fallen";
+import { useDeviceSize } from "common/utils/use-device-size";
+import { AutOSContext } from "./AutOS";
 
-const CrackBackground = ({ parentRef, width, height }) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
+const CrackBackground = () => {
+  const { scrollYProgress } = useContext(AutOSContext);
+  const { width, height } = useDeviceSize();
   const { scale, translateX, translateY } = useMemo(() => {
     const designWidth = 1440;
     const designHeight = 800;
@@ -221,4 +221,4 @@ const CrackBackground = ({ parentRef, width, height }) => {
   );
 };
 
-export default CrackBackground;
+export default memo(CrackBackground);

@@ -6,6 +6,12 @@ import { theme } from "common/theme";
 import ResetCSS from "common/assets/css/style";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { DrawerProvider } from "common/contexts/DrawerContext";
+import { TopContentProvider } from "containers/sections/TopContent";
+import { SloganProvider } from "containers/sections/Slogan";
+import { AutFeaturesProvider } from "containers/sections/AutFeatures";
+import { OSFooterProvider } from "containers/sections/OSFooter";
+import { AutOSProvider } from "containers/sections/AutOS";
 
 const FractulAltBold = localFont({
   src: "fonts/FractulAltBold/font.woff2",
@@ -71,7 +77,19 @@ export default function CustomApp({ Component, pageProps }: any) {
           `}
         </style>
         <main>
-          <Component {...pageProps} />
+          <OSFooterProvider>
+            <AutFeaturesProvider>
+              <SloganProvider>
+                <TopContentProvider>
+                  <AutOSProvider>
+                    <DrawerProvider>
+                      <Component {...pageProps} />
+                    </DrawerProvider>
+                  </AutOSProvider>
+                </TopContentProvider>
+              </SloganProvider>
+            </AutFeaturesProvider>
+          </OSFooterProvider>
         </main>
         {/* <CookieConsent
             location="bottom"

@@ -23,7 +23,7 @@ const NavbarStyle = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
-  transition: 0.35s ease-in-out;
+  transition: 0.25s ease-in-out;
   z-index: 200;
   overflow: hidden;
   
@@ -32,7 +32,12 @@ const NavbarStyle = styled.nav`
 
   ${themeGet("mediaQueries.md")} {
     border-radius: 72px;
-    max-width: 40%;
+    max-width: 70%;
+  }
+
+  ${themeGet("mediaQueries.xl")} {
+    border-radius: 72px;
+    max-width: 45%;
   }
 
   &:before {
@@ -162,6 +167,13 @@ const NavbarStyle = styled.nav`
           background-color: ${themeGet("colors.white")};
         }
       }
+    }
+  }
+
+  &.light {
+    transition: 0.15s ease-in-out;
+    .main_menu li a {
+      color: ${themeGet("colors.nightBlack")};
     }
   }
   /* Style system supported prop */

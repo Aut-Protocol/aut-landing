@@ -55,7 +55,6 @@ export const ColumnTitle = styled(Typography)`
   display: flex;
   align-items: flex-end;
   margin-bottom: 15px;
-
 `;
 
 export const FooterWidgetItem = styled("li")`
@@ -65,9 +64,6 @@ export const FooterWidgetItem = styled("li")`
   a {
     text-transform: inherit;
     color: ${themeGet("colors.textColor")};
-    &:hover {
-      color: ${themeGet("colors.white")};
-    }
   }
   ${base};
 `;
@@ -95,6 +91,13 @@ export const ColumnWrapper = styled.div`
   align-content: center;
   display: flex;
   flex-direction: column;
+
+  .footer-link {
+    transition: 0.15s ease-in-out;
+    &:hover {
+      color: ${themeGet("colors.primary")} !important;
+    }
+  }
 `;
 
 export const Social = styled("div")`

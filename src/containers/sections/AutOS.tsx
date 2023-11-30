@@ -1,7 +1,7 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
 import {
   motion,
-  useAnimation,
+  motionValue,
   useMotionValue,
   useScroll,
   useTransform,
@@ -12,6 +12,8 @@ import Image from "common/components/Image";
 import Typography from "common/components/Typography";
 import AutOSLogo from "common/assets/AutOSLogoV2.svg";
 import CrackBackground from "./Cracks";
+import { OSFooterContext } from "./OSFooter";
+import React from "react";
 
 export const sloganAnimationOrder = {
   initial: 0,
@@ -95,14 +97,28 @@ const ClaimIdButton = styled("button")`
   }
 `;
 
-const AutOSSection = ({ parentRef, footerTargetRef, width, height }) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
+const initialState = {
+  scrollYProgress: motionValue(0),
+};
 
-  const { scrollYProgress: footerScrollYProgress } = useScroll({
-    target: footerTargetRef,
+export const AutOSContext =
+  React.createContext<typeof initialState>(initialState);
+
+export const AutOSProvider = ({ children }) => {
+  return (
+    <AutOSContext.Provider value={initialState}>
+      {children}
+    </AutOSContext.Provider>
+  );
+};
+
+const AutOS = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress: footerScrollYProgress } =
+    useContext(OSFooterContext);
+  const { scrollYProgress: scrollY } = useContext(AutOSContext);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
     offset: ["start end", "end end"],
   });
 
@@ -122,6 +138,9 @@ const AutOSSection = ({ parentRef, footerTargetRef, width, height }) => {
 
   // Effect to combine translateY from main and footer content
   useEffect(() => {
+    scrollYProgress.on("change", (v) => {
+      scrollY.set(v);
+    });
     function updateCombinedTranslateY() {
       const progressValue = translateY.get();
       const footerProgressValue = footerTranslateY.get();
@@ -136,8 +155,12 @@ const AutOSSection = ({ parentRef, footerTargetRef, width, height }) => {
     }
 
     // Listen for changes on both motion values and update combined value
-    const unsubscribeTranslateY = translateY.onChange(updateCombinedTranslateY);
-    const unsubscribeFooterTranslateY = footerTranslateY.onChange(
+    const unsubscribeTranslateY = translateY.on(
+      "change",
+      updateCombinedTranslateY
+    );
+    const unsubscribeFooterTranslateY = footerTranslateY.on(
+      "change",
       updateCombinedTranslateY
     );
 
@@ -151,7 +174,7 @@ const AutOSSection = ({ parentRef, footerTargetRef, width, height }) => {
   const [optOut, setOptOut] = useState(false);
 
   return (
-    <>
+    <section className="aut-os relative z-20 h-[400vh]" ref={targetRef}>
       <motion.div
         style={{
           opacity: autOSOpacity,
@@ -247,16 +270,10 @@ const AutOSSection = ({ parentRef, footerTargetRef, width, height }) => {
             </div>
           </>
         </div>
-        {parentRef?.current && (
-          <CrackBackground
-            parentRef={parentRef}
-            width={width}
-            height={height}
-          />
-        )}
+        <CrackBackground />
       </motion.div>
-    </>
+    </section>
   );
 };
 
-export default memo(AutOSSection);
+export default memo(AutOS);

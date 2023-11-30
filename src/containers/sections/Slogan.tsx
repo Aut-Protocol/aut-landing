@@ -1,10 +1,18 @@
 import { stylesWithCssVar } from "utils/motion";
-import { useScroll, useTransform, motion, useAnimation } from "framer-motion";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  useAnimation,
+  motionValue,
+} from "framer-motion";
 import Typography from "common/components/Typography";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Image from "next/image";
 import autSelfLine from "common/assets/image/own-self.svg";
+import { DrawerContext } from "common/contexts/DrawerContext";
+import React from "react";
+import { AutFeaturesContext } from "./AutFeatures";
 
 export const sloganAnimationOrder = {
   initial: 0,
@@ -77,10 +85,30 @@ const TypographyWithStrike = styled("div")`
   }
 `;
 
-const Slogan = ({ parentRef, bottomRef }) => {
+const initialState = {
+  scrollYProgress: motionValue(0), // Initial value
+};
+
+export const SloganContext =
+  React.createContext<typeof initialState>(initialState);
+
+export const SloganProvider = ({ children }) => {
+  return (
+    <SloganContext.Provider value={initialState}>
+      {children}
+    </SloganContext.Provider>
+  );
+};
+
+const Slogan = () => {
+  const { scrollYProgress: scrollY } = useContext(SloganContext);
+  const { scrollYProgress: featuresScrollY } = useContext(AutFeaturesContext);
+  const { dispatch }: any = useContext(DrawerContext);
+  const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
-    target: parentRef,
+    target: targetRef,
     offset: ["start end", "end end"],
+    axis: "y",
   });
 
   const sloganImgCtrl = useAnimation();
@@ -151,7 +179,10 @@ const Slogan = ({ parentRef, bottomRef }) => {
 
   useEffect(() => {
     scrollYProgress.on("change", async (v) => {
+
+      console.log(v);
       if (!isMounted.current) return;
+      scrollY.set(v);
 
       if (v >= sloganAnimationOrder.startFadeIn && !startedSloganImg.current) {
         sloganImgCtrl.start("visible");
@@ -199,9 +230,17 @@ const Slogan = ({ parentRef, bottomRef }) => {
       if (v >= sloganAnimationOrder.final && !startedFinalText.current) {
         showFinalTextCtrl.start("visible");
         startedFinalText.current = true;
+        dispatch({
+          type: "MODE",
+          payload: "light",
+        });
       } else if (v <= sloganAnimationOrder.final && startedFinalText.current) {
         showFinalTextCtrl.start("hidden");
         startedFinalText.current = false;
+        dispatch({
+          type: "MODE",
+          payload: "dark",
+        });
       }
     });
 
@@ -242,276 +281,273 @@ const Slogan = ({ parentRef, bottomRef }) => {
     [0, 1, 0]
   );
 
-  const { scrollYProgress: bottomRefYScrollProgress } = useScroll({
-    target: bottomRef,
-    offset: ["start end", "end end"],
-  });
-
   const finalTextOpacity = useTransform(
-    bottomRefYScrollProgress,
+    featuresScrollY,
     [0, 0.3],
     [1, 0]
   );
 
   return (
-    <div
-      className="fixed flex w-full flex-col items-center justify-center text-white"
-      style={{
-        transform: "translate(-50%, -50%)",
-        left: "50%",
-        top: "50%",
-      }}
-    >
-      <motion.div
-        className="absolute flex flex-col items-end justify-center"
-        style={stylesWithCssVar({
-          top: "50%",
-          opacity: sloganOpacity,
-          y: sloganTranslateY,
-        })}
-      >
-        <Typography
-          color="white"
-          as="subtitle1"
-          textAlign="center"
-          p={{
-            _: "0px 10px",
-            md: "0px",
-          }}
-        >
-          Āut Is Your Own Self.
-        </Typography>
-        <div
-          style={{
-            width: "130px",
-            marginRight: "-25px",
-            overflow: "hidden",
-            marginTop: "-10px",
-          }}
-        >
-          <motion.figure
-            initial="hidden"
-            animate={sloganImgCtrl}
-            variants={imgAnimation}
-            transition={{ duration: 0.5 }}
-            exit={{ opacity: 0 }}
-          >
-            <img src={autSelfLine.src} className="w-auto" alt={"own-self"} />
-          </motion.figure>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="flex-col items-center justify-center"
-        style={stylesWithCssVar({
-          opacity: yourselfOpacity,
-          y: yourselfTranslateY,
-        })}
-      >
-        <Typography
-          color="white"
-          as="subtitle1"
-          textAlign="center"
-          p={{
-            _: "0px 10px",
-            md: "0px",
-          }}
-        >
-          Yourself...
-        </Typography>
-      </motion.div>
-
-      <motion.div
-        style={{
-          opacity: yourselfOpacity,
-        }}
-        className="absolute flex flex-col items-end justify-center"
-      >
-        <div className="flex h-0 items-center justify-center gap-6">
-          <motion.div
-            variants={variants}
-            animate={outsideSystemCtrl}
-            initial="hidden"
-            exit={{ opacity: 0 }}
-            style={{
-              marginBottom: "8rem",
-            }}
-            className="flex flex-col items-center justify-center"
-          >
-            {/* <img alt="line1" src="/lines/para_line_1.svg" /> */}
-            <Typography
-              fontWeight="bold"
-              color="white"
-              as="subtitle2"
-              textAlign="center"
-            >
-              Outside
-            </Typography>
-            <TypographyWithStrike>
-              <Typography
-                className={hasStrike ? "strike" : ""}
-                fontWeight="bold"
-                color="white"
-                as="subtitle1"
-                textAlign="center"
-              >
-                the system
-              </Typography>
-            </TypographyWithStrike>
-          </motion.div>
-          <motion.div
-            variants={variants}
-            animate={outsideConventionsCtrl}
-            initial="hidden"
-            exit={{ opacity: 0 }}
-            style={{
-              marginLeft: "-2rem",
-            }}
-            className="flex flex-col items-center justify-center"
-          >
-            {/* <img src="/lines/para_line_2.svg" alt="line2" /> */}
-            <Typography
-              fontWeight="bold"
-              color="white"
-              as="subtitle2"
-              textAlign="center"
-            >
-              Outside
-            </Typography>
-            <TypographyWithStrike>
-              <Typography
-                className={hasStrike ? "strike" : ""}
-                fontWeight="bold"
-                color="white"
-                as="subtitle1"
-                textAlign="center"
-              >
-                conventions
-              </Typography>
-            </TypographyWithStrike>
-          </motion.div>
-          <motion.div
-            variants={variants}
-            animate={outsideStatusQuo}
-            initial="hidden"
-            exit={{ opacity: 0 }}
-            style={{
-              marginBottom: "-8rem",
-              marginLeft: "rem",
-            }}
-            className="flex flex-col items-center justify-center"
-          >
-            {/* <img alt="line3" src="/lines/para_line_3.svg" /> */}
-            <Typography
-              fontWeight="bold"
-              color="white"
-              as="subtitle2"
-              textAlign="center"
-            >
-              Outside
-            </Typography>
-            <TypographyWithStrike>
-              <Typography
-                className={hasStrike ? "strike" : ""}
-                fontWeight="bold"
-                color="white"
-                as="subtitle1"
-                textAlign="center"
-              >
-                the status quo
-              </Typography>
-            </TypographyWithStrike>
-          </motion.div>
-        </div>
-      </motion.div>
-
+    <section className="slogan relative h-[1400vh]" ref={targetRef}>
       <div
-        className="absolute flex flex-col items-end justify-center"
+        className="fixed flex w-full flex-col items-center justify-center text-white"
         style={{
+          transform: "translate(-50%, -50%)",
+          left: "50%",
           top: "50%",
         }}
-      >
-        <div className="flex flex-col">
-          <motion.div
-            style={stylesWithCssVar({
-              opacity: reputationOpacity,
-            })}
-          >
-            <Typography
-              color="white"
-              as="subtitle1"
-              textAlign="left"
-              p={{
-                _: "0px 10px",
-                md: "0px",
-              }}
-            >
-              Here’s something about <br />
-              reputation…
-            </Typography>
-          </motion.div>
-
-          <motion.div
-            style={stylesWithCssVar({
-              marginLeft: "2rem",
-              opacity: interactionOpacity,
-            })}
-          >
-            <Typography
-              color="white"
-              as="subtitle1"
-              textAlign="left"
-              p={{
-                _: "0px 10px",
-                md: "0px",
-              }}
-            >
-              … and here about <br /> interactions
-            </Typography>
-          </motion.div>
-        </div>
-      </div>
-
-      <motion.div
-        variants={finalTextVariant}
-        animate={showFinalTextCtrl}
-        exit={{ opacity: 0 }}
-        initial="hidden"
-        className="absolute flex flex-col items-end justify-center"
       >
         <motion.div
-          style={{
-            opacity: finalTextOpacity,
-          }}
-          className="flex flex-col gap-8"
+          className="absolute flex flex-col items-end justify-center"
+          style={stylesWithCssVar({
+            top: "50%",
+            opacity: sloganOpacity,
+            y: sloganTranslateY,
+          })}
         >
           <Typography
-            color="#262626"
+            color="white"
             as="subtitle1"
-            textAlign="left"
+            textAlign="center"
             p={{
               _: "0px 10px",
               md: "0px",
             }}
           >
-            … and here the final <br />
-            state about network
+            Āut Is Your Own Self.
           </Typography>
+          <div
+            style={{
+              width: "130px",
+              marginRight: "-25px",
+              overflow: "hidden",
+              marginTop: "-10px",
+            }}
+          >
+            <motion.figure
+              initial="hidden"
+              animate={sloganImgCtrl}
+              variants={imgAnimation}
+              transition={{ duration: 0.5 }}
+              exit={{ opacity: 0 }}
+            >
+              <img src={autSelfLine.src} className="w-auto" alt={"own-self"} />
+            </motion.figure>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="flex-col items-center justify-center"
+          style={stylesWithCssVar({
+            opacity: yourselfOpacity,
+            y: yourselfTranslateY,
+          })}
+        >
           <Typography
-            color="#262626"
+            color="white"
             as="subtitle1"
-            textAlign="left"
+            textAlign="center"
             p={{
               _: "0px 10px",
               md: "0px",
             }}
           >
-            It could actually take <br /> two sub steps to reveal <br /> more
-            (two paragraphs) <br /> text if we want
+            Yourself...
           </Typography>
         </motion.div>
-      </motion.div>
-    </div>
+
+        <motion.div
+          style={{
+            opacity: yourselfOpacity,
+          }}
+          className="absolute flex flex-col items-end justify-center"
+        >
+          <div className="flex h-0 items-center justify-center gap-6">
+            <motion.div
+              variants={variants}
+              animate={outsideSystemCtrl}
+              initial="hidden"
+              exit={{ opacity: 0 }}
+              style={{
+                marginBottom: "8rem",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              {/* <img alt="line1" src="/lines/para_line_1.svg" /> */}
+              <Typography
+                fontWeight="bold"
+                color="white"
+                as="subtitle2"
+                textAlign="center"
+              >
+                Outside
+              </Typography>
+              <TypographyWithStrike>
+                <Typography
+                  className={hasStrike ? "strike" : ""}
+                  fontWeight="bold"
+                  color="white"
+                  as="subtitle1"
+                  textAlign="center"
+                >
+                  the system
+                </Typography>
+              </TypographyWithStrike>
+            </motion.div>
+            <motion.div
+              variants={variants}
+              animate={outsideConventionsCtrl}
+              initial="hidden"
+              exit={{ opacity: 0 }}
+              style={{
+                marginLeft: "-2rem",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              {/* <img src="/lines/para_line_2.svg" alt="line2" /> */}
+              <Typography
+                fontWeight="bold"
+                color="white"
+                as="subtitle2"
+                textAlign="center"
+              >
+                Outside
+              </Typography>
+              <TypographyWithStrike>
+                <Typography
+                  className={hasStrike ? "strike" : ""}
+                  fontWeight="bold"
+                  color="white"
+                  as="subtitle1"
+                  textAlign="center"
+                >
+                  conventions
+                </Typography>
+              </TypographyWithStrike>
+            </motion.div>
+            <motion.div
+              variants={variants}
+              animate={outsideStatusQuo}
+              initial="hidden"
+              exit={{ opacity: 0 }}
+              style={{
+                marginBottom: "-8rem",
+                marginLeft: "rem",
+              }}
+              className="flex flex-col items-center justify-center"
+            >
+              {/* <img alt="line3" src="/lines/para_line_3.svg" /> */}
+              <Typography
+                fontWeight="bold"
+                color="white"
+                as="subtitle2"
+                textAlign="center"
+              >
+                Outside
+              </Typography>
+              <TypographyWithStrike>
+                <Typography
+                  className={hasStrike ? "strike" : ""}
+                  fontWeight="bold"
+                  color="white"
+                  as="subtitle1"
+                  textAlign="center"
+                >
+                  the status quo
+                </Typography>
+              </TypographyWithStrike>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <div
+          className="absolute flex flex-col items-end justify-center"
+          style={{
+            top: "50%",
+          }}
+        >
+          <div className="flex flex-col">
+            <motion.div
+              style={stylesWithCssVar({
+                opacity: reputationOpacity,
+              })}
+            >
+              <Typography
+                color="white"
+                as="subtitle1"
+                textAlign="left"
+                p={{
+                  _: "0px 10px",
+                  md: "0px",
+                }}
+              >
+                Here’s something about <br />
+                reputation…
+              </Typography>
+            </motion.div>
+
+            <motion.div
+              style={stylesWithCssVar({
+                marginLeft: "2rem",
+                opacity: interactionOpacity,
+              })}
+            >
+              <Typography
+                color="white"
+                as="subtitle1"
+                textAlign="left"
+                p={{
+                  _: "0px 10px",
+                  md: "0px",
+                }}
+              >
+                … and here about <br /> interactions
+              </Typography>
+            </motion.div>
+          </div>
+        </div>
+
+        <motion.div
+          variants={finalTextVariant}
+          animate={showFinalTextCtrl}
+          exit={{ opacity: 0 }}
+          initial="hidden"
+          className="absolute flex flex-col items-end justify-center"
+        >
+          <motion.div
+            style={{
+              opacity: finalTextOpacity,
+            }}
+            className="flex flex-col gap-8"
+          >
+            <Typography
+              color="#262626"
+              as="subtitle1"
+              textAlign="left"
+              p={{
+                _: "0px 10px",
+                md: "0px",
+              }}
+            >
+              … and here the final <br />
+              state about network
+            </Typography>
+            <Typography
+              color="#262626"
+              as="subtitle1"
+              textAlign="left"
+              p={{
+                _: "0px 10px",
+                md: "0px",
+              }}
+            >
+              It could actually take <br /> two sub steps to reveal <br /> more
+              (two paragraphs) <br /> text if we want
+            </Typography>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

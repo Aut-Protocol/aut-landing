@@ -1,12 +1,12 @@
-import { sloganAnimationOrder } from "containers/sections/Slogan";
-import { motion, useAnimation, useScroll } from "framer-motion";
-import { memo, useEffect, useMemo, useRef } from "react";
+import {
+  SloganContext,
+  sloganAnimationOrder,
+} from "containers/sections/Slogan";
+import { motion, useAnimation } from "framer-motion";
+import { memo, useContext, useEffect, useMemo, useRef } from "react";
 
-const GridLines = ({ width, height, parentRef }) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
+const GridLines = ({ width, height }) => {
+  const { scrollYProgress } = useContext(SloganContext);
   const showLargeNovaItemCtrl = useAnimation();
   const isMounted = useRef(true);
   const started = useRef(false);

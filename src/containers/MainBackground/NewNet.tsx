@@ -1,13 +1,13 @@
 import newNet from "common/assets/image/New net.png";
-import { sloganAnimationOrder } from "containers/sections/Slogan";
-import { useScroll, useAnimation, motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import {
+  SloganContext,
+  sloganAnimationOrder,
+} from "containers/sections/Slogan";
+import { useAnimation, motion } from "framer-motion";
+import { useContext, useEffect, useRef } from "react";
 
-export const NewNetBG = ({ parentRef }) => {
-  const { scrollYProgress } = useScroll({
-    target: parentRef,
-    offset: ["start end", "end end"],
-  });
+export const NewNetBG = () => {
+  const { scrollYProgress } = useContext(SloganContext);
   const showLargeNovaItemCtrl = useAnimation();
   const isMounted = useRef(true);
   const started = useRef(false);
@@ -48,10 +48,16 @@ export const NewNetBG = ({ parentRef }) => {
             initial: {
               opacity: 0,
               r: 0,
+              transition: {
+                duration: 0.4, // 2 seconds duration
+              },
             },
             after: {
               r: 1000,
               opacity: 1,
+              transition: {
+                duration: 0.4, // 2 seconds duration
+              },
             },
           }}
           animate={showLargeNovaItemCtrl}

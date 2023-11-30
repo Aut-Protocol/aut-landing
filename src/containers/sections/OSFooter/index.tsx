@@ -1,5 +1,4 @@
-import React from "react";
-import { FooterData } from "common/data";
+import React, { memo, useContext, useEffect, useRef } from "react";
 import AutOSLogo from "common/assets/AutOSLogoV2.svg";
 import DiscordLogo from "common/assets/image/discord-icon.svg";
 import XLogo from "common/assets/image/twitter-icon.svg";
@@ -19,7 +18,7 @@ import {
   ColumnWrapper,
   ColumnTitle,
 } from "./footer.style";
-import { useScroll, useTransform } from "framer-motion";
+import { motionValue, useScroll, useTransform } from "framer-motion";
 import Box from "common/components/Box";
 
 const socials = [
@@ -116,6 +115,7 @@ export const LinkWrapper = ({ item }: any) => {
     <Link legacyBehavior href={item.link}>
       <Button
         title={item.title}
+        className="footer-link"
         variant="text"
         colors="nav"
         as="a"
@@ -133,11 +133,27 @@ export const LinkWrapper = ({ item }: any) => {
   );
 };
 
-const OsFooter = ({ parentRef }) => {
-  const { logo, copyright, widgets, mailchimpUrl } = FooterData;
+const initialState = {
+  scrollYProgress: motionValue(0), // Initial value
+};
+
+export const OSFooterContext = React.createContext<typeof initialState>(initialState);
+
+export const OSFooterProvider = ({ children }) => {
+  return (
+    <OSFooterContext.Provider value={initialState}>
+      {children}
+    </OSFooterContext.Provider>
+  );
+};
+
+const OsFooter = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress: scrollY } = useContext(OSFooterContext);
   const { scrollYProgress } = useScroll({
-    target: parentRef,
+    target: targetRef,
     offset: ["start end", "end end"],
+    axis: "y",
   });
 
   const footerTranslateY = useTransform(
@@ -146,118 +162,126 @@ const OsFooter = ({ parentRef }) => {
     ["100%", "0%"]
   );
 
+  useEffect(() => {
+    scrollYProgress.on("change", (v) => {
+      scrollY.set(v);
+    });
+  }, [scrollYProgress]);
+
   return (
-    <OsFooterSection
-      style={{
-        bottom: 0,
-        y: footerTranslateY,
-      }}
-    >
-      <Container
+    <section className="aut-footer relative z-30 h-[50vh]" ref={targetRef}>
+      <OsFooterSection
         style={{
-          padding: "30px",
-          height: "50vh",
-          display: "flex",
-          alignItems: "flex-end",
-          flexDirection: "column",
-          justifyContent: "flex-end",
+          bottom: 0,
+          y: footerTranslateY,
         }}
-        noGutter
       >
-        <Grid
-          gridTemplateColumns={{
-            _: "1fr",
-            md: "2fr 1fr 1fr 1fr",
-          }}
-        >
-          <AboutUs
-            alignItems={{
-              _: "start",
-            }}
-          >
-            <Image
-              src={AutOSLogo}
-              alt="Aut Logo"
-              height="50px"
-              style={{
-                marginBottom: "15px",
-              }}
-            />
-            <Typography as="body" color="white">
-              Native, role-based Membership & Governance for Web3 Communities
-            </Typography>
-            <SocialWrapper
-              style={{
-                alignSelf: "flex-end",
-              }}
-              socialStyles={{
-                display: {
-                  _: "none",
-                  md: "inherit",
-                },
-                alignItems: "center",
-              }}
-              socialLinksStyles={{
-                gridGap: {
-                  _: "10px",
-                  md: "10px",
-                  xxl: "10px",
-                },
-                flexDirection: {
-                  _: "row",
-                },
-              }}
-            />
-          </AboutUs>
-          <ColumnWrapper>
-            <ColumnTitle>Links</ColumnTitle>
-            {firstLinks.map((item, index) => (
-              <LinkWrapper item={item} key={index}></LinkWrapper>
-            ))}
-          </ColumnWrapper>
-
-          <ColumnWrapper>
-            <ColumnTitle>For Developers</ColumnTitle>
-            {developerLinks.map((item, index) => (
-              <LinkWrapper item={item} key={index}></LinkWrapper>
-            ))}
-          </ColumnWrapper>
-          <ColumnWrapper>
-            <ColumnTitle>Product Suite</ColumnTitle>
-            {productSuite.map((item, index) => (
-              <LinkWrapper item={item} key={index}></LinkWrapper>
-            ))}
-          </ColumnWrapper>
-        </Grid>
-
-        <Box
-          className="bottom-nav-new"
-          flexBox
-          flexDirection={{
-            _: "column",
-            sm: "row",
-          }}
+        <Container
           style={{
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "100%",
+            padding: "30px",
+            height: "50vh",
+            display: "flex",
+            alignItems: "flex-end",
+            flexDirection: "column",
+            justifyContent: "flex-end",
           }}
+          noGutter
         >
-          <Typography
-            color="white"
-            as="body"
-            textAlign="center"
-            margin={{
-              _: "0px 0px 10px 0px",
-              sm: "unset",
+          <Grid
+            gridTemplateColumns={{
+              _: "1fr",
+              md: "2fr 1fr 1fr 1fr",
             }}
           >
-            Made with &#128293; by Āut Labs
-          </Typography>
-        </Box>
-      </Container>
-    </OsFooterSection>
+            <AboutUs
+              alignItems={{
+                _: "start",
+              }}
+            >
+              <Image
+                src={AutOSLogo}
+                alt="Aut Logo"
+                height="50px"
+                style={{
+                  marginBottom: "15px",
+                }}
+              />
+              <Typography as="body" color="white">
+                Native, role-based Membership & Governance for Web3 Communities
+              </Typography>
+              <SocialWrapper
+                style={{
+                  alignSelf: "flex-end",
+                }}
+                socialStyles={{
+                  display: {
+                    _: "none",
+                    md: "inherit",
+                  },
+                  alignItems: "center",
+                }}
+                socialLinksStyles={{
+                  gridGap: {
+                    _: "10px",
+                    md: "10px",
+                    xxl: "10px",
+                  },
+                  flexDirection: {
+                    _: "row",
+                  },
+                }}
+              />
+            </AboutUs>
+            <ColumnWrapper>
+              <ColumnTitle>Links</ColumnTitle>
+              {firstLinks.map((item, index) => (
+                <LinkWrapper item={item} key={index}></LinkWrapper>
+              ))}
+            </ColumnWrapper>
+
+            <ColumnWrapper>
+              <ColumnTitle>For Developers</ColumnTitle>
+              {developerLinks.map((item, index) => (
+                <LinkWrapper item={item} key={index}></LinkWrapper>
+              ))}
+            </ColumnWrapper>
+            <ColumnWrapper>
+              <ColumnTitle>Product Suite</ColumnTitle>
+              {productSuite.map((item, index) => (
+                <LinkWrapper item={item} key={index}></LinkWrapper>
+              ))}
+            </ColumnWrapper>
+          </Grid>
+
+          <Box
+            className="bottom-nav-new"
+            flexBox
+            flexDirection={{
+              _: "column",
+              sm: "row",
+            }}
+            style={{
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Typography
+              color="white"
+              as="body"
+              textAlign="center"
+              margin={{
+                _: "0px 0px 10px 0px",
+                sm: "unset",
+              }}
+            >
+              Made with &#128293; by Āut Labs
+            </Typography>
+          </Box>
+        </Container>
+      </OsFooterSection>
+    </section>
   );
 };
 
-export default OsFooter;
+export default memo(OsFooter);
