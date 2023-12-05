@@ -22,7 +22,6 @@ export const useOnScreen = (
 
     // Create the observer with options specific to the target element
     const observer = new IntersectionObserver(([entry]) => {
-      console.log(`Is intersecting: ${name} - ${entry.isIntersecting}`);
       setIntersecting(entry.isIntersecting);
     }, observerOptions);
 

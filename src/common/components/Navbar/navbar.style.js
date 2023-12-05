@@ -1,5 +1,6 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import {
   display,
   alignItems,
@@ -14,7 +15,7 @@ import {
   height,
 } from "styled-system";
 
-const NavbarStyle = styled.nav`
+const NavbarStyle = styled(motion.nav)`
   /* Navbar default style goes here */
   display: flex;
   align-items: center;
@@ -23,9 +24,9 @@ const NavbarStyle = styled.nav`
   top: 0;
   left: 0;
   width: 100%;
-  transition: 0.25s ease-in-out;
-  z-index: 200;
+  z-index: 999;
   overflow: hidden;
+  visibility: visible;
   
   left: 50%;
   transform: translateX(-50%);
@@ -42,8 +43,8 @@ const NavbarStyle = styled.nav`
 
   &:before {
     content: ' ';
-    display: block;
-    position: absolute;
+    display: flex;
+    position: fixed;
     left: 0px;
     right: 0px;
     top: 0px;
@@ -54,11 +55,6 @@ const NavbarStyle = styled.nav`
     filter: blur(12px);
     backdrop-filter: blur(12px);
   }
-
-  // &:before {
-  //   content: " ";
-  //   opacity: .25;
-  // }
 
   .container {
     display: flex;
@@ -72,11 +68,6 @@ const NavbarStyle = styled.nav`
       @media (max-width: 990px) {
         display: none;
       }
-    }
-
-    @media (max-width: 991px) {
-      // flex: 0 0 auto;
-      // margin-left: auto;
     }
   }
   .main_menu {
@@ -99,7 +90,6 @@ const NavbarStyle = styled.nav`
       }
       a {
         color: ${themeGet("colors.white")};
-        transition: 0.15s ease-in-out;
 
         font-style: normal;
         font-weight: 400;
@@ -134,25 +124,9 @@ const NavbarStyle = styled.nav`
     a {
       cursor: pointer;
     }
-
-    // img {
-    //   position: absolute;
-    // }
   }
 
   .sticky-nav-active {
-    // .sass_app_dark_navbar {
-    //   padding: 15px 0;
-    //   background-color: #111111;
-    // }
-
-    // .main-logo {
-    //   opacity: 0;
-    //   visibility: hidden;
-    // }
-    // .sticky-logo {
-
-    // }
     .main_menu li a {
       color: ${themeGet("colors.white")};
     }
@@ -171,11 +145,12 @@ const NavbarStyle = styled.nav`
   }
 
   &.light {
-    transition: 0.15s ease-in-out;
     .main_menu li a {
       color: ${themeGet("colors.nightBlack")};
     }
   }
+
+  
   /* Style system supported prop */
   ${display}
   ${alignItems}

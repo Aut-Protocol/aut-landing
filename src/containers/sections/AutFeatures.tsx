@@ -1,4 +1,4 @@
-import { motionValue, useScroll } from "framer-motion";
+import { motion, motionValue, useMotionValue, useScroll, useTransform } from "framer-motion";
 import AutFeaturesBg from "common/assets/image/features-bg.png";
 import FreedomIcon from "common/assets/image/features/freedom-icon.png";
 import SelfIcon from "common/assets/image/features/self-icon.png";
@@ -14,6 +14,8 @@ import themeGet from "@styled-system/theme-get";
 import { Fragment, memo, useContext, useEffect, useRef } from "react";
 import { DrawerContext } from "common/contexts/DrawerContext";
 import React from "react";
+import { AutOSContext } from "./AutOS";
+import { OSFooterContext } from "./OSFooter";
 
 const FeaturesContainer = styled(Box)`
   display: grid;
@@ -127,16 +129,28 @@ const AutFeatures = () => {
   const { dispatch }: any = useContext(DrawerContext);
   const targetRef = useRef<HTMLDivElement | null>(null);
 
+  const { scrollYProgress: footerScrollYProgress } =
+    useContext(OSFooterContext);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end end"],
     axis: "y",
   });
 
+  // Additional translateY for the footer (starts from 0% to -50vh)
+  const footerTranslateY = useTransform(
+    footerScrollYProgress,
+    [0, 1],
+    ["0%", "-50vh"]
+  );
+
+  const started = useRef(false);
+
   useEffect(() => {
     scrollYProgress.on("change", (v) => {
       scrollY.set(v);
-      if (v > 0) {
+      if (v > 0 && !started.current) {
         dispatch({
           type: "MODE",
           payload: "dark",
@@ -146,9 +160,9 @@ const AutFeatures = () => {
   }, [scrollYProgress]);
 
   return (
-    <section className="features relative h-screen" ref={targetRef}>
-      <div
-        className="fixed flex origin-center justify-center text-white"
+    <section className="features relative h-[100vh]" ref={targetRef}>
+      <motion.div
+        className="absolute sm:fixed flex origin-center justify-center h-[150vh] sm:h-[100vh] text-white"
         style={{
           top: "0",
           left: "0",
@@ -157,10 +171,10 @@ const AutFeatures = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
           width: "100vw",
-          height: "100vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          y: footerTranslateY,
         }}
       >
         <FeaturesContainer>
@@ -174,7 +188,7 @@ const AutFeatures = () => {
             </Fragment>
           ))}
         </FeaturesContainer>
-      </div>
+      </motion.div>
     </section>
   );
 };

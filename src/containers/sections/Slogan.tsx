@@ -7,12 +7,18 @@ import {
   motionValue,
 } from "framer-motion";
 import Typography from "common/components/Typography";
-import { memo, useContext, useEffect, useRef, useState } from "react";
+import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 import autSelfLine from "common/assets/image/own-self.svg";
 import { DrawerContext } from "common/contexts/DrawerContext";
 import React from "react";
 import { AutFeaturesContext } from "./AutFeatures";
+import { useDeviceSize } from "common/utils/use-device-size";
+import { marginBottom } from "styled-system";
+
+const SloganEl = styled<any>(motion.div)`
+  ${marginBottom}
+`;
 
 export const sloganAnimationOrder = {
   initial: 0,
@@ -101,6 +107,7 @@ export const SloganProvider = ({ children }) => {
 };
 
 const Slogan = () => {
+  const { width, height } = useDeviceSize();
   const { scrollYProgress: scrollY } = useContext(SloganContext);
   const { scrollYProgress: featuresScrollY } = useContext(AutFeaturesContext);
   const { dispatch }: any = useContext(DrawerContext);
@@ -110,6 +117,7 @@ const Slogan = () => {
     offset: ["start end", "end end"],
     axis: "y",
   });
+  const desktop = useMemo(() => width > 768, [width]);
 
   const sloganImgCtrl = useAnimation();
 
@@ -179,8 +187,6 @@ const Slogan = () => {
 
   useEffect(() => {
     scrollYProgress.on("change", async (v) => {
-
-      console.log(v);
       if (!isMounted.current) return;
       scrollY.set(v);
 
@@ -281,11 +287,7 @@ const Slogan = () => {
     [0, 1, 0]
   );
 
-  const finalTextOpacity = useTransform(
-    featuresScrollY,
-    [0, 0.3],
-    [1, 0]
-  );
+  const finalTextOpacity = useTransform(featuresScrollY, [0, 0.3], [1, 0]);
 
   return (
     <section className="slogan relative h-[1400vh]" ref={targetRef}>
@@ -363,15 +365,12 @@ const Slogan = () => {
           className="absolute flex flex-col items-end justify-center"
         >
           <div className="flex h-0 items-center justify-center gap-6">
-            <motion.div
+            <SloganEl
               variants={variants}
               animate={outsideSystemCtrl}
               initial="hidden"
               exit={{ opacity: 0 }}
-              style={{
-                marginBottom: "8rem",
-              }}
-              className="flex flex-col items-center justify-center"
+              className="mb-[12rem] sm:mb-[8rem] ml-[1rem] sm:ml-[0] flex flex-col items-center justify-center"
             >
               {/* <img alt="line1" src="/lines/para_line_1.svg" /> */}
               <Typography
@@ -393,8 +392,8 @@ const Slogan = () => {
                   the system
                 </Typography>
               </TypographyWithStrike>
-            </motion.div>
-            <motion.div
+            </SloganEl>
+            <SloganEl
               variants={variants}
               animate={outsideConventionsCtrl}
               initial="hidden"
@@ -424,17 +423,13 @@ const Slogan = () => {
                   conventions
                 </Typography>
               </TypographyWithStrike>
-            </motion.div>
-            <motion.div
+            </SloganEl>
+            <SloganEl
               variants={variants}
               animate={outsideStatusQuo}
               initial="hidden"
               exit={{ opacity: 0 }}
-              style={{
-                marginBottom: "-8rem",
-                marginLeft: "rem",
-              }}
-              className="flex flex-col items-center justify-center"
+              className="mb-[-12rem] sm:mb-[-8rem] mr-[1rem] sm:mr-[0] flex flex-col items-center justify-center"
             >
               {/* <img alt="line3" src="/lines/para_line_3.svg" /> */}
               <Typography
@@ -456,7 +451,7 @@ const Slogan = () => {
                   the status quo
                 </Typography>
               </TypographyWithStrike>
-            </motion.div>
+            </SloganEl>
           </div>
         </motion.div>
 
@@ -521,9 +516,9 @@ const Slogan = () => {
             className="flex flex-col gap-8"
           >
             <Typography
-              color="#262626"
               as="subtitle1"
               textAlign="left"
+              className="max-sm:text-white sm:text-black"
               p={{
                 _: "0px 10px",
                 md: "0px",
@@ -533,7 +528,7 @@ const Slogan = () => {
               state about network
             </Typography>
             <Typography
-              color="#262626"
+              className="max-sm:text-white sm:text-black"
               as="subtitle1"
               textAlign="left"
               p={{

@@ -8,17 +8,14 @@ import Button from "common/components/Button";
 import { PopupButton } from "@typeform/embed-react";
 import useWindowSize from "common/components/window-size";
 import { stylesWithCssVar } from "utils/motion";
-import { memo, useContext, useEffect, useMemo, useRef } from "react";
-import ArrowLoading from "containers/Countdown/ArrowLoading";
+import { createContext, memo, useContext, useEffect, useMemo, useRef } from "react";
 const formId = "yfd7X6z1";
-
-import React, {  } from "react";
 
 const initialState = {
   scrollYProgress: motionValue(0),
 };
 
-export const TopContentContext = React.createContext<typeof initialState>(initialState);
+export const TopContentContext = createContext<typeof initialState>(initialState);
 
 export const TopContentProvider = ({ children }) => {
   return (
@@ -273,75 +270,7 @@ const TopContent = () => {
 
           {/* <ArrowLoading></ArrowLoading> */}
 
-          <motion.svg
-            width="28"
-            height="36"
-            viewBox="0 0 28 36"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{
-              position: "absolute",
-              bottom: "0rem",
-              left: "50%",
-              transform: "translateX(-50%)",
-              opacity: scrollOpacity,
-            }}
-          >
-            <g filter="url(#filter0_d_458_17861)">
-              <rect
-                x="4.5"
-                y="0.5"
-                width="19"
-                height="27"
-                rx="9.5"
-                stroke="#F0F5FF"
-              />
-            </g>
-            <path
-              id="arrow"
-              d="M14 20l-4-4m4 4l4-4m-4 4V10"
-              stroke="#F0F5FF"
-              stroke-width="2"
-              fill="none"
-            />
-            <defs>
-              <filter
-                id="filter0_d_458_17861"
-                x="0"
-                y="0"
-                width="28"
-                height="36"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix
-                  in="SourceAlpha"
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                  result="hardAlpha"
-                />
-                <feOffset dy="4" />
-                <feGaussianBlur stdDeviation="2" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix
-                  type="matrix"
-                  values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-                />
-                <feBlend
-                  mode="normal"
-                  in2="BackgroundImageFix"
-                  result="effect1_dropShadow_458_17861"
-                />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="effect1_dropShadow_458_17861"
-                  result="shape"
-                />
-              </filter>
-            </defs>
-          </motion.svg>
+          
         </Box>
       </Container>
     </motion.section>

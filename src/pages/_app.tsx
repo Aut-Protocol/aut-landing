@@ -12,6 +12,7 @@ import { SloganProvider } from "containers/sections/Slogan";
 import { AutFeaturesProvider } from "containers/sections/AutFeatures";
 import { OSFooterProvider } from "containers/sections/OSFooter";
 import { AutOSProvider } from "containers/sections/AutOS";
+import { BlackScreenProvider } from "containers/sections/BlackScreen";
 
 const FractulAltBold = localFont({
   src: "fonts/FractulAltBold/font.woff2",
@@ -77,19 +78,21 @@ export default function CustomApp({ Component, pageProps }: any) {
           `}
         </style>
         <main>
-          <OSFooterProvider>
-            <AutFeaturesProvider>
-              <SloganProvider>
-                <TopContentProvider>
-                  <AutOSProvider>
-                    <DrawerProvider>
-                      <Component {...pageProps} />
-                    </DrawerProvider>
-                  </AutOSProvider>
-                </TopContentProvider>
-              </SloganProvider>
-            </AutFeaturesProvider>
-          </OSFooterProvider>
+          <BlackScreenProvider>
+            <OSFooterProvider>
+              <AutFeaturesProvider>
+                <SloganProvider>
+                  <TopContentProvider>
+                    <AutOSProvider>
+                      <DrawerProvider>
+                        <Component {...pageProps} />
+                      </DrawerProvider>
+                    </AutOSProvider>
+                  </TopContentProvider>
+                </SloganProvider>
+              </AutFeaturesProvider>
+            </OSFooterProvider>
+          </BlackScreenProvider>
         </main>
         {/* <CookieConsent
             location="bottom"

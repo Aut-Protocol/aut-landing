@@ -13,6 +13,8 @@
     "@leenguyen/react-flip-clock-countdown": "^1.4.1",
     "@lottiefiles/lottie-player": "^2.0.2",
     "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@studio-freight/lenis": "^1.0.29",
+    "@studio-freight/react-lenis": "^0.0.38",
     "@styled-system/theme-get": "^5.1.2",
     "@typeform/embed-react": "^3.9.0",
     "@walletconnect/ethereum-provider": "^2.10.5",

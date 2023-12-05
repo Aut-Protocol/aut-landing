@@ -113,7 +113,6 @@ const VerifySignature = ({ onClose = () => false }) => {
       await EnableAndChangeNetwork(connector.provider, config);
       setNetworkConfig(config);
     } catch (error) {
-      console.log(error, "err");
       setNetworkConfig(null);
     }
     setLoading(false);

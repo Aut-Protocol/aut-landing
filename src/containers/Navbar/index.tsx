@@ -8,9 +8,16 @@ import { DrawerContext } from "common/contexts/DrawerContext";
 import { NavbarData } from "common/data";
 import PropTypes from "prop-types";
 import Logo from "common/components/UIElements/Logo";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Icon } from "react-icons-kit";
 import { ic_close } from "react-icons-kit/md/ic_close";
+import { useAnimation, useTransform } from "framer-motion";
+import { BlackScreenContext } from "containers/sections/BlackScreen";
+
+const variants = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+}
 
 const navbarStyle = {
   className: "sass_app_dark_navbar",
@@ -35,7 +42,6 @@ const navbarStyle = {
     md: "16px",
     xxl: "24px",
   },
-  display: "block",
 };
 
 const logoStyles = {
@@ -59,6 +65,22 @@ const Navbar = ({ row, menuWrapper }) => {
   const { state, dispatch }: any = useContext(DrawerContext);
   const { menuItems, logo, logoWhite } = NavbarData;
 
+  const { scrollYProgress } = useContext(BlackScreenContext);
+  const visibilityChange = useTransform(scrollYProgress, (pos) => pos > 0.3);
+  const showHide = useAnimation();
+
+
+  useEffect(() => {
+    visibilityChange.on("change", (visible) => {
+      if (visible) {
+        showHide.start("visible");
+      } else {
+        showHide.start("hidden");
+      }
+      
+    });
+  }, []);
+
   const toggleHandler = () => {
     dispatch({
       type: "TOGGLE",
@@ -66,7 +88,13 @@ const Navbar = ({ row, menuWrapper }) => {
   };
 
   return (
-    <NavbarWrapper {...navbarStyle} mode={state.mode}>
+    <NavbarWrapper
+      {...navbarStyle}
+      mode={state.mode}
+      initial="hidden"
+      animate={showHide}
+      variants={variants}
+    >
       <Container
         noGutter
         px={{

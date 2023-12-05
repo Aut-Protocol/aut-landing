@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
-    --color-primary: #dcff50;
-    --color-secondary: #7b61ff;
+    --color-primary: #1bbbff;
+    --color-secondary: #112BB3;
     --color-heading: #f5f5f7;
-    --color-text: rgba(255, 255, 255, 0.6);
-    --color-background: #090909;
+    --color-text: #EBEBF2;
+    --color-background: #262626;
 
     font-size: 62.5%;
   }
@@ -29,7 +30,13 @@
 html {
   background-color: #0f1319;
   scroll-behavior: smooth;
+  overflow: hidden;
 }
+
+html.scrollable {
+  overflow: auto;
+}
+
 body {
   scroll-behavior: smooth;
 }
