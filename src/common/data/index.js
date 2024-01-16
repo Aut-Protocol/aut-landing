@@ -25,7 +25,7 @@ export const NavbarData = {
       label: "Discord",
       staticLink: true,
       target: "_blank",
-      path: "https://discord.gg/neHnzyBJEV",
+      path: "https://discord.com/invite/aXJFGgcvUk",
     },
     {
       label: "Github",
