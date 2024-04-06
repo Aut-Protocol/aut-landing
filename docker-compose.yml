@@ -13,4 +13,4 @@ services:
       - 4001:9090
 
 networks:
-  aut_landing:
+  aut_labs_landing:
