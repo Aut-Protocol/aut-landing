@@ -10,7 +10,7 @@ services:
     image: aut_labs_landing_nginx
     build: ./nginx
     ports:
-      - 3001:9090
+      - 4001:9090
 
 networks:
   aut_landing:
