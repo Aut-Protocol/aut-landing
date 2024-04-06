@@ -1,13 +1,15 @@
 import { useState } from "react";
 import "@redq/reuse-modal/lib/index.css";
 import animationData from "common/assets/aut-load.json";
-import { Player } from "@lottiefiles/react-lottie-player";
 import Text from "common/components/Text";
+import dynamic from 'next/dynamic';
+
+const LottiePlayerComponent = dynamic(() => import('common/components/LottierPlayer'), {
+  ssr: false,
+});
 
 export const Loading = () => (
-  <Player
-    autoplay
-    loop
+  <LottiePlayerComponent
     src={animationData}
     style={{ height: "300px", width: "300px" }}
   />

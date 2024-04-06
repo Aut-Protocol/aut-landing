@@ -1,10 +1,9 @@
-import { Player } from "@lottiefiles/react-lottie-player";
 import { base } from "common/components/base";
 import styled from "styled-components";
 import BubbleImage2 from "common/assets/image/bubble2.svg";
 import themeGet from "@styled-system/theme-get";
 
-export const PlayerWrapper = styled(Player)`
+export const PlayerWrapper = styled("div")`
   ${base}
 `;
 

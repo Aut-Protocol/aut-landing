@@ -2,8 +2,12 @@ import React from "react";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
 import Typography from "common/components/Typography";
-import { Player } from "@lottiefiles/react-lottie-player";
 import animationData from "common/assets/Pulse_Button_White.json";
+import dynamic from 'next/dynamic';
+
+const LottiePlayerComponent = dynamic(() => import('common/components/LottierPlayer'), {
+  ssr: false,
+});
 
 const Loading = ({ title, subtitle }) => {
   return (
@@ -80,9 +84,7 @@ const Loading = ({ title, subtitle }) => {
             zIndex: 1,
           }}
         >
-          <Player
-            autoplay
-            loop
+          <LottiePlayerComponent
             src={animationData}
             style={{ height: "250px", width: "250px" }}
           />
