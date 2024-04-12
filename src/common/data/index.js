@@ -21,11 +21,11 @@ export const NavbarData = {
       staticLink: true,
       path: "/about",
     },
-    {
-      label: "Solutions",
-      staticLink: true,
-      path: "/products",
-    },
+    // {
+    //   label: "Solutions",
+    //   staticLink: true,
+    //   path: "/products",
+    // },
     {
       label: "Docs",
       staticLink: true,
@@ -934,11 +934,11 @@ export const FooterData = {
           target: "_blank",
           link: "https://docs.aut.id",
         },
-        {
-          id: 4,
-          title: "Solutions",
-          link: "/products",
-        },
+        // {
+        //   id: 4,
+        //   title: "Solutions",
+        //   link: "/products",
+        // },
         // {
         //   id: 2,
         //   title: "Manifesto",
@@ -1041,11 +1041,11 @@ export const FooterData = {
           target: "_blank",
           link: "https://docs.aut.id",
         },
-        {
-          id: 3,
-          title: "Solutions",
-          link: "/products",
-        },
+        // {
+        //   id: 3,
+        //   title: "Solutions",
+        //   link: "/products",
+        // },
       ],
     },
   ],
