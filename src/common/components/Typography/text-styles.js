@@ -1,12 +1,12 @@
 export const textStyles = {
   h1: {
     fontSize: {
-      _: "60px",
-      xs: "68px",
-      sm: "68px",
-      md: "68px",
+      _: "42px",
+      xs: "48px",
+      sm: "51px",
+      md: "51px",
       lg: "72px",
-      xxl: "96px",
+      xxl: "88px",
     },
     fontWeight: "bold",
     letterSpacing: "-0.015em",
@@ -14,8 +14,8 @@ export const textStyles = {
   },
   h2: {
     fontSize: {
-      _: "40px",
-      xs: "42px",
+      _: "31px",
+      xs: "31px",
       sm: "42px",
       md: "42px",
       lg: "45px",
@@ -27,12 +27,12 @@ export const textStyles = {
   },
   h3: {
     fontSize: {
-      _: "32px",
-      xs: "32px",
-      sm: "35px",
-      md: "35px",
-      lg: "35px",
-      xxl: "48px",
+      _: "24px",
+      xs: "24px",
+      sm: "30px",
+      md: "30px",
+      lg: "30px",
+      xxl: "36px",
     },
     fontWeight: "bold",
     letterSpacing: "-0.015em",

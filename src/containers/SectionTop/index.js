@@ -5,6 +5,7 @@ import Section, {
   Grid,
   RightWrapper,
   ButtonWrapper,
+  StyledTypography,
 } from "./sectionTop.style";
 import Typography from "common/components/Typography";
 import Button from "common/components/Button";
@@ -33,9 +34,23 @@ const SectionTop = ({
             <Typography m="0" color="white" as="h1">
               {title}
             </Typography>
-            <Typography mb="0" color="white" as="subtitle2" fontWeight="normal">
+            <StyledTypography
+              mb="0"
+              color="white"
+              fontWeight="normal"
+              fontSize={{
+                _: "16px",
+                xs: "16px",
+                sm: "16px",
+                md: "16px",
+                lg: "18px",
+                xxl: "24px",
+              }}
+              letterSpacing="0.0025em"
+              fontFamily="var(--fractul-regular)"             
+            >
               {subtitle}
-            </Typography>
+            </StyledTypography>
 
             {link ? (
               <ButtonWrapper>

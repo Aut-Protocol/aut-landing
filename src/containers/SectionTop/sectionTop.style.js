@@ -1,6 +1,7 @@
 import themeGet from "@styled-system/theme-get";
 import styled from "styled-components";
 import BubbleImage from "common/assets/image/bubble.svg";
+import Typography from "common/components/Typography";
 
 const Section = styled.section`
   position: relative;
@@ -99,5 +100,15 @@ export const ImagePreview = styled.figure`
       height: 800px;
       max-width: 800px;
     }
+  }
+`;
+
+export const StyledTypography = styled(Typography)`
+  width: 100%;
+  ${themeGet("mediaQueries.md")} {
+    width: 460px;
+  }
+  ${themeGet("mediaQueries.xxl")} {
+    width: 530px;
   }
 `;

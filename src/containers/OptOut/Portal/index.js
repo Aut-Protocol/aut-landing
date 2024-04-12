@@ -28,15 +28,15 @@ const Portal = () => {
           <LottiePlayerComponent autoplay
               loop
               width={{
-                _: "300px",
-                md: "500px",
-                lg: "545px",
+                _: "250px",
+                md: "450px",
+                lg: "500px",
                 xxl: "720px",
               }}
               height={{
                 _: "300px",
-                md: "500px",
-                lg: "545px",
+                md: "450px",
+                lg: "500px",
                 xxl: "720px",
               }}
               src={animationData} />
