@@ -30,13 +30,13 @@ const Portal = () => {
               width={{
                 _: "250px",
                 md: "450px",
-                lg: "500px",
+                lg: "480px",
                 xxl: "720px",
               }}
               height={{
                 _: "300px",
                 md: "450px",
-                lg: "500px",
+                lg: "480px",
                 xxl: "720px",
               }}
               src={animationData} />
