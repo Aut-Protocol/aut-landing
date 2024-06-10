@@ -450,6 +450,7 @@ const Countdown = () => {
                     <ArrowLoading />
                   </StyledPlayer>
                 </ScrollArrow>
+              
               </div>
             </div>
           </div>
@@ -542,7 +543,7 @@ const Countdown = () => {
                     sm: "18px",
                   }}
                 >
-                  ĀutOS is the social map of your Web3 reputation.
+                 ĀutOS is the map of your Web3 Interactions. 
                   <br /> A Web of Trust - where you get in, by opting out.
                 </Typography>
                 <>

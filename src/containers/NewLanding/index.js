@@ -83,8 +83,8 @@ const NewLanding = () => {
               md: "0px",
             }}
           >
-            ĀutOS is the social map of your Web3 reputation. <br />A Web of
-            Trust - where you get in, by opting out.
+           ĀutOS is the map of your Web3 Interactions. 
+           <br />A Web of Trust - where you get in, by opting out. 
           </Typography>
           <Box
             style={{

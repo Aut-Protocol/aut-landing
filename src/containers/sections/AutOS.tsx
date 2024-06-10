@@ -217,7 +217,7 @@ const AutOS = () => {
             The Operating System of yourself
           </Typography>
           <Typography my="4" color="white" textAlign="center" as="subtitle2">
-            ĀutOS is the social map of your Web3 reputation.
+          ĀutOS is the map of your Web3 Interactions. 
             <br /> A Web of Trust - where you get in, by opting out.
           </Typography>
           <>

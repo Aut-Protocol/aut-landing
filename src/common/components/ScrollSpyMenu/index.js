@@ -51,12 +51,15 @@ const ScrollSpyMenu = ({ className, menuItems, drawerClose, ...props }) => {
                 href={menu.path}
                 variant="navLink"
                 colors="nav"
+                style={{
+                  fontFamily: menu.bold ? "var(--fractul-alt-bold)" : "var(--fractul-alt-light)",
+                }}
                 title={menu.label}
                 fontSize={{
                   _: "14px",
                   xs: "16px",
                   sm: "16px",
-                  md: "16px",
+                  md: "18px",
                   xxl: "20px",
                 }}
                 ml={{

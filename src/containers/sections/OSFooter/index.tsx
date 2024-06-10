@@ -20,6 +20,7 @@ import {
 } from "./footer.style";
 import { motionValue, useScroll, useTransform } from "framer-motion";
 import Box from "common/components/Box";
+import { margin, marginTop } from "styled-system";
 
 const socials = [
   {
@@ -50,30 +51,30 @@ const firstLinks = [
   {
     title: "Āut Labs",
     target: "_blank",
-    link: "https://aut.id",
+    link: "https://aut.gg",
   },
+  // {
+  //   title: "Manifesto",
+  //   target: "_blank",
+  //   link: "https://manifesto.aut.id",
+  // },
   {
-    title: "Manifesto",
+    title: "Hub",
     target: "_blank",
-    link: "https://manifesto.aut.id",
-  },
-  {
-    title: "Nova Showcase",
-    target: "_blank",
-    link: "https://showcase.aut.id",
+    link: "https://hub.sbs",
   },
 ];
 
 const productSuite = [
   {
-    title: "Āut Expander",
+    title: "Āut Labs",
     target: "_blank",
-    link: "https:/expander.aut.id",
+    link: "https://aut.gg",
   },
   {
-    title: "dĀut",
+    title: "Hub",
     target: "_blank",
-    link: "https:/aut.id",
+    link: "https://hub.sbs",
   },
 ];
 
@@ -206,7 +207,7 @@ const OsFooter = () => {
                   marginBottom: "15px",
                 }}
               />
-              <Typography as="body" color="white">
+              <Typography as="body" color="white" marginBottom="10px">
                 Native, role-based Membership & Governance for Web3 Communities
               </Typography>
               <SocialWrapper
@@ -268,11 +269,12 @@ const OsFooter = () => {
           >
             <Typography
               color="white"
-              as="body"
+              fontSize="12px"
+
               textAlign="center"
               margin={{
-                _: "0px 0px 10px 0px",
-                sm: "unset",
+                _: "10px 0px 10px 0px",
+                sm: "10px 0px 10px 0px",
               }}
             >
               Made with &#128293; by Āut Labs

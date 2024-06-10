@@ -8,14 +8,24 @@ import Button from "common/components/Button";
 import { PopupButton } from "@typeform/embed-react";
 import useWindowSize from "common/components/window-size";
 import { stylesWithCssVar } from "utils/motion";
-import { createContext, memo, useContext, useEffect, useMemo, useRef } from "react";
+import {
+  createContext,
+  memo,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
+import Link from "next/link";
+import { LinkWrapper } from "./OSFooter";
 const formId = "yfd7X6z1";
 
 const initialState = {
   scrollYProgress: motionValue(0),
 };
 
-export const TopContentContext = createContext<typeof initialState>(initialState);
+export const TopContentContext =
+  createContext<typeof initialState>(initialState);
 
 export const TopContentProvider = ({ children }) => {
   return (
@@ -35,8 +45,8 @@ const TopContent = () => {
 
   useEffect(() => {
     scrollYProgress.on("change", (v) => {
-      scrollY.set(v)
-    })
+      scrollY.set(v);
+    });
   }, []);
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -103,18 +113,22 @@ const TopContent = () => {
                   md: "80px",
                   xxl: "120px",
                 }}
+                display={{
+                  _: "none",
+                  md: "block",
+                }}
                 width="100%"
                 src={NewLogo.src}
                 alt="New_logo"
               />
-              <Typography
+              {/* <Typography
                 color="white"
                 fontWeight="400"
                 as="subtitle2"
                 textAlign="center"
               >
                 The Operating System of yourself
-              </Typography>
+              </Typography> */}
               <Typography
                 my={{
                   _: "7",
@@ -128,8 +142,9 @@ const TopContent = () => {
                   md: "0px",
                 }}
               >
-                ĀutOS is the social map of your Web3 reputation. <br />A Web of
-                Trust - where you get in, by opting out.
+                The Social Network for Web3 value contributors. <br />
+                Manage & monetize your on-chain Interactions, <br />
+                Identity & Reputation in one place.
               </Typography>
             </motion.div>
           </Box>
@@ -143,24 +158,25 @@ const TopContent = () => {
             }}
             mb={{ _: "6", sm: "12" }}
           >
-            <PopupButton id={formId} as="span">
-              <motion.div
+           
+               <motion.div
                 style={stylesWithCssVar({
                   opacity,
                   x: translateX,
                 })}
               >
-                <Button
-                  type="submit"
-                  title="Interact"
+                 <Link href={'https://os.aut.id'} target="_self">
+                 <Button
+                  title="Enter Āut/OS"
                   variant="roundOutlined"
                   className="gradient"
                   fontWeight="bold"
                   size="normal"
                   colors="primary"
                 />
+                 </Link>
+              
               </motion.div>
-            </PopupButton>
           </Box>
           {/* Button end */}
           <motion.div
@@ -201,39 +217,48 @@ const TopContent = () => {
                 >
                   <Typography
                     m="0"
+                    lineHeight={{
+                      _: "125%",
+                      sm: "48px",
+                    }}
                     style={{
                       fontVariantNumeric: "lining-nums proportional-nums",
                       color: "#F0F5FF",
                       fontFize: "16px",
                       fontStyle: "normal",
                       fontWeight: 700,
-                      lineLeight: "125%",
                     }}
                   >
                     Āut{" "}
                   </Typography>{" "}
                   <Typography
                     m="0"
+                    lineHeight={{
+                      _: "125%",
+                      sm: "48px",
+                    }}
                     style={{
                       fontVariantNumeric: "lining-nums proportional-nums",
                       fontFize: "16px",
                       fontStyle: "normal",
                       color: "#F0F5FF",
                       fontWeight: 400,
-                      lineLeight: "125%",
                     }}
                   >
                     /ˈa͡ʊt/
                   </Typography>{" "}
                   <Typography
                     m="0"
+                    lineHeight={{
+                      _: "125%",
+                      sm: "48px",
+                    }}
                     style={{
                       fontVariantNumeric: "lining-nums proportional-nums",
                       fontFize: "16px",
                       fontStyle: "normal",
                       color: "#818CA2",
                       fontWeight: 400,
-                      lineLeight: "125%",
                       padding: "0px 5px",
                     }}
                   >
@@ -242,12 +267,15 @@ const TopContent = () => {
                 </div>
                 <Typography
                   m="0"
+                  lineHeight={{
+                    _: "125%",
+                    sm: "48px",
+                  }}
                   style={{
                     fontVariantNumeric: "lining-nums proportional-nums",
                     fontStyle: "normal",
                     color: "#F0F5FF",
                     fontWeight: 400,
-                    lineLeight: "125%",
                   }}
                   fontSize={{
                     _: "14px",
@@ -267,10 +295,7 @@ const TopContent = () => {
             </Box>
           </motion.div>
 
-
           {/* <ArrowLoading></ArrowLoading> */}
-
-          
         </Box>
       </Container>
     </motion.section>

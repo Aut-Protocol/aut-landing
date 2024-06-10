@@ -120,14 +120,14 @@ const Navbar = ({ row, menuWrapper }) => {
               flex: 1,
             }}
           >
-            <Logo
+            {/* <Logo
               // @ts-ignore
               logoSrc={state.mode === "light" ? logoWhite : logo}
               href="/"
               alt="Aut Logo"
               logoStyle={logoStyles}
               className="sticky-logo nav-logo"
-            />
+            /> */}
             {/* @ts-ignore */}
             <ScrollSpyMenu
               className="main_menu"

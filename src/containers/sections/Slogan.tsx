@@ -20,6 +20,19 @@ const SloganEl = styled<any>(motion.div)`
   ${marginBottom}
 `;
 
+// export const sloganAnimationOrder = {
+//   initial: 0,
+//   startFadeIn: 0.1,
+//   sloganEnd: 0.25,
+//   yourselfStart: 0.35,
+//   outsideStart: 0.38,
+//   break: 0.6,
+//   reputationStart: 0.7,
+//   interactionsStart: 0.8,
+//   end: 0.85,
+//   final: 0.95,
+// };
+
 export const sloganAnimationOrder = {
   initial: 0,
   startFadeIn: 0.1,
@@ -27,9 +40,15 @@ export const sloganAnimationOrder = {
   yourselfStart: 0.35,
   outsideStart: 0.38,
   break: 0.6,
-  reputationStart: 0.7,
-  interactionsStart: 0.8,
-  end: 0.85,
+  reputationStart: 0.65,
+  reputationPeak: 0.66,
+  reputationFade: 0.74,
+  reputationEnd: 0.75,
+  interactionsStart: 0.76,
+  interactionsPeak: 0.8,
+  interactionsFade: 0.89,
+  interactionsEnd: 0.9,
+  end: 0.9,
   final: 0.95,
 };
 
@@ -266,26 +285,52 @@ const Slogan = () => {
     };
   }, [scrollYProgress]);
 
+  // const reputationOpacity = useTransform(
+  //   scrollYProgress,
+  //   [
+  //     sloganAnimationOrder.outsideStart,
+  //     sloganAnimationOrder.break,
+  //     sloganAnimationOrder.reputationStart,
+  //     sloganAnimationOrder.interactionsStart,
+  //   ],
+  //   [0, 0, 1, 0]
+  // );
+
+  // const interactionOpacity = useTransform(
+  //   scrollYProgress,
+  //   [
+  //     sloganAnimationOrder.reputationStart,
+  //     sloganAnimationOrder.interactionsStart,
+  //     sloganAnimationOrder.end,
+  //   ],
+  //   [0, 1, 0]
+  // );
   const reputationOpacity = useTransform(
     scrollYProgress,
     [
       sloganAnimationOrder.outsideStart,
       sloganAnimationOrder.break,
       sloganAnimationOrder.reputationStart,
-      sloganAnimationOrder.interactionsStart,
+      sloganAnimationOrder.reputationPeak,
+      sloganAnimationOrder.reputationFade,
+      sloganAnimationOrder.reputationEnd,
     ],
-    [0, 0, 1, 0]
+    [0, 0, 0, 1, 1, 0]
   );
-
+  
+  
   const interactionOpacity = useTransform(
     scrollYProgress,
     [
-      sloganAnimationOrder.reputationStart,
       sloganAnimationOrder.interactionsStart,
-      sloganAnimationOrder.end,
+      sloganAnimationOrder.interactionsPeak,
+      sloganAnimationOrder.interactionsFade,
+      sloganAnimationOrder.interactionsEnd,
     ],
-    [0, 1, 0]
+    [0, 1, 1, 0]
   );
+  
+  
 
   const finalTextOpacity = useTransform(featuresScrollY, [0, 0.3], [1, 0]);
 
@@ -309,14 +354,24 @@ const Slogan = () => {
         >
           <Typography
             color="white"
-            as="subtitle1"
+            fontSize={{
+              _: "20px",
+              xs: "20px",
+              sm: "20px",
+              md: "23px",
+              lg: "25px",
+              xxl: "34px",
+            }}
+            fontWeight="normal"
+            letterSpacing="0.0025em"
+            fontFamily="var(--fractul-regular)"
             textAlign="center"
             p={{
               _: "0px 10px",
               md: "0px",
             }}
           >
-            Āut Is Your Own Self.
+            The Operating System of yourself.
           </Typography>
           <div
             style={{
@@ -370,7 +425,7 @@ const Slogan = () => {
               animate={outsideSystemCtrl}
               initial="hidden"
               exit={{ opacity: 0 }}
-              className="mb-[12rem] sm:mb-[8rem] ml-[1rem] sm:ml-[0] flex flex-col items-center justify-center"
+              className="mb-[12rem] ml-[1rem] flex flex-col items-center justify-center sm:mb-[8rem] sm:ml-[0]"
             >
               {/* <img alt="line1" src="/lines/para_line_1.svg" /> */}
               <Typography
@@ -429,7 +484,7 @@ const Slogan = () => {
               animate={outsideStatusQuo}
               initial="hidden"
               exit={{ opacity: 0 }}
-              className="mb-[-12rem] sm:mb-[-8rem] mr-[1rem] sm:mr-[0] flex flex-col items-center justify-center"
+              className="mb-[-12rem] mr-[1rem] flex flex-col items-center justify-center sm:mb-[-8rem] sm:mr-[0]"
             >
               {/* <img alt="line3" src="/lines/para_line_3.svg" /> */}
               <Typography
@@ -476,14 +531,39 @@ const Slogan = () => {
                   md: "0px",
                 }}
               >
-                Here’s something about <br />
-                reputation…
+                Create a link and
+                <br />
+                connect with anyone
+              </Typography>
+              <Typography
+                color="white"
+                as="subtitle1"
+                 marginTop="2rem"
+                textAlign="left"
+                p={{
+                  _: "0px 10px",
+                  md: "0px",
+                }}
+              >
+              based on the on-chain actions
+              <br />
+              that you two share. 
               </Typography>
             </motion.div>
-
+          
+         
+          </div>
+        </div>
+        <div
+          className="absolute flex flex-col items-end justify-center"
+          style={{
+            top: "50%",
+          }}
+        >
+          <div className="flex flex-col">
+         
             <motion.div
               style={stylesWithCssVar({
-                marginLeft: "2rem",
                 opacity: interactionOpacity,
               })}
             >
@@ -496,9 +576,25 @@ const Slogan = () => {
                   md: "0px",
                 }}
               >
-                … and here about <br /> interactions
+             Unlock the true potential
+             <br />
+             of your on-chain activity
+              </Typography>
+              <Typography
+                color="white"
+                as="subtitle1"
+                textAlign="left"
+                marginTop="2rem"
+                p={{
+                  _: "0px 10px",
+                  md: "0px",
+                }}
+              >
+              through the first        <br />Reputation Framework        <br />based on Participation.
+       
               </Typography>
             </motion.div>
+          
           </div>
         </div>
 
@@ -523,22 +619,20 @@ const Slogan = () => {
                 _: "0px 10px",
                 md: "0px",
               }}
-            >
-              … and here the final <br />
-              state about network
-            </Typography>
-            <Typography
-              className="max-sm:text-white sm:text-black"
-              as="subtitle1"
-              textAlign="left"
-              p={{
-                _: "0px 10px",
-                md: "0px",
+              marginLeft={{
+                _: "0",
+                md: "20rem",
               }}
             >
-              It could actually take <br /> two sub steps to reveal <br /> more
-              (two paragraphs) <br /> text if we want
+              Join a Hub.  <br />Participate.    <br /> Build your Reputation.
+              <br />
+              <br />
+              The more value you bring, the  <br /> more value you receive.
+              <br /> 
+              <br /> 
+              It’s that simple.         
             </Typography>
+         
           </motion.div>
         </motion.div>
       </div>
