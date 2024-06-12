@@ -89,3 +89,16 @@ export const ContentHalf = styled.div`
   align-items: flex-start;
   width: 100%;
 `;
+
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  ${themeGet("mediaQueries.md")} {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+`;

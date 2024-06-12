@@ -7,9 +7,11 @@ import {
   Description,
   Section,
   TitleBox,
+  ButtonWrapper
 } from "./aboutBottom.style";
 import Typography from "common/components/Typography";
 import NextImage from "common/components/NextImage";
+import Button from "common/components/Button";
 import Image from "common/components/Image";
 
 const AboutBottom = () => {
@@ -21,7 +23,7 @@ const AboutBottom = () => {
           <Typography m="20px" color="white" as="h3" textAlign="center">
             {bottom.title}
           </Typography>
-          <Typography
+          {/* <Typography
             m="0 20px 20px 20px"
             color="white"
             as="h3"
@@ -32,7 +34,7 @@ const AboutBottom = () => {
             }}
           >
             {bottom.subtitle}
-          </Typography>
+          </Typography> */}
         </TitleBox>
         <Content>
           <Description>
@@ -52,15 +54,32 @@ const AboutBottom = () => {
               <Typography m="0" color="white" as="body" textAlign="left">
                 {bottom.paragraph1}
               </Typography>
+              <ButtonWrapper>
+              <Button
+                title={bottom.link.title}
+                href={bottom.link.path}
+                target="_blank"
+                as="a"
+                variant="roundOutlined"
+                fontWeight="bold"
+                size="normal"
+                colors="primary"
+                mt={{
+                  _: "33px",
+                  md: "40px",
+                  xxl: "56px",
+                }}
+              />
+            </ButtonWrapper>
             </ContentHalf>
             <ContentHalf>
-              <Typography m="50px" color="white" as="h3" textAlign="center">
+              {/* <Typography m="50px" color="white" as="h3" textAlign="center">
                 {bottom.subtitle}
-              </Typography>
-              <Typography m="0" color="white" as="body" textAlign="left">
+              </Typography> */}
+              {/* <Typography m="0" color="white" as="body" textAlign="left">
                 {bottom.description2}
-              </Typography>
-              <Typography
+              </Typography> */}
+              {/* <Typography
                 m="30px 0"
                 color="white"
                 as="body"
@@ -68,10 +87,10 @@ const AboutBottom = () => {
                 fontWeight="bold"
               >
                 {bottom.paragraphHeading2}
-              </Typography>
-              <Typography m="0" color="white" as="body" textAlign="left">
+              </Typography> */}
+              {/* <Typography m="0" color="white" as="body" textAlign="left">
                 {bottom.paragraph2}
-              </Typography>
+              </Typography> */}
             </ContentHalf>
           </Description>
         </Content>

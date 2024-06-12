@@ -18,12 +18,19 @@ const ProductsTop = () => {
         <Image src={image} alt="Image" />
       </ImageWrapper>
       <Container
+        // pt={{
+        //   _: "122px",
+        //   xs: "122px",
+        //   sm: "84px",
+        //   md: "84px",
+        //   xxl: "112px",
+        // }}
         pt={{
-          _: "122px",
-          xs: "122px",
-          sm: "84px",
-          md: "84px",
-          xxl: "112px",
+          _: "172px",
+          xs: "172px",
+          sm: "134px",
+          md: "134px",
+          xxl: "162px",
         }}
       >
         <Content>

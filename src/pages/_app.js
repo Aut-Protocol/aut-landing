@@ -11,6 +11,8 @@ import "common/assets/css/rc-collapse.css";
 import { DrawerProvider } from "common/contexts/DrawerContext";
 import CookieConsent from "react-cookie-consent";
 import localFont from "next/font/local";
+import Typography from "common/components/Typography";
+import Box from "common/components/Box";
 
 export function reportWebVitals(metric) {
   // console.log(metric);
@@ -35,6 +37,7 @@ export default function CustomApp({ Component, pageProps }) {
       loader.style.display = "none";
     }
   }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -71,17 +74,66 @@ export default function CustomApp({ Component, pageProps }) {
           `}
         </style> */}
 
-        <style jsx global>{`
-          :root {
-            /* ... */
-            --fractul-alt-light: ${FractulAltLight.style.fontFamily};
-            --fractul-alt-bold: ${FractulAltBold.style.fontFamily};
-            --fractul-regular: ${FractulRegular.style.fontFamily};
-          }
-        `}
+        <style jsx global>
+          {`
+            :root {
+              /* ... */
+              --fractul-alt-light: ${FractulAltLight.style.fontFamily};
+              --fractul-alt-bold: ${FractulAltBold.style.fontFamily};
+              --fractul-regular: ${FractulRegular.style.fontFamily};
+            }
+          `}
         </style>
         <Modal>
-          <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+          <Sticky top={0} innerZ={200}>
+            <Box
+              height={{
+                _: "70px",
+                md: "40px",
+              }}
+              style={{
+                backgroundColor: "#256BB0",
+                display: "flex",
+                flexDirection: "row",
+                alignContent: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                color="white"
+                margin="0"
+                padding={{
+                  _:'5px',
+                  md: '0'
+                }}
+                textAlign="center"
+                fontSize={{
+                  _: "18px",
+                  md: "24px",
+                }}
+                lineHeight={{
+                  _: "20px",
+                  md: "40px",
+                }}
+              >
+                Join our
+                <a
+                  style={{
+                    textDecoration: "underline",
+                    color: "white",
+                    margin: "0 5px",
+                  }}
+                  href="https://zealy.io/cw/opt-aut/invite/zx1nx1cVJ-m1obPVjz2Tl"
+                  target="_blank"
+                >
+                  Points Campaign
+                </a>
+                to claim your .hub domain and the chance to win 1000 USDT for
+                your project!
+              </Typography>
+            </Box>
+          </Sticky>
+          <Sticky top={40} innerZ={200} activeClass="sticky-nav-active">
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>

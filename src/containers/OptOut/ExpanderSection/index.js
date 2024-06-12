@@ -7,6 +7,7 @@ import SectionWrapper, {
   Grid,
   ImagePreview,
   LeftWrapper,
+  StyledTypography,
 } from "./expanderSection.style";
 import { OptOutData } from "common/data";
 import Button from "common/components/Button";
@@ -33,13 +34,30 @@ const ExpanderSection = () => {
           </LeftWrapper>
 
           <Content>
-            <Typography mb="10px" mt="0" color="white" as="h2">
+            <Typography mb="10px" mt="0" color="white" as="h2" textAlign={{
+              _: 'center',
+              md: 'start'
+            }}>
               {title}
             </Typography>
 
-            <Typography m="0" color="white" as="subtitle2" fontWeight="normal">
+            <StyledTypography
+              mb="0"
+              color="white"
+              fontWeight="normal"
+              fontSize={{
+                _: "16px",
+                xs: "16px",
+                sm: "16px",
+                md: "16px",
+                lg: "18px",
+                xxl: "24px",
+              }}
+              letterSpacing="0.0025em"
+              fontFamily="var(--fractul-regular)"             
+            >
               {description}
-            </Typography>
+            </StyledTypography>
 
             <ButtonWrapper>
               <Button
@@ -61,7 +79,7 @@ const ExpanderSection = () => {
           </Content>
         </Grid>
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </SectionWrapper>
   );
 };

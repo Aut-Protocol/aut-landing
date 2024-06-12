@@ -1,7 +1,8 @@
 import { rgba } from "polished";
 
 const mainColors = {
-  primary: "#14ECEC",
+  // primary: "#14ECEC",
+  primary: "#256BB0",
   secondary: "#112BB3",
   nightBlack: "#262626",
   offWhite: "#EBEBF2",
@@ -19,7 +20,7 @@ const colors = {
   white: "#ffffff",
   transparent: "transparent",
 
-  nightGradient: `linear-gradient(to right, #14c7ec, #192afc),
+  nightGradient: `linear-gradient(to right, #256bb0, #192afc),
   url(https://grainy-gradients.vercel.app/noise.svg)`,
 
   // old stuff

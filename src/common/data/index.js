@@ -10,8 +10,9 @@ export const NavbarData = {
   navButtons: [
     {
       // link: "https://playground.aut.id",
-      link: "https://autlabs.typeform.com/to/i2y8pgpm",
-      name: "Apply for Beta",
+      // link: "https://autlabs.typeform.com/to/i2y8pgpm",
+      link: "https://launch.nova.sbs/",
+      name: "Launchpad",
     },
   ],
   menuItems: [
@@ -20,11 +21,11 @@ export const NavbarData = {
       staticLink: true,
       path: "/about",
     },
-    {
-      label: "Products",
-      staticLink: true,
-      path: "/products",
-    },
+    // {
+    //   label: "Solutions",
+    //   staticLink: true,
+    //   path: "/products",
+    // },
     {
       label: "Docs",
       staticLink: true,
@@ -57,25 +58,41 @@ import videoPlaceholderImage from "common/assets/image/placeholder-video.svg";
 import expanderCircle from "common/assets/image/genesis-png.png";
 
 export const OptOutData = {
-  title: <>Do more with your DAO</>,
+  title: <>Decentralizing Participation</>,
   subtitle: (
     <>
-      Āut is a suite of DAO-native Tools that unlock the true potential of
-      decentralized communities.
+      <span>
+        Āut Labs is accelerating the transition to self-organizing forms of
+        coordination. Launch your project, and join the Participation Economy.
+      </span>
     </>
   ),
   link: {
     // path: "https://playground.aut.id",
-    path: "https://autlabs.typeform.com/to/i2y8pgpm",
-    title: "Apply for Beta",
+    // path: "https://autlabs.typeform.com/to/i2y8pgpm",
+    path: "https://launch.nova.sbs/",
+    title: "Launch a Project",
   },
   pulseButtons: [
     {
-      title: "Āut Expander",
+      title: (
+        <>
+          <span
+            style={{
+              fontWeight: "bold",
+            }}
+          >
+            Āut
+          </span>
+          <span> Pad</span>
+        </>
+      ),
       subtitle: (
         <>
-          Expand your DAO. Add Members Roles, Interactions & Commitments at a
-          contract-level - and join the Coordination Renaissance ⚖️
+          A decentralized Project Launchpad. <br />
+          <br /> Launch your on-chain project - with Tasks, trackable KPIs,
+          Contributors’ Roles & custom, automated Onboarding at contract level
+          ⚖️
         </>
       ),
       x: "770",
@@ -83,12 +100,24 @@ export const OptOutData = {
       link: "https://docs.aut.id/v2/product-suite/aut-exp.",
     },
     {
-      title: "dĀut",
+      title: (
+        <>
+          <span
+            style={{
+              fontWeight: "bold",
+            }}
+          >
+            Showcase
+          </span>
+        </>
+      ),
       subtitle: (
         <>
-          A DAO-bound. dĀut is the first permissionless, decentralized
-          authentication system specifically designed for DAOs and their Members
-          🤝
+          The go-to gateway to access the Participation-based Economy.
+          <br />
+          <br />
+          Bootstrap your project, or join a new one - and build your reputation
+          with fair incentives 💸
         </>
       ),
       x: "1059",
@@ -103,28 +132,56 @@ export const OptOutData = {
               fontWeight: "bold",
             }}
           >
-            Āut{" "}
+            Āut
           </span>
           <span>ID</span>
         </>
       ),
       subtitle: (
-        <>
-          Own your own Identity. ĀutIDs are self-sovereign, Non-Transferable NFT
-          IDs that bind each Individual to the DAOs they join. Also, a sexy
-          Social Profile that lives on-chain 😎
-        </>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <span>
+            The first-ever SBTs, ĀutIDs are a universal pass that lets you join
+            each & any decentralized project.
+          </span>
+          <span
+            style={{
+              marginTop: "8px",
+            }}
+          >
+            Lists your Roles, complete Tasks, join Events - while tracking your
+            Rep & Contribution Points.
+          </span>
+        </div>
       ),
       x: "549",
       y: "759",
       link: "https://docs.aut.id/v2/product-suite/my-autid",
     },
     {
-      title: "Opt Āut - a Manifesto.",
+      title: (
+        <>
+          <span
+            style={{
+              fontWeight: "bold",
+            }}
+          >
+            Āut
+          </span>
+          <span>OS</span>
+        </>
+      ),
       subtitle: (
         <>
-          An open, collective Manifesto to open the <br /> Coordination
-          Renaissance 👥 <br /> It lives on-chain, and it’s owned by <b>you</b>.
+          The Social Network for <b>Web3 value contributors.</b>
+          <br />
+          <br />
+          See & manage your Projects’ Tasks in one place - and Connect with
+          others based on the on-chain actions you share.
         </>
       ),
       x: "333",
@@ -133,34 +190,42 @@ export const OptOutData = {
     },
   ],
   portal: {
-    title: "Join the Coordination Renaissance",
+    title: "Identity is Participation.",
     animationData,
   },
   expander: {
     title: (
       <>
-        Expand Your <br /> Community.
+        Participation <br /> matters.
       </>
     ),
     description: (
       <>
-        Your Community Members are much more than a flat 0x… address.
-        <br />
-        <br />
-        Bring your Members’ Roles & Interactions directly on-chain, expand your
-        DAO, and join the Coordination Renaissance
+        Unlock the true potential of your on-chain activity - through the
+        first-ever decentralized reputation framework.
       </>
     ),
+    image: expanderCircle.src,
+    link: {
+      title: "Participate",
+      // path: "https://playground.aut.id/",
+      // path: "https://autlabs.typeform.com/to/i2y8pgpm",
+      path: "https://showcase.nova.sbs/",
+    },
+  },
+  video: {
+    url: "https://www.youtube.com/embed/hW98BFnVCm8",
+    image: expanderCircle,
+  },
+  trustedBy: {
+    title: <>Trusted by</>,
+    description: <></>,
     image: expanderCircle.src,
     link: {
       title: "Expand your DAO",
       // path: "https://playground.aut.id/",
       path: "https://autlabs.typeform.com/to/i2y8pgpm",
     },
-  },
-  video: {
-    url: "https://www.youtube.com/embed/hW98BFnVCm8",
-    image: expanderCircle,
   },
 };
 
@@ -517,7 +582,7 @@ export const ProductList = [
     image: dautScreen.src,
     title: (
       <>
-        <span style={{ fontFamily: "var(--fractul-regular)"  }}>d</span>
+        <span style={{ fontFamily: "var(--fractul-regular)" }}>d</span>
         <span>Āut</span>
       </>
     ),
@@ -568,7 +633,7 @@ export const ProductList = [
     title: (
       <>
         <span>Āut</span>
-        <span style={{ fontFamily: "var(--fractul-regular)"  }}> ID</span>
+        <span style={{ fontFamily: "var(--fractul-regular)" }}> ID</span>
       </>
     ),
     link: "https://docs.aut.id/v2/product-suite/my-autid",
@@ -720,11 +785,12 @@ export const AboutData = {
     ],
   },
   bottom: {
-    title: "Autonomy & Coordination…",
+    title: "Autonomy, within and beyond the digital borders of a community.",
     subtitle: "…within and beyond the digital borders of a community.",
     description1: (
       <>
-        Āut is my own self. My self <br />
+        Āut, the Operating System of your Self. <br />
+        <br />
         - outside the system
         <br />
         - outside conventions
@@ -732,26 +798,17 @@ export const AboutData = {
         - outside the status quo.
         <br />
         <br />
-        Without Roles, <br />
-        there is no Coordination. <br />
-        Without Coordination, <br />
-        there are no DAOs.
+        Opt out of a system <br /> that doesn’t represent you.
         <br />
         <br />
       </>
     ),
-    paragraphHeading1: "Do more with your DAO.",
+    paragraphHeading1: "Add value to the decentralized web.",
     paragraph1: (
       <>
-        Āut is an extendable Protocol designed to power the next generation of
-        DAOs.
-        <br />
-        <br />
-        DAOs 2.0, if you like, or a Coordination Renaissance.
-        <br />
-        <br />
-        Governance is much more than just voting. And DAOs can be much more than
-        Smart Treasuries.
+        Join a decentralized project. <br /> Claim your ĀutID. <br /> Contribute
+        value through tasks & actions. <br /> Grow your portfolio, get rewarded.{" "}
+        <br /> Gain reputation. <br /> <br /> <i>Yes, it’s that simple.</i>
       </>
     ),
     description2: (
@@ -785,10 +842,14 @@ export const AboutData = {
       </>
     ),
     image: AboutDoor.src,
+    link: {
+      title: "Participate",
+      path: "https://showcase.nova.sbs/",
+    },
   },
   myAut: {
     image: AboutHuman.src,
-    title: "Āut is my own self. My self",
+    title: "Āut, the Operating System of your Self.",
     desc1: "outside the system",
     desc2: "outside conventions",
     desc3: "outside the status quo",
@@ -797,18 +858,34 @@ export const AboutData = {
     {
       title: (
         <>
-          Without <br /> Roles
+          Opt <br />
+          Out
         </>
       ),
     },
     {
-      title: "there is no Coordination.",
+      title: (
+        <>
+          of a <br />
+          System
+        </>
+      ),
     },
     {
-      title: "Without Coordination",
+      title: (
+        <>
+          that <br />
+          doesn’t 
+        </>
+      ),
     },
     {
-      title: "there are no DAOs.",
+      title: (
+        <>
+          represent <br />
+          you. 
+        </>
+      ),
     },
   ],
   doMore: {
@@ -826,6 +903,8 @@ import footerDiscord from "common/assets/image/discord-social.svg";
 import footerTwitter from "common/assets/image/twitter-social.svg";
 import footerDocs from "common/assets/image/docs.svg";
 import footerMirror from "common/assets/image/mirror-logo.svg";
+import Box from "common/components/Box";
+import { justifyContent } from "styled-system";
 
 export const FooterData = {
   menu: [],
@@ -855,11 +934,11 @@ export const FooterData = {
           target: "_blank",
           link: "https://docs.aut.id",
         },
-        {
-          id: 4,
-          title: "Product Suite",
-          link: "/products",
-        },
+        // {
+        //   id: 4,
+        //   title: "Solutions",
+        //   link: "/products",
+        // },
         // {
         //   id: 2,
         //   title: "Manifesto",
@@ -962,11 +1041,11 @@ export const FooterData = {
           target: "_blank",
           link: "https://docs.aut.id",
         },
-        {
-          id: 3,
-          title: "Product Suite",
-          link: "/products",
-        },
+        // {
+        //   id: 3,
+        //   title: "Solutions",
+        //   link: "/products",
+        // },
       ],
     },
   ],
@@ -982,7 +1061,7 @@ export const FooterData = {
       name: "Mirror",
     },
     {
-      link: "http://discord.gg/aXJFGgcvUk",
+      link: "https://discord.gg/aXJFGgcvUk",
       icon: footerDiscord,
       name: "Discord",
     },

@@ -103,6 +103,11 @@ const Footer = () => {
             xs: "35px",
             md: "40px",
           }}
+          mb={{
+            _: "30px",
+            xs: "30px",
+            md: "20px",
+          }}
         >
           <ColumnWrapper>
             <AboutUs
