@@ -87,10 +87,10 @@ export default function CustomApp({ Component, pageProps }) {
         <Modal>
           <Sticky top={0} innerZ={200}>
             <Box
-              height={{
-                _: "70px",
-                md: "40px",
-              }}
+              // height={{
+              //   _: "70px",
+              //   md: "40px",
+              // }}
               style={{
                 backgroundColor: "#256BB0",
                 display: "flex",
@@ -123,8 +123,8 @@ export default function CustomApp({ Component, pageProps }) {
                     color: "white",
                     margin: "0 5px",
                   }}
-                  href="https://zealy.io/cw/opt-aut/invite/zx1nx1cVJ-m1obPVjz2Tl"
-                  target="_blank"
+                  // href="https://zealy.io/cw/opt-aut/invite/zx1nx1cVJ-m1obPVjz2Tl"
+                  // target="_blank"
                 >
                   Points Campaign
                 </a>

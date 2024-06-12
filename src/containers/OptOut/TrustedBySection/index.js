@@ -94,7 +94,7 @@ const TrustedBySection = () => {
             >
               <SwiperSlide>
                 <div
-                  class="image-container"
+                  className="image-container"
                   style={{
                     backgroundColor: "white",
                   }}
@@ -109,7 +109,7 @@ const TrustedBySection = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  class="image-container"
+                  className="image-container"
                   style={{
                     background:
                       "linear-gradient(323.03deg,#1f6ce0 20.31%,#4df185 118.99%)",
@@ -124,7 +124,7 @@ const TrustedBySection = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div class="image-container">
+                <div className="image-container">
                   <Image
                     src={Consensys.src}
                     height="90%"
@@ -134,7 +134,7 @@ const TrustedBySection = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div class="image-container">
+                <div className="image-container">
                   <Image
                     src={Youbi.src}
                     height="90%"
@@ -145,7 +145,7 @@ const TrustedBySection = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  class="image-container"
+                  className="image-container"
                   style={{
                     backgroundColor: "white",
                   }}
@@ -159,7 +159,7 @@ const TrustedBySection = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div class="image-container">
+                <div className="image-container">
                   <Image
                     src={Fenbushi.src}
                     height="90%"
@@ -169,7 +169,7 @@ const TrustedBySection = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div class="image-container">
+                <div className="image-container">
                   <Image
                     src={Hashkey.src}
                     height="100%"
@@ -180,7 +180,7 @@ const TrustedBySection = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div class="image-container">
+                <div className="image-container">
                   <Image
                     src={Eniac.src}
                     height="90%"
@@ -190,7 +190,7 @@ const TrustedBySection = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div class="image-container">
+                <div className="image-container">
                   <Image
                     src={Pareto.src}
                     height="100%"
