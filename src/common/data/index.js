@@ -11,7 +11,7 @@ export const NavbarData = {
     {
       // link: "https://playground.aut.id",
       // link: "https://autlabs.typeform.com/to/i2y8pgpm",
-      link: "https://launch.nova.sbs/",
+      link: "https://launch.hub.sbs/",
       name: "Launchpad",
     },
   ],
@@ -70,7 +70,7 @@ export const OptOutData = {
   link: {
     // path: "https://playground.aut.id",
     // path: "https://autlabs.typeform.com/to/i2y8pgpm",
-    path: "https://launch.nova.sbs/",
+    path: "https://launch.hub.sbs/",
     title: "Launch a Project",
   },
   pulseButtons: [
@@ -210,7 +210,7 @@ export const OptOutData = {
       title: "Participate",
       // path: "https://playground.aut.id/",
       // path: "https://autlabs.typeform.com/to/i2y8pgpm",
-      path: "https://showcase.nova.sbs/",
+      path: "https://hub.sbs/",
     },
   },
   video: {
@@ -844,7 +844,7 @@ export const AboutData = {
     image: AboutDoor.src,
     link: {
       title: "Participate",
-      path: "https://showcase.nova.sbs/",
+      path: "https://hub.sbs/",
     },
   },
   myAut: {

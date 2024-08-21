@@ -123,13 +123,12 @@ export default function CustomApp({ Component, pageProps }) {
                     color: "white",
                     margin: "0 5px",
                   }}
-                  // href="https://zealy.io/cw/opt-aut/invite/zx1nx1cVJ-m1obPVjz2Tl"
-                  // target="_blank"
+                  href="https://zealy.io/cw/opt-aut/invite/PzxEZTy35cyS0KfK17Y-3"
+                  target="_blank"
                 >
-                  Points Campaign
+                  Hub Points Campaign
                 </a>
-                to claim your .hub domain and the chance to win 1000 USDT for
-                your project!
+                to claim your .hub domain and receive a share of 2500 USDCs for your Hub!
               </Typography>
             </Box>
           </Sticky>
