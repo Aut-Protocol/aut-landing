@@ -3,7 +3,7 @@ FROM node:alpine as builder
 
 WORKDIR /usr/app
 
-ENV NODE_OPTIONS=--openssl-legacy-provider
+# ENV NODE_OPTIONS=--openssl-legacy-provider
 
 RUN apk --update --no-cache \
     add  \
