@@ -85,7 +85,8 @@ export default function CustomApp({ Component, pageProps }) {
           `}
         </style>
         <Modal>
-          <Sticky top={0} innerZ={200}>
+          {/* TODO: Uncomment banner when new message is ready */}
+          {/* <Sticky top={0} innerZ={200}>
             <Box
               // height={{
               //   _: "70px",
@@ -131,8 +132,10 @@ export default function CustomApp({ Component, pageProps }) {
                 to claim your .hub domain and receive a share of 2500 USDCs for your Hub!
               </Typography>
             </Box>
-          </Sticky>
-          <Sticky top={40} innerZ={200} activeClass="sticky-nav-active">
+          </Sticky> */}
+          {/* <Sticky top={40} innerZ={200} activeClass="sticky-nav-active"> */}
+          <Sticky top={0} innerZ={200} activeClass="sticky-nav-active">
+
             <DrawerProvider>
               <Navbar />
             </DrawerProvider>
