@@ -51,11 +51,11 @@ export default function CustomApp({ Component, pageProps }) {
           <meta property="og:title" content="Āut Labs" />
           <meta
             name="description"
-            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
+            content="Participation-based Reputation. On-chain. Opt out of a system that doesn't represent you."
           />
           <meta
             property="og:description"
-            content="Do more with your DAO. Āut is a suite of DAO-native Tools to expand decentralized communities."
+            content="Participation-based Reputation. On-chain. Opt out of a system that doesn't represent you."
           />
         </Head>
         <ResetCSS />
