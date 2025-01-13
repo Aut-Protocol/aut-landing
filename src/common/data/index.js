@@ -1051,7 +1051,7 @@ export const FooterData = {
   ],
   social: [
     {
-      link: "https://twitter.com/opt_aut",
+      link: "https://x.com/aut_foundation",
       icon: footerTwitter,
       name: "Twitter",
     },
