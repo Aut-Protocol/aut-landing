@@ -901,6 +901,7 @@ export const AboutData = {
 /* ------------------------------------ */
 import footerDiscord from "common/assets/image/discord-social.svg";
 import footerTwitter from "common/assets/image/twitter-social.svg";
+import footerX from "common/assets/image/x-social.svg";
 import footerDocs from "common/assets/image/docs.svg";
 import footerMirror from "common/assets/image/mirror-logo.svg";
 import Box from "common/components/Box";
@@ -1052,8 +1053,8 @@ export const FooterData = {
   social: [
     {
       link: "https://x.com/aut_foundation",
-      icon: footerTwitter,
-      name: "Twitter",
+      icon: footerX,
+      name: "X",
     },
     {
       link: "https://aut.mirror.xyz",
